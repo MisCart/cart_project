@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/cart.unity
-  isLoaded: 1
-  isActive: 1
