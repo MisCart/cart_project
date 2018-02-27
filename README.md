@@ -7,10 +7,8 @@ MisCart
 
 ## 環境
 ### Unity version
-- 5.6.3
+- 5.6.0f3
 
 ## 遊び方
-
-## Demo
 
 ## 使用したアセット
