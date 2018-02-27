@@ -73,9 +73,34 @@ namespace UnityStandardAssets.Vehicles.Car
         public float Revs { get; private set; }
         public float AccelInput { get; private set; }
 
+        new Rigidbody rigidbody;
+
+        float handle = 40f;
+        public float speed;
+        float limitrotate = 5f;
+
+        private float gravity = 25f;
+        float lPower;
+        int t, s, e;
+        int i;
+
+        Vector3 normalVector = Vector3.zero;
+
+        private void OnCollisionEnter(Collision col)
+        {
+            // è’ìÀÇµÇΩñ ÇÃÅAê⁄êGÇµÇΩì_Ç…Ç®ÇØÇÈñ@ê¸ÇéÊìæ
+            if (col.collider.tag == "ground")
+            {
+                normalVector = col.contacts[0].normal;
+            }
+        }
+
         // Use this for initialization
         private void Start()
         {
+            t = 0;
+            s = 0;
+            e = 0;
             m_WheelMeshLocalRotations = new Quaternion[4];
             for (int i = 0; i < 4; i++)
             {
@@ -86,9 +111,25 @@ namespace UnityStandardAssets.Vehicles.Car
             m_MaxHandbrakeTorque = float.MaxValue;
 
             m_Rigidbody = GetComponent<Rigidbody>();
+            rigidbody = this.GetComponent<Rigidbody>();
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl * m_FullTorqueOverAllWheels);
         }
 
+        void FixedUpdate()
+        {
+            Vector3 onPlane = Vector3.ProjectOnPlane(transform.forward, normalVector);
+
+            transform.localRotation = Quaternion.LookRotation(onPlane, normalVector);
+
+
+
+            rigidbody.AddForce(-normalVector * gravity, ForceMode.Acceleration);
+            if (normalVector == Vector3.zero)
+            {
+                rigidbody.AddForce(-transform.up * gravity, ForceMode.Acceleration);
+            }
+
+        }
 
         private void GearChanging()
         {
@@ -146,6 +187,12 @@ namespace UnityStandardAssets.Vehicles.Car
 
         public void Move(float steering, float accel, float footbrake, float handbrake)
         {
+            //steering = Mathf.Clamp(steering, -1, 1);
+            //m_SteerAngle = steering * m_MaximumSteerAngle;
+
+            //transform.Rotate(new Vector3(0, m_SteerAngle, 0) * Time.deltaTime);
+            //rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
+
             for (int i = 0; i < 4; i++)
             {
                 Quaternion quat;
@@ -186,6 +233,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
             AddDownForce();
             TractionControl();
+
         }
 
 

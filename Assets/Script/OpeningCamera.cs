@@ -17,7 +17,7 @@ public class OpeningCamera : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Time.deltaTime *30f);
-        transform.LookAt(target.transform);
+        //transform.LookAt(target.transform);
         if (once == false)
         {
             Invoke("LetsStart", 6.0f);

@@ -10,18 +10,22 @@ public class Controller : MonoBehaviour {
     float limit=60f;
     float limitrotate=5f;
 
-    private float gravity=25f;
+    private float gravity=9.81f;
     float lPower ;
     int t,s,e;
     int i;
 
-    Vector3 normalVector = Vector3.zero;
+    Vector3 normalVector = Vector3.up;
 
 
-    private void OnCollisionStay(Collision collision)
+
+    private void OnCollisionEnter(Collision col)
     {
         // 衝突した面の、接触した点における法線を取得
-        normalVector = collision.contacts[0].normal;
+        if (col.collider.tag == "ground")
+        {
+            normalVector = col.contacts[0].normal;
+        }
     }
 
     // Use this for initialization
@@ -37,62 +41,43 @@ public class Controller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        
 
-        lPower = speed;
-        if ((rigidbody.velocity.x) >= limit)
-        {
-            rigidbody.AddForce(new Vector3(-lPower, 0, 0));
-        }
-        if ((rigidbody.velocity.x) <= -limit)
-        {
-            rigidbody.AddForce(new Vector3(lPower, 0, 0));
-        }
-        if ((rigidbody.velocity.y) >= limit)
-        {
-            rigidbody.AddForce(new Vector3(0, -lPower, 0));
-        }
-        if ((rigidbody.velocity.y) <= -limit)
-        {
-            rigidbody.AddForce(new Vector3(0, lPower, 0));
-        }
-        if ((rigidbody.velocity.z) >= limit)
-        {
-            rigidbody.AddForce(new Vector3(0, 0, -lPower));
-        }
-        if ((rigidbody.velocity.z) <= -limit)
-        {
-            rigidbody.AddForce(new Vector3(0, 0, lPower));
-        }
 
-        if (Input.GetKey(KeyCode.Z))
-        {            
-            rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
-        }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            s = t;
-        }
-        if (Input.GetKey(KeyCode.C))
-        {
-            rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
-            limit = 30f;
-            handle = 80f;
-        }
-        if (Input.GetKeyUp(KeyCode.C))
-        {
-            e = t;
-            if (e - s >= 100)
+        Debug.Log(limit);
+            if (Input.GetKey(KeyCode.Z))
             {
-                rigidbody.AddForce(transform.forward * speed / 2, ForceMode.Impulse);
+                if (rigidbody.velocity.magnitude <= limit)
+                {
+
+                    rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
+                }
             }
-            limit = 60f;
-            handle = 40f;
-            s = 0; e = 0;
-        }
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                s = t;
+             
+            }
+            if (Input.GetKey(KeyCode.C))
+            {
+                rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
+                limit = 30f;
+                handle = 80f;
+            }
+            if (Input.GetKeyUp(KeyCode.C))
+            {
+                e = t;
+                if (e - s >= 100)
+                {
+                    rigidbody.AddForce(transform.forward * speed / 2, ForceMode.Impulse);
+                }
+                limit = 60f;
+                handle = 40f;
+                s = 0; e = 0;
+            }
+        
         if (Input.GetKey(KeyCode.X))
         {         
-            rigidbody.AddForce(-transform.forward * speed/2);  
+            rigidbody.AddForce(-transform.forward * speed,ForceMode.Acceleration);  
         }
        
         if (Input.GetKey(KeyCode.A))
@@ -162,12 +147,15 @@ public class Controller : MonoBehaviour {
      
 
         rigidbody.AddForce(-normalVector*gravity, ForceMode.Acceleration);
-        if (normalVector == Vector3.zero)
+        if (normalVector == Vector3.up)
         {
             rigidbody.AddForce(-transform.up*gravity, ForceMode.Acceleration);
         }
     }
 
     
+    
 }
+
+
 

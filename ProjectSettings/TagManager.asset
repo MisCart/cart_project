@@ -6,6 +6,8 @@ TagManager:
   tags:
   - waypoint
   - CPU
+  - ground
+  - Fire
   layers:
   - Default
   - TransparentFX
