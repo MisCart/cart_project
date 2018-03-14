@@ -1,0 +1,137 @@
+fileFormatVersion: 2
+guid: cba0a90418997a948848fb6fa76a3746
+timeCreated: 1521012174
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: colorcorn_set
+    100002: colorcorn_set.001
+    100004: colorcorn_set.002
+    100006: colorcorn_set.003
+    100008: //RootNode
+    100010: earth
+    100012: tree_base
+    100014: wall
+    100016: "\u30A8\u30F3\u30D7\u30C6\u30A3"
+    100018: "\u30A8\u30F3\u30D7\u30C6\u30A3.001"
+    100020: "\u30AB\u30E1\u30E9"
+    100022: "\u30D8\u30DF"
+    100024: "\u30D8\u30DF.001"
+    400000: colorcorn_set
+    400002: colorcorn_set.001
+    400004: colorcorn_set.002
+    400006: colorcorn_set.003
+    400008: //RootNode
+    400010: earth
+    400012: tree_base
+    400014: wall
+    400016: "\u30A8\u30F3\u30D7\u30C6\u30A3"
+    400018: "\u30A8\u30F3\u30D7\u30C6\u30A3.001"
+    400020: "\u30AB\u30E1\u30E9"
+    400022: "\u30D8\u30DF"
+    400024: "\u30D8\u30DF.001"
+    2300000: colorcorn_set
+    2300002: colorcorn_set.001
+    2300004: colorcorn_set.002
+    2300006: colorcorn_set.003
+    2300008: earth
+    2300010: tree_base
+    2300012: wall
+    3300000: colorcorn_set
+    3300002: colorcorn_set.001
+    3300004: colorcorn_set.002
+    3300006: colorcorn_set.003
+    3300008: earth
+    3300010: tree_base
+    3300012: wall
+    4300000: colorcorn_set.003
+    4300002: colorcorn_set.002
+    4300004: colorcorn_set.001
+    4300006: colorcorn_set
+    4300008: tree_base
+    4300010: wall
+    4300012: earth
+    7400000: "\u30AB\u30E1\u30E9|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela"
+    7400002: "\u30D8\u30DF.001|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela"
+    7400004: "\u30A8\u30F3\u30D7\u30C6\u30A3.001|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela"
+    7400006: "\u30D8\u30DF|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela"
+    7400008: colorcorn_set.003|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400010: colorcorn_set.002|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400012: "\u30A8\u30F3\u30D7\u30C6\u30A3|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela"
+    7400014: colorcorn_set.001|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400016: colorcorn_set|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400018: tree_base|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400020: wall|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400022: earth|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

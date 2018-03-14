@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour {
     new  Rigidbody rigidbody  ;
-
+    AudioSource audio1;
+    AudioSource audio2;
     float handle=40f;
     public float speed;
-    float limit=60f;
+    float limit=50f;
     float limitrotate=5f;
 
+    bool sound1=false;
+    bool sound2 = false;
     private float gravity=9.81f;
     float lPower ;
     int t,s,e;
@@ -30,6 +33,9 @@ public class Controller : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        audio1 = audioSources[0];
+        audio2 = audioSources[1];
         
         rigidbody = this.GetComponent<Rigidbody>();
         t = 0;
@@ -43,28 +49,46 @@ public class Controller : MonoBehaviour {
 	void FixedUpdate () {
 
 
-        Debug.Log(limit);
+       
             if (Input.GetKey(KeyCode.Z))
             {
                 if (rigidbody.velocity.magnitude <= limit)
                 {
-
+                     if (sound1 == false)
+                    { 
+                        audio1.PlayOneShot(audio1.clip);
+                        sound1 = true;
+                     }
+               
                     rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
                 }
+            }
+            if (Input.GetKeyUp(KeyCode.Z))
+            {
+                audio1.Stop();
+                sound1 = false;
+              
             }
             if (Input.GetKeyDown(KeyCode.C))
             {
                 s = t;
              
             }
-            if (Input.GetKey(KeyCode.C))
-            {
+        if (Input.GetKey(KeyCode.C))
+        {
+            if (sound2 == false)
+            { 
+                audio2.PlayOneShot(audio2.clip);
+                sound2 = true;
+            }
                 rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
                 limit = 30f;
                 handle = 80f;
             }
             if (Input.GetKeyUp(KeyCode.C))
             {
+                audio2.Stop();
+            sound2 = false;
                 e = t;
                 if (e - s >= 100)
                 {
@@ -107,6 +131,7 @@ public class Controller : MonoBehaviour {
         //transform.Rotate(new Vector3(0, -6.5f, 0) * Time.deltaTime);    //コントローラ接続時のみ有効化
         if (Input.GetKey(KeyCode.Joystick1Button0))
         {
+            Debug.Log("yes");
             rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button5))
@@ -142,14 +167,14 @@ public class Controller : MonoBehaviour {
 
         Vector3 onPlane = Vector3.ProjectOnPlane(transform.forward, normalVector);
 
-        transform.localRotation = Quaternion.LookRotation(onPlane,normalVector );
+        //transform.localRotation = Quaternion.LookRotation(onPlane,normalVector );
 
      
 
-        rigidbody.AddForce(-normalVector*gravity, ForceMode.Acceleration);
+        //rigidbody.AddForce(-normalVector*gravity, ForceMode.Acceleration);
         if (normalVector == Vector3.up)
         {
-            rigidbody.AddForce(-transform.up*gravity, ForceMode.Acceleration);
+            //rigidbody.AddForce(-transform.up*gravity, ForceMode.Acceleration);
         }
     }
 

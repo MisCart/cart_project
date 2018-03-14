@@ -6,7 +6,7 @@ using UnityStandardAssets.Utility;
 public class WaypointAgent : MonoBehaviour {
     private WaypointProgressTracker tracker = null;
 
-    [SerializeField, Range(0, 500)]
+    [SerializeField, Range(0, 800)]
     protected float speed = 1;
     [SerializeField]
     private float m_MaximumSteerAngle;
@@ -28,8 +28,8 @@ public class WaypointAgent : MonoBehaviour {
 
 
     new private Rigidbody rigidbody;
-  
-    float limit = 60f;
+    [SerializeField, Range(0, 500)]
+    float limit = 140f;
     float lPower = 60f;
 
     // Use this for initialization

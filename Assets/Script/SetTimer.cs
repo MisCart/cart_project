@@ -13,14 +13,17 @@ public class SetTimer : MonoBehaviour {
     private bool timarFlag = false;
     private int laps;
     private int check;
+    private int rank;
     public GameObject timer;
     public GameObject lapbox;
     public GameObject checker;
     public GameObject lap1;
     public GameObject lap2;
     public GameObject lap3;
+    public GameObject finishobject;
     // Use this for initialization
     void Start () {
+        rank = 1;
         minite = 0;
         second = 0;
         oldMinite = 0;
@@ -93,6 +96,8 @@ public class SetTimer : MonoBehaviour {
             }
             if (check == 1 && laps == 1)
             {
+                finishobject.GetComponent<finish>().finishrace(rank);
+
                 lap1.GetComponent<Text>().text = minite.ToString("00") + ":" + second.ToString("00");
                 oldMinite = minite;
                 oldSecond = second;
@@ -104,10 +109,14 @@ public class SetTimer : MonoBehaviour {
                 laps++;
             }
             lapbox.GetComponent<Text>().text = laps.ToString("0");
-            Debug.Log("laps");
-            Debug.Log(laps);
             checker.SendMessage("changeLaps");
-        } 
+        }else if (col.gameObject.tag=="CPU")
+        {
+            if (check == 1 && laps == 1)
+            {
+                rank++;
+            }
+        }
     }
     void Check()
     {

@@ -8,6 +8,8 @@ TagManager:
   - CPU
   - ground
   - Fire
+  - item
+  - rank
   layers:
   - Default
   - TransparentFX
