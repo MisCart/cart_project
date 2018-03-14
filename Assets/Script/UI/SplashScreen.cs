@@ -9,7 +9,6 @@ namespace Title.UI
 	public class SplashScreen : MonoBehaviour
 	{
 	    [SerializeField] Image image;
-	    [SerializeField] Image miswLogo;
 		[SerializeField] GameObject misw;
 
 		bool isShowLogo = false;
@@ -25,6 +24,7 @@ namespace Title.UI
 
 		public IEnumerator Screen()
 		{
+			var miswLogo = misw.GetComponent<Image>();
 			misw.SetActive(true);
 
 			//MISWのロゴをフェードイン
