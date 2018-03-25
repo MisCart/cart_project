@@ -1,0 +1,170 @@
+fileFormatVersion: 2
+guid: 3f4ae460de7790c40963e5e909aa9d95
+timeCreated: 1521856549
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: colorcorn_set
+    100002: colorcorn_set.001
+    100004: colorcorn_set.002
+    100006: colorcorn_set.003
+    100008: colorcorn_set.004
+    100010: colorcorn_set.005
+    100012: colorcorn_set.006
+    100014: colorcorn_set.007
+    100016: //RootNode
+    100018: earth
+    100020: tire(small)_01
+    100022: tire(small)_01.001
+    100024: Torus
+    100026: tree_base
+    100028: wall
+    100030: "\u7ACB\u65B9\u4F53"
+    400000: colorcorn_set
+    400002: colorcorn_set.001
+    400004: colorcorn_set.002
+    400006: colorcorn_set.003
+    400008: colorcorn_set.004
+    400010: colorcorn_set.005
+    400012: colorcorn_set.006
+    400014: colorcorn_set.007
+    400016: //RootNode
+    400018: earth
+    400020: tire(small)_01
+    400022: tire(small)_01.001
+    400024: Torus
+    400026: tree_base
+    400028: wall
+    400030: "\u7ACB\u65B9\u4F53"
+    2300000: colorcorn_set
+    2300002: colorcorn_set.001
+    2300004: colorcorn_set.002
+    2300006: colorcorn_set.003
+    2300008: colorcorn_set.004
+    2300010: colorcorn_set.005
+    2300012: colorcorn_set.006
+    2300014: colorcorn_set.007
+    2300016: earth
+    2300018: tire(small)_01
+    2300020: tire(small)_01.001
+    2300022: Torus
+    2300024: tree_base
+    2300026: wall
+    2300028: "\u7ACB\u65B9\u4F53"
+    3300000: colorcorn_set
+    3300002: colorcorn_set.001
+    3300004: colorcorn_set.002
+    3300006: colorcorn_set.003
+    3300008: colorcorn_set.004
+    3300010: colorcorn_set.005
+    3300012: colorcorn_set.006
+    3300014: colorcorn_set.007
+    3300016: earth
+    3300018: tire(small)_01
+    3300020: tire(small)_01.001
+    3300022: Torus
+    3300024: tree_base
+    3300026: wall
+    3300028: "\u7ACB\u65B9\u4F53"
+    4300000: "\u7ACB\u65B9\u4F53"
+    4300002: Torus
+    4300004: colorcorn_set.007
+    4300006: colorcorn_set.006
+    4300008: colorcorn_set.005
+    4300010: colorcorn_set.004
+    4300012: tire(small)_01.001
+    4300014: tire(small)_01
+    4300016: colorcorn_set.003
+    4300018: colorcorn_set.002
+    4300020: colorcorn_set.001
+    4300022: colorcorn_set
+    4300024: tree_base
+    4300026: wall
+    4300028: earth
+    7400000: "\u7ACB\u65B9\u4F53|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela"
+    7400002: Torus|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400004: colorcorn_set.007|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400006: colorcorn_set.006|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400008: colorcorn_set.005|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400010: colorcorn_set.004|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400012: tire(small)_01.001|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400014: tire(small)_01|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400016: colorcorn_set.003|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400018: colorcorn_set.002|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400020: colorcorn_set.001|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400022: colorcorn_set|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400024: tree_base|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400026: wall|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    7400028: earth|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,10 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class itemsystem : MonoBehaviour {
     int itemnum=0;
-    bool cola = false;
+    [SerializeField]
+    private float colaspeed;
+    public Transform itempos;
+    public GameObject gcolaitem;
+    public GameObject rcolaitem;
+    public GameObject itemtext;
+    bool gcola = false;
+    bool rcola=false;
 	// Use this for initialization
 	void Start () {
 		
@@ -12,32 +20,63 @@ public class itemsystem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if ((Input.GetKeyDown(KeyCode.Space))||(Input.GetKeyDown(KeyCode.Joystick1Button4)))
         {
-            if (cola == true)
+            if (gcola == true)
             {
-                cola = false;
+                GameObject bullet = GameObject.Instantiate(gcolaitem) as GameObject;
+                Vector3 force;
+                force = this.gameObject.transform.forward * colaspeed;
+                bullet.transform.position = itempos.position;
+                bullet.GetComponent<Rigidbody>().AddForce(force,ForceMode.VelocityChange);
+               
+                gcola = false;
             }
+            if (rcola == true)
+            {
+                GameObject bullet = GameObject.Instantiate(rcolaitem) as GameObject;
+                Debug.Log(UnityStandardAssets.Utility.rank.nearestCPU);
+                bullet.SendMessage("Settarget",UnityStandardAssets.Utility.rank.nearestCPU);
+                Vector3 force;
+                force = this.gameObject.transform.forward * colaspeed;
+                bullet.transform.position = itempos.position;
+                bullet.GetComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);
+
+                rcola = false;
+            }
+        }
+
+        if (gcola == true)
+        {
+            itemtext.GetComponent<Text>().text = "Cola(G)";
+        }else if (rcola == true)
+        {
+            itemtext.GetComponent<Text>().text = "Cola(R)";
+        }
+        else
+        {
+            itemtext.GetComponent<Text>().text = "";
         }
 	}
 
     void OnTriggerEnter(Collider col)
     {
-        if (cola==false)
+        if ((gcola==false)&&(rcola==false))
         {
 
 
             if (col.gameObject.tag == "item")
             {
-                itemnum = Random.Range(0, 5);
+                col.gameObject.SendMessage("itemcollision");
+                itemnum = Random.Range(1, 3);
 
                 if (itemnum == 1)
                 {
-                    cola = true;
+                    gcola = true;
                 }
                 else if (itemnum == 2)
                 {
-
+                    rcola=true;
                 }
                 else if (itemnum == 3)
                 {
