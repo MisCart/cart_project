@@ -11,4 +11,8 @@ MisCart
 
 ## 遊び方
 
-## 使用したアセット
+## 利用アセット
+|Package|Memo|
+|:-----|:----|
+|DOTween|UIのアニメーションで使用|
+|Simple UI|TitleなどのUIの素材として使用|
