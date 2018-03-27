@@ -10,13 +10,25 @@ public class itemsystem : MonoBehaviour {
     public Transform itempos;
     public GameObject gcolaitem;
     public GameObject rcolaitem;
+    public GameObject kcolaitem;
     public GameObject itemtext;
+    GameObject nearestCPU;
+    AudioSource audio3;
+    AudioSource audio4;
     bool gcola = false;
     bool rcola=false;
-	// Use this for initialization
-	void Start () {
-		
-	}
+    bool kcola = false;
+    bool muteki = false;
+
+    GameObject[] tagobjs;
+    float mindis = 1000;
+    // Use this for initialization
+    void Start () {
+        tagobjs = GameObject.FindGameObjectsWithTag("CPU");
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        audio3 = audioSources[2];
+        audio4 = audioSources[3];
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -24,6 +36,7 @@ public class itemsystem : MonoBehaviour {
         {
             if (gcola == true)
             {
+                audio3.PlayOneShot(audio3.clip);
                 GameObject bullet = GameObject.Instantiate(gcolaitem) as GameObject;
                 Vector3 force;
                 force = this.gameObject.transform.forward * colaspeed;
@@ -32,17 +45,49 @@ public class itemsystem : MonoBehaviour {
                
                 gcola = false;
             }
+            if (kcola == true)
+            {
+                audio3.PlayOneShot(audio3.clip);
+                GameObject bullet = GameObject.Instantiate(kcolaitem) as GameObject;
+                Vector3 force;
+                force = this.gameObject.transform.forward * colaspeed;
+                bullet.transform.position = itempos.position+new Vector3(0,2,0);
+                bullet.GetComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);
+
+                kcola = false;
+            }
             if (rcola == true)
             {
+                audio3.PlayOneShot(audio3.clip);
                 GameObject bullet = GameObject.Instantiate(rcolaitem) as GameObject;
-                Debug.Log(UnityStandardAssets.Utility.rank.nearestCPU);
-                bullet.SendMessage("Settarget",UnityStandardAssets.Utility.rank.nearestCPU);
+                
+                foreach (GameObject obj in tagobjs)
+                {
+                    float dis = Vector3.Distance(transform.position, obj.transform.position);
+                    if (Vector3.Angle((obj.transform.position-transform.position).normalized,transform.forward)<=90f) {
+                        if (dis < mindis)
+                        {
+                            nearestCPU = obj;
+                            mindis = dis;
+                        }
+                    }
+                }
+                mindis = 1000;
+                Debug.Log(nearestCPU);
+                bullet.SendMessage("Settarget",nearestCPU);
                 Vector3 force;
                 force = this.gameObject.transform.forward * colaspeed;
                 bullet.transform.position = itempos.position;
                 bullet.GetComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);
 
                 rcola = false;
+            }
+            if (muteki==true)
+            {
+                audio4.PlayOneShot(audio4.clip);
+                gameObject.SendMessage("StartMuteki");
+                GetComponent<muteki>().Invoke("EndMuteki",7f);
+                muteki = false;
             }
         }
 
@@ -52,6 +97,13 @@ public class itemsystem : MonoBehaviour {
         }else if (rcola == true)
         {
             itemtext.GetComponent<Text>().text = "Cola(R)";
+            
+        }else if (kcola==true)
+        {
+            itemtext.GetComponent<Text>().text = "Cola(K)";
+        }else if (muteki == true)
+        {
+            itemtext.GetComponent<Text>().text = "Muteki";
         }
         else
         {
@@ -61,14 +113,14 @@ public class itemsystem : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        if ((gcola==false)&&(rcola==false))
+        if ((gcola==false)&&(rcola==false)&&(kcola==false)&&(muteki==false))
         {
 
 
             if (col.gameObject.tag == "item")
             {
                 col.gameObject.SendMessage("itemcollision");
-                itemnum = Random.Range(1, 3);
+                itemnum = Random.Range(1, 5);
 
                 if (itemnum == 1)
                 {
@@ -80,11 +132,11 @@ public class itemsystem : MonoBehaviour {
                 }
                 else if (itemnum == 3)
                 {
-
+                    kcola = true;
                 }
                 else if (itemnum == 4)
                 {
-
+                    muteki = true;
                 }
                 else if (itemnum == 5)
                 {

@@ -10,7 +10,6 @@ namespace UnityStandardAssets.Utility
         [SerializeField]
         private Transform[] circuit;
         GameObject[] tagobjs;
-        public static GameObject nearestCPU;
         int reach;
         int next;
         int ranknum;
@@ -51,7 +50,6 @@ namespace UnityStandardAssets.Utility
                 float cpudis= GetFractionOfPathCovered(obj.transform.position, circuit[reach].position, circuit[next].position);
                 if ((cpudis > dis)||(cpudis>1))
                 {
-                    nearestCPU = obj;
                     ranknum++;
                 }
             }

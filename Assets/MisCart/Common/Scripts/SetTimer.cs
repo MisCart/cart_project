@@ -64,6 +64,7 @@ public class SetTimer : MonoBehaviour {
         {
             if (laps == 3 && check == 3)
             {
+                //finishobject.GetComponent<finish>().finishrace(rank);
                 lapMinite = minite - oldMinite;
                 if (second - oldSecond < 0)
                 {
@@ -79,6 +80,7 @@ public class SetTimer : MonoBehaviour {
             }
             if (laps == 2 && check == 2)
             {
+                finishobject.GetComponent<finish>().finishrace(rank);
                 lapMinite = minite - oldMinite;
                 if (second - oldSecond < 0)
                 {
@@ -96,7 +98,7 @@ public class SetTimer : MonoBehaviour {
             }
             if (check == 1 && laps == 1)
             {
-                finishobject.GetComponent<finish>().finishrace(rank);
+                //finishobject.GetComponent<finish>().finishrace(rank);
 
                 lap1.GetComponent<Text>().text = minite.ToString("00") + ":" + second.ToString("00");
                 oldMinite = minite;
@@ -112,9 +114,11 @@ public class SetTimer : MonoBehaviour {
             checker.SendMessage("changeLaps");
         }else if (col.gameObject.tag=="CPU")
         {
-            if (check == 1 && laps == 1)
+            
+            if (check == 2 && laps == 2)
             {
                 rank++;
+                Debug.Log(rank);
             }
         }
     }

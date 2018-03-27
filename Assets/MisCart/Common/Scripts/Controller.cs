@@ -8,7 +8,7 @@ public class Controller : MonoBehaviour {
     AudioSource audio2;
     float handle=40f;
     public float speed;
-    float limit=70f;
+    public static float limit=70f;
     float limitrotate=5f;
 
     bool sound1=false;
@@ -37,6 +37,7 @@ public class Controller : MonoBehaviour {
         audio1 = audioSources[0];
         audio2 = audioSources[1];
         
+
         rigidbody = this.GetComponent<Rigidbody>();
         t = 0;
         s = 0;

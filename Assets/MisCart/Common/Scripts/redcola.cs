@@ -18,7 +18,6 @@ public class redcola : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.LookAt(cpu.transform.position);
-        Debug.Log(cpu.transform.position);
         rigid.AddForce(transform.forward, ForceMode.VelocityChange);
         if (flag == true)
         {

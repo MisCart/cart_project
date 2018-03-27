@@ -5,11 +5,13 @@ using UnityEngine;
 public class itembox : MonoBehaviour {
     bool playback;
     int playbacktime;
-	// Use this for initialization
-	void Start () {
+    AudioSource itemget;
+    // Use this for initialization
+    void Start () {
         playback = false;
         playbacktime = 0;
-	}
+        itemget= GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -27,18 +29,11 @@ public class itembox : MonoBehaviour {
         }
 	}
 
-    void OnCollisionEnter(Collision col)
-    {
-        if ((col.gameObject.tag == "Player") || (col.gameObject.tag == "CPU"))
-        {
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
-            gameObject.GetComponent<Collider>().enabled = false;
-            playback = true;
-        }
-    }
 
     void itemcollision()
     {
+        itemget.PlayOneShot(itemget.clip);
+        Debug.Log(itemget);
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         gameObject.GetComponent<Collider>().enabled = false;
         playback = true;
