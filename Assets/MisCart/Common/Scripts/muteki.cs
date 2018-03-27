@@ -13,7 +13,14 @@ public class muteki : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-      
+        if (flag == true)
+        {
+            itemtext.GetComponent<Text>().text = "Muteki";
+        }
+        else
+        {
+            itemtext.GetComponent<Text>().text = "";
+        }
     }
 
     void OnCollisionEnter(Collision col)

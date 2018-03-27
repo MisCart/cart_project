@@ -8,7 +8,7 @@ public class Controller : MonoBehaviour {
     AudioSource audio2;
     float handle=40f;
     public float speed;
-    public static float limit=70f;
+    public static float limit=75f;
     float limitrotate=5f;
 
     bool sound1=false;

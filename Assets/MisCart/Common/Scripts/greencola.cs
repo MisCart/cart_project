@@ -24,8 +24,8 @@ public class greencola : MonoBehaviour {
             }
             else
             {
-                rotate = 0;
                 cpu.GetComponent<WaypointAgent>().enabled = true;
+                rotate = 0;
                 Destroy(gameObject);
             }
         }
