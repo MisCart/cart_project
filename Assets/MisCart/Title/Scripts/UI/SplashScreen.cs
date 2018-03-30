@@ -12,10 +12,7 @@ namespace Title.UI
 		[SerializeField] GameObject misw;
 
 		bool isShowLogo = false;
-		bool isScreened = false;
 
-		public bool IsScreen { get { return isScreened; } }
-	
 		public void SetActive(bool value)
 		{
 			gameObject.SetActive(value);
@@ -60,7 +57,7 @@ namespace Title.UI
 		}
 		void Reset()
 		{
-			isScreened = true;
+			TitleManager.UI.IsScreen = false;
 			gameObject.SetActive(false);
 		}
 	}

@@ -13,6 +13,9 @@ namespace Title.UI
 			TitleManager.UI.SplashScreen.SetActive(false);
 			TitleManager.UI.Loading.SetActive(false);
 			TitleManager.UI.SlideShow.SetActive(false);
+			TitleManager.UI.Start.SetActive(false);
+			TitleManager.Front.Camera.gameObject.SetActive(false);
+			TitleManager.Front.SetActive(false);
 
 			//スプラッシュスクリーン
 			TitleManager.UI.SplashScreen.SetActive(true);
@@ -23,6 +26,8 @@ namespace Title.UI
 			TitleManager.UI.SlideShow.SetActive(true);
 			var slideShow = TitleManager.UI.SlideShow.slide();
 			StartCoroutine(slideShow);
+
+			TitleManager.UI.Start.SetActive(true);
 		}
 	}
 }

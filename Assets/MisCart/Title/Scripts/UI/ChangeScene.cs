@@ -6,12 +6,18 @@ using UnityEngine.SceneManagement;
 
 namespace Title.UI
 {
-	public class StartButton : MonoBehaviour 
+	public class ChangeScene : MonoBehaviour 
 	{
-		//TODO ボタンを一度押したら処理が終わるまで押せないようにする。
+		public enum GameScene
+		{
+			Title,
+			cart,
+			sibazono
+		}
+
+		public GameScene gameScene;
 		public void SwitchScene()
 		{
-			Debug.Log("Clickされたよ!");
 			StartCoroutine(LoadScene());	
 		}
 
@@ -20,13 +26,13 @@ namespace Title.UI
 			//Now Loadingの表示
 			TitleManager.UI.Loading.SetActive(true);
 
-			var load = SceneManager.LoadSceneAsync("cart");
+			var scene = gameScene.ToString();
+			var load = SceneManager.LoadSceneAsync(scene);
 			load.allowSceneActivation = false;
 			while (load.progress < 0.9f)
 			{
 				var progress = Math.Round(load.progress, 1)*100;
 				TitleManager.UI.Loading.Text.text = "Now Loading..."+progress+"%";
-				Debug.Log(load.progress);
 				yield return null;
 			}
 
