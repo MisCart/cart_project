@@ -14,3 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MisCart/Scenes/sibazono.unity
     guid: d31b4402a411dd74d91a0515ffed5096
+  - enabled: 1
+    path: Assets/MisCart/Scenes/GameUI.unity
+    guid: 00000000000000000000000000000000

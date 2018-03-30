@@ -13,8 +13,10 @@ public class Controller : MonoBehaviour {
 
     bool sound1=false;
     bool sound2 = false;
+    bool isCounting = true;
     private float gravity=9.81f;
     float lPower ;
+    float timer = 0f;
     int t,s,e;
     int i;
 
@@ -49,7 +51,19 @@ public class Controller : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
+        //シーン遷移開始直後はIscountingが上手く取れないようなので0.5秒止めておく
+        while(timer < 0.5f)
+        {
+            timer += Time.deltaTime;
+            return;
+        }
 
+        //カウントダウンをしているときは動かないようにする
+        if (isCounting)
+        {
+            isCounting = GameUI.GameUIManager.IsCounting();
+            return;
+        }
        
             if (Input.GetKey(KeyCode.Z))
             {

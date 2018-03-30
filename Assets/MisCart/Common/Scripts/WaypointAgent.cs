@@ -25,13 +25,14 @@ public class WaypointAgent : MonoBehaviour {
     [SerializeField]
     private float m_BrakeSensitivity = 1f;                                  
 
-
-
     new private Rigidbody rigidbody;
     [SerializeField, Range(0, 500)]
+
     float limit = 140f;
     float lPower = 60f;
-
+    bool isCounting = true;
+    float timer = 0f;
+    
     // Use this for initialization
     void Start () {
        
@@ -42,7 +43,19 @@ public class WaypointAgent : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate() {
 
+        //シーン遷移開始直後はIscountingが上手く取れないようなので0.5秒止めておく
+        while(timer < 0.5f)
+        {
+            timer += Time.deltaTime;
+            return;
+        }
 
+        //カウントダウンをしているときは動かないようにする
+        if (isCounting)
+        {
+            isCounting = GameUI.GameUIManager.IsCounting();
+            return;
+        }
 
         Vector3 fwd = transform.forward;
         float desiredSpeed = limit;

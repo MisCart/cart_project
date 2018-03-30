@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 namespace Title.UI
@@ -23,22 +24,24 @@ namespace Title.UI
 
 		IEnumerator LoadScene()
 		{
-			//Now Loadingの表示
-			TitleManager.UI.Loading.SetActive(true);
+			//一度ボタンを押したら押せないようにする
+			gameObject.GetComponent<Image>().raycastTarget = false;
 
 			var scene = gameScene.ToString();
-			var load = SceneManager.LoadSceneAsync(scene);
-			load.allowSceneActivation = false;
-			while (load.progress < 0.9f)
+			var parentScene = SceneManager.LoadSceneAsync(scene);
+			parentScene.allowSceneActivation = false;
+
+			var additiveScene = SceneManager.LoadSceneAsync("GameUI", LoadSceneMode.Additive);
+			additiveScene.allowSceneActivation = false;
+
+			while (parentScene.progress < 0.9f && additiveScene.progress < 0.9f)
 			{
-				var progress = Math.Round(load.progress, 1)*100;
-				TitleManager.UI.Loading.Text.text = "Now Loading..."+progress+"%";
 				yield return null;
 			}
 
 			//ロード完了
-			load.allowSceneActivation = true;
-			TitleManager.UI.Loading.Text.text = "Now Loading...100%";
+			additiveScene.allowSceneActivation = true;
+			parentScene.allowSceneActivation = true;
 		}
 
 	}

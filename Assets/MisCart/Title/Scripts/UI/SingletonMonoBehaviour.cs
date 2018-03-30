@@ -15,13 +15,15 @@ public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBe
                 _instance = (T)FindObjectOfType(t);
                 if (_instance == null)
                 {
-                    Debug.LogError(t + " をアタッチしているGameObjectはありません");
+                    Debug.Log(t + " をアタッチしているGameObjectはありません");
                 }
             }
 
             return _instance;
         }
     }
+
+    public static bool HasInstance { get { return Instance != null; }}
 
     virtual protected void Awake ()
     {
