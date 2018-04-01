@@ -684,7 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c42693e54c34f62ac9ce707b96173d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameScene: 1
+  scene: 1
 --- !u!114 &537602239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1457,7 +1457,7 @@ RectTransform:
   - {fileID: 1345397092}
   m_Father: {fileID: 371355758}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -1, y: 1, z: -0.009000001}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2062,7 +2062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c42693e54c34f62ac9ce707b96173d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameScene: 2
+  scene: 2
 --- !u!114 &1514747297
 MonoBehaviour:
   m_ObjectHideFlags: 0

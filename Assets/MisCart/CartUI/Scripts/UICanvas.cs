@@ -11,6 +11,7 @@ namespace GameUI
 	{
 		[SerializeField] TextMeshProUGUI countDown;
         bool isCountDown = true;
+        bool isRunning = false;
 
         public bool IsCountDown { get { return isCountDown; } }
 
@@ -34,9 +35,15 @@ namespace GameUI
 
         IEnumerator StartCountDown()
         {
-
             isCountDown = true;
             countDown.gameObject.SetActive(true);
+
+            //蓋絵のアニメーションが終わるまで待機
+            while(isRunning)
+            {
+                isRunning = Transition.SceneLoader.IsTransitionRunning;
+                yield return null;
+            }
 
             yield return new WaitForSeconds(1f);
             CountDownText = "2";

@@ -5,15 +5,15 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22432950}
-  - 114: {fileID: 11427420}
-  - 114: {fileID: 11429760}
-  - 222: {fileID: 22277828}
-  - 114: {fileID: 11497656}
-  - 114: {fileID: 11486538}
-  - 225: {fileID: 22561606}
+  - component: {fileID: 22432950}
+  - component: {fileID: 11427420}
+  - component: {fileID: 11429760}
+  - component: {fileID: 22277828}
+  - component: {fileID: 11497656}
+  - component: {fileID: 11486538}
+  - component: {fileID: 22561606}
   m_Layer: 5
   m_Name: FadeMask
   m_TagString: Untagged
@@ -100,10 +100,10 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 14.5}
