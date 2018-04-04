@@ -19,22 +19,17 @@ namespace Transition
             }
         }
 
-        /// <summary>
-        /// トランジションマネージャが存在しない場合に初期化する
-        /// </summary>
         public static void Initialize()
         {
             if (TransitionManager.Instance == null)
             {
-                var resource = Resources.Load("Utilities/TransitionManager");
+                var resource = Resources.Load("Prefabs/TransitionManager");
                 Object.Instantiate(resource);
             }
             _transitionManager = TransitionManager.Instance;
         }
 
-        /// <summary>
-        ///　シーン遷移処理中か
-        /// </summary>
+        //　シーン遷移処理中か
         public static bool IsTransitionRunning
         {
             get { return TransitionManager.IsRunning; }

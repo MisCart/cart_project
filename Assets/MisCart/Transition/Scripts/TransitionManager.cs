@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -18,11 +17,10 @@ namespace Transition
         //　蓋絵のアニメーションを実行中か
         bool isFading = false;
 
+        //  アクティブなシーンが切り替わったか
         bool isSwichedScene = false;
 
-        //蓋絵
 		[SerializeField] UICanvas uiCanvas;
-        [SerializeField] FadeImage image;
 
 		public static UICanvas UI { get { return Instance.uiCanvas; } }
         public Model.GameScenes CurrentGameScene { get { return currentGameScene; } }
@@ -44,7 +42,7 @@ namespace Transition
                 currentGameScene = Model.GameScenes.Title;
             }
 
-            //アクティブなシーンが切り替わったことを通知する
+            //アクティブなシーンが切り替わったことに実行するメソッドを登録
             SceneManager.activeSceneChanged += OnActiveSceneChanged;
         }
 
@@ -53,6 +51,7 @@ namespace Transition
             isRunning = false; 
             isFading = false; 
             isSwichedScene = false;
+            UI.FadeImage.raycastTarget = false;
         }
 
         public void StartTransaction(Model.GameScenes nextScene, Model.GameScenes[] additiveLoadScenes)
@@ -68,7 +67,7 @@ namespace Transition
         private IEnumerator TransitionCoroutine(Model.GameScenes nextScene, Model.GameScenes[] additiveLoadScenes)
         {
             isRunning = true;
-            image.raycastTarget = true;
+            UI.FadeImage.raycastTarget = true;
 
             //蓋絵で画面を隠す
             isFading = true;
@@ -77,20 +76,18 @@ namespace Transition
             //トランジションアニメーションが終了するのを待つ
             while(isFading){ yield return null;}
 
-            //メインとなるシーンをSingleで読み込む
+            //メインとなるシーンを読み込む
             var main = SceneManager.LoadSceneAsync(nextScene.ToString());
 
             //追加シーンがある場合は一緒に読み込む
             if (additiveLoadScenes != null)
             {
-                //additiveLoadScenes.Select(scene => SceneManager.LoadSceneAsync(scene.ToString(), LoadSceneMode.Additive));
                 foreach(var item in additiveLoadScenes)
                 {
                     SceneManager.LoadSceneAsync(item.ToString(), LoadSceneMode.Additive);
                 }
             }
 
-            //使ってないリソースの解放とGCを実行
             Resources.UnloadUnusedAssets();
             GC.Collect();
             yield return null;
@@ -100,7 +97,7 @@ namespace Transition
 
             while(!isSwichedScene){ yield return null; }
 
-            //蓋絵を開く方のアニメーション開始
+            //蓋絵を開くアニメーションを開始
             isFading = true;
             UI.Fade.FadeOut(1f, () => isFading = false);
 
@@ -109,6 +106,7 @@ namespace Transition
             TransitionReset(); 
         }
 
+        //アクティブなシーンが切り替わったときに呼ばれる
         void OnActiveSceneChanged(Scene prevScene, Scene nextScene)
         {
             isSwichedScene = true;
