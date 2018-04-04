@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: c08cd46eaf9a0d34eb221ba2978cc476, type: 2}
-  m_Color: {r: 0.3602941, g: 0.3602941, b: 0.3602941, a: 1}
+  m_Color: {r: 0.49972966, g: 0.7449134, b: 0.8602941, a: 1}
   m_RaycastTarget: 1
   maskTexture: {fileID: 2800000, guid: f092cef7356db4306bd979ce452033d0, type: 3}
   cutoutRange: 0
@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fade: {fileID: 114938664393937826}
+  image: {fileID: 114378596725995572}
 --- !u!114 &114661561690677454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,7 +118,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiCanvas: {fileID: 114543569753706390}
-  image: {fileID: 114378596725995572}
 --- !u!114 &114938664393937826
 MonoBehaviour:
   m_ObjectHideFlags: 1

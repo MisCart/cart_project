@@ -33,7 +33,7 @@ public class Fade : MonoBehaviour
 			() => fade.Range,
 			cutoutRange => fade.Range = cutoutRange,
 			0f,
-			1f
+			time
 		).OnComplete(() => isfading = false);
 
 		while(isfading){ yield return null; }
@@ -52,7 +52,7 @@ public class Fade : MonoBehaviour
 			() => fade.Range,
 			cutoutRange => fade.Range = cutoutRange,
 			1f,
-			1f
+			time
 		).OnComplete(() => isfading = false);
 
 		while(isfading){ yield return null; }	

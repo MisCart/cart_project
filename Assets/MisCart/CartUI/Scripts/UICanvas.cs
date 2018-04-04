@@ -7,7 +7,7 @@ using TMPro;
 
 namespace GameUI
 {
-	public class UICanvas : MonoBehaviour 
+	public class UICanvas : MonoBehaviour
 	{
 		[SerializeField] TextMeshProUGUI countDown;
         bool isCountDown = true;

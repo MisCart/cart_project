@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fade: {fileID: 114392299945761146}
+  fadeImage: {fileID: 114820997622661546}
 --- !u!114 &114392299945761146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,7 +129,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiCanvas: {fileID: 114366210237037894}
-  image: {fileID: 114820997622661546}
 --- !u!222 &222672580924551732
 CanvasRenderer:
   m_ObjectHideFlags: 1
