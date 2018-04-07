@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using MisCart;
 
 namespace Title.UI
 {
-	public class UICanvas : MonoBehaviour 
+	public class UICanvas : MonoBehaviour
 	{
 		[SerializeField] SplashScreen splashScreen;
 		[SerializeField] Loading loading;
@@ -22,6 +23,7 @@ namespace Title.UI
 		{
 			if (!IsScreen)
 			{
+				SoundController.PlaySE(Model.SE.ButtonClick);
 				TitleManager.Front.Camera.gameObject.SetActive(true);
 				TitleManager.Front.SetActive(true);
 			}

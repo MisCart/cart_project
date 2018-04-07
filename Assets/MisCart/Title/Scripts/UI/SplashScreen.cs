@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using MisCart;
 
 namespace Title.UI
 {
@@ -41,7 +42,7 @@ namespace Title.UI
 				0f,
 				2f
 			).OnComplete(() => isShowLogo = false);
-			
+
 			while(isShowLogo) { yield return null; }
 
 			misw.SetActive(false);
@@ -59,6 +60,7 @@ namespace Title.UI
 		{
 			TitleManager.UI.IsScreen = false;
 			gameObject.SetActive(false);
+			SoundController.PlayBGM(Model.BGM.Title);
 		}
 	}
 }

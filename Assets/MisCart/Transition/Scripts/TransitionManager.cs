@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using MisCart;
 
 namespace Transition
 {
@@ -48,8 +49,8 @@ namespace Transition
 
         void TransitionReset()
         {
-            isRunning = false; 
-            isFading = false; 
+            isRunning = false;
+            isFading = false;
             isSwichedScene = false;
             UI.FadeImage.raycastTarget = false;
         }
@@ -68,6 +69,7 @@ namespace Transition
         {
             isRunning = true;
             UI.FadeImage.raycastTarget = true;
+            SoundController.StopAll(0.5f);
 
             //蓋絵で画面を隠す
             isFading = true;
@@ -103,7 +105,7 @@ namespace Transition
 
             //蓋絵が開ききるのを待つ
             while(isFading){ yield return null; }
-            TransitionReset(); 
+            TransitionReset();
         }
 
         //アクティブなシーンが切り替わったときに呼ばれる
