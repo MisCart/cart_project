@@ -4,7 +4,60 @@ timeCreated: 1521012173
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: colorcorn_set
+    100002: colorcorn_set_001
+    100004: colorcorn_set_002
+    100006: colorcorn_set_003
+    100008: //RootNode
+    100010: earth
+    100012: tire_small__01
+    100014: tire_small__01_001
+    100016: tree_base
+    100018: wall
+    100020: "\u30A8\u30F3\u30D7\u30C6\u30A3"
+    100022: "\u30A8\u30F3\u30D7\u30C6\u30A3_001"
+    400000: colorcorn_set
+    400002: colorcorn_set_001
+    400004: colorcorn_set_002
+    400006: colorcorn_set_003
+    400008: //RootNode
+    400010: earth
+    400012: tire_small__01
+    400014: tire_small__01_001
+    400016: tree_base
+    400018: wall
+    400020: "\u30A8\u30F3\u30D7\u30C6\u30A3"
+    400022: "\u30A8\u30F3\u30D7\u30C6\u30A3_001"
+    2300000: colorcorn_set
+    2300002: colorcorn_set_001
+    2300004: colorcorn_set_002
+    2300006: colorcorn_set_003
+    2300008: earth
+    2300010: tire_small__01
+    2300012: tire_small__01_001
+    2300014: tree_base
+    2300016: wall
+    3300000: colorcorn_set
+    3300002: colorcorn_set_001
+    3300004: colorcorn_set_002
+    3300006: colorcorn_set_003
+    3300008: earth
+    3300010: tire_small__01
+    3300012: tire_small__01_001
+    3300014: tree_base
+    3300016: wall
+    4300000: tire_small__01_001
+    4300002: tire_small__01
+    4300004: colorcorn_set_003
+    4300006: colorcorn_set_002
+    4300008: colorcorn_set_001
+    4300010: colorcorn_set
+    4300012: tree_base
+    4300014: wall
+    4300016: earth
+    7400000: Default Take
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
