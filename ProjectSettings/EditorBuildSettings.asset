@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Title.unity
+    path: Assets/MisCart/Scenes/Title.unity
     guid: a48476e2341c14454b1e2ca1e9bf906c
   - enabled: 1
-    path: Assets/Scenes/cart.unity
-    guid: 8677713301affab419cdd25b3875cda2
+    path: Assets/MisCart/Scenes/cart.unity
+    guid: 2ff6add1bb739e242a6b6d0278898ca3
+  - enabled: 1
+    path: Assets/MisCart/Scenes/sibazono.unity
+    guid: d31b4402a411dd74d91a0515ffed5096
+  - enabled: 1
+    path: Assets/MisCart/Scenes/GameUI.unity
+    guid: 00000000000000000000000000000000

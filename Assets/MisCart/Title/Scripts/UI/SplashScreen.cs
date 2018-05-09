@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using MisCart;
 
 namespace Title.UI
 {
@@ -12,10 +13,7 @@ namespace Title.UI
 		[SerializeField] GameObject misw;
 
 		bool isShowLogo = false;
-		bool isScreened = false;
 
-		public bool IsScreen { get { return isScreened; } }
-	
 		public void SetActive(bool value)
 		{
 			gameObject.SetActive(value);
@@ -44,7 +42,7 @@ namespace Title.UI
 				0f,
 				2f
 			).OnComplete(() => isShowLogo = false);
-			
+
 			while(isShowLogo) { yield return null; }
 
 			misw.SetActive(false);
@@ -60,8 +58,9 @@ namespace Title.UI
 		}
 		void Reset()
 		{
-			isScreened = true;
+			TitleManager.UI.IsScreen = false;
 			gameObject.SetActive(false);
+			SoundController.PlayBGM(Model.BGM.Title);
 		}
 	}
 }

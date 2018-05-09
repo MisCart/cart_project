@@ -43,7 +43,7 @@ namespace Title.UI
             nextImage = nextImageObject.GetComponent<Image>();
             
             //スプラッシュスクリーンが終わるまで待機
-            while(!TitleManager.UI.SplashScreen.IsScreen) { yield return null; }
+            while(TitleManager.UI.IsScreen) { yield return null; }
 
             while(count < length)
             {
