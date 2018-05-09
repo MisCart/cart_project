@@ -13,10 +13,10 @@ public class greencola : MonoBehaviour {
         rotate = 0;
         crash = 0;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-        ground = Physics.
+        //ground = Physics.
 
 
         if (flag == true)

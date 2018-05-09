@@ -38,7 +38,7 @@ public class Controller : MonoBehaviour {
         AudioSource[] audioSources = GetComponents<AudioSource>();
         audio1 = audioSources[0];
         audio2 = audioSources[1];
-        
+
 
         rigidbody = this.GetComponent<Rigidbody>();
         t = 0;
@@ -47,13 +47,10 @@ public class Controller : MonoBehaviour {
 
 
     }
-	
+
 	// Update is called once per frame
 	void FixedUpdate () {
 
-<<<<<<< HEAD
-            
-=======
         //シーン遷移開始直後はIscountingが上手く取れないようなので0.5秒止めておく
         while(timer < 0.5f)
         {
@@ -67,19 +64,18 @@ public class Controller : MonoBehaviour {
             isCounting = GameUI.GameUIManager.IsCounting();
             return;
         }
->>>>>>> 60e8d6bc0505506a1dbaeef6ab1049c318f767a7
-       
+
             if (Input.GetKey(KeyCode.Z))
             {
-            
+
                 if (rigidbody.velocity.magnitude <= limit)
                 {
                      if (sound1 == false)
-                    { 
+                    {
                         audio1.PlayOneShot(audio1.clip);
                         sound1 = true;
                      }
-               
+
                     rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
                 }
             }
@@ -87,17 +83,17 @@ public class Controller : MonoBehaviour {
             {
                 audio1.Stop();
                 sound1 = false;
-              
+
             }
             if (Input.GetKeyDown(KeyCode.C))
             {
                 s = t;
-             
+
             }
         if (Input.GetKey(KeyCode.C))
         {
             if (sound2 == false)
-            { 
+            {
                 audio2.PlayOneShot(audio2.clip);
                 sound2 = true;
             }
@@ -121,12 +117,12 @@ public class Controller : MonoBehaviour {
                 handle = 40f;
                 s = 0; e = 0;
             }
-        
+
         if (Input.GetKey(KeyCode.X))
-        {         
-            rigidbody.AddForce(-transform.forward * speed,ForceMode.Acceleration);  
+        {
+            rigidbody.AddForce(-transform.forward * speed,ForceMode.Acceleration);
         }
-       
+
         if (Input.GetKey(KeyCode.A))
         {
             rigidbody.AddForce(transform.up*transform.GetComponent<Rigidbody>().mass, ForceMode.Impulse);
@@ -147,7 +143,7 @@ public class Controller : MonoBehaviour {
 
         //ここからコントローラ用//
 
-     
+
         float joyH = Input.GetAxis("Horizontal");
 
         transform.Rotate(new Vector3(0, joyH*handle, 0) * Time.deltaTime);
@@ -209,17 +205,17 @@ public class Controller : MonoBehaviour {
                 rigidbody.AddForce(-transform.forward * speed, ForceMode.Acceleration);
             }
         }
-       
+
         t++;
 
 
-       
+
 
         Vector3 onPlane = Vector3.ProjectOnPlane(transform.forward, normalVector);
 
         //transform.localRotation = Quaternion.LookRotation(onPlane,normalVector );
 
-     
+
 
         //rigidbody.AddForce(-normalVector*gravity, ForceMode.Acceleration);
         if (normalVector == Vector3.up)
