@@ -49,7 +49,7 @@ public class Controller : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-
+            
        
             if (Input.GetKey(KeyCode.Z))
             {
@@ -208,10 +208,37 @@ public class Controller : MonoBehaviour {
         {
             //rigidbody.AddForce(-transform.up*gravity, ForceMode.Acceleration);
         }
+
+        if (checkground()==false)
+        {
+            transform.position += new Vector3(0, -0.1f, 0);
+        }
+        Debug.Log(checkground());
     }
 
-    
-    
+    bool checkground()
+    {
+        Ray ray = new Ray(transform.position, -transform.up);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 2f))
+        {
+            if (hit.transform.tag == "ground")
+            {
+                return true;
+            }
+            else
+            {
+
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
 }
 
 

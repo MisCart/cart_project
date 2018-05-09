@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class greencola : MonoBehaviour {
     private GameObject cpu;
+    private RaycastHit ground;
     bool flag=false;
     int rotate;
     int crash;
@@ -15,6 +16,9 @@ public class greencola : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        ground = Physics.
+
+
         if (flag == true)
         {
             if (rotate < 1080)

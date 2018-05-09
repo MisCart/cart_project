@@ -71,6 +71,12 @@ public class itemsystem : MonoBehaviour {
                             mindis = dis;
                         }
                     }
+                    
+                }
+
+                if (mindis == 1000)
+                {
+                    nearestCPU = null;
                 }
                 mindis = 1000;
                 Debug.Log(nearestCPU);

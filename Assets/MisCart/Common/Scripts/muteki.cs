@@ -39,15 +39,15 @@ public class muteki : MonoBehaviour {
     void StartMuteki()
     {
        
-        Controller.limit += 15f;
-        
+        Controller.limit = 85f;
+        Debug.Log(Controller.limit);
         flag = true;
     }
 
     void EndMuteki()
     {
-        Controller.limit -= 15f;
-        
+        Controller.limit = 75f;
+        Debug.Log(Controller.limit);
         flag = false;
     }
 }

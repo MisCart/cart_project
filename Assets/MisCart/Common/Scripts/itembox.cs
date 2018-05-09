@@ -33,7 +33,6 @@ public class itembox : MonoBehaviour {
     void itemcollision()
     {
         itemget.PlayOneShot(itemget.clip);
-        Debug.Log(itemget);
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         gameObject.GetComponent<Collider>().enabled = false;
         playback = true;
