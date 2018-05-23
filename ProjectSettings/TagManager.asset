@@ -10,6 +10,7 @@ TagManager:
   - Fire
   - item
   - rank
+  - csys
   layers:
   - Default
   - TransparentFX

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class itemsystem : MonoBehaviour {
     int itemnum=0;
@@ -60,7 +61,8 @@ public class itemsystem : MonoBehaviour {
             {
                 audio3.PlayOneShot(audio3.clip);
                 GameObject bullet = GameObject.Instantiate(rcolaitem) as GameObject;
-                
+                bullet.AddComponent<NavMeshAgent>();
+                //bullet.GetComponent<NavMeshAgent>().enabled = true;
                 foreach (GameObject obj in tagobjs)
                 {
                     float dis = Vector3.Distance(transform.position, obj.transform.position);
@@ -80,6 +82,7 @@ public class itemsystem : MonoBehaviour {
                 }
                 mindis = 1000;
                 Debug.Log(nearestCPU);
+                
                 bullet.SendMessage("Settarget",nearestCPU);
                 Vector3 force;
                 force = this.gameObject.transform.forward * colaspeed;

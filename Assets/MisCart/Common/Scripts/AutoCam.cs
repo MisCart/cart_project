@@ -16,16 +16,19 @@ public class AutoCam : MonoBehaviour {
     private float m_CurrentTurnAmount; // How much to turn the camera
     private float m_TurnSpeedVelocityChange; // The change in the turn speed velocity
     private Vector3 m_RollUp = Vector3.up;
-
+    Vector3 velocity = Vector3.zero;
     public GameObject m_Target;
     private Rigidbody targetRigidbody;
+
+
+    float smoothTime = 0.07f;
     // Use this for initialization
     void Start () {
         targetRigidbody = m_Target.GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
-	void LateUpdate () {
+	void FixedUpdate () {
         // if no target, or no time passed then we quit early, as there is nothing to do
         if (!(Time.deltaTime > 0) || m_Target == null)
         {
@@ -86,7 +89,8 @@ public class AutoCam : MonoBehaviour {
 
         // camera position moves towards target position:
         //transform.position= Vector3.Lerp(transform.position, m_Target.transform.position, Time.deltaTime * m_MoveSpeed);
-        transform.position += m_Target.transform.position - transform.position;
+        //transform.position += m_Target.transform.position - transform.position;
+        transform.position= Vector3.SmoothDamp(transform.position, m_Target.transform.position, ref velocity, smoothTime);
         // camera's rotation is split into two parts, which can have independend speed settings:
         // rotating towards the target's forward direction (which encompasses its 'yaw' and 'pitch')
         if (!m_FollowTilt)

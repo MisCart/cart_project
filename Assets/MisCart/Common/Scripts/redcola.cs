@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class redcola : MonoBehaviour {
     private GameObject cpu;
@@ -17,12 +18,14 @@ public class redcola : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (cpu != null)
+
+        if (GetComponent<NavMeshAgent>().pathStatus != NavMeshPathStatus.PathInvalid)
         {
-            transform.LookAt(cpu.transform.position);
+            //navMeshAgentの操作GetComponent<NavMeshAgent>().speed = 1;//このようにスクリプトからNavMeshのプロパティをいじれる。
+            GetComponent<NavMeshAgent>().destination = cpu.transform.position;
+            GetComponent<NavMeshAgent>().speed = 1;
         }
        
-        rigid.AddForce(transform.forward, ForceMode.VelocityChange);
         if (flag == true)
         {
            

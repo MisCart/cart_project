@@ -8,7 +8,7 @@ public class Controller : MonoBehaviour {
     AudioSource audio2;
     float handle=40f;
     public float speed;
-    public static float limit=75f;
+    public static float limit=85f;
     float limitrotate=5f;
 
     bool sound1=false;
@@ -47,9 +47,49 @@ public class Controller : MonoBehaviour {
 
 
     }
+     void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Z))
+        {
+            audio1.Stop();
+            sound1 = false;
 
-	// Update is called once per frame
-	void FixedUpdate () {
+        }
+        if (Input.GetKeyUp(KeyCode.C))
+        {
+            audio2.Stop();
+            sound2 = false;
+            e = t;
+            if (e - s >= 100)
+            {
+                rigidbody.AddForce(transform.forward * speed / 2, ForceMode.Impulse);
+            }
+            limit = 60f;
+            handle = 40f;
+            s = 0; e = 0;
+        }
+        if (Input.GetKeyUp(KeyCode.Joystick1Button0))
+        {
+            audio1.Stop();
+            sound1 = false;
+        }
+        if (Input.GetKeyUp(KeyCode.Joystick1Button5))
+        {
+            audio2.Stop();
+            sound2 = false;
+
+            e = t;
+            if (e - s >= 100)
+            {
+                rigidbody.AddForce(transform.forward * speed / 2, ForceMode.Impulse);
+            }
+            limit = 60f;
+            handle = 40f;
+            s = 0; e = 0;
+        }
+    }
+    // Update is called once per frame
+    void FixedUpdate () {
 
         //シーン遷移開始直後はIscountingが上手く取れないようなので0.5秒止めておく
         while(timer < 0.5f)
@@ -64,6 +104,8 @@ public class Controller : MonoBehaviour {
             isCounting = GameUI.GameUIManager.IsCounting();
             return;
         }
+
+
 
             if (Input.GetKey(KeyCode.Z))
             {
@@ -214,7 +256,9 @@ public class Controller : MonoBehaviour {
         Vector3 onPlane = Vector3.ProjectOnPlane(transform.forward, normalVector);
 
         //transform.localRotation = Quaternion.LookRotation(onPlane,normalVector );
-
+        
+        transform.rotation=Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(transform.forward),0.1f);
+        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(0,transform.forward.y,0)), 0.1f);
 
 
         //rigidbody.AddForce(-normalVector*gravity, ForceMode.Acceleration);
@@ -225,7 +269,8 @@ public class Controller : MonoBehaviour {
 
         if (checkground()==false)
         {
-            transform.position += new Vector3(0, -0.1f, 0);
+            //transform.position += new Vector3(0, -0.1f, 0);
+            rigidbody.AddForce(-transform.up * gravity*3, ForceMode.Acceleration);
         }
         Debug.Log(checkground());
     }
