@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: cba0a90418997a948848fb6fa76a3746
-timeCreated: 1521012174
-licenseType: Free
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: colorcorn_set
     100002: colorcorn_set.001
@@ -65,10 +63,78 @@ ModelImporter:
     7400020: wall|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
     7400022: earth|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
     9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: earth_surface
+    second: {fileID: 2100000, guid: 1bb4bde189b4fec4f817f6c69200b0b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic_black
+    second: {fileID: 2100000, guid: 9a247e2f4baee27429726cef3f766525, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic_red
+    second: {fileID: 2100000, guid: 889947ecdd7ae24468b80862a2e123ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic_yellow
+    second: {fileID: 2100000, guid: 10cafeae7c388dc4da388489d36290a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rubber_black
+    second: {fileID: 2100000, guid: 2329ee03dc40bbf4591ce05165769241, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rubber_black.001
+    second: {fileID: 2100000, guid: 8cf9de1fc595ed24b94814748b916cfc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tree_base_mad
+    second: {fileID: 2100000, guid: eecab50f84cb22d4b88d234bb986948c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tree_base_wall
+    second: {fileID: 2100000, guid: 75bc47624148d5041b4b6ebd7cd59d5d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_corner_inside
+    second: {fileID: 2100000, guid: 6a88710773112944fae9f4e965092ff2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_corner_outside_1
+    second: {fileID: 2100000, guid: 167867d9e1ba97448924ec4efa143b3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_corner_outside_2
+    second: {fileID: 2100000, guid: 3860e9be730a5574d81510c5e525f57b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_long
+    second: {fileID: 2100000, guid: 14b588787b6a7e243b58896eebd27abf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_small
+    second: {fileID: 2100000, guid: ea359081c8370184b9cb5fa99dd79403, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -81,12 +147,15 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -94,13 +163,18 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -110,6 +184,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

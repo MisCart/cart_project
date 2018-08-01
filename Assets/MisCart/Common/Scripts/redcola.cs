@@ -9,11 +9,13 @@ public class redcola : MonoBehaviour {
     bool flag = false;
     int rotate;
     int crash;
+    private GameObject fire;
     // Use this for initialization
     void Start () {
         rotate = 0;
         crash = 0;
         rigid = GetComponent<Rigidbody>();
+        fire = gameObject.transform.Find("GroundExplode").gameObject;
     }
 	
 	// Update is called once per frame
@@ -23,24 +25,10 @@ public class redcola : MonoBehaviour {
         {
             //navMeshAgentの操作GetComponent<NavMeshAgent>().speed = 1;//このようにスクリプトからNavMeshのプロパティをいじれる。
             GetComponent<NavMeshAgent>().destination = cpu.transform.position;
-            GetComponent<NavMeshAgent>().speed = 1;
+            //GetComponent<NavMeshAgent>().speed = 1;
         }
        
-        if (flag == true)
-        {
-           
-            if (rotate < 1080)
-            {
-                cpu.transform.Rotate(new Vector3(0, 5, 0));
-                rotate += 5;
-            }
-            else
-            {
-                rotate = 0;
-                cpu.GetComponent<WaypointAgent>().enabled = true;
-                Destroy(gameObject);
-            }
-        }
+        
     }
 
     void OnCollisionEnter(Collision col)
@@ -49,9 +37,13 @@ public class redcola : MonoBehaviour {
         if (col.gameObject.tag == "CPU")
         {
             cpu = col.gameObject;
-            col.gameObject.GetComponent<WaypointAgent>().enabled = false;
-            gameObject.GetComponent<SphereCollider>().enabled = false;
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            //cpu.gameObject.GetComponent<WaypointAgent>().enabled = false;
+            fire.SetActive(true);
+            cpu.GetComponent<CPUrotation>().startrotate();
+            //col.gameObject.GetComponent<WaypointAgent>().enabled = false;
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+            transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
+            transform.GetChild(1).gameObject.SetActive(false);
             flag = true;
         }
         crash++;

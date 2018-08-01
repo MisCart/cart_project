@@ -8,11 +8,14 @@ public class greencola : MonoBehaviour {
     bool flag=false;
     int rotate;
     int crash;
-	// Use this for initialization
-	void Start () {
+    int HP = 3;
+    private GameObject fire;
+    // Use this for initialization
+    void Start () {
         rotate = 0;
         crash = 0;
-	}
+        fire = gameObject.transform.Find("GroundExplode").gameObject;
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -33,9 +36,11 @@ public class greencola : MonoBehaviour {
                 Destroy(gameObject);
             }
         }
-        if (crash == 3)
+        if (HP==0)
         {
-            Destroy(gameObject);
+            fire.SetActive(true);
+
+            Invoke("Des",1);
         }
 	}
 
@@ -45,11 +50,23 @@ public class greencola : MonoBehaviour {
         if (col.gameObject.tag == "CPU")
         {
             cpu = col.gameObject;
-            col.gameObject.GetComponent<WaypointAgent>().enabled = false;
-            gameObject.GetComponent<SphereCollider>().enabled = false;
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            fire.SetActive(true);
+            cpu.GetComponent<CPUrotation>().startrotate();
+            //col.gameObject.GetComponent<WaypointAgent>().enabled = false;
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+            transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
+            transform.GetChild(1).gameObject.SetActive(false);
             flag = true;
         }
+        else
+        {
+            HP--;
+        }
         crash++;
+    }
+
+    void Des()
+    {
+        Destroy(gameObject);
     }
 }

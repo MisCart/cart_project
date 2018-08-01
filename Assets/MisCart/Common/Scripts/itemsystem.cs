@@ -11,15 +11,18 @@ public class itemsystem : MonoBehaviour {
     public Transform itempos;
     public GameObject gcolaitem;
     public GameObject rcolaitem;
-    public GameObject kcolaitem;
+   
     public GameObject itemtext;
+    public GameObject DVDimage;
     GameObject nearestCPU;
     AudioSource audio3;
     AudioSource audio4;
     bool gcola = false;
     bool rcola=false;
-    bool kcola = false;
+    
     bool muteki = false;
+    
+
 
     GameObject[] tagobjs;
     float mindis = 1000;
@@ -46,23 +49,17 @@ public class itemsystem : MonoBehaviour {
                
                 gcola = false;
             }
-            if (kcola == true)
-            {
-                audio3.PlayOneShot(audio3.clip);
-                GameObject bullet = GameObject.Instantiate(kcolaitem) as GameObject;
-                Vector3 force;
-                force = this.gameObject.transform.forward * colaspeed;
-                bullet.transform.position = itempos.position+new Vector3(0,2,0);
-                bullet.GetComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);
-
-                kcola = false;
-            }
+           
             if (rcola == true)
             {
                 audio3.PlayOneShot(audio3.clip);
-                GameObject bullet = GameObject.Instantiate(rcolaitem) as GameObject;
-                bullet.AddComponent<NavMeshAgent>();
-                //bullet.GetComponent<NavMeshAgent>().enabled = true;
+                GameObject bullet2 = GameObject.Instantiate(rcolaitem) as GameObject;
+                //bullet.AddComponent<NavMeshAgent>();
+                Vector3 force;
+                force = this.gameObject.transform.forward * colaspeed;
+                bullet2.transform.position = itempos.position;
+                bullet2.GetComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);
+                bullet2.GetComponent<NavMeshAgent>().enabled = true;
                 foreach (GameObject obj in tagobjs)
                 {
                     float dis = Vector3.Distance(transform.position, obj.transform.position);
@@ -83,11 +80,10 @@ public class itemsystem : MonoBehaviour {
                 mindis = 1000;
                 Debug.Log(nearestCPU);
                 
-                bullet.SendMessage("Settarget",nearestCPU);
-                Vector3 force;
-                force = this.gameObject.transform.forward * colaspeed;
-                bullet.transform.position = itempos.position;
-                bullet.GetComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);
+                bullet2.SendMessage("Settarget",nearestCPU);
+                
+                //bullet2.transform.position = itempos.position;
+                //bullet2.GetComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);
 
                 rcola = false;
             }
@@ -105,11 +101,9 @@ public class itemsystem : MonoBehaviour {
             itemtext.GetComponent<Text>().text = "Cola(G)";
         }else if (rcola == true)
         {
-            itemtext.GetComponent<Text>().text = "Cola(R)";
+            //itemtext.GetComponent<Text>().text = "Cola(R)";
+            DVDimage.SetActive(true);
             
-        }else if (kcola==true)
-        {
-            itemtext.GetComponent<Text>().text = "Cola(K)";
         }else if (muteki == true)
         {
             itemtext.GetComponent<Text>().text = "Muteki";
@@ -117,19 +111,20 @@ public class itemsystem : MonoBehaviour {
         else
         {
             itemtext.GetComponent<Text>().text = "";
+            DVDimage.SetActive(false);
         }
 	}
 
     void OnTriggerEnter(Collider col)
     {
-        if ((gcola==false)&&(rcola==false)&&(kcola==false)&&(muteki==false))
+        if ((gcola==false)&&(rcola==false)&&(muteki==false))
         {
 
 
             if (col.gameObject.tag == "item")
             {
                 col.gameObject.SendMessage("itemcollision");
-                itemnum = Random.Range(1, 5);
+                itemnum = Random.Range(1, 3);
 
                 if (itemnum == 1)
                 {
@@ -139,10 +134,7 @@ public class itemsystem : MonoBehaviour {
                 {
                     rcola=true;
                 }
-                else if (itemnum == 3)
-                {
-                    kcola = true;
-                }
+              
                 else if (itemnum == 4)
                 {
                     muteki = true;

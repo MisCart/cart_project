@@ -13,7 +13,8 @@ namespace Model
     public enum SE
     {
         SendToRaceScene,
-        ButtonClick
+        ButtonClick,
+        bomb1
     }
 
     // Prefab/BGM にサウンドを追加したときはここにも同じ名前で追加する

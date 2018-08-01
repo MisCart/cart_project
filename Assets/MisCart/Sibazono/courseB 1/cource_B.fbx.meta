@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: 3f4ae460de7790c40963e5e909aa9d95
-timeCreated: 1521856549
-licenseType: Free
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: colorcorn_set
     100002: colorcorn_set.001
@@ -98,10 +96,163 @@ ModelImporter:
     7400026: wall|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
     7400028: earth|man_eyelash|man_eyelash|man_eyelashAction|man_eyelash|man_eyela
     9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blass_lightblue.001
+    second: {fileID: 2100000, guid: f95875173e7d68a4197fdf53f2ba6218, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: earth_inside
+    second: {fileID: 2100000, guid: 01e16c9536975254f821da3f6bb4a701, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: earth_long
+    second: {fileID: 2100000, guid: 010f9d9687b0afe498e033763423a700, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: earth_surface
+    second: {fileID: 2100000, guid: 7455c170cf3c9c4468016b0d026375f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_green_painted
+    second: {fileID: 2100000, guid: a50cd27fe5fbb014abb95a411e09b990, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_red_painted
+    second: {fileID: 2100000, guid: 4beaf167d7a2ac745bb7cea115530723, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_silver.001
+    second: {fileID: 2100000, guid: 0574e159040f2cb4898b4e190b556b33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_yellow_painted
+    second: {fileID: 2100000, guid: ba324f45a27b222459ac94ca2172f89c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: paint_black.001
+    second: {fileID: 2100000, guid: 8f7136263d98a5d40a2aa9bf274b682d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: paint_red.001
+    second: {fileID: 2100000, guid: db0daacd6bad8ad4cbb8dc3dbaf3a521, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic_black
+    second: {fileID: 2100000, guid: e38afb0dcb68d64428e412c5a8fd6c60, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic_black.002
+    second: {fileID: 2100000, guid: 764a01ef6b59f5d48b1a9fc9cb983b05, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic_red
+    second: {fileID: 2100000, guid: 5fe7fd1f201242e43a729e5ae32e348c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic_red.002
+    second: {fileID: 2100000, guid: 2f136271df904524bba60096ec905dd8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic_yellow
+    second: {fileID: 2100000, guid: 34dee9e0b6b0e5240b6fb60139c7b614, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roof
+    second: {fileID: 2100000, guid: 30ddf153f59ad1d4cbfb08bfd4fe6445, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rubber_black
+    second: {fileID: 2100000, guid: cc835e858940d3e4fb771d42ead014bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rubber_black.001
+    second: {fileID: 2100000, guid: da14b176f528e61409d0b9e4680ae0b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rubber_black.002
+    second: {fileID: 2100000, guid: e11019cf6a168d04a97733d8e0fa13fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rubber_black.003
+    second: {fileID: 2100000, guid: 9a8237aef336b6f4eb8cdfacf242bdab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: seatsurface
+    second: {fileID: 2100000, guid: 41468daa17733694286830ff1a53db94, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tire_side.001
+    second: {fileID: 2100000, guid: 9973d934440520f46989ba2e90bab62f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tree_base_mad
+    second: {fileID: 2100000, guid: 7b4402deda6534441bf3256f652f026c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tree_base_wall
+    second: {fileID: 2100000, guid: f71b23b5b80076a45b4a4a51a6752239, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_corner_inside
+    second: {fileID: 2100000, guid: e80e9490a2b401548aa5fbb77328a047, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_corner_outside_1
+    second: {fileID: 2100000, guid: ce2168425e5760241999787623d77936, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_corner_outside_2
+    second: {fileID: 2100000, guid: dc751f4e9046ed94e9269a55ec20fc16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_long
+    second: {fileID: 2100000, guid: 9f258eeede5ca0d41b54673ed5afb8fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_small
+    second: {fileID: 2100000, guid: 8e8711a623a233d4a850db9428ad5416, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_up
+    second: {fileID: 2100000, guid: 458004e94e2b8cc47a5b16bf36e6fc36, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -114,12 +265,15 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -127,13 +281,18 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -143,6 +302,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

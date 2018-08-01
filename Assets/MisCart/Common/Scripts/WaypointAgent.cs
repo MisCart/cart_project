@@ -32,12 +32,14 @@ public class WaypointAgent : MonoBehaviour {
     float lPower = 60f;
     bool isCounting = true;
     float timer = 0f;
-    
+    Vector3 correction = Vector3.zero;
     // Use this for initialization
     void Start () {
        
         tracker = GetComponent<WaypointProgressTracker>();
         rigidbody = GetComponent<Rigidbody>();
+        correction = new Vector3(Random.Range(-5.0f,5.0f),0,Random.Range(-5.0f,5.0f));
+        Debug.Log(correction);
 	}
 
     // Update is called once per frame
@@ -82,7 +84,7 @@ public class WaypointAgent : MonoBehaviour {
             rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
         }
 
-        Vector3 localTarget = tracker.target.position - transform.position;
+        Vector3 localTarget = tracker.target.position - transform.position +correction;
 
         float targetAngle = Mathf.Atan2(localTarget.x, localTarget.z) * Mathf.Rad2Deg;
 

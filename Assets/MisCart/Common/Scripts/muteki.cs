@@ -5,14 +5,19 @@ using UnityEngine.UI;
 
 public class muteki : MonoBehaviour {
     private bool flag = false;
+    [SerializeField]private bool forCPU = false;
     public GameObject itemtext;
     // Use this for initialization
     void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (forCPU == false)
+        {
+       
         if (flag == true)
         {
             itemtext.GetComponent<Text>().text = "Muteki";
@@ -20,6 +25,7 @@ public class muteki : MonoBehaviour {
         else
         {
             itemtext.GetComponent<Text>().text = "";
+        }
         }
     }
 

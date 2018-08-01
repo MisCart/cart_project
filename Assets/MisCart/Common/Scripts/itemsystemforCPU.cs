@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class itemsystemforCPU : MonoBehaviour
 {
@@ -10,13 +11,13 @@ public class itemsystemforCPU : MonoBehaviour
     public Transform itempos;
     public GameObject gcolaitem;
     public GameObject rcolaitem;
-    public GameObject kcolaitem;
+
     GameObject nearestCPU;
     AudioSource audio3;
     AudioSource audio4;
     bool gcola = false;
     bool rcola = false;
-    bool kcola = false;
+  
     bool muteki = false;
 
     GameObject[] tagobjs;
@@ -25,6 +26,7 @@ public class itemsystemforCPU : MonoBehaviour
     void Start()
     {
         tagobjs = GameObject.FindGameObjectsWithTag("CPU");
+        
         AudioSource[] audioSources = GetComponents<AudioSource>();
         audio3 = audioSources[0];
         audio4 = audioSources[1];
@@ -44,22 +46,14 @@ public class itemsystemforCPU : MonoBehaviour
 
             gcola = false;
         }
-        if (kcola == true)
-        {
-            audio3.PlayOneShot(audio3.clip);
-            GameObject bullet = GameObject.Instantiate(kcolaitem) as GameObject;
-            Vector3 force;
-            force = this.gameObject.transform.forward * colaspeed;
-            bullet.transform.position = itempos.position + new Vector3(0, 2, 0);
-            bullet.GetComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);
-
-            kcola = false;
-        }
+       
         if (rcola == true)
         {
             audio3.PlayOneShot(audio3.clip);
             GameObject bullet = GameObject.Instantiate(rcolaitem) as GameObject;
-
+            Debug.Log(bullet.transform.position);
+            bullet.transform.position = itempos.position;
+            bullet.GetComponent<NavMeshAgent>().enabled = true;
             foreach (GameObject obj in tagobjs)
             {
                 float dis = Vector3.Distance(transform.position, obj.transform.position);
@@ -77,8 +71,8 @@ public class itemsystemforCPU : MonoBehaviour
             bullet.SendMessage("Settarget", nearestCPU);
             Vector3 force;
             force = this.gameObject.transform.forward * colaspeed;
-            bullet.transform.position = itempos.position;
-            bullet.GetComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);
+            //bullet.transform.position = itempos.position;
+            //bullet.GetComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);
 
             rcola = false;
         }
@@ -94,14 +88,14 @@ public class itemsystemforCPU : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if ((gcola == false) && (rcola == false) && (kcola == false) && (muteki == false))
+        if ((gcola == false) && (rcola == false)&& (muteki == false))
         {
 
 
             if (col.gameObject.tag == "item")
             {
                 col.gameObject.SendMessage("itemcollision");
-                itemnum = Random.Range(1, 5);
+                itemnum = Random.Range(1, 2);
 
                 if (itemnum == 1)
                 {
@@ -111,10 +105,7 @@ public class itemsystemforCPU : MonoBehaviour
                 {
                     rcola = true;
                 }
-                else if (itemnum == 3)
-                {
-                    kcola = true;
-                }
+              
                 else if (itemnum == 4)
                 {
                     muteki = true;
