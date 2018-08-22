@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class greencola : MonoBehaviour {
     private GameObject cpu;
     private RaycastHit ground;
+    private NavMeshAgent agent;
     bool flag=false;
     int rotate;
     int crash;
@@ -15,13 +17,14 @@ public class greencola : MonoBehaviour {
         rotate = 0;
         crash = 0;
         fire = gameObject.transform.Find("GroundExplode").gameObject;
+        agent = GetComponent<NavMeshAgent>();
     }
 
 	// Update is called once per frame
 	void Update () {
         //ground = Physics.
-
-
+        Vector3 move = transform.forward;
+        agent.Move(move * Time.deltaTime * 150);
         if (flag == true)
         {
             if (rotate < 1080)

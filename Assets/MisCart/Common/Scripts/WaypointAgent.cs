@@ -89,14 +89,14 @@ public class WaypointAgent : MonoBehaviour {
         float targetAngle = Mathf.Atan2(localTarget.x, localTarget.z) * Mathf.Rad2Deg;
 
         //float steer = Mathf.Clamp(targetAngle * 0.01f, -1, 1)* Mathf.Sign(rigidbody.velocity.magnitude * 2.23693629f);
-        
+
         //float m_SteerAngle = steer * SteerLevel;
-        
 
 
-        transform.rotation = Quaternion.Euler(0,targetAngle,0);
-      
-      
+
+        // transform.rotation = Quaternion.Euler(0,targetAngle,0);
+
+        transform.LookAt(tracker.target.position);
 
     }
 }

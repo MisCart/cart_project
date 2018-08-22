@@ -83,6 +83,12 @@ public class itemsystemforCPU : MonoBehaviour
             GetComponent<muteki>().Invoke("EndMuteki", 10f);
             muteki = false;
         }
+
+
+
+
+
+
     }
 
 
@@ -95,27 +101,38 @@ public class itemsystemforCPU : MonoBehaviour
             if (col.gameObject.tag == "item")
             {
                 col.gameObject.SendMessage("itemcollision");
-                itemnum = Random.Range(1, 2);
-
-                if (itemnum == 1)
-                {
-                    gcola = true;
-                }
-                else if (itemnum == 2)
-                {
-                    rcola = true;
-                }
-              
-                else if (itemnum == 4)
-                {
-                    muteki = true;
-                }
-                else if (itemnum == 5)
-                {
-
-                }
+                Invoke("UseItem", Random.Range(1, 7));
+               
             }
         }
 
+
+
+
+
+     
+    }
+
+    void UseItem()
+    {
+        itemnum = Random.Range(1, 3);
+        if (itemnum == 1)
+        {
+            gcola = true;
+        }
+        else if (itemnum == 2)
+        {
+            rcola = true;
+        }
+
+        else if (itemnum == 4)
+        {
+            muteki = true;
+        }
+        else if (itemnum == 5)
+        {
+
+        }
     }
 }
+

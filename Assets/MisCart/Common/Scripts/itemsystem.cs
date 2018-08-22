@@ -45,8 +45,10 @@ public class itemsystem : MonoBehaviour {
                 Vector3 force;
                 force = this.gameObject.transform.forward * colaspeed;
                 bullet.transform.position = itempos.position;
-                bullet.GetComponent<Rigidbody>().AddForce(force,ForceMode.VelocityChange);
-               
+                bullet.transform.forward = transform.forward;
+                bullet.GetComponent<NavMeshAgent>().enabled = true;
+                //bullet.GetComponent<Rigidbody>().AddForce(force,ForceMode.VelocityChange);
+
                 gcola = false;
             }
            
@@ -124,7 +126,7 @@ public class itemsystem : MonoBehaviour {
             if (col.gameObject.tag == "item")
             {
                 col.gameObject.SendMessage("itemcollision");
-                itemnum = Random.Range(1, 3);
+                itemnum = 1;//Random.Range(1, 3);
 
                 if (itemnum == 1)
                 {
