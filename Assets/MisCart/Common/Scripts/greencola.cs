@@ -12,12 +12,14 @@ public class greencola : MonoBehaviour {
     int crash;
     int HP = 3;
     private GameObject fire;
+    private AudioSource ex;
     // Use this for initialization
     void Start () {
         rotate = 0;
         crash = 0;
         fire = gameObject.transform.Find("GroundExplode").gameObject;
         agent = GetComponent<NavMeshAgent>();
+        ex = GetComponent<AudioSource>();
     }
 
 	// Update is called once per frame
@@ -42,7 +44,7 @@ public class greencola : MonoBehaviour {
         if (HP==0)
         {
             fire.SetActive(true);
-
+            ex.PlayOneShot(ex.clip);
             Invoke("Des",1);
         }
 	}
@@ -54,6 +56,7 @@ public class greencola : MonoBehaviour {
         {
             cpu = col.gameObject;
             fire.SetActive(true);
+            ex.PlayOneShot(ex.clip);
             cpu.GetComponent<CPUrotation>().startrotate();
             //col.gameObject.GetComponent<WaypointAgent>().enabled = false;
             gameObject.GetComponent<BoxCollider>().enabled = false;

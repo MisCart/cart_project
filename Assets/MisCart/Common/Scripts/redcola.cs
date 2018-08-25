@@ -10,12 +10,14 @@ public class redcola : MonoBehaviour {
     int rotate;
     int crash;
     private GameObject fire;
+    private AudioSource ex;
     // Use this for initialization
     void Start () {
         rotate = 0;
         crash = 0;
         rigid = GetComponent<Rigidbody>();
         fire = gameObject.transform.Find("GroundExplode").gameObject;
+        ex = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -39,6 +41,7 @@ public class redcola : MonoBehaviour {
             cpu = col.gameObject;
             //cpu.gameObject.GetComponent<WaypointAgent>().enabled = false;
             fire.SetActive(true);
+            ex.PlayOneShot(ex.clip);
             cpu.GetComponent<CPUrotation>().startrotate();
             //col.gameObject.GetComponent<WaypointAgent>().enabled = false;
             gameObject.GetComponent<BoxCollider>().enabled = false;

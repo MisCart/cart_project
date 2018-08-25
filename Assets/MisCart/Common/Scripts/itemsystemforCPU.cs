@@ -9,16 +9,18 @@ public class itemsystemforCPU : MonoBehaviour
     [SerializeField]
     private float colaspeed;
     public Transform itempos;
+    public Transform itempos2;
     public GameObject gcolaitem;
     public GameObject rcolaitem;
+    [SerializeField] private GameObject codeitem;
 
     GameObject nearestCPU;
     AudioSource audio3;
     AudioSource audio4;
     bool gcola = false;
     bool rcola = false;
-  
-    bool muteki = false;
+
+    bool code = false;
 
     GameObject[] tagobjs;
     float mindis = 1000;
@@ -76,12 +78,13 @@ public class itemsystemforCPU : MonoBehaviour
 
             rcola = false;
         }
-        if (muteki == true)
+        if (code == true)
         {
-            audio4.PlayOneShot(audio4.clip);
-            gameObject.SendMessage("StartMuteki");
-            GetComponent<muteki>().Invoke("EndMuteki", 10f);
-            muteki = false;
+            //audio4.PlayOneShot(audio4.clip);
+            GameObject _code = GameObject.Instantiate(codeitem) as GameObject;
+            _code.transform.position = itempos2.position;
+
+            code = false;
         }
 
 
@@ -94,7 +97,7 @@ public class itemsystemforCPU : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if ((gcola == false) && (rcola == false)&& (muteki == false))
+        if ((gcola == false) && (rcola == false)&& (code == false))
         {
 
 
@@ -115,7 +118,7 @@ public class itemsystemforCPU : MonoBehaviour
 
     void UseItem()
     {
-        itemnum = Random.Range(1, 3);
+        itemnum = Random.Range(1, 4);
         if (itemnum == 1)
         {
             gcola = true;
@@ -125,9 +128,9 @@ public class itemsystemforCPU : MonoBehaviour
             rcola = true;
         }
 
-        else if (itemnum == 4)
+        else if (itemnum == 3)
         {
-            muteki = true;
+            code = true;
         }
         else if (itemnum == 5)
         {

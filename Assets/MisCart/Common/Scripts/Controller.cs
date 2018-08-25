@@ -8,7 +8,8 @@ public class Controller : MonoBehaviour {
     AudioSource audio2;
     float handle=80f;
     public float speed;
-    public static float limit=85f;
+    public float limit=85f;
+    private float limitset = 0;
     float limitrotate=5f;
 
     bool sound1=false;
@@ -38,7 +39,7 @@ public class Controller : MonoBehaviour {
         AudioSource[] audioSources = GetComponents<AudioSource>();
         audio1 = audioSources[0];
         audio2 = audioSources[1];
-
+        limitset = limit;
 
         rigidbody = this.GetComponent<Rigidbody>();
         t = 0;
@@ -300,6 +301,17 @@ public class Controller : MonoBehaviour {
 
     }
 
+
+    public void LimitCut()
+    {
+        limit = limit / 2;
+        Invoke("LimitReset", 5f);
+    }
+
+    void LimitReset()
+    {
+        limit = limitset;
+    }
 }
 
 

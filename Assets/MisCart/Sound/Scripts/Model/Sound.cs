@@ -9,7 +9,7 @@ namespace Model
         BGM
     }
 
-    // Prefab/SE にサウンドを追加したときはここにも同じ名前で追加する
+    // Resources/Sounds/SE にサウンドを追加したときはここにも同じ名前で追加する
     public enum SE
     {
         SendToRaceScene,
@@ -17,7 +17,7 @@ namespace Model
         bomb1
     }
 
-    // Prefab/BGM にサウンドを追加したときはここにも同じ名前で追加する
+    // Resources/Sounds/BGM にサウンドを追加したときはここにも同じ名前で追加する
     public enum BGM
     {
         Title

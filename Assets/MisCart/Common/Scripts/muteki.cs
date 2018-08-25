@@ -15,45 +15,22 @@ public class muteki : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (forCPU == false)
-        {
-       
-        if (flag == true)
-        {
-            itemtext.GetComponent<Text>().text = "Muteki";
-        }
-        else
-        {
-            itemtext.GetComponent<Text>().text = "";
-        }
-        }
+      
     }
 
     void OnCollisionEnter(Collision col)
     {
 
-        if (col.gameObject.tag == "CPU")
-        {
-            if (flag == true)
-            {
-                col.gameObject.SendMessage("startrotate");
-            }
-        }
-
+       
     }
 
     void StartMuteki()
     {
-       
-        Controller.limit = 85f;
-        Debug.Log(Controller.limit);
-        flag = true;
+     
     }
 
     void EndMuteki()
     {
-        Controller.limit = 75f;
-        Debug.Log(Controller.limit);
-        flag = false;
+       
     }
 }

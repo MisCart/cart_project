@@ -9,25 +9,33 @@ public class itemsystem : MonoBehaviour {
     [SerializeField]
     private float colaspeed;
     public Transform itempos;
+    public Transform itempos2;
     public GameObject gcolaitem;
     public GameObject rcolaitem;
+    [SerializeField]private GameObject codeitem;
    
     public GameObject itemtext;
-    public GameObject DVDimage;
+    [SerializeField]private GameObject DVDimage;
+    [SerializeField]private GameObject CDimage;
+    [SerializeField] private GameObject Codeimage;
     GameObject nearestCPU;
     AudioSource audio3;
     AudioSource audio4;
     bool gcola = false;
     bool rcola=false;
     
-    bool muteki = false;
-    
+    bool code = false;
+
+    [SerializeField] private Animator mischan;
+
+    private GameObject ItemSellecter;
 
 
     GameObject[] tagobjs;
     float mindis = 1000;
     // Use this for initialization
     void Start () {
+        ItemSellecter = GameObject.Find("UI");
         tagobjs = GameObject.FindGameObjectsWithTag("CPU");
         AudioSource[] audioSources = GetComponents<AudioSource>();
         audio3 = audioSources[2];
@@ -38,8 +46,10 @@ public class itemsystem : MonoBehaviour {
 	void Update () {
         if ((Input.GetKeyDown(KeyCode.Space))||(Input.GetKeyDown(KeyCode.Joystick1Button4)))
         {
+            
             if (gcola == true)
             {
+                mischan.Play("ItemUse1");
                 audio3.PlayOneShot(audio3.clip);
                 GameObject bullet = GameObject.Instantiate(gcolaitem) as GameObject;
                 Vector3 force;
@@ -51,9 +61,10 @@ public class itemsystem : MonoBehaviour {
 
                 gcola = false;
             }
-           
+
             if (rcola == true)
             {
+                mischan.Play("ItemUse1");
                 audio3.PlayOneShot(audio3.clip);
                 GameObject bullet2 = GameObject.Instantiate(rcolaitem) as GameObject;
                 //bullet.AddComponent<NavMeshAgent>();
@@ -65,14 +76,15 @@ public class itemsystem : MonoBehaviour {
                 foreach (GameObject obj in tagobjs)
                 {
                     float dis = Vector3.Distance(transform.position, obj.transform.position);
-                    if (Vector3.Angle((obj.transform.position-transform.position).normalized,transform.forward)<=90f) {
+                    if (Vector3.Angle((obj.transform.position - transform.position).normalized, transform.forward) <= 90f)
+                    {
                         if (dis < mindis)
                         {
                             nearestCPU = obj;
                             mindis = dis;
                         }
                     }
-                    
+
                 }
 
                 if (mindis == 1000)
@@ -81,76 +93,89 @@ public class itemsystem : MonoBehaviour {
                 }
                 mindis = 1000;
                 Debug.Log(nearestCPU);
-                
-                bullet2.SendMessage("Settarget",nearestCPU);
-                
+
+                bullet2.SendMessage("Settarget", nearestCPU);
+
                 //bullet2.transform.position = itempos.position;
                 //bullet2.GetComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);
 
                 rcola = false;
             }
-            if (muteki==true)
+            if (code == true)
             {
-                audio4.PlayOneShot(audio4.clip);
-                gameObject.SendMessage("StartMuteki");
-                GetComponent<muteki>().Invoke("EndMuteki",7f);
-                muteki = false;
+                //audio4.PlayOneShot(audio4.clip);
+                GameObject _code = GameObject.Instantiate(codeitem) as GameObject;
+                _code.transform.position = itempos2.position;
+
+                code = false;
             }
         }
+    
 
         if (gcola == true)
         {
-            itemtext.GetComponent<Text>().text = "Cola(G)";
+            //itemtext.GetComponent<Text>().text = "Cola(G)";
+            CDimage.SetActive(true);
         }else if (rcola == true)
         {
             //itemtext.GetComponent<Text>().text = "Cola(R)";
             DVDimage.SetActive(true);
             
-        }else if (muteki == true)
+        }else if (code == true)
         {
-            itemtext.GetComponent<Text>().text = "Muteki";
+            //itemtext.GetComponent<Text>().text = "Muteki";
+            Codeimage.SetActive(true);
         }
         else
         {
             itemtext.GetComponent<Text>().text = "";
             DVDimage.SetActive(false);
+            CDimage.SetActive(false);
+            Codeimage.SetActive(false);
         }
 	}
 
     void OnTriggerEnter(Collider col)
     {
-        if ((gcola==false)&&(rcola==false)&&(muteki==false))
+        if ((gcola==false)&&(rcola==false)&&(code==false))
         {
 
 
             if (col.gameObject.tag == "item")
             {
                 col.gameObject.SendMessage("itemcollision");
-                itemnum = 1;//Random.Range(1, 3);
+                itemnum = Random.Range(1, 3);
+                ItemSellecter.GetComponent<ItemSellect>().SellectStart();
 
-                if (itemnum == 1)
-                {
-                    gcola = true;
-                }
-                else if (itemnum == 2)
-                {
-                    rcola=true;
-                }
-              
-                else if (itemnum == 4)
-                {
-                    muteki = true;
-                }
-                else if (itemnum == 5)
-                {
-
-                }
             }
         }
     }
 
-    void sellectitem()
+    public void sellectitem()
     {
+        itemnum = 3;//Random.Range(1, 3);
 
+        if (itemnum == 1)
+        {
+            gcola = true;
+        }
+        else if (itemnum == 2)
+        {
+            rcola = true;
+        }
+
+        else if (itemnum == 3)
+        {
+            code = true;
+        }
+        else if (itemnum == 5)
+        {
+
+        }
     }
+
+
+
+
+    
 }

@@ -29,13 +29,14 @@ public class WaypointAgent : MonoBehaviour {
     [SerializeField, Range(0, 500)]
 
     float limit = 140f;
+    float limitset = 0;
     float lPower = 60f;
     bool isCounting = true;
     float timer = 0f;
     Vector3 correction = Vector3.zero;
     // Use this for initialization
     void Start () {
-       
+        limitset = limit;
         tracker = GetComponent<WaypointProgressTracker>();
         rigidbody = GetComponent<Rigidbody>();
         correction = new Vector3(Random.Range(-5.0f,5.0f),0,Random.Range(-5.0f,5.0f));
@@ -84,7 +85,7 @@ public class WaypointAgent : MonoBehaviour {
             rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
         }
 
-        Vector3 localTarget = tracker.target.position - transform.position +correction;
+        Vector3 localTarget = tracker.target.position - transform.position+correction;
 
         float targetAngle = Mathf.Atan2(localTarget.x, localTarget.z) * Mathf.Rad2Deg;
 
@@ -94,9 +95,28 @@ public class WaypointAgent : MonoBehaviour {
 
 
 
-        // transform.rotation = Quaternion.Euler(0,targetAngle,0);
+        
+        Vector3 dir2= new Vector3(0,targetAngle,0);
 
+        //transform.LookAt(tracker.target.position);
+
+        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(localTarget), 0.015f);
+
+    }
+
+    private void LateUpdate()
+    {
         transform.LookAt(tracker.target.position);
+    }
 
+    public void LimitCut()
+    {
+        limit = limit / 2;
+        Invoke("LimitReset",5f);
+    }
+
+    void LimitReset()
+    {
+        limit = limitset;
     }
 }
