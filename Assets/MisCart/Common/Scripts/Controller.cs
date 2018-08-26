@@ -6,9 +6,10 @@ public class Controller : MonoBehaviour {
     new  Rigidbody rigidbody  ;
     AudioSource audio1;
     AudioSource audio2;
-    float handle=40f;
+    float handle=80f;
     public float speed;
-    public static float limit=85f;
+    public float limit=85f;
+    private float limitset = 0;
     float limitrotate=5f;
 
     bool sound1=false;
@@ -38,7 +39,7 @@ public class Controller : MonoBehaviour {
         AudioSource[] audioSources = GetComponents<AudioSource>();
         audio1 = audioSources[0];
         audio2 = audioSources[1];
-
+        limitset = limit;
 
         rigidbody = this.GetComponent<Rigidbody>();
         t = 0;
@@ -47,10 +48,12 @@ public class Controller : MonoBehaviour {
 
 
     }
+
      void Update()
     {
         if (Input.GetKeyUp(KeyCode.Z))
         {
+
             audio1.Stop();
             sound1 = false;
 
@@ -64,8 +67,8 @@ public class Controller : MonoBehaviour {
             {
                 rigidbody.AddForce(transform.forward * speed / 2, ForceMode.Impulse);
             }
-            limit = 60f;
-            handle = 40f;
+            limit = 85f;
+            handle = 80f;
             s = 0; e = 0;
         }
         if (Input.GetKeyUp(KeyCode.Joystick1Button0))
@@ -109,17 +112,19 @@ public class Controller : MonoBehaviour {
 
             if (Input.GetKey(KeyCode.Z))
             {
-
-                if (rigidbody.velocity.magnitude <= limit)
-                {
-                     if (sound1 == false)
+                //if (checkground())
+                //{
+                    if (rigidbody.velocity.magnitude <= limit)
                     {
-                        audio1.PlayOneShot(audio1.clip);
-                        sound1 = true;
-                     }
+                       if (sound1 == false)
+                       {
+                           audio1.PlayOneShot(audio1.clip);
+                           sound1 = true;
+                       }
 
-                    rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
-                }
+                      rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
+                    }
+                //}
             }
             if (Input.GetKeyUp(KeyCode.Z))
             {
@@ -144,7 +149,7 @@ public class Controller : MonoBehaviour {
                 rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
             }
                 //limit = 30f;
-                handle = 80f;
+                handle = 130f;
             }
             if (Input.GetKeyUp(KeyCode.C))
             {
@@ -155,8 +160,8 @@ public class Controller : MonoBehaviour {
                 {
                     rigidbody.AddForce(transform.forward * speed / 2, ForceMode.Impulse);
                 }
-                limit = 60f;
-                handle = 40f;
+                limit = 85f;
+                handle = 80f;
                 s = 0; e = 0;
             }
 
@@ -253,27 +258,25 @@ public class Controller : MonoBehaviour {
 
 
 
-        Vector3 onPlane = Vector3.ProjectOnPlane(transform.forward, normalVector);
 
-        //transform.localRotation = Quaternion.LookRotation(onPlane,normalVector );
-        
-        transform.rotation=Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(transform.forward),0.1f);
-        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(0,transform.forward.y,0)), 0.1f);
+        //転倒防止処理
+        float angleDir2 = transform.eulerAngles.y * (Mathf.PI / 180.0f);
+        Vector3 dir2 = new Vector3(Mathf.Sin(angleDir2), 0.0f, Mathf.Cos(angleDir2));
 
 
-        //rigidbody.AddForce(-normalVector*gravity, ForceMode.Acceleration);
-        if (normalVector == Vector3.up)
-        {
-            //rigidbody.AddForce(-transform.up*gravity, ForceMode.Acceleration);
-        }
+        transform.rotation=Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(dir2),0.015f);
+        //転倒防止処理ここまで
+       
+
 
         if (checkground()==false)
         {
-            //transform.position += new Vector3(0, -0.1f, 0);
-            rigidbody.AddForce(-transform.up * gravity*3, ForceMode.Acceleration);
+            rigidbody.AddForce(-new Vector3(0,1,0) * gravity*3, ForceMode.Acceleration);
         }
-        Debug.Log(checkground());
     }
+
+
+
 
     bool checkground()
     {
@@ -298,6 +301,17 @@ public class Controller : MonoBehaviour {
 
     }
 
+
+    public void LimitCut()
+    {
+        limit = limit / 2;
+        Invoke("LimitReset", 5f);
+    }
+
+    void LimitReset()
+    {
+        limit = limitset;
+    }
 }
 
 

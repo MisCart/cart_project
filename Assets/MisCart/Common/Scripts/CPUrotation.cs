@@ -5,33 +5,26 @@ using UnityEngine;
 public class CPUrotation : MonoBehaviour {
     bool rflag = false;
     private float rotate;
+    private int p = 0;
+    AudioSource audio1;
+   
     // Use this for initialization
     void Start () {
-		
-	}
+        
+    }
 	
 	// Update is called once per frame
-	void Update () {
-        if (rflag == true)
-        {
-
-            if (rotate < 360)
-            {
-                transform.Rotate(new Vector3(0, 5, 0));
-                rotate += 5;
-            }
-            else
-            {
-                rotate = 0;
-                GetComponent<WaypointAgent>().enabled = true;
-                rflag = false;
-            }
-        }
+	void FixedUpdate () {
+        
     }
-
-    void startrotate()
+    void rotatezero()
     {
-        rflag = true;
-        gameObject.GetComponent<WaypointAgent>().enabled = false;
+        rotate = 0;
+    }
+    public void startrotate()
+    {
+        Debug.Log("Hit");
+        Vector3 vct = new Vector3(Random.Range(-5,5), Random.Range(-5, 5), Random.Range(-5, 5));
+        GetComponent<Rigidbody>().AddForce(vct*20,ForceMode.VelocityChange);
     }
 }

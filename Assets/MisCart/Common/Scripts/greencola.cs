@@ -1,24 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class greencola : MonoBehaviour {
     private GameObject cpu;
     private RaycastHit ground;
+    private NavMeshAgent agent;
     bool flag=false;
     int rotate;
     int crash;
-	// Use this for initialization
-	void Start () {
+    int HP = 3;
+    private GameObject fire;
+    private AudioSource ex;
+    // Use this for initialization
+    void Start () {
         rotate = 0;
         crash = 0;
-	}
+        fire = gameObject.transform.Find("GroundExplode").gameObject;
+        agent = GetComponent<NavMeshAgent>();
+        ex = GetComponent<AudioSource>();
+    }
 
 	// Update is called once per frame
 	void Update () {
         //ground = Physics.
-
-
+        Vector3 move = transform.forward;
+        agent.Move(move * Time.deltaTime * 150);
         if (flag == true)
         {
             if (rotate < 1080)
@@ -33,9 +41,11 @@ public class greencola : MonoBehaviour {
                 Destroy(gameObject);
             }
         }
-        if (crash == 3)
+        if (HP==0)
         {
-            Destroy(gameObject);
+            fire.SetActive(true);
+            ex.PlayOneShot(ex.clip);
+            Invoke("Des",1);
         }
 	}
 
@@ -45,11 +55,24 @@ public class greencola : MonoBehaviour {
         if (col.gameObject.tag == "CPU")
         {
             cpu = col.gameObject;
-            col.gameObject.GetComponent<WaypointAgent>().enabled = false;
-            gameObject.GetComponent<SphereCollider>().enabled = false;
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            fire.SetActive(true);
+            ex.PlayOneShot(ex.clip);
+            cpu.GetComponent<CPUrotation>().startrotate();
+            //col.gameObject.GetComponent<WaypointAgent>().enabled = false;
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+            transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
+            transform.GetChild(1).gameObject.SetActive(false);
             flag = true;
         }
+        else
+        {
+            HP--;
+        }
         crash++;
+    }
+
+    void Des()
+    {
+        Destroy(gameObject);
     }
 }

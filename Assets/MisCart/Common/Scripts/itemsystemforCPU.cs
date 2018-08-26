@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class itemsystemforCPU : MonoBehaviour
 {
@@ -8,16 +9,18 @@ public class itemsystemforCPU : MonoBehaviour
     [SerializeField]
     private float colaspeed;
     public Transform itempos;
+    public Transform itempos2;
     public GameObject gcolaitem;
     public GameObject rcolaitem;
-    public GameObject kcolaitem;
+    [SerializeField] private GameObject codeitem;
+
     GameObject nearestCPU;
     AudioSource audio3;
     AudioSource audio4;
     bool gcola = false;
     bool rcola = false;
-    bool kcola = false;
-    bool muteki = false;
+
+    bool code = false;
 
     GameObject[] tagobjs;
     float mindis = 1000;
@@ -25,6 +28,7 @@ public class itemsystemforCPU : MonoBehaviour
     void Start()
     {
         tagobjs = GameObject.FindGameObjectsWithTag("CPU");
+        
         AudioSource[] audioSources = GetComponents<AudioSource>();
         audio3 = audioSources[0];
         audio4 = audioSources[1];
@@ -44,22 +48,14 @@ public class itemsystemforCPU : MonoBehaviour
 
             gcola = false;
         }
-        if (kcola == true)
-        {
-            audio3.PlayOneShot(audio3.clip);
-            GameObject bullet = GameObject.Instantiate(kcolaitem) as GameObject;
-            Vector3 force;
-            force = this.gameObject.transform.forward * colaspeed;
-            bullet.transform.position = itempos.position + new Vector3(0, 2, 0);
-            bullet.GetComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);
-
-            kcola = false;
-        }
+       
         if (rcola == true)
         {
             audio3.PlayOneShot(audio3.clip);
             GameObject bullet = GameObject.Instantiate(rcolaitem) as GameObject;
-
+            Debug.Log(bullet.transform.position);
+            bullet.transform.position = itempos.position;
+            bullet.GetComponent<NavMeshAgent>().enabled = true;
             foreach (GameObject obj in tagobjs)
             {
                 float dis = Vector3.Distance(transform.position, obj.transform.position);
@@ -77,54 +73,69 @@ public class itemsystemforCPU : MonoBehaviour
             bullet.SendMessage("Settarget", nearestCPU);
             Vector3 force;
             force = this.gameObject.transform.forward * colaspeed;
-            bullet.transform.position = itempos.position;
-            bullet.GetComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);
+            //bullet.transform.position = itempos.position;
+            //bullet.GetComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);
 
             rcola = false;
         }
-        if (muteki == true)
+        if (code == true)
         {
-            audio4.PlayOneShot(audio4.clip);
-            gameObject.SendMessage("StartMuteki");
-            GetComponent<muteki>().Invoke("EndMuteki", 10f);
-            muteki = false;
+            //audio4.PlayOneShot(audio4.clip);
+            GameObject _code = GameObject.Instantiate(codeitem) as GameObject;
+            _code.transform.position = itempos2.position;
+
+            code = false;
         }
+
+
+
+
+
+
     }
 
 
     void OnTriggerEnter(Collider col)
     {
-        if ((gcola == false) && (rcola == false) && (kcola == false) && (muteki == false))
+        if ((gcola == false) && (rcola == false)&& (code == false))
         {
 
 
             if (col.gameObject.tag == "item")
             {
                 col.gameObject.SendMessage("itemcollision");
-                itemnum = Random.Range(1, 5);
-
-                if (itemnum == 1)
-                {
-                    gcola = true;
-                }
-                else if (itemnum == 2)
-                {
-                    rcola = true;
-                }
-                else if (itemnum == 3)
-                {
-                    kcola = true;
-                }
-                else if (itemnum == 4)
-                {
-                    muteki = true;
-                }
-                else if (itemnum == 5)
-                {
-
-                }
+                Invoke("UseItem", Random.Range(1, 7));
+               
             }
         }
 
+
+
+
+
+     
+    }
+
+    void UseItem()
+    {
+        itemnum = Random.Range(1, 4);
+        if (itemnum == 1)
+        {
+            gcola = true;
+        }
+        else if (itemnum == 2)
+        {
+            rcola = true;
+        }
+
+        else if (itemnum == 3)
+        {
+            code = true;
+        }
+        else if (itemnum == 5)
+        {
+
+        }
     }
 }
+

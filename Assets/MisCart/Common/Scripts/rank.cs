@@ -10,12 +10,18 @@ namespace UnityStandardAssets.Utility
         [SerializeField]
         private Transform[] circuit;
         GameObject[] tagobjs;
+        GameObject rtag;
         int reach;
         int next;
         int ranknum;
         float dis;
         private Text ranktext;
         // Use this for initialization
+        public GameObject gettag()
+        {
+            return rtag;
+        }
+
         void Start()
         {
             tagobjs = GameObject.FindGameObjectsWithTag("CPU");
@@ -50,6 +56,7 @@ namespace UnityStandardAssets.Utility
                 float cpudis= GetFractionOfPathCovered(obj.transform.position, circuit[reach].position, circuit[next].position);
                 if ((cpudis > dis)||(cpudis>1))
                 {
+                    rtag = obj;
                     ranknum++;
                 }
             }

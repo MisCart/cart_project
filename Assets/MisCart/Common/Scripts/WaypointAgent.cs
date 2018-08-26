@@ -29,15 +29,18 @@ public class WaypointAgent : MonoBehaviour {
     [SerializeField, Range(0, 500)]
 
     float limit = 140f;
+    float limitset = 0;
     float lPower = 60f;
     bool isCounting = true;
     float timer = 0f;
-    
+    Vector3 correction = Vector3.zero;
     // Use this for initialization
     void Start () {
-       
+        limitset = limit;
         tracker = GetComponent<WaypointProgressTracker>();
         rigidbody = GetComponent<Rigidbody>();
+        correction = new Vector3(Random.Range(-5.0f,5.0f),0,Random.Range(-5.0f,5.0f));
+        Debug.Log(correction);
 	}
 
     // Update is called once per frame
@@ -82,19 +85,38 @@ public class WaypointAgent : MonoBehaviour {
             rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
         }
 
-        Vector3 localTarget = tracker.target.position - transform.position;
+        Vector3 localTarget = tracker.target.position - transform.position+correction;
 
         float targetAngle = Mathf.Atan2(localTarget.x, localTarget.z) * Mathf.Rad2Deg;
 
         //float steer = Mathf.Clamp(targetAngle * 0.01f, -1, 1)* Mathf.Sign(rigidbody.velocity.magnitude * 2.23693629f);
-        
+
         //float m_SteerAngle = steer * SteerLevel;
+
+
+
         
+        Vector3 dir2= new Vector3(0,targetAngle,0);
 
+        //transform.LookAt(tracker.target.position);
 
-        transform.rotation = Quaternion.Euler(0,targetAngle,0);
-      
-      
+        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(localTarget), 0.015f);
 
+    }
+
+    private void LateUpdate()
+    {
+        transform.LookAt(tracker.target.position);
+    }
+
+    public void LimitCut()
+    {
+        limit = limit / 2;
+        Invoke("LimitReset",5f);
+    }
+
+    void LimitReset()
+    {
+        limit = limitset;
     }
 }
