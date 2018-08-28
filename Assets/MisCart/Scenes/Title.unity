@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 8
+  serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -39,10 +39,11 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 11
   m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
@@ -54,11 +55,10 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 8
+    serializedVersion: 10
     m_Resolution: 2
     m_BakeResolution: 40
-    m_TextureWidth: 1024
-    m_TextureHeight: 1024
+    m_AtlasSize: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -71,23 +71,26 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-    m_MixedBakeMode: 3
+    m_MixedBakeMode: 2
     m_BakeBackend: 0
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFiltering: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousColorSigma: 1
-    m_PVRFilteringAtrousNormalSigma: 1
-    m_PVRFilteringAtrousPositionSigma: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_ShadowMaskMode: 2
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -107,6 +110,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    debug:
+      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &256436504
 GameObject:
@@ -681,7 +686,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 537602234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8c42693e54c34f62ac9ce707b96173d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ee53f6ca716d4fbabe348ce0a8dcd5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scene: 1
@@ -901,8 +906,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 602536175}
+  - component: {fileID: 602536179}
+  - component: {fileID: 602536178}
+  - component: {fileID: 602536181}
+  - component: {fileID: 602536180}
   - component: {fileID: 602536176}
-  - component: {fileID: 602536177}
   m_Layer: 0
   m_Name: TitleManager
   m_TagString: Untagged
@@ -931,12 +939,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 602536174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59c86b33d05a14a339df7651352a15e5, type: 3}
+  m_Script: {fileID: 11500000, guid: f4082dcb4375e47d78ea461708cb4980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   uiCanvas: {fileID: 1645265591}
   frontCanvas: {fileID: 1041797769}
---- !u!114 &602536177
+--- !u!114 &602536178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -944,9 +952,95 @@ MonoBehaviour:
   m_GameObject: {fileID: 602536174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2cb3f6523e69447b9c9af01f5168c7d, type: 3}
+  m_Script: {fileID: 11500000, guid: a27b962ddfa21461eb78fac1cb2f955f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 602536179}
+  m_Parent: {fileID: 0}
+  m_StateName: StateMachine
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 0, y: 0}
+  m_Transitions: []
+  m_CachedInstanceID: 11230
+  m_Description: 
+  m_EnabledState: {fileID: 0}
+  m_LastEnabledState: {fileID: 0}
+  m_StartState: {fileID: 602536181}
+  m_AnyState: {fileID: 0}
+  m_ConcurrentState: {fileID: 0}
+--- !u!114 &602536179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 602536174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634db10235c0241d6ad43433a106016d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FloatVars: []
+  m_IntVars: []
+  m_BoolVars: []
+  m_StringVars: []
+  m_Vector3Vars: []
+  m_RectVars: []
+  m_ColorVars: []
+  m_QuaternionVars: []
+  m_GameObjectVars: []
+  m_TextureVars: []
+  m_MaterialVars: []
+  m_ObjectVars: []
+  m_DynamicLists: []
+  m_FsmEvents: []
+  m_ConcreteFsmEvents:
+  - m_ID: 1208455943
+    m_Name: EndAction
+    m_Blackboard: {fileID: 602536179}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  m_Namespace: 
+--- !u!114 &602536180
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 602536174}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3bcf1c8741c463b99cabdf9f79fb6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 602536179}
+  m_Parent: {fileID: 602536178}
+  m_StateName: TitleAnimationState
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 220, y: 130}
+  m_Transitions: []
+  m_CachedInstanceID: -14404
+--- !u!114 &602536181
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 602536174}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d140bd911bb346fabd15bdf0f40cd7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 602536179}
+  m_Parent: {fileID: 602536178}
+  m_StateName: StandbyState
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 40, y: 210}
+  m_Transitions:
+  - m_Destination: {fileID: 602536180}
+    m_EventID: 1208455943
+  m_CachedInstanceID: -12162
 --- !u!1 &623695025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1725,11 +1819,11 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!1 &1296641778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1989,8 +2083,8 @@ GameObject:
   - component: {fileID: 1514747293}
   - component: {fileID: 1514747295}
   - component: {fileID: 1514747294}
-  - component: {fileID: 1514747296}
   - component: {fileID: 1514747297}
+  - component: {fileID: 1514747296}
   m_Layer: 5
   m_Name: Sibazono
   m_TagString: Untagged
@@ -2059,7 +2153,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1514747292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8c42693e54c34f62ac9ce707b96173d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ee53f6ca716d4fbabe348ce0a8dcd5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scene: 2
@@ -2317,7 +2411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splashScreen: {fileID: 1296641782}
   loading: {fileID: 1251144754}
-  slideShow: {fileID: 1703833684}
+  slideShow: {fileID: 1703833682}
   clickToStart: {fileID: 2109047486}
   IsScreen: 1
 --- !u!114 &1645265592
@@ -2345,7 +2439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1703833681}
   - component: {fileID: 1703833683}
-  - component: {fileID: 1703833684}
+  - component: {fileID: 1703833682}
   m_Layer: 0
   m_Name: SlideShow
   m_TagString: Untagged
@@ -2373,13 +2467,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1703833683
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1703833680}
---- !u!114 &1703833684
+--- !u!114 &1703833682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -2390,14 +2478,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad9dd611d8bd4278b0d7b19cfff2e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  images:
-  - {fileID: 21300000, guid: 72abeb24641ff4bfbbb050cbd264aca9, type: 3}
-  - {fileID: 21300000, guid: f25ad1afd2df1442094f6db72215b77b, type: 3}
-  - {fileID: 21300000, guid: c5402b7ec23d7427db5b38ef31aacd8a, type: 3}
-  prevImageObject: {fileID: 840863281}
-  nextImageObject: {fileID: 1966602930}
+  images: []
+  prevImageObject: {fileID: 1966602930}
+  nextImageObject: {fileID: 840863281}
   waitTime: 5
   changeSlideTime: 0.5
+--- !u!222 &1703833683
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1703833680}
 --- !u!1 &1908391634
 GameObject:
   m_ObjectHideFlags: 0
@@ -2711,11 +2802,11 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!1 &2109047481
 GameObject:
   m_ObjectHideFlags: 0
