@@ -16,6 +16,7 @@ namespace Title
         {
     		TitleManager.UI.SplashScreen.SetActive(false);
     		TitleManager.UI.Start.SetActive(false);
+            TitleManager.UI.StageSelect.SetActive(false);
     		TitleManager.Front.Camera.gameObject.SetActive(false);
     		TitleManager.Front.SetActive(false);
             SendEvent("EndAction");

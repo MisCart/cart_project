@@ -26,8 +26,7 @@ namespace Title
         public void OnClick()
 		{
 			SoundController.PlaySE(Model.SE.ButtonClick);
-			TitleManager.Front.Camera.gameObject.SetActive(true);
-			TitleManager.Front.SetActive(true);
+			TitleManager.UI.StageSelect.SetActive(true);
 		}
 
         void OnDisable() {

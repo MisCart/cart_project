@@ -12,12 +12,14 @@ namespace Title.UI
 		[SerializeField] SplashScreen splashScreen;
 		[SerializeField] SlideShow slideShow;
 		[SerializeField] ClickToStart clickToStart;
+		[SerializeField] StageSelect stageSelect;
 
 		Action onClick;
 
 		public SplashScreen SplashScreen { get { return splashScreen; } }
 		public SlideShow SlideShow { get { return slideShow; } }
 		public ClickToStart Start { get { return clickToStart; } }
+		public StageSelect StageSelect {get { return stageSelect; } }
 
 		public void OnClick()
 		{

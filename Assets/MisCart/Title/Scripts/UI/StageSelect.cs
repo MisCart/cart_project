@@ -11,8 +11,8 @@ namespace Title.UI
         [SerializeField] CanvasGroup canvas;
         [SerializeField] RectTransform rect;
         Tween tween;
-        
-        void SetActive(bool value) 
+
+        public void SetActive(bool value)
         {
             gameObject.SetActive(value);
         }
@@ -21,7 +21,7 @@ namespace Title.UI
         {
             TweenKill();
             Reset();
-            
+
             var scale = rect.DOScale(
                 new Vector3(1f, 1f, 1f),
                 0.4f
@@ -45,7 +45,7 @@ namespace Title.UI
 
         void OnDestroy()
         {
-            TweenKill();            
+            TweenKill();
         }
 
         void Reset()
