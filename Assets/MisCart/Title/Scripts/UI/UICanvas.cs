@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,15 +12,22 @@ namespace Title.UI
 		[SerializeField] SplashScreen splashScreen;
 		[SerializeField] SlideShow slideShow;
 		[SerializeField] ClickToStart clickToStart;
+
+		Action onClick;
+
 		public SplashScreen SplashScreen { get { return splashScreen; } }
 		public SlideShow SlideShow { get { return slideShow; } }
 		public ClickToStart Start { get { return clickToStart; } }
 
 		public void OnClick()
 		{
-			SoundController.PlaySE(Model.SE.ButtonClick);
-			TitleManager.Front.Camera.gameObject.SetActive(true);
-			TitleManager.Front.SetActive(true);
+			if (onClick != null){
+				onClick();
+			}
+		}
+
+		public void SetOnClick(Action action=null){
+			onClick = action;
 		}
 	}
 }

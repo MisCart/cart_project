@@ -14,14 +14,24 @@ namespace Title
 		{
 			TitleManager.UI.Start.SetActive(true);
 			TitleManager.UI.SlideShow.SetActive(true);
-			SoundController.PlayBGM(Model.BGM.Title);
+            TitleManager.UI.SetOnClick(() => OnClick());
 
             //スライドショー
 			var slideShow = TitleManager.UI.SlideShow.slide();
 			StartCoroutine(slideShow);
+
+			SoundController.PlayBGM(Model.BGM.Title);
 		}
 
-		private void OnDisable() {
+        public void OnClick()
+		{
+			SoundController.PlaySE(Model.SE.ButtonClick);
+			TitleManager.Front.Camera.gameObject.SetActive(true);
+			TitleManager.Front.SetActive(true);
 		}
+
+        void OnDisable() {
+            TitleManager.UI.SetOnClick();
+        }
 	}
 }
