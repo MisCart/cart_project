@@ -15,8 +15,6 @@ namespace Title
         void Start ()
         {
     		TitleManager.UI.SplashScreen.SetActive(false);
-    		TitleManager.UI.Loading.SetActive(false);
-    		TitleManager.UI.SlideShow.SetActive(false);
     		TitleManager.UI.Start.SetActive(false);
     		TitleManager.Front.Camera.gameObject.SetActive(false);
     		TitleManager.Front.SetActive(false);
