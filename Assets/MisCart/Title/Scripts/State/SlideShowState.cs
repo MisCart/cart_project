@@ -7,30 +7,35 @@ using MisCart;
 
 namespace Title
 {
-	[AddComponentMenu("MisCart/Title/SlideShowState")]
-	public class SlideShowState : StateBehaviour
+	[AddComponentMenu("SlideShowState")]
+	public class SlideShowState : TitleStateBehaviour
 	{
-		void Start ()
+		void Start()
 		{
-			TitleManager.UI.Start.SetActive(true);
-			TitleManager.UI.SlideShow.SetActive(true);
-            TitleManager.UI.SetOnClick(() => OnClick());
-
             //スライドショー
 			var slideShow = TitleManager.UI.SlideShow.slide();
 			StartCoroutine(slideShow);
-
 			SoundController.PlayBGM(Model.BGM.Title);
 		}
 
-        public void OnClick()
+		void OnEnable()
 		{
-			SoundController.PlaySE(Model.SE.ButtonClick);
-			TitleManager.UI.StageSelect.SetActive(true);
+			TitleManager.UI.ClickToStart.SetActive(true);
+			TitleManager.UI.SlideShow.SetActive(true);
+            TitleManager.UI.SetOnClick(() => OnClick());
 		}
 
+        public override void OnClick()
+		{
+			SoundController.PlaySE(Model.SE.ButtonClick);
+			TitleManager.UI.CharacterSelect.SetActive(true);
+			SendEvent("EndAction");
+		}
+
+		public override void OnBack(){}
+
         void OnDisable() {
-            TitleManager.UI.SetOnClick();
+    		TitleManager.UI.ClickToStart.SetActive(false);
         }
 	}
 }

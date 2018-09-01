@@ -7,8 +7,8 @@ using MisCart;
 
 namespace Title
 {
-	[AddComponentMenu("MisCart/Title/SplashScreenState")]
-	public class SplashScreenState : StateBehaviour
+	[AddComponentMenu("SplashScreenState")]
+	public class SplashScreenState : TitleStateBehaviour
 	{
 		BoolVar isScreen;
 		void Start ()
@@ -27,6 +27,8 @@ namespace Title
 				SendEvent("EndAction");
 			}
 		}
+        public override void OnClick(){}
+		public override void OnBack(){}
 
 		private void OnDisable() {
 			TitleManager.UI.SplashScreen.SetActive(false);

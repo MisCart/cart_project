@@ -5,8 +5,8 @@ using BehaviourMachine;
 
 namespace Title
 {
-    [AddComponentMenu("MisCart/Title/StandbyState")]
-    public class StandbyState : StateBehaviour
+    [AddComponentMenu("StandbyState")]
+    public class StandbyState : TitleStateBehaviour
     {
 
         /// <summary>
@@ -15,15 +15,16 @@ namespace Title
         void Start ()
         {
     		TitleManager.UI.SplashScreen.SetActive(false);
-    		TitleManager.UI.Start.SetActive(false);
+    		TitleManager.UI.ClickToStart.SetActive(false);
             TitleManager.UI.StageSelect.SetActive(false);
+            TitleManager.UI.CharacterSelect.SetActive(false);
     		TitleManager.Front.Camera.gameObject.SetActive(false);
     		TitleManager.Front.SetActive(false);
+    		TitleManager.Model.SetActive(false);
+    		TitleManager.Model.Character.SetActive(false);
             SendEvent("EndAction");
         }
-
-        void Update () {
-
-        }
+        public override void OnClick(){}
+		public override void OnBack(){}
     }
 }
