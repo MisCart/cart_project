@@ -29,7 +29,7 @@ namespace Title
         public override void OnClick()
 		{
 			SoundController.PlaySE(Model.SE.ButtonClick);
-			TitleManager.UI.CharacterSelect.SetActive(true);
+			TitleManager.UI.CharacterSelectMenu.SetActive(true);
 			SendEvent("EndAction");
 		}
 
