@@ -13,6 +13,7 @@ namespace Title.UI
 		[SerializeField] SlideShow slideShow;
 		[SerializeField] ClickToStart clickToStart;
 		[SerializeField] CharacterSelectMenu characterSelectMenu;
+		[SerializeField] CartSelectMenu cartSelectMenu;
 		[SerializeField] StageSelect stageSelect;
 		[SerializeField] GameObject character;
 		[SerializeField] GameObject[] cart;
@@ -24,6 +25,7 @@ namespace Title.UI
 		public SlideShow SlideShow { get { return slideShow; } }
 		public ClickToStart ClickToStart { get { return clickToStart; } }
 		public CharacterSelectMenu CharacterSelectMenu {get { return characterSelectMenu; } }
+		public CartSelectMenu CartSelectMenu {get { return cartSelectMenu; } }
 		public StageSelect StageSelect {get { return stageSelect; } }
 		public GameObject Character { get { return character; } }
 		public GameObject[] Cart { get { return cart; } }

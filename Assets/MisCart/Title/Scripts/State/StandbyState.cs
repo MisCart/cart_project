@@ -18,6 +18,7 @@ namespace Title
     		TitleManager.UI.ClickToStart.SetActive(false);
             TitleManager.UI.StageSelect.SetActive(false);
             TitleManager.UI.CharacterSelectMenu.SetActive(false);
+            TitleManager.UI.CartSelectMenu.SetActive(false);
     		TitleManager.Front.Camera.gameObject.SetActive(false);
     		TitleManager.Front.SetActive(false);
     		TitleManager.Model.SetActive(false);

@@ -23,8 +23,6 @@ namespace Title
 
         public override void OnBack()
 		{
-			TitleManager.UI.Character.SetActive(false);
-			TitleManager.UI.CharacterSelectMenu.SetActive(false);
 			SendEvent("EndAction");
 		}
 
@@ -32,6 +30,11 @@ namespace Title
 			if(blackboard.GetIntVar("CharaId").Value > 0){
 				SendEvent("CharaId > 0");
 			}
+		}
+
+		void OnDisable() {
+			TitleManager.UI.Character.SetActive(false);
+			TitleManager.UI.CharacterSelectMenu.SetActive(false);
 		}
 	}
 }
