@@ -23,6 +23,7 @@ namespace Title
 			TitleManager.UI.ClickToStart.SetActive(true);
 			TitleManager.UI.SlideShow.SetActive(true);
             TitleManager.UI.SetOnClick(() => OnClick());
+            TitleManager.UI.SetOnBack(() => OnBack());
 		}
 
         public override void OnClick()

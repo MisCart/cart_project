@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using Transition;
 using MisCart;
 
-namespace Title.UI
+namespace Title
 {
 	public class ChangeScene : MonoBehaviour
 	{
