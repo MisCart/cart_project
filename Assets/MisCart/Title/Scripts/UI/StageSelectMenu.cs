@@ -6,7 +6,7 @@ using DG.Tweening;
 
 namespace Title.UI
 {
-	public class StageSelect : MonoBehaviour
+	public class StageSelectMenu : MonoBehaviour
 	{
         [SerializeField] CanvasGroup canvas;
         [SerializeField] RectTransform rect;
@@ -17,6 +17,9 @@ namespace Title.UI
             gameObject.SetActive(value);
         }
 
+        /// <summary>
+        /// 中央に拡大+フェードで表示されるアニメーション
+        /// </summary>
         void OnEnable()
         {
             TweenKill();
