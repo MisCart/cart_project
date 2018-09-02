@@ -250,7 +250,6 @@ GameObject:
   - component: {fileID: 57945342}
   - component: {fileID: 57945341}
   - component: {fileID: 57945340}
-  - component: {fileID: 57945339}
   - component: {fileID: 57945338}
   m_Layer: 5
   m_Name: Cart6
@@ -291,18 +290,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
---- !u!114 &57945339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 57945336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df78385ec9e8a4e4d9c31c7c95c04258, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chara: 0
 --- !u!114 &57945340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,7 +781,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.00000500679, y: 16.1}
+  m_AnchoredPosition: {x: -0.00000500679, y: 16.099998}
   m_SizeDelta: {x: 220, y: 58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &213154516
@@ -1103,7 +1090,6 @@ GameObject:
   - component: {fileID: 364086201}
   - component: {fileID: 364086200}
   - component: {fileID: 364086199}
-  - component: {fileID: 364086198}
   - component: {fileID: 364086197}
   m_Layer: 5
   m_Name: Cart5
@@ -1144,18 +1130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
---- !u!114 &364086198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 364086195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df78385ec9e8a4e4d9c31c7c95c04258, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chara: 0
 --- !u!114 &364086199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1431,7 +1405,6 @@ GameObject:
   - component: {fileID: 497050918}
   - component: {fileID: 497050917}
   - component: {fileID: 497050916}
-  - component: {fileID: 497050915}
   - component: {fileID: 497050914}
   m_Layer: 5
   m_Name: Cart4
@@ -1472,18 +1445,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
---- !u!114 &497050915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 497050912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df78385ec9e8a4e4d9c31c7c95c04258, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chara: 0
 --- !u!114 &497050916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2241,7 +2202,7 @@ MonoBehaviour:
     m_IsConstant: 0
     m_IsSystem: 0
   - m_ID: 1802588142
-    m_Name: CHaraId == 0
+    m_Name: CharaId == 0
     m_Blackboard: {fileID: 602536179}
     m_IsConstant: 0
     m_IsSystem: 0
@@ -2659,11 +2620,10 @@ GameObject:
   - component: {fileID: 718596667}
   - component: {fileID: 718596672}
   - component: {fileID: 718596671}
-  - component: {fileID: 718596670}
   - component: {fileID: 718596669}
-  - component: {fileID: 718596668}
+  - component: {fileID: 718596670}
   m_Layer: 5
-  m_Name: Cart Select *
+  m_Name: Cart Select  Menu*
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2691,19 +2651,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -1.4000003}
   m_SizeDelta: {x: 600, y: 476}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &718596668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 718596666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efb797d986cce4306bd670d7d8bb3949, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 718596669}
-  rect: {fileID: 718596667}
 --- !u!225 &718596669
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2723,7 +2670,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 718596666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27259421fad114139a75fbb351878657, type: 3}
+  m_Script: {fileID: 11500000, guid: d688ea46927a24b3db121de2926a8871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 718596669}
@@ -5412,7 +5359,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.00000500679, y: 17.6}
+  m_AnchoredPosition: {x: 0.00000500679, y: 17.599998}
   m_SizeDelta: {x: 220, y: 58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1527866368
@@ -5493,8 +5440,8 @@ GameObject:
   - component: {fileID: 1556536176}
   - component: {fileID: 1556536175}
   - component: {fileID: 1556536174}
-  - component: {fileID: 1556536173}
   - component: {fileID: 1556536172}
+  - component: {fileID: 1556536173}
   m_Layer: 5
   m_Name: Cart2
   m_TagString: Untagged
@@ -5532,7 +5479,41 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1556536173}
+          m_MethodName: OnMouseEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1556536173}
+          m_MethodName: OnMouseExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
 --- !u!114 &1556536173
 MonoBehaviour:
@@ -5542,10 +5523,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1556536170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df78385ec9e8a4e4d9c31c7c95c04258, type: 3}
+  m_Script: {fileID: 11500000, guid: 9afa07ac844b743ca993af6b91bf28b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chara: 0
+  cart: 2
 --- !u!114 &1556536174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5585,8 +5566,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SwitchScene
+      - m_Target: {fileID: 1556536173}
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6071,6 +6052,7 @@ MonoBehaviour:
   slideShow: {fileID: 1703833682}
   clickToStart: {fileID: 2109047486}
   characterSelectMenu: {fileID: 286535588}
+  cartSelectMenu: {fileID: 718596670}
   stageSelect: {fileID: 1345397096}
   character: {fileID: 206598700}
   cart:
@@ -6367,8 +6349,8 @@ GameObject:
   - component: {fileID: 1753284322}
   - component: {fileID: 1753284321}
   - component: {fileID: 1753284320}
-  - component: {fileID: 1753284319}
   - component: {fileID: 1753284318}
+  - component: {fileID: 1753284319}
   m_Layer: 5
   m_Name: Cart1
   m_TagString: Untagged
@@ -6450,10 +6432,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1753284316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df78385ec9e8a4e4d9c31c7c95c04258, type: 3}
+  m_Script: {fileID: 11500000, guid: 9afa07ac844b743ca993af6b91bf28b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chara: 1
+  cart: 1
 --- !u!114 &1753284320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6493,8 +6475,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SwitchScene
+      - m_Target: {fileID: 1753284319}
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6859,7 +6841,6 @@ GameObject:
   - component: {fileID: 1897755571}
   - component: {fileID: 1897755570}
   - component: {fileID: 1897755569}
-  - component: {fileID: 1897755568}
   - component: {fileID: 1897755567}
   m_Layer: 5
   m_Name: Cart3
@@ -6900,18 +6881,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
---- !u!114 &1897755568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1897755565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df78385ec9e8a4e4d9c31c7c95c04258, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chara: 0
 --- !u!114 &1897755569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7122,6 +7091,7 @@ GameObject:
   - component: {fileID: 1912596392}
   - component: {fileID: 1912596394}
   - component: {fileID: 1912596393}
+  - component: {fileID: 1912596395}
   m_Layer: 0
   m_Name: cart1
   m_TagString: Untagged
@@ -7198,6 +7168,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1912596391}
   m_Mesh: {fileID: 4300000, guid: 2aac8def64fe19445a9b6549d3f780a4, type: 3}
+--- !u!114 &1912596395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1912596391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9afa07ac844b743ca993af6b91bf28b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cart: 1
 --- !u!1 &1914333993
 GameObject:
   m_ObjectHideFlags: 0
