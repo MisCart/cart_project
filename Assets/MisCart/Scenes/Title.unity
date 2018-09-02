@@ -2070,6 +2070,7 @@ GameObject:
   - component: {fileID: 602536177}
   - component: {fileID: 602536183}
   - component: {fileID: 602536184}
+  - component: {fileID: 602536185}
   m_Layer: 0
   m_Name: TitleManager
   m_TagString: Untagged
@@ -2206,6 +2207,16 @@ MonoBehaviour:
     m_Blackboard: {fileID: 602536179}
     m_IsConstant: 0
     m_IsSystem: 0
+  - m_ID: 1301650392
+    m_Name: CartId > 0
+    m_Blackboard: {fileID: 602536179}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: 1186151275
+    m_Name: CartId == 0
+    m_Blackboard: {fileID: 602536179}
+    m_IsConstant: 0
+    m_IsSystem: 0
   m_Namespace: 
 --- !u!114 &602536180
 MonoBehaviour:
@@ -2234,7 +2245,7 @@ MonoBehaviour:
   m_StateName: StandbyState
   m_Color: 0
   m_HideScript: 1
-  m_Position: {x: -50, y: 0}
+  m_Position: {x: -90, y: 120}
   m_Transitions:
   - m_Destination: {fileID: 602536182}
     m_EventID: 1208455943
@@ -2255,7 +2266,7 @@ MonoBehaviour:
   m_StateName: SplashScreenState
   m_Color: 0
   m_HideScript: 1
-  m_Position: {x: 210, y: -70}
+  m_Position: {x: 50, y: -70}
   m_Transitions:
   - m_Destination: {fileID: 602536177}
     m_EventID: 1208455943
@@ -2303,7 +2314,30 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 602536183}
     m_EventID: 1802588142
+  - m_Destination: {fileID: 602536185}
+    m_EventID: 1301650392
   m_CachedInstanceID: 115682
+--- !u!114 &602536185
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 602536174}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e7016510be84698b5114affbe27032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 602536179}
+  m_Parent: {fileID: 602536178}
+  m_StateName: StageSelectState
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 210, y: 390}
+  m_Transitions:
+  - m_Destination: {fileID: 602536184}
+    m_EventID: 1186151275
+  m_CachedInstanceID: -1438148
 --- !u!1 &623695025
 GameObject:
   m_ObjectHideFlags: 0
@@ -4660,10 +4694,10 @@ GameObject:
   - component: {fileID: 1345397092}
   - component: {fileID: 1345397094}
   - component: {fileID: 1345397093}
-  - component: {fileID: 1345397096}
   - component: {fileID: 1345397095}
+  - component: {fileID: 1345397096}
   m_Layer: 5
-  m_Name: Stage Select *
+  m_Name: Stage Select Menu*
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4742,7 +4776,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1345397091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27259421fad114139a75fbb351878657, type: 3}
+  m_Script: {fileID: 11500000, guid: 9960cc82f038c4e15b81a0f4689ed310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1345397095}
@@ -6053,7 +6087,7 @@ MonoBehaviour:
   clickToStart: {fileID: 2109047486}
   characterSelectMenu: {fileID: 286535588}
   cartSelectMenu: {fileID: 718596670}
-  stageSelect: {fileID: 1345397096}
+  stageSelectMenu: {fileID: 1345397096}
   character: {fileID: 206598700}
   cart:
   - {fileID: 1912596391}
@@ -7564,7 +7598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee53f6ca716d4fbabe348ce0a8dcd5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 0
+  scene: 1
 --- !u!114 &2040941529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7603,7 +7637,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2040941526}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2040941528}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &2043036933
