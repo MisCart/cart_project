@@ -6,7 +6,7 @@ using DG.Tweening;
 
 namespace Title.UI
 {
-	public class CharacterSelect : MonoBehaviour
+	public class CharacterSelectMenu : MonoBehaviour
 	{
         [SerializeField] CanvasGroup canvas;
         [SerializeField] RectTransform rect;
