@@ -21,6 +21,9 @@ namespace Title
 			if(blackboard.GetIntVar("CharaId").Value == 0){
 				SendEvent("CharaId == 0");
 			}
+			if(blackboard.GetIntVar("CartId").Value > 0){
+				SendEvent("CartId > 0");
+			}
 		}
 
         public override void OnClick(){}

@@ -13,7 +13,7 @@ namespace Title
 	{
 		public Model.GameScenes scene;
 
-		public void SwitchScene()
+		public void OnClick()
 		{
 			SoundController.PlaySE(Model.SE.SendToRaceScene);
 			SceneLoader.LoadScene(scene, new[] { Model.GameScenes.GameUI });
