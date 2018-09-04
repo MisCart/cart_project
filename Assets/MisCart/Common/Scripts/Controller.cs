@@ -71,6 +71,9 @@ public class Controller : MonoBehaviour {
             handle = 80f;
             s = 0; e = 0;
         }
+
+
+
         if (Input.GetKeyUp(KeyCode.Joystick1Button0))
         {
             audio1.Stop();
@@ -197,13 +200,16 @@ public class Controller : MonoBehaviour {
         transform.Rotate(new Vector3(0, -6.5f, 0) * Time.deltaTime);    //コントローラ接続時のみ有効化
         if (Input.GetKey(KeyCode.Joystick1Button0))
         {
-            if (rigidbody.velocity.magnitude <= limit)
-            {
-                if (sound1 == false)
+            if (sound1 == false)
                 {
                     audio1.PlayOneShot(audio1.clip);
                     sound1 = true;
                 }
+
+
+            if (rigidbody.velocity.magnitude <= limit)
+            {
+                
 
                 rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
             }
