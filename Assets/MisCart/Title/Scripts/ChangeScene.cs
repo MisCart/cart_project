@@ -23,6 +23,8 @@ namespace Title
 			SoundController.PlaySE(Model.SE.Select);
 			SoundController.StopBGM(Model.BGM.TitleSelect, 0.5f);
 			btn.interactable = false;
+			GameData.CharacterId = TitleManager.Board.GetIntVar("CharaId").Value;
+			GameData.CartId = TitleManager.Board.GetIntVar("CartId").Value;
 			SceneLoader.LoadScene(scene, new[] { Model.GameScenes.GameUI });
 		}
 	}
