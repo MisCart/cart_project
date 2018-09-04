@@ -11,7 +11,7 @@ public class BackCamera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if ((Input.GetKey(KeyCode.Q))||(Input.GetKey(KeyCode.Joystick1Button4)))
+        if ((Input.GetKey(KeyCode.Q))|| (Input.GetAxis("LeftTrigger") ==-1))
         {
             backCamera.SetActive(true);
         }
