@@ -13,6 +13,7 @@ namespace Title
 		void OnEnable ()
 		{
             TitleManager.UI.CharacterSelectMenu.SetActive(true);
+			TitleManager.UI.CoverImage.gameObject.SetActive(true);
             TitleManager.UI.SetOnClick(() => OnClick());
             TitleManager.UI.SetOnBack(() => OnBack());
 		}
@@ -24,6 +25,10 @@ namespace Title
         public override void OnBack()
 		{
 			SendEvent("EndAction");
+			SoundController.PlaySE(Model.SE.Cansel);
+			SoundController.StopBGM(Model.BGM.TitleSelect, 0.5f);
+			SoundController.PlayBGM(Model.BGM.Title);
+			TitleManager.UI.CoverImage.gameObject.SetActive(false);
 		}
 
 		void Update() {

@@ -29,6 +29,7 @@ namespace Title
         public override void OnClick(){}
 		public override void OnBack(){
 			blackboard.GetIntVar("CharaId").Value = 0;
+			SoundController.PlaySE(Model.SE.Cansel);
 		}
 
         void OnDisable() {

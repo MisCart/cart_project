@@ -24,6 +24,7 @@ namespace Title
 
         public void OnClick() {
             var id = TitleManager.Board.GetIntVar("CartId");
+			SoundController.PlaySE(Model.SE.Tap);
             id.Value = (int)cart;
         }
 	}

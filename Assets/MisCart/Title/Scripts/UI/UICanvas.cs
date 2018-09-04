@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using MisCart;
 
@@ -15,6 +16,7 @@ namespace Title.UI
 		[SerializeField] CharacterSelectMenu characterSelectMenu;
 		[SerializeField] CartSelectMenu cartSelectMenu;
 		[SerializeField] StageSelectMenu stageSelectMenu;
+		[SerializeField] Image coverImage;
 		[SerializeField] GameObject character;
 		[SerializeField] GameObject[] cart;
 
@@ -27,6 +29,7 @@ namespace Title.UI
 		public CharacterSelectMenu CharacterSelectMenu {get { return characterSelectMenu; } }
 		public CartSelectMenu CartSelectMenu {get { return cartSelectMenu; } }
 		public StageSelectMenu StageSelectMenu {get { return stageSelectMenu; } }
+		public Image CoverImage { get { return coverImage; } }
 		public GameObject Character { get { return character; } }
 		public GameObject[] Cart { get { return cart; } }
 

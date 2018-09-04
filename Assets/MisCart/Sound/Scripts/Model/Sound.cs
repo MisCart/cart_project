@@ -13,13 +13,16 @@ namespace Model
     public enum SE
     {
         SendToRaceScene,
-        ButtonClick,
+        Tap,
+        Cansel,
+        Select,
         bomb1
     }
 
     // Resources/Sounds/BGM にサウンドを追加したときはここにも同じ名前で追加する
     public enum BGM
     {
-        Title
+        Title,
+        TitleSelect
     }
 }

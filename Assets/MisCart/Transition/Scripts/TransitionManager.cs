@@ -69,7 +69,6 @@ namespace Transition
         {
             isRunning = true;
             UI.FadeImage.raycastTarget = true;
-            SoundController.StopAll(0.5f);
 
             //蓋絵で画面を隠す
             isFading = true;
@@ -90,8 +89,6 @@ namespace Transition
                 }
             }
 
-            Resources.UnloadUnusedAssets();
-            GC.Collect();
             yield return null;
 
             //現在シーンを設定
