@@ -8,6 +8,7 @@ namespace Model
 		Title,
 		cart,
 		sibazono,
-		GameUI
+		GameUI,
+		TakoCircuit
 	}
 }
