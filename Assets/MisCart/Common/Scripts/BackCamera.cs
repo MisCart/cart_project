@@ -13,7 +13,7 @@ public class BackCamera : MonoBehaviour {
 	void FixedUpdate () {
         if ((Input.GetKey(KeyCode.Q))|| (Input.GetAxis("LeftTrigger") ==-1))
         {
-            backCamera.SetActive(true);
+            backCamera.SetActive(true);//
         }
         else
         {

@@ -153,7 +153,7 @@ public class itemsystem : MonoBehaviour {
 
     public void sellectitem()
     {
-        itemnum = 3;//Random.Range(1, 3);
+        itemnum = Random.Range(1, 4);
 
         if (itemnum == 1)
         {
