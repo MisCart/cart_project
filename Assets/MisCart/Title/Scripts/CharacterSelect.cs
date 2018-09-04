@@ -14,10 +14,12 @@ namespace Title
 
         public void OnMouseEnter() {
             TitleManager.UI.Character.SetActive(true);
+            TitleManager.UI.CharacterSelectMenu.Questtion.SetActive(false);
         }
 
         public void OnMouseExit() {
             TitleManager.UI.Character.SetActive(false);
+            TitleManager.UI.CharacterSelectMenu.Questtion.SetActive(true);
         }
 
         public void OnClick() {

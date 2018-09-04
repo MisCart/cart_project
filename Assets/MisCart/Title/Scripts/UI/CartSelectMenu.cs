@@ -10,6 +10,9 @@ namespace Title.UI
 	{
         [SerializeField] CanvasGroup canvas;
         [SerializeField] RectTransform rect;
+        [SerializeField] GameObject question;
+
+        public GameObject Questtion {get { return question; } }
         Tween tween;
 
         public void SetActive(bool value)
