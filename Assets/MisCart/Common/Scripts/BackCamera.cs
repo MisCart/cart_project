@@ -13,7 +13,7 @@ public class BackCamera : MonoBehaviour {
 	void FixedUpdate () {
         if ((Input.GetKey(KeyCode.Q))||(Input.GetKey(KeyCode.Joystick1Button4)))
         {
-            backCamera.SetActive(true);
+            backCamera.SetActive(true);//
         }
         else
         {
