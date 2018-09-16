@@ -47,12 +47,12 @@ namespace MisCart
             SoundManager.PlaySE(se, onStart, onFinish);
         }
 
-        public static void StopSE(Model.SE se, int fade = 0)
+        public static void StopSE(Model.SE se, float fade = 0f)
         {
             SoundManager.StopSE(se, fade);
         }
 
-        public static void StopBGM(Model.BGM bgm, int fade = 0)
+        public static void StopBGM(Model.BGM bgm, float fade = 0f)
         {
             SoundManager.StopBGM(bgm, fade);
         }

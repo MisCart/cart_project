@@ -11,7 +11,7 @@ namespace Title.UI
         [SerializeField] Sprite[] images;
 
         [Space(5f)]
-        
+
         [SerializeField] GameObject prevImageObject;
         [SerializeField] GameObject nextImageObject;
 
@@ -41,9 +41,6 @@ namespace Title.UI
 
             prevImage = prevImageObject.GetComponent<Image>();
             nextImage = nextImageObject.GetComponent<Image>();
-            
-            //スプラッシュスクリーンが終わるまで待機
-            while(TitleManager.UI.IsScreen) { yield return null; }
 
             while(count < length)
             {
@@ -79,7 +76,7 @@ namespace Title.UI
                 nextImageObject.SetActive(true);
 
                 yield return new WaitForSeconds(5);
-                
+
                 count++;
                 fadein = false;
                 fadeout = false;

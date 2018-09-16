@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +21,7 @@ namespace Title.UI
 		}
 
 
-		public IEnumerator Screen()
+		public IEnumerator Screen(Action OnComplete)
 		{
 			var miswLogo = misw.GetComponent<Image>();
 			misw.SetActive(true);
@@ -53,14 +54,7 @@ namespace Title.UI
 				color => image.color = color,
 				0f,
 				3f
-			).OnComplete(() => Reset());
-
-		}
-		void Reset()
-		{
-			TitleManager.UI.IsScreen = false;
-			gameObject.SetActive(false);
-			SoundController.PlayBGM(Model.BGM.Title);
+			).OnComplete(() => OnComplete());
 		}
 	}
 }
