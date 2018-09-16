@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MisCart;
 
 public class Controller : MonoBehaviour {
     new  Rigidbody rigidbody  ;
@@ -54,7 +55,8 @@ public class Controller : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.Z))
         {
 
-            audio1.Stop();
+            //audio1.Stop();
+            SoundController.StopSE(Model.SE.SE_car_drive);
             sound1 = false;
 
         }
@@ -76,7 +78,8 @@ public class Controller : MonoBehaviour {
 
         if (Input.GetKeyUp(KeyCode.Joystick1Button0))
         {
-            audio1.Stop();
+            //audio1.Stop();
+            SoundController.StopSE(Model.SE.SE_car_drive);
             sound1 = false;
         }
         if (Input.GetKeyUp(KeyCode.Joystick1Button5))
@@ -121,8 +124,9 @@ public class Controller : MonoBehaviour {
                     {
                        if (sound1 == false)
                        {
-                           audio1.PlayOneShot(audio1.clip);
-                           sound1 = true;
+                           //audio1.PlayOneShot(audio1.clip);
+                            SoundController.PlaySE(Model.SE.SE_car_drive);
+                            sound1 = true;
                        }
 
                       rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
@@ -270,7 +274,7 @@ public class Controller : MonoBehaviour {
         Vector3 dir2 = new Vector3(Mathf.Sin(angleDir2), 0.0f, Mathf.Cos(angleDir2));
 
 
-        transform.rotation=Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(dir2),0.015f);
+        transform.rotation=Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(dir2),0.15f);
         //転倒防止処理ここまで
        
 

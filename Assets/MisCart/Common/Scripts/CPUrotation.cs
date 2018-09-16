@@ -24,7 +24,7 @@ public class CPUrotation : MonoBehaviour {
     public void startrotate()
     {
         Debug.Log("Hit");
-        Vector3 vct = new Vector3(Random.Range(-5,5), Random.Range(-5, 5), Random.Range(-5, 5));
+        Vector3 vct = new Vector3(Random.Range(-5,5), 5, Random.Range(-5, 5));
         GetComponent<Rigidbody>().AddForce(vct*20,ForceMode.VelocityChange);
     }
 }

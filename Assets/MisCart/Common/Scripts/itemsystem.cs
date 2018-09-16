@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using MisCart;
 
 public class itemsystem : MonoBehaviour {
     int itemnum=0;
@@ -18,9 +19,9 @@ public class itemsystem : MonoBehaviour {
     [SerializeField]private GameObject DVDimage;
     [SerializeField]private GameObject CDimage;
     [SerializeField] private GameObject Codeimage;
+    [SerializeField] private GameObject Specialimage;
+    [SerializeField] private GameObject Specialimage2;
     GameObject nearestCPU;
-    AudioSource audio3;
-    AudioSource audio4;
     bool gcola = false;
     bool rcola=false;
     
@@ -33,13 +34,70 @@ public class itemsystem : MonoBehaviour {
 
     GameObject[] tagobjs;
     float mindis = 1000;
-    // Use this for initialization
-    void Start () {
+    private bool special = false;
+    private bool useItem = false;
+
+    public void GetOtherItem(int i)
+    {
+        if (i == 1)
+        {
+            
+            gcola=true;
+        }
+        else if (i == 2)
+        {
+            rcola=true;
+        }
+        else if (i == 3)
+        {
+            code=true;
+        }
+        else
+        {
+            special=true;
+        }
+    }
+
+    public bool GetItemHave(int i)
+    {
+        if (i == 1)
+        {
+            return gcola;
+        }
+        else if (i == 2)
+        {
+            return rcola;
+        }
+        else if (i == 3)
+        {
+            return code;
+        }
+        else
+        {
+            return special;
+        }
+    }
+
+    public void BeHacking()
+    {
+        gcola = false;
+        rcola = false;
+        code = false;
+        special = false;
+    }
+
+    public void SpecialOff()
+    {
+        Specialimage.SetActive(false);
+        Specialimage2.SetActive(false);
+        special = false;
+    }
+
+        // Use this for initialization
+        void Start () {
         ItemSellecter = GameObject.Find("UI");
         tagobjs = GameObject.FindGameObjectsWithTag("CPU");
-        AudioSource[] audioSources = GetComponents<AudioSource>();
-        audio3 = audioSources[2];
-        audio4 = audioSources[3];
+       
     }
 	
 	// Update is called once per frame
@@ -50,7 +108,7 @@ public class itemsystem : MonoBehaviour {
             if (gcola == true)
             {
                 mischan.Play("ItemUse1");
-                audio3.PlayOneShot(audio3.clip);
+                SoundController.PlaySE(Model.SE.アイテム投擲);
                 GameObject bullet = GameObject.Instantiate(gcolaitem) as GameObject;
                 Vector3 force;
                 force = this.gameObject.transform.forward * colaspeed;
@@ -65,7 +123,7 @@ public class itemsystem : MonoBehaviour {
             if (rcola == true)
             {
                 mischan.Play("ItemUse1");
-                audio3.PlayOneShot(audio3.clip);
+                SoundController.PlaySE(Model.SE.アイテム投擲);
                 GameObject bullet2 = GameObject.Instantiate(rcolaitem) as GameObject;
                 //bullet.AddComponent<NavMeshAgent>();
                 Vector3 force;
@@ -103,11 +161,16 @@ public class itemsystem : MonoBehaviour {
             }
             if (code == true)
             {
-                //audio4.PlayOneShot(audio4.clip);
+                SoundController.PlaySE(Model.SE.setup1);
                 GameObject _code = GameObject.Instantiate(codeitem) as GameObject;
                 _code.transform.position = itempos2.position;
 
                 code = false;
+            }
+            if (special == true)
+            {
+                GetComponent<SpecialItem>().UseSpecialItem();
+                //special = false;
             }
         }
     
@@ -125,6 +188,16 @@ public class itemsystem : MonoBehaviour {
         {
             //itemtext.GetComponent<Text>().text = "Muteki";
             Codeimage.SetActive(true);
+        }else if (special==true)
+        {
+            if (GetComponent<SpecialItem>().GetWhichCart() == 1)
+            {
+                Specialimage.SetActive(true);
+            }else if(GetComponent<SpecialItem>().GetWhichCart() == 2)
+            {
+                Specialimage2.SetActive(true);
+            }
+           
         }
         else
         {
@@ -132,19 +205,21 @@ public class itemsystem : MonoBehaviour {
             DVDimage.SetActive(false);
             CDimage.SetActive(false);
             Codeimage.SetActive(false);
+            Specialimage.SetActive(false);
+            Specialimage2.SetActive(false);
         }
 	}
 
     void OnTriggerEnter(Collider col)
     {
-        if ((gcola==false)&&(rcola==false)&&(code==false))
+        if ((gcola==false)&&(rcola==false)&&(code==false)&&(special==false))
         {
 
 
             if (col.gameObject.tag == "item")
             {
                 col.gameObject.SendMessage("itemcollision");
-                itemnum = Random.Range(1, 3);
+                //itemnum = Random.Range(1, 3);
                 ItemSellecter.GetComponent<ItemSellect>().SellectStart();
 
             }
@@ -153,7 +228,7 @@ public class itemsystem : MonoBehaviour {
 
     public void sellectitem()
     {
-        itemnum = Random.Range(1, 4);
+        itemnum = 4;// Random.Range(1, 4);
 
         if (itemnum == 1)
         {
@@ -168,9 +243,9 @@ public class itemsystem : MonoBehaviour {
         {
             code = true;
         }
-        else if (itemnum == 5)
+        else if (itemnum == 4)
         {
-
+            special = true;
         }
     }
 

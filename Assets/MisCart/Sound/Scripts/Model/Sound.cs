@@ -14,12 +14,22 @@ namespace Model
     {
         SendToRaceScene,
         ButtonClick,
-        bomb1
+        bomb1,
+        boost2,
+        encount1,
+        SE_car_drive,
+        powerup2,
+        setup1,
+        アイテム投擲,
+
+
+
     }
 
     // Resources/Sounds/BGM にサウンドを追加したときはここにも同じ名前で追加する
     public enum BGM
     {
-        Title
+        Title,
+        deathmetal2
     }
 }

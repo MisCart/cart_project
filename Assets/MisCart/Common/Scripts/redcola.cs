@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using MisCart;
 
 public class redcola : MonoBehaviour {
     private GameObject cpu;
@@ -39,11 +40,9 @@ public class redcola : MonoBehaviour {
         if (col.gameObject.tag == "CPU")
         {
             cpu = col.gameObject;
-            //cpu.gameObject.GetComponent<WaypointAgent>().enabled = false;
             fire.SetActive(true);
-            ex.PlayOneShot(ex.clip);
+            SoundController.PlaySE(Model.SE.bomb1);
             cpu.GetComponent<CPUrotation>().startrotate();
-            //col.gameObject.GetComponent<WaypointAgent>().enabled = false;
             gameObject.GetComponent<BoxCollider>().enabled = false;
             transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
             transform.GetChild(1).gameObject.SetActive(false);

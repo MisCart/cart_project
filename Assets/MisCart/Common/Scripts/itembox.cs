@@ -1,16 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MisCart;
 
 public class itembox : MonoBehaviour {
     bool playback;
     int playbacktime;
-    AudioSource itemget;
     // Use this for initialization
     void Start () {
         playback = false;
         playbacktime = 0;
-        itemget= GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -32,7 +31,7 @@ public class itembox : MonoBehaviour {
 
     void itemcollision()
     {
-        itemget.PlayOneShot(itemget.clip);
+        SoundController.PlaySE(Model.SE.powerup2);
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         gameObject.GetComponent<Collider>().enabled = false;
         playback = true;
