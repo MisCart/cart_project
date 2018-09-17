@@ -24,6 +24,10 @@ namespace Model
         Tap,
         Cansel,
         Select,
+        paintland,
+        paintfire,
+        hacksuccess,
+        hacklong
 
 
     }
