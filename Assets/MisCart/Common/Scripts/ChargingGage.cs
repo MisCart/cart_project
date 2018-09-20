@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ChargingGage : MonoBehaviour {
     public Slider _slider;
     public float charging;
-    public GameObject Player;
+    private GameObject Player;
     [SerializeField] private float power = 1000f;
     bool inval = false;
     bool isCounting = true;
@@ -14,6 +14,7 @@ public class ChargingGage : MonoBehaviour {
     // Use this for initialization
     void Start () {
         charging = _slider.value;
+        Player = GameObject.FindGameObjectWithTag("Player");
 	}
     void Update()
     {

@@ -9,6 +9,7 @@ namespace UnityStandardAssets.Utility
     {
         [SerializeField]
         private Transform[] circuit;
+        private WaypointCircuit circuit2;
         GameObject[] tagobjs;
         GameObject rtag;
         int reach;
@@ -26,6 +27,7 @@ namespace UnityStandardAssets.Utility
         {
             tagobjs = GameObject.FindGameObjectsWithTag("CPU");
             ranktext = GameObject.FindWithTag("rank").GetComponent<Text>();
+            circuit2 = GameObject.Find("TagPointForAI").GetComponent<WaypointCircuit>();
             reach = 0;
             next = 1;
             ranknum = 1;
@@ -34,7 +36,7 @@ namespace UnityStandardAssets.Utility
         // Update is called once per frame
         void FixedUpdate()
         {
-            dis=GetFractionOfPathCovered(transform.position,circuit[reach].position,circuit[next].position);
+            dis=GetFractionOfPathCovered(transform.position,circuit2.Waypoints[reach].position,circuit2.Waypoints[next].position);
             if (dis > 1)
             {
                 reach++;
@@ -53,7 +55,7 @@ namespace UnityStandardAssets.Utility
 
             foreach(GameObject obj in tagobjs)
             {
-                float cpudis= GetFractionOfPathCovered(obj.transform.position, circuit[reach].position, circuit[next].position);
+                float cpudis= GetFractionOfPathCovered(obj.transform.position, circuit2.Waypoints[reach].position, circuit2.Waypoints[next].position);
                 if ((cpudis > dis)||(cpudis>1))
                 {
                     rtag = obj;

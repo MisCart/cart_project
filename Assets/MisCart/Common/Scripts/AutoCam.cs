@@ -20,6 +20,11 @@ public class AutoCam : MonoBehaviour {
     public GameObject m_Target;
     private Rigidbody targetRigidbody;
 
+    public void SetTarget(GameObject target)
+    {
+        m_Target = target;
+    }
+
 
     float smoothTime = 0.07f;
     // Use this for initialization

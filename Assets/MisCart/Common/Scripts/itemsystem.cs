@@ -16,11 +16,11 @@ public class itemsystem : MonoBehaviour {
     [SerializeField]private GameObject codeitem;
    
     public GameObject itemtext;
-    [SerializeField]private GameObject DVDimage;
-    [SerializeField]private GameObject CDimage;
-    [SerializeField] private GameObject Codeimage;
-    [SerializeField] private GameObject Specialimage;
-    [SerializeField] private GameObject Specialimage2;
+    private GameObject DVDimage;
+    private GameObject CDimage;
+    private GameObject Codeimage;
+    private GameObject Specialimage;
+    private GameObject Specialimage2;
     GameObject nearestCPU;
     bool gcola = false;
     bool rcola=false;
@@ -97,7 +97,17 @@ public class itemsystem : MonoBehaviour {
         void Start () {
         ItemSellecter = GameObject.Find("UI");
         tagobjs = GameObject.FindGameObjectsWithTag("CPU");
-       
+
+        DVDimage = GameObject.Find("UI/Canvas/race/DVDimage(P)");
+        Debug.Log(DVDimage);
+        CDimage = GameObject.Find("UI/Canvas/race/CDimage(P)");
+        Debug.Log(CDimage);
+        Codeimage = GameObject.Find("UI/Canvas/race/CODEimage(P)");
+        Debug.Log(Codeimage);
+        Specialimage = GameObject.Find("UI/Canvas/race/Specialimage(P)(H)");
+        Debug.Log(Specialimage);
+        Specialimage2 = GameObject.Find("UI/Canvas/race/Specialimage(P)(D)");
+        Debug.Log(Specialimage2);
     }
 	
 	// Update is called once per frame
@@ -107,7 +117,7 @@ public class itemsystem : MonoBehaviour {
             
             if (gcola == true)
             {
-                mischan.Play("ItemUse1");
+                //mischan.Play("ItemUse1");
                 SoundController.PlaySE(Model.SE.アイテム投擲);
                 GameObject bullet = GameObject.Instantiate(gcolaitem) as GameObject;
                 Vector3 force;
@@ -122,7 +132,7 @@ public class itemsystem : MonoBehaviour {
 
             if (rcola == true)
             {
-                mischan.Play("ItemUse1");
+                //mischan.Play("ItemUse1");
                 SoundController.PlaySE(Model.SE.アイテム投擲);
                 GameObject bullet2 = GameObject.Instantiate(rcolaitem) as GameObject;
                 //bullet.AddComponent<NavMeshAgent>();

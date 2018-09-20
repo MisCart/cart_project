@@ -63,6 +63,11 @@ namespace UnityStandardAssets.Utility
                 target = new GameObject(name + " Waypoint Target").transform;
             }
 
+            if (gameObject.transform.tag == "Player")
+            {
+                circuit = GameObject.Find("TagPointForAI").GetComponent<WaypointCircuit>();
+            }
+
             Reset();
         }
 
