@@ -67,9 +67,14 @@ public class HackingMedia : MonoBehaviour {
 
     public void HackStart()
     {
-        Hack = true;
-        SoundController.PlaySE(Model.SE.hacklong);
-        Invoke("HackEnd", 7f);
+        if (Hack == false)
+        {
+            SoundController.PlaySE(Model.SE.hacklong);
+            //CameraPlay.Glitch(7f);
+            Invoke("HackEnd", 7f);
+            Hack = true;
+        }
+        
     }
 
     private void HackEnd()

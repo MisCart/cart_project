@@ -21,6 +21,7 @@ public class itemsystem : MonoBehaviour {
     private GameObject Codeimage;
     private GameObject Specialimage;
     private GameObject Specialimage2;
+    private GameObject Specialimage3;
     GameObject nearestCPU;
     bool gcola = false;
     bool rcola=false;
@@ -90,6 +91,7 @@ public class itemsystem : MonoBehaviour {
     {
         Specialimage.SetActive(false);
         Specialimage2.SetActive(false);
+        Specialimage3.SetActive(false);
         special = false;
     }
 
@@ -104,10 +106,13 @@ public class itemsystem : MonoBehaviour {
         Debug.Log(CDimage);
         Codeimage = GameObject.Find("UI/Canvas/race/CODEimage(P)");
         Debug.Log(Codeimage);
-        Specialimage = GameObject.Find("UI/Canvas/race/Specialimage(P)(H)");
+        Specialimage = GameObject.Find("UI/Canvas/race/Specialimage1");
         Debug.Log(Specialimage);
-        Specialimage2 = GameObject.Find("UI/Canvas/race/Specialimage(P)(D)");
+        Specialimage2 = GameObject.Find("UI/Canvas/race/Specialimage2");
         Debug.Log(Specialimage2);
+        Specialimage3 = GameObject.Find("UI/Canvas/race/Specialimage3");
+        Debug.Log(Specialimage3);
+
     }
 	
 	// Update is called once per frame
@@ -207,16 +212,21 @@ public class itemsystem : MonoBehaviour {
             {
                 Specialimage2.SetActive(true);
             }
-           
+            else if (GetComponent<SpecialItem>().GetWhichCart() == 3)
+            {
+                Specialimage3.SetActive(true);
+            }
+
         }
         else
         {
-            itemtext.GetComponent<Text>().text = "";
+            //itemtext.GetComponent<Text>().text = "";
             DVDimage.SetActive(false);
             CDimage.SetActive(false);
             Codeimage.SetActive(false);
             Specialimage.SetActive(false);
             Specialimage2.SetActive(false);
+            Specialimage3.SetActive(false);
         }
 	}
 
@@ -238,7 +248,7 @@ public class itemsystem : MonoBehaviour {
 
     public void sellectitem()
     {
-        itemnum = 4;// Random.Range(1, 4);
+        itemnum = 4;// Random.Range(1, 5);
 
         if (itemnum == 1)
         {
@@ -256,6 +266,9 @@ public class itemsystem : MonoBehaviour {
         else if (itemnum == 4)
         {
             special = true;
+        }else if (itemnum == 5)
+        {
+            Debug.Log("No.5");
         }
     }
 

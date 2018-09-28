@@ -31,7 +31,7 @@ public class SpecialItem : MonoBehaviour {
         }
         else if (Cart==3)
         {
-
+            GetComponent<PaintDan>().PaintStart();
         }
     }
 }

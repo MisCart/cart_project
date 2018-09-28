@@ -15,12 +15,13 @@ public class PaintDan : MonoBehaviour {
 	}
 
 
-    public void PaintStart()
+    public void PaintStart()//Player用
     {
         GameObject bullet = GameObject.Instantiate(paintB) as GameObject;
         Vector3 force;
-        bullet.transform.position = transform.position+new Vector3(0,5,0);
-        force = this.gameObject.transform.forward * 100;
+        bullet.GetComponent<PaintBullet>().sa = 1;
+        bullet.transform.position = transform.position+new Vector3(0,2,0);
+        force = (this.gameObject.transform.forward +new Vector3(0,0.4f,0))* 100;
         bullet.GetComponent<Rigidbody>().AddForce(force,ForceMode.VelocityChange);
         GetComponent<itemsystem>().SpecialOff();
     }

@@ -25,6 +25,8 @@ public class ChargingGage : MonoBehaviour {
                 if (charging > 10)
                 {
                     Player.GetComponent<Rigidbody>().AddForce(Player.transform.forward * power, ForceMode.VelocityChange);
+                    CameraPlay.Radial(0.6f);
+                    //CameraPlay.Glitch(4f);
                     gameObject.GetComponent<AudioSource>().PlayOneShot(gameObject.GetComponent<AudioSource>().clip);
                     charging -= 10;
                 }
