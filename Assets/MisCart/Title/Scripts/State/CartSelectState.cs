@@ -7,7 +7,7 @@ using MisCart;
 
 namespace Title
 {
-	[AddComponentMenu("CartSelectState")]
+	[AddComponentMenu("Title/CartSelectState")]
 	public class CartSelectState : TitleStateBehaviour
 	{
 		void OnEnable ()

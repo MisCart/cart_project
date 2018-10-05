@@ -5,7 +5,7 @@ using BehaviourMachine;
 
 namespace Title
 {
-    [AddComponentMenu("StandbyState")]
+    [AddComponentMenu("Title/StandbyState")]
     public class StandbyState : TitleStateBehaviour
     {
 

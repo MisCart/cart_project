@@ -7,7 +7,7 @@ using MisCart;
 
 namespace Title
 {
-	[AddComponentMenu("SplashScreenState")]
+	[AddComponentMenu("Title/SplashScreenState")]
 	public class SplashScreenState : TitleStateBehaviour
 	{
 		BoolVar isScreen;

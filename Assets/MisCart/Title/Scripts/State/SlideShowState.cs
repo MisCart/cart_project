@@ -7,7 +7,7 @@ using MisCart;
 
 namespace Title
 {
-	[AddComponentMenu("SlideShowState")]
+	[AddComponentMenu("Title/SlideShowState")]
 	public class SlideShowState : TitleStateBehaviour
 	{
 		void Start()
