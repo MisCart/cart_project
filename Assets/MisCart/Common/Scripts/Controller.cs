@@ -153,7 +153,7 @@ public class Controller : MonoBehaviour {
             }
             if (rigidbody.velocity.magnitude <= limit)
             {
-                rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
+               // rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
             }
                 //limit = 30f;
                 handle = 130f;
@@ -201,7 +201,7 @@ public class Controller : MonoBehaviour {
         float joyH = Input.GetAxis("Horizontal");
 
         transform.Rotate(new Vector3(0, joyH*handle, 0) * Time.deltaTime);
-        transform.Rotate(new Vector3(0, -6.5f, 0) * Time.deltaTime);    //コントローラ接続時のみ有効化
+        //transform.Rotate(new Vector3(0, -6.5f, 0) * Time.deltaTime);    //コントローラ接続時のみ有効化
         if (Input.GetKey(KeyCode.Joystick1Button0))
         {
             if (sound1 == false)

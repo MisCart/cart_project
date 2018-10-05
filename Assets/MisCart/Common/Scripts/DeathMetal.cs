@@ -42,13 +42,17 @@ public class DeathMetal : MonoBehaviour {
             DeathMetalObject.SetActive(true);
             mainCamera.GetComponent<AudioSource>().volume = 0.05f;
             SoundController.PlayBGM(Model.BGM.deathmetal2);
-            CameraPlay.Shockwave();
-            Invoke("ShockW",1f);
-            Invoke("ShockW", 2f);
-            Invoke("ShockW", 3f);
-            Invoke("ShockW", 4f);
-            Invoke("ShockW", 5f);
-            Invoke("ShockW", 6f);
+            if (gameObject.transform.tag == "Player")
+            {
+                CameraPlay.Shockwave();
+                Invoke("ShockW", 1f);
+                Invoke("ShockW", 2f);
+                Invoke("ShockW", 3f);
+                Invoke("ShockW", 4f);
+                Invoke("ShockW", 5f);
+                Invoke("ShockW", 6f);
+            }
+            
             Invoke("DeathMetalEnd", 7f);
             Death = true;
         }

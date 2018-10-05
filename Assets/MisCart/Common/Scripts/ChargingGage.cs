@@ -56,10 +56,12 @@ public class ChargingGage : MonoBehaviour {
         if (charging > 0)
         {
             charging -= 0.05f;
-        }else if (charging > 100)
+        }
+        if (charging > 100)
         {
             charging = 100;
-        }else if (charging < 0)
+        }
+        if (charging < 0)
         {
             charging = 0;
         }

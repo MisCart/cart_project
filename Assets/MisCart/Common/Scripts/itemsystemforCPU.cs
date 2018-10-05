@@ -80,7 +80,7 @@ public class itemsystemforCPU : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (useItem == true)
+        if (gameObject.transform.Find("ItemSearchArea").gameObject.GetComponent<SearchCarts>().GetInSearch())
         {
 
 
@@ -156,7 +156,7 @@ public class itemsystemforCPU : MonoBehaviour
             if (col.gameObject.tag == "item")
             {
                 col.gameObject.SendMessage("itemcollision");
-                itemnum = 2;// Random.Range(1, 4);
+                itemnum = Random.Range(1, 4);
                 if (itemnum == 1)
                 {
                     gcola = true;
@@ -174,7 +174,7 @@ public class itemsystemforCPU : MonoBehaviour
                 {
                     special = true;
                 }
-                Invoke("UseItem", Random.Range(1, 7));
+                //Invoke("UseItem", Random.Range(1, 7));
                
             }
         }
@@ -186,9 +186,26 @@ public class itemsystemforCPU : MonoBehaviour
      
     }
 
-    void UseItem()
+    public void SetUseItem()
     {
-        //useItem = true;       
+        itemnum = Random.Range(1, 4);
+        if (itemnum == 1)
+        {
+            gcola = true;
+        }
+        else if (itemnum == 2)
+        {
+            rcola = true;
+        }
+
+        else if (itemnum == 3)
+        {
+            code = true;
+        }
+        else if (itemnum == 4)
+        {
+            special = true;
+        }
     }
 }
 

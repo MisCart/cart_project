@@ -248,7 +248,7 @@ public class itemsystem : MonoBehaviour {
 
     public void sellectitem()
     {
-        itemnum = 4;// Random.Range(1, 5);
+        itemnum = Random.Range(1, 5);
 
         if (itemnum == 1)
         {
