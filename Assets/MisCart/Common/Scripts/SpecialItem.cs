@@ -14,6 +14,12 @@ public class SpecialItem : MonoBehaviour {
     {
         return Cart;
     }
+
+    //Debug用
+    public  void Debug_SetNum(int i)
+    {
+        Cart = i;
+    }
 	
 	// Update is called once per frame
 	void Update () {

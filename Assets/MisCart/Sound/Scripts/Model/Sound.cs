@@ -17,7 +17,7 @@ namespace Model
         bomb1,
         boost2,
         encount1,
-        SE_car_drive,
+        EngineSound,
         powerup2,
         setup1,
         アイテム投擲,
@@ -27,7 +27,11 @@ namespace Model
         paintland,
         paintfire,
         hacksuccess,
-        hacklong
+        hacklong,
+        braking,
+        itemselect,
+        item,
+        cddvd2,
 
 
     }

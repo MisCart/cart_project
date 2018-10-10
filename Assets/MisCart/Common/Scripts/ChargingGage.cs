@@ -11,10 +11,14 @@ public class ChargingGage : MonoBehaviour {
     bool inval = false;
     bool isCounting = true;
     float timer = 0f;
+    public  void SetPlayer(GameObject p)
+    {
+        Player = p;
+    }
     // Use this for initialization
     void Start () {
         charging = _slider.value;
-        Player = GameObject.FindGameObjectWithTag("Player");
+        //Player = GameObject.FindGameObjectWithTag("Player");
 	}
     void Update()
     {

@@ -5,12 +5,13 @@ using MisCart;
 
 public class Controller : MonoBehaviour {
     new  Rigidbody rigidbody  ;
-    AudioSource audio1;
-    AudioSource audio2;
-    float handle=80f;
+    
+    [SerializeField]private float handle=80f;
     public float speed;
     public float limit=85f;
     private float limitset = 0;
+    private float speedset = 0;
+    private float handleset = 0;
     float limitrotate=5f;
 
     bool sound1=false;
@@ -23,6 +24,8 @@ public class Controller : MonoBehaviour {
     int i;
 
     Vector3 normalVector = Vector3.up;
+
+    [SerializeField] private GameObject sparks;
 
 
 
@@ -37,10 +40,8 @@ public class Controller : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        AudioSource[] audioSources = GetComponents<AudioSource>();
-        audio1 = audioSources[0];
-        audio2 = audioSources[1];
         limitset = limit;
+        handleset = handle;
 
         rigidbody = this.GetComponent<Rigidbody>();
         t = 0;
@@ -54,23 +55,21 @@ public class Controller : MonoBehaviour {
     {
         if (Input.GetKeyUp(KeyCode.Z))
         {
-
-            //audio1.Stop();
-            SoundController.StopSE(Model.SE.SE_car_drive);
+            SoundController.StopSE(Model.SE.EngineSound);
             sound1 = false;
 
         }
         if (Input.GetKeyUp(KeyCode.C))
         {
-            audio2.Stop();
+            SoundController.StopSE(Model.SE.braking);
             sound2 = false;
             e = t;
             if (e - s >= 100)
             {
                 rigidbody.AddForce(transform.forward * speed / 2, ForceMode.Impulse);
             }
-            limit = 85f;
-            handle = 80f;
+            limit = limitset;
+            handle = handleset;
             s = 0; e = 0;
         }
 
@@ -78,13 +77,12 @@ public class Controller : MonoBehaviour {
 
         if (Input.GetKeyUp(KeyCode.Joystick1Button0))
         {
-            //audio1.Stop();
-            SoundController.StopSE(Model.SE.SE_car_drive);
+            SoundController.StopSE(Model.SE.EngineSound);
             sound1 = false;
         }
         if (Input.GetKeyUp(KeyCode.Joystick1Button5))
         {
-            audio2.Stop();
+            SoundController.StopSE(Model.SE.braking);
             sound2 = false;
 
             e = t;
@@ -92,9 +90,22 @@ public class Controller : MonoBehaviour {
             {
                 rigidbody.AddForce(transform.forward * speed / 2, ForceMode.Impulse);
             }
-            limit = 60f;
-            handle = 40f;
+            limit = limitset;
+            handle = handleset;
             s = 0; e = 0;
+        }
+
+        if ((Input.GetKeyDown(KeyCode.LeftArrow)) || (Input.GetKeyDown(KeyCode.RightArrow)))
+        {
+            if (sparks.activeSelf==false)
+            {
+                sparks.SetActive(true);
+            }        
+        }
+
+        if ((Input.GetKeyUp(KeyCode.LeftArrow))||(Input.GetKeyUp(KeyCode.RightArrow)))
+        {
+            sparks.SetActive(false);
         }
     }
     // Update is called once per frame
@@ -125,50 +136,59 @@ public class Controller : MonoBehaviour {
                        if (sound1 == false)
                        {
                            //audio1.PlayOneShot(audio1.clip);
-                            SoundController.PlaySE(Model.SE.SE_car_drive);
+                            SoundController.PlaySE(Model.SE.EngineSound);
                             sound1 = true;
                        }
 
-                      rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
+                      //rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
+
+                    float angleDir = transform.eulerAngles.y * (Mathf.PI / 180.0f);
+                    Vector3 dir = new Vector3(Mathf.Sin(angleDir), 0.0f, Mathf.Cos(angleDir));
+
+                    rigidbody.AddForce(dir * speed, ForceMode.Acceleration);
                     }
                 //}
             }
+
             if (Input.GetKeyUp(KeyCode.Z))
-            {
-                audio1.Stop();
+            {               
+                SoundController.StopSE(Model.SE.EngineSound);
                 sound1 = false;
 
             }
+
             if (Input.GetKeyDown(KeyCode.C))
             {
                 s = t;
 
             }
+
         if (Input.GetKey(KeyCode.C))
         {
             if (sound2 == false)
             {
-                audio2.PlayOneShot(audio2.clip);
+                SoundController.PlaySE(Model.SE.braking);
                 sound2 = true;
             }
             if (rigidbody.velocity.magnitude <= limit)
             {
                // rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
             }
-                //limit = 30f;
-                handle = 130f;
-            }
+            //limit = 30f;
+            handle = handleset * 2; ;
+        }
+
             if (Input.GetKeyUp(KeyCode.C))
             {
-                audio2.Stop();
-            sound2 = false;
+                SoundController.StopSE(Model.SE.braking);
+                sound2 = false;
                 e = t;
                 if (e - s >= 100)
                 {
                     rigidbody.AddForce(transform.forward * speed / 2, ForceMode.Impulse);
                 }
-                limit = 85f;
-                handle = 80f;
+                limit = limitset;
+                handle = handleset;
                 s = 0; e = 0;
             }
 
@@ -179,7 +199,7 @@ public class Controller : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.A))
         {
-            rigidbody.AddForce(transform.up*transform.GetComponent<Rigidbody>().mass, ForceMode.Impulse);
+            rigidbody.AddForce(transform.up*transform.GetComponent<Rigidbody>().mass*3, ForceMode.Impulse);
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
@@ -201,26 +221,27 @@ public class Controller : MonoBehaviour {
         float joyH = Input.GetAxis("Horizontal");
 
         transform.Rotate(new Vector3(0, joyH*handle, 0) * Time.deltaTime);
-        //transform.Rotate(new Vector3(0, -6.5f, 0) * Time.deltaTime);    //コントローラ接続時のみ有効化
+        if ((joyH >= 0.3f)||(joyH<=-0.3f)){if (sparks.activeSelf == false){sparks.SetActive(true);}}
+        else{sparks.SetActive(false);}
+        transform.Rotate(new Vector3(0, -6.5f, 0) * Time.deltaTime);    //コントローラ接続時のみ有効化
         if (Input.GetKey(KeyCode.Joystick1Button0))
         {
             if (sound1 == false)
                 {
-                    audio1.PlayOneShot(audio1.clip);
+                    SoundController.PlaySE(Model.SE.EngineSound);
                     sound1 = true;
                 }
 
 
             if (rigidbody.velocity.magnitude <= limit)
             {
-                
-
+               
                 rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
             }
         }
         if (Input.GetKeyUp(KeyCode.Joystick1Button0))
         {
-            audio1.Stop();
+            SoundController.StopSE(Model.SE.EngineSound);
             sound1 = false;
         }
             if (Input.GetKeyDown(KeyCode.Joystick1Button5))
@@ -231,19 +252,19 @@ public class Controller : MonoBehaviour {
         {
             if (sound2 == false)
             {
-                audio2.PlayOneShot(audio2.clip);
+                SoundController.PlaySE(Model.SE.braking);
                 sound2 = true;
             }
             if (rigidbody.velocity.magnitude <= limit)
             {
-                rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
+                //rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
             }
             //limit = 30f;
-            handle = 80f;
+            handle = handleset * 2;
         }
         if (Input.GetKeyUp(KeyCode.Joystick1Button5))
         {
-            audio2.Stop();
+            SoundController.StopSE(Model.SE.braking);
             sound2 = false;
 
             e = t;
@@ -251,8 +272,8 @@ public class Controller : MonoBehaviour {
             {
                 rigidbody.AddForce(transform.forward * speed / 2, ForceMode.Impulse);
             }
-            limit = 60f;
-            handle = 40f;
+            limit = limitset;
+            handle = handleset;
             s = 0; e = 0;
         }
         if (Input.GetKey(KeyCode.Joystick1Button1))
@@ -273,8 +294,11 @@ public class Controller : MonoBehaviour {
         float angleDir2 = transform.eulerAngles.y * (Mathf.PI / 180.0f);
         Vector3 dir2 = new Vector3(Mathf.Sin(angleDir2), 0.0f, Mathf.Cos(angleDir2));
 
-
-        transform.rotation=Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(dir2),0.15f);
+        if (((transform.eulerAngles.x >= 40f) && (transform.eulerAngles.x <= 320f))||((transform.eulerAngles.z >= 40f) && (transform.eulerAngles.z <= 320f)))
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir2), 0.5f);
+        }
+        //transform.rotation=Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(dir2),0.5f);//0.15f//X軸について
         //転倒防止処理ここまで
        
 

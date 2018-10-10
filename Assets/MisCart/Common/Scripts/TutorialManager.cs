@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MisCart;
 
 public class TutorialManager : MonoBehaviour {
     [SerializeField] private GameObject[] gameObjects;
@@ -14,6 +15,7 @@ public class TutorialManager : MonoBehaviour {
     {
         SwitchActive(false);
         UI.ChangeGotoStep(true);
+        SoundController.StopSE(Model.SE.EngineSound);
         mPhase++;
     }
 	void Start () {

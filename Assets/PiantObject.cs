@@ -32,6 +32,9 @@ public class PiantObject : MonoBehaviour {
                     PgameObject.SetActive(true);
                 }
             }
+        }else if (other.gameObject.tag == "CPU")
+        {
+            other.GetComponent<WaypointAgent>().LimitCut();
         }
     }
 

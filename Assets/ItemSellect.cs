@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MisCart;
 
 public class ItemSellect : MonoBehaviour {
     int itemnum = 0;
@@ -9,6 +10,7 @@ public class ItemSellect : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
+        Debug.Log("ItemSellect:Player"+player);
         _anim = GetComponent<Animator>();
 	}
 	
@@ -20,10 +22,13 @@ public class ItemSellect : MonoBehaviour {
     public void SellectStart()
     {
         _anim.Play("ItemSelect");
+        SoundController.PlaySE(Model.SE.item);
     }
 
     public void Kettei()
     {
         player.GetComponent<itemsystem>().sellectitem();
+        SoundController.StopSE(Model.SE.item);
+        SoundController.PlaySE(Model.SE.itemselect);
     }
 }

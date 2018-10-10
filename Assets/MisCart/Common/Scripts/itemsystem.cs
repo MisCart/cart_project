@@ -14,8 +14,7 @@ public class itemsystem : MonoBehaviour {
     public GameObject gcolaitem;
     public GameObject rcolaitem;
     [SerializeField]private GameObject codeitem;
-   
-    public GameObject itemtext;
+  
     private GameObject DVDimage;
     private GameObject CDimage;
     private GameObject Codeimage;
@@ -123,7 +122,7 @@ public class itemsystem : MonoBehaviour {
             if (gcola == true)
             {
                 //mischan.Play("ItemUse1");
-                SoundController.PlaySE(Model.SE.アイテム投擲);
+                SoundController.PlaySE(Model.SE.cddvd2);
                 GameObject bullet = GameObject.Instantiate(gcolaitem) as GameObject;
                 Vector3 force;
                 force = this.gameObject.transform.forward * colaspeed;
@@ -138,7 +137,7 @@ public class itemsystem : MonoBehaviour {
             if (rcola == true)
             {
                 //mischan.Play("ItemUse1");
-                SoundController.PlaySE(Model.SE.アイテム投擲);
+                SoundController.PlaySE(Model.SE.cddvd2);
                 GameObject bullet2 = GameObject.Instantiate(rcolaitem) as GameObject;
                 //bullet.AddComponent<NavMeshAgent>();
                 Vector3 force;
@@ -162,7 +161,7 @@ public class itemsystem : MonoBehaviour {
 
                 if (mindis == 1000)
                 {
-                    nearestCPU = null;
+                    //nearestCPU = null;
                 }
                 mindis = 1000;
                 Debug.Log(nearestCPU);
@@ -273,7 +272,32 @@ public class itemsystem : MonoBehaviour {
     }
 
 
+    public void Debug_sellectitem(int num)
+    {
+        //itemnum = Random.Range(1, 5);
+
+        if (num == 1)
+        {
+            gcola = true;
+        }
+        else if (num == 2)
+        {
+            rcola = true;
+        }
+
+        else if (num == 3)
+        {
+            code = true;
+        }
+        else if (num == 4)
+        {
+            special = true;
+        }
+        else if (num == 5)
+        {
+            Debug.Log("No.5");
+        }
+    }
 
 
-    
 }

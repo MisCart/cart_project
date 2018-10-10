@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MisCart;
 
 public class PaintBullet : MonoBehaviour {
     [SerializeField] private GameObject paintObj;
@@ -21,6 +22,7 @@ public class PaintBullet : MonoBehaviour {
         {
             GameObject pObj = GameObject.Instantiate(paintObj) as GameObject;
             pObj.GetComponent<PiantObject>().Setsw(sa);
+            SoundController.PlaySE(Model.SE.paintland);
             pObj.transform.position = transform.position+new Vector3(0,-1.5f,0);
             Destroy(gameObject);
         }

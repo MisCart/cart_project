@@ -23,7 +23,8 @@ public class WaypointAgent : MonoBehaviour {
     [SerializeField]
     private float m_AccelSensitivity = 0.04f;                            
     [SerializeField]
-    private float m_BrakeSensitivity = 1f;                                  
+    private float m_BrakeSensitivity = 1f;
+    private float gravity = 9.81f;
 
     new private Rigidbody rigidbody;
     [SerializeField, Range(0, 500)]
@@ -40,7 +41,7 @@ public class WaypointAgent : MonoBehaviour {
         tracker = GetComponent<WaypointProgressTracker>();
         rigidbody = GetComponent<Rigidbody>();
         correction = new Vector3(Random.Range(-5.0f,5.0f),0,Random.Range(-5.0f,5.0f));
-        Debug.Log(correction);
+        
 	}
 
     // Update is called once per frame
@@ -86,7 +87,7 @@ public class WaypointAgent : MonoBehaviour {
         }
 
         Vector3 localTarget = tracker.target.position - transform.position+correction;
-
+        
         float targetAngle = Mathf.Atan2(localTarget.x, localTarget.z) * Mathf.Rad2Deg;
 
         //float steer = Mathf.Clamp(targetAngle * 0.01f, -1, 1)* Mathf.Sign(rigidbody.velocity.magnitude * 2.23693629f);
@@ -96,17 +97,22 @@ public class WaypointAgent : MonoBehaviour {
 
 
         
-        Vector3 dir2= new Vector3(0,targetAngle,0);
+        Vector3 dir2= new Vector3(0,localTarget.y,0);
 
         //transform.LookAt(tracker.target.position);
 
-        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(localTarget), 0.015f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(localTarget), 0.5f);
 
     }
 
     private void LateUpdate()
     {
-        transform.LookAt(tracker.target.position);
+        //transform.LookAt(tracker.target.position);
+        if (checkground() == false)
+        {
+            rigidbody.AddForce(new Vector3(0, -1, 0) * gravity * 3, ForceMode.Acceleration);
+            transform.position += new Vector3(0, -0.1f, 0);
+        }
     }
 
     public void LimitCut()
@@ -118,5 +124,28 @@ public class WaypointAgent : MonoBehaviour {
     void LimitReset()
     {
         limit = limitset;
+    }
+
+    bool checkground()
+    {
+        Ray ray = new Ray(transform.position, -transform.up);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 2f))
+        {
+            if (hit.transform.tag == "ground")
+            {
+                return true;
+            }
+            else
+            {
+
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+
     }
 }

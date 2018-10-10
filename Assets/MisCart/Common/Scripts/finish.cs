@@ -7,11 +7,11 @@ public class finish : MonoBehaviour {
     public GameObject racetext;
     public GameObject finishtext;
     public GameObject ranktext;
-    public GameObject player;
+    private GameObject player;
     public GameObject minimap;
 	// Use this for initialization
 	void Start () {
-		
+        player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame

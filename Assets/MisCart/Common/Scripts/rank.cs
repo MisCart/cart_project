@@ -7,8 +7,6 @@ namespace UnityStandardAssets.Utility
 {
     public class rank : MonoBehaviour
     {
-        [SerializeField]
-        private Transform[] circuit;
         private WaypointCircuit circuit2;
         GameObject[] tagobjs;
         GameObject rtag;
