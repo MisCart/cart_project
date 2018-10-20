@@ -17,7 +17,7 @@ namespace Title.UI
 		[SerializeField] CartSelectMenu cartSelectMenu;
 		[SerializeField] StageSelectMenu stageSelectMenu;
 		[SerializeField] Image coverImage;
-		[SerializeField] GameObject character;
+		[SerializeField] GameObject[] character;
 		[SerializeField] GameObject[] cart;
 
 		Action onClick;
@@ -30,7 +30,7 @@ namespace Title.UI
 		public CartSelectMenu CartSelectMenu {get { return cartSelectMenu; } }
 		public StageSelectMenu StageSelectMenu {get { return stageSelectMenu; } }
 		public Image CoverImage { get { return coverImage; } }
-		public GameObject Character { get { return character; } }
+		public GameObject[] Character { get { return character; } }
 		public GameObject[] Cart { get { return cart; } }
 
 		public void OnClick()

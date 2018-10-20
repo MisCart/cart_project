@@ -38,7 +38,10 @@ namespace Title
 		}
 
 		void OnDisable() {
-			TitleManager.UI.Character.SetActive(false);
+			foreach (var item in TitleManager.UI.Character)
+			{
+				item.SetActive(false);
+			}
 			TitleManager.UI.CharacterSelectMenu.SetActive(false);
 		}
 	}
