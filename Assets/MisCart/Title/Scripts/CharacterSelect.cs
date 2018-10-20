@@ -13,12 +13,12 @@ namespace Title
 		public Model.GameCharacter chara;
 
         public void OnMouseEnter() {
-            TitleManager.UI.Character.SetActive(true);
+            TitleManager.UI.Character[(int)chara-1].SetActive(true);
             TitleManager.UI.CharacterSelectMenu.Questtion.SetActive(false);
         }
 
         public void OnMouseExit() {
-            TitleManager.UI.Character.SetActive(false);
+            TitleManager.UI.Character[(int)chara-1].SetActive(false);
             TitleManager.UI.CharacterSelectMenu.Questtion.SetActive(true);
         }
 
