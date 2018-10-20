@@ -4057,7 +4057,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 602536183}
     m_EventID: 1208455943
-  m_CachedInstanceID: 22890
+  m_CachedInstanceID: 320664
 --- !u!114 &602536178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4076,7 +4076,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 22892
+  m_CachedInstanceID: 320666
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -4111,7 +4111,7 @@ MonoBehaviour:
     m_Name: IsSplashScreen
     m_Blackboard: {fileID: 602536179}
     m_IsConstant: 0
-    value: 0
+    value: 1
   m_StringVars: []
   m_Vector3Vars: []
   m_RectVars: []
@@ -4181,7 +4181,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 602536182}
     m_EventID: 1208455943
-  m_CachedInstanceID: 22898
+  m_CachedInstanceID: 320672
 --- !u!114 &602536182
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4202,7 +4202,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 602536177}
     m_EventID: 1208455943
-  m_CachedInstanceID: 22900
+  m_CachedInstanceID: 320674
 --- !u!114 &602536183
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4225,7 +4225,7 @@ MonoBehaviour:
     m_EventID: 1039351880
   - m_Destination: {fileID: 602536177}
     m_EventID: 1208455943
-  m_CachedInstanceID: 22902
+  m_CachedInstanceID: 320676
 --- !u!114 &602536184
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4248,7 +4248,7 @@ MonoBehaviour:
     m_EventID: 1802588142
   - m_Destination: {fileID: 602536185}
     m_EventID: 1301650392
-  m_CachedInstanceID: 22904
+  m_CachedInstanceID: 320678
 --- !u!114 &602536185
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4269,7 +4269,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 602536184}
     m_EventID: 1186151275
-  m_CachedInstanceID: 22906
+  m_CachedInstanceID: 320680
 --- !u!1 &613319204
 GameObject:
   m_ObjectHideFlags: 0
@@ -8374,7 +8374,7 @@ RectTransform:
   m_GameObject: {fileID: 1218231649}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1304593936}
   - {fileID: 1108890490}
@@ -8979,8 +8979,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 12.5}
-  m_SizeDelta: {x: -20, y: -45}
+  m_AnchoredPosition: {x: 0.13999939, y: 12.5}
+  m_SizeDelta: {x: -20.279999, y: -45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1304593937
 MonoBehaviour:
@@ -14488,8 +14488,8 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 200, y: 150}
-  m_Spacing: {x: 20, y: 10}
+  m_CellSize: {x: 200, y: 150.55}
+  m_Spacing: {x: 20, y: 9.94}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &1914333993
@@ -15223,7 +15223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee53f6ca716d4fbabe348ce0a8dcd5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 1
+  scene: 5
 --- !u!114 &2040941529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15343,7 +15343,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Misw\u30B5\u30FC\u30AD\u30C3\u30C8"
+  m_Text: "\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB"
 --- !u!222 &2043036936
 CanvasRenderer:
   m_ObjectHideFlags: 0
