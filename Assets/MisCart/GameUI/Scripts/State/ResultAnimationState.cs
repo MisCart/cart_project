@@ -14,6 +14,7 @@ namespace GameUI
             GameUIManager.UI.MessageBox.SetActive(true);
             GameUIManager.UI.MisChan.SetActive(true);
             GameUIManager.UI.ResultBox.SetActive(true);
+            GameUIManager.UI.StartTimeline();
         }
         public override void OnClick(){}
 		public override void OnBack(){}
