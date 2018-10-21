@@ -25,7 +25,13 @@ namespace Title
 			btn.interactable = false;
 			GameData.CharacterId = TitleManager.Board.GetIntVar("CharaId").Value;
 			GameData.CartId = TitleManager.Board.GetIntVar("CartId").Value;
-			SceneLoader.LoadScene(scene, new[] { Model.GameScenes.GameUI });
+
+			//チュートリアルシーンにはUIがそのまま入っているのでGameUIを呼び出さない
+			if(scene == Model.GameScenes.Tutorial){
+				SceneLoader.LoadScene(scene);
+			}else{
+				SceneLoader.LoadScene(scene, new[] { Model.GameScenes.GameUI });
+			}
 		}
 	}
 }
