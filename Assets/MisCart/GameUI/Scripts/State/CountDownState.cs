@@ -39,6 +39,7 @@ namespace GameUI
             yield return new WaitForSeconds(0.3f);
 
             GameUIManager.Board.GetBoolVar("IsCounting").Value = false;
+            GameUIManager.Board.GetBoolVar("SetCountDown").Value = false;
             SendEvent("FinishCountDown");
             GameUIManager.UI.CountDownObject.gameObject.SetActive(false);
         }

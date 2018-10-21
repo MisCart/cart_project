@@ -9,12 +9,24 @@ namespace GameUI
     public class StandbyState : GameUIStateBehaviour
     {
 
+        //初期化
         void Start ()
         {
             GameUIManager.UI.CountDownObject.SetActive(false);
-            GameUIManager.Board.GetBoolVar("IsCounting").Value = true;
-            SendEvent("StartCountDown");
+            GameUIManager.UI.MessageBox.SetActive(false);
+            GameUIManager.UI.MisChan.SetActive(false);
+            GameUIManager.UI.ResultBox.SetActive(false);
         }
+
+        void Update() {
+           if(GameUIManager.Board.GetBoolVar("SetAnimation").Value){
+               SendEvent("StartAnimation");
+           }
+           if(GameUIManager.Board.GetBoolVar("SetCountDown").Value){
+               SendEvent("StartCountDown");
+           }
+        }
+
         public override void OnClick(){}
 		public override void OnBack(){}
     }

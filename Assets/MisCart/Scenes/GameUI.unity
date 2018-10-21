@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 58577730}
   - component: {fileID: 58577731}
   m_Layer: 5
-  m_Name: Message Box
+  m_Name: Message Box *
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1008,6 +1008,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countDown: {fileID: 1407433073}
   countDownObject: {fileID: 1407433071}
+  messageBox: {fileID: 58577726}
+  resultBox: {fileID: 1371993413}
+  misChan: {fileID: 1993853595}
+  director: {fileID: 1340005872}
 --- !u!222 &1340005870
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1041,9 +1045,9 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: cb078c2ebb846475bbb3ce88f5061a01, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 0
-  m_DirectorUpdateMode: 1
+  m_DirectorUpdateMode: 2
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 114530286798773164, guid: cb078c2ebb846475bbb3ce88f5061a01, type: 2}
@@ -1072,7 +1076,7 @@ GameObject:
   - component: {fileID: 1371993415}
   - component: {fileID: 1371993419}
   m_Layer: 5
-  m_Name: Result Box
+  m_Name: Result Box *
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1798,6 +1802,16 @@ MonoBehaviour:
     m_Blackboard: {fileID: 1935632307}
     m_IsConstant: 0
     value: 1
+  - m_ID: 470471730
+    m_Name: SetAnimation
+    m_Blackboard: {fileID: 1935632307}
+    m_IsConstant: 0
+    value: 0
+  - m_ID: 1816532163
+    m_Name: SetCountDown
+    m_Blackboard: {fileID: 1935632307}
+    m_IsConstant: 0
+    value: 0
   m_StringVars: []
   m_Vector3Vars: []
   m_RectVars: []
@@ -1821,7 +1835,7 @@ MonoBehaviour:
     m_IsConstant: 0
     m_IsSystem: 0
   - m_ID: 649514671
-    m_Name: StartResultAnimation
+    m_Name: StartAnimation
     m_Blackboard: {fileID: 1935632307}
     m_IsConstant: 0
     m_IsSystem: 0
@@ -1842,7 +1856,7 @@ MonoBehaviour:
   m_StateName: CountDownState
   m_Color: 0
   m_HideScript: 1
-  m_Position: {x: 280, y: 170}
+  m_Position: {x: 260, y: 280}
   m_Transitions:
   - m_Destination: {fileID: 1935632309}
     m_EventID: 1344322412
@@ -1886,7 +1900,7 @@ MonoBehaviour:
   m_StateName: ResultAnimationState
   m_Color: 0
   m_HideScript: 1
-  m_Position: {x: 40, y: 300}
+  m_Position: {x: -50, y: 330}
   m_Transitions: []
   m_CachedInstanceID: 520760
 --- !u!1 &1993853595
@@ -1903,7 +1917,7 @@ GameObject:
   - component: {fileID: 1993853600}
   - component: {fileID: 1993853601}
   m_Layer: 5
-  m_Name: Chara Image
+  m_Name: Chara Image *
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

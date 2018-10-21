@@ -11,6 +11,9 @@ namespace GameUI
 
         void Start ()
         {
+            GameUIManager.UI.MessageBox.SetActive(true);
+            GameUIManager.UI.MisChan.SetActive(true);
+            GameUIManager.UI.ResultBox.SetActive(true);
         }
         public override void OnClick(){}
 		public override void OnBack(){}

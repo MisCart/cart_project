@@ -24,5 +24,17 @@ namespace GameUI
 			}
 			return false;
 		}
+
+		public static void StartAnimation(){
+			if (HasInstance){
+				Board.GetBoolVar("SetAnimation").Value = true;
+			}
+		}
+
+		public static void StartCountDown(){
+			if (HasInstance){
+				Board.GetBoolVar("SetCountDown").Value = true;
+			}
+		}
 	}
 }
