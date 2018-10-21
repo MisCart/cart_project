@@ -5,5 +5,6 @@ public static class GameData
 {
     public static int CharacterId {get; set;}
     public static int CartId {get; set;}
+    public static int rank {get; set;}
 
 }

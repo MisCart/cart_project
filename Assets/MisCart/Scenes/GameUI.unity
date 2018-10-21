@@ -1049,8 +1049,9 @@ MonoBehaviour:
   countDown: {fileID: 1407433073}
   countDownObject: {fileID: 1407433071}
   messageBox: {fileID: 58577726}
+  message: {fileID: 68940584}
   resultBox: {fileID: 1371993413}
-  misChan: {fileID: 1993853595}
+  misChan: {fileID: 1993853599}
   director: {fileID: 1340005872}
 --- !u!222 &1340005870
 CanvasRenderer:
@@ -1816,7 +1817,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 520752
+  m_CachedInstanceID: 576414
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -1900,7 +1901,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 1935632309}
     m_EventID: 1344322412
-  m_CachedInstanceID: 520756
+  m_CachedInstanceID: 576418
 --- !u!114 &1935632309
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1923,7 +1924,7 @@ MonoBehaviour:
     m_EventID: 1634434881
   - m_Destination: {fileID: 1935632310}
     m_EventID: 649514671
-  m_CachedInstanceID: 520758
+  m_CachedInstanceID: 576420
 --- !u!114 &1935632310
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1942,7 +1943,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: -50, y: 330}
   m_Transitions: []
-  m_CachedInstanceID: 520760
+  m_CachedInstanceID: 576422
 --- !u!1 &1993853595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,7 +1958,7 @@ GameObject:
   - component: {fileID: 1993853600}
   - component: {fileID: 1993853601}
   m_Layer: 5
-  m_Name: Chara Image *
+  m_Name: MisChan Image *
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

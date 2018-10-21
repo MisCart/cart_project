@@ -13,11 +13,10 @@ namespace GameUI
 		[SerializeField] TextMeshProUGUI countDown;
         [SerializeField] GameObject countDownObject;
         [SerializeField] GameObject messageBox;
+        [SerializeField] Text message;
         [SerializeField] GameObject resultBox;
-        [SerializeField] GameObject misChan;
+        [SerializeField] CharacterImage misChan;
         [SerializeField] PlayableDirector director;
-        bool isCountDown = true;
-        bool isRunning = false;
 
         public string CountDownText
         {
@@ -32,10 +31,24 @@ namespace GameUI
             }
         }
 
+        public string Message
+        {
+            get
+            {
+                return message.text;
+            }
+
+            set
+            {
+                message.text = value;
+            }
+        }
+
         public GameObject CountDownObject { get { return countDownObject; } }
         public GameObject MessageBox { get { return messageBox; } }
+
         public GameObject ResultBox { get { return resultBox; } }
-        public GameObject MisChan { get { return misChan; } }
+        public CharacterImage MisChan { get { return misChan; } }
 
         public void StartTimeline(){
             director.Play();
