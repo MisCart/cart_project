@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countDown: {fileID: 1407433073}
+  countDownObject: {fileID: 1407433071}
 --- !u!1 &1407433071
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +542,8 @@ GameObject:
   - component: {fileID: 1935632304}
   - component: {fileID: 1935632307}
   - component: {fileID: 1935632306}
+  - component: {fileID: 1935632309}
+  - component: {fileID: 1935632308}
   m_Layer: 0
   m_Name: GameUIManager
   m_TagString: Untagged
@@ -593,11 +596,11 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 368104
+  m_CachedInstanceID: 385878
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
-  m_StartState: {fileID: 0}
+  m_StartState: {fileID: 1935632309}
   m_AnyState: {fileID: 0}
   m_ConcurrentState: {fileID: 0}
 --- !u!114 &1935632307
@@ -613,7 +616,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FloatVars: []
   m_IntVars: []
-  m_BoolVars: []
+  m_BoolVars:
+  - m_ID: 1217274351
+    m_Name: IsCounting
+    m_Blackboard: {fileID: 1935632307}
+    m_IsConstant: 0
+    value: 1
   m_StringVars: []
   m_Vector3Vars: []
   m_RectVars: []
@@ -625,5 +633,57 @@ MonoBehaviour:
   m_ObjectVars: []
   m_DynamicLists: []
   m_FsmEvents: []
-  m_ConcreteFsmEvents: []
+  m_ConcreteFsmEvents:
+  - m_ID: 1634434881
+    m_Name: StartCountDown
+    m_Blackboard: {fileID: 1935632307}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: 1344322412
+    m_Name: FinishCountDown
+    m_Blackboard: {fileID: 1935632307}
+    m_IsConstant: 0
+    m_IsSystem: 0
   m_Namespace: 
+--- !u!114 &1935632308
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1935632303}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e872c5fbd1b41978ae344b345ebc8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 1935632307}
+  m_Parent: {fileID: 1935632306}
+  m_StateName: CountDownState
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 280, y: 170}
+  m_Transitions:
+  - m_Destination: {fileID: 1935632309}
+    m_EventID: 1344322412
+  m_CachedInstanceID: 385882
+--- !u!114 &1935632309
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1935632303}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4613e226c93543ed9a193ffeacfd912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 1935632307}
+  m_Parent: {fileID: 1935632306}
+  m_StateName: StandbyState
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 60, y: 170}
+  m_Transitions:
+  - m_Destination: {fileID: 1935632308}
+    m_EventID: 1634434881
+  m_CachedInstanceID: 385884

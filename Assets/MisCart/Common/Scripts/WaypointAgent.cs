@@ -21,7 +21,7 @@ public class WaypointAgent : MonoBehaviour {
     [Range(0, 1)]
     private float m_CautiousSpeedFactor = 0.05f;
     [SerializeField]
-    private float m_AccelSensitivity = 0.04f;                            
+    private float m_AccelSensitivity = 0.04f;
     [SerializeField]
     private float m_BrakeSensitivity = 1f;
     private float gravity = 9.81f;
@@ -32,7 +32,6 @@ public class WaypointAgent : MonoBehaviour {
     float limit = 140f;
     float limitset = 0;
     float lPower = 60f;
-    bool isCounting = true;
     float timer = 0f;
     Vector3 correction = Vector3.zero;
     // Use this for initialization
@@ -55,9 +54,8 @@ public class WaypointAgent : MonoBehaviour {
         }
 
         //カウントダウンをしているときは動かないようにする
-        if (isCounting)
-        {
-            isCounting = GameUI.GameUIManager.IsCounting();
+        var isCounting = GameUI.GameUIManager.IsCounting();
+        if (isCounting){
             return;
         }
 
@@ -77,7 +75,7 @@ public class WaypointAgent : MonoBehaviour {
                                   cautiousnessRequired);
 
         if (desiredSpeed < rigidbody.velocity.magnitude)
-        { 
+        {
             float brake = Mathf.Clamp((desiredSpeed - rigidbody.velocity.magnitude) * m_BrakeSensitivity, -1, 1) * speed;
             rigidbody.AddForce(transform.forward * brake * 15, ForceMode.Force);
         }
@@ -87,7 +85,7 @@ public class WaypointAgent : MonoBehaviour {
         }
 
         Vector3 localTarget = tracker.target.position - transform.position+correction;
-        
+
         float targetAngle = Mathf.Atan2(localTarget.x, localTarget.z) * Mathf.Rad2Deg;
 
         //float steer = Mathf.Clamp(targetAngle * 0.01f, -1, 1)* Mathf.Sign(rigidbody.velocity.magnitude * 2.23693629f);
@@ -96,7 +94,7 @@ public class WaypointAgent : MonoBehaviour {
 
 
 
-        
+
         Vector3 dir2= new Vector3(0,localTarget.y,0);
 
         //transform.LookAt(tracker.target.position);
