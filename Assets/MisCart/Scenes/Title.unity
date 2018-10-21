@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2236,7 +2236,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 602536183}
     m_EventID: 1208455943
-  m_CachedInstanceID: 39974
+  m_CachedInstanceID: 587532
 --- !u!114 &602536178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2255,7 +2255,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 39976
+  m_CachedInstanceID: 587534
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -2290,7 +2290,7 @@ MonoBehaviour:
     m_Name: IsSplashScreen
     m_Blackboard: {fileID: 602536179}
     m_IsConstant: 0
-    value: 1
+    value: 0
   m_StringVars: []
   m_Vector3Vars: []
   m_RectVars: []
@@ -2360,7 +2360,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 602536182}
     m_EventID: 1208455943
-  m_CachedInstanceID: 39982
+  m_CachedInstanceID: 587540
 --- !u!114 &602536182
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2381,7 +2381,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 602536177}
     m_EventID: 1208455943
-  m_CachedInstanceID: 39984
+  m_CachedInstanceID: 587542
 --- !u!114 &602536183
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2404,7 +2404,7 @@ MonoBehaviour:
     m_EventID: 1039351880
   - m_Destination: {fileID: 602536177}
     m_EventID: 1208455943
-  m_CachedInstanceID: 39986
+  m_CachedInstanceID: 587544
 --- !u!114 &602536184
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2427,7 +2427,7 @@ MonoBehaviour:
     m_EventID: 1802588142
   - m_Destination: {fileID: 602536185}
     m_EventID: 1301650392
-  m_CachedInstanceID: 39988
+  m_CachedInstanceID: 587546
 --- !u!114 &602536185
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2448,7 +2448,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 602536184}
     m_EventID: 1186151275
-  m_CachedInstanceID: 39990
+  m_CachedInstanceID: 587548
 --- !u!1 &623695025
 GameObject:
   m_ObjectHideFlags: 0
@@ -6726,7 +6726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 0.9607843}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.9607843}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

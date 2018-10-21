@@ -14,6 +14,7 @@ public class itemsystemforCPU : MonoBehaviour
     public GameObject gcolaitem;
     public GameObject rcolaitem;
     [SerializeField] private GameObject codeitem;
+    private SearchCarts SearchArea;
 
     GameObject nearestCPU;
     bool gcola = false;
@@ -74,13 +75,15 @@ public class itemsystemforCPU : MonoBehaviour
     void Start()
     {
         tagobjs = GameObject.FindGameObjectsWithTag("CPU");
-        
+        SearchArea = gameObject.transform.Find("ItemSearchArea").gameObject.GetComponent<SearchCarts>();
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.transform.Find("ItemSearchArea").gameObject.GetComponent<SearchCarts>().GetInSearch())
+        if (SearchArea.GetInSearch())
         {
 
 

@@ -20,6 +20,16 @@ public class AutoCam : MonoBehaviour {
     public GameObject m_Target;
     private Rigidbody targetRigidbody;
 
+    private Vector3 correct = new Vector3(0,-3,6);
+
+    private bool goal = false;
+
+    public void Goal()
+    {
+        transform.parent = m_Target.transform;
+        goal = true;
+    }
+
     public void SetTarget(GameObject target)
     {
         m_Target = target;
@@ -31,86 +41,99 @@ public class AutoCam : MonoBehaviour {
     void Start () {
         targetRigidbody = m_Target.GetComponent<Rigidbody>();
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-        // if no target, or no time passed then we quit early, as there is nothing to do
-        if (!(Time.deltaTime > 0) || m_Target == null)
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (goal)
         {
-            return;
-        }
-
-        // initialise some vars, we'll be modifying these in a moment
-        var targetForward = m_Target.transform.forward;
-        var targetUp = m_Target.transform.up;
-
-        if (m_FollowVelocity && Application.isPlaying)
-        {
-            // in follow velocity mode, the camera's rotation is aligned towards the object's velocity direction
-            // but only if the object is traveling faster than a given threshold.
-
-            if (targetRigidbody.velocity.magnitude > m_TargetVelocityLowerLimit)
-            {
-                // velocity is high enough, so we'll use the target's velocty
-                targetForward = targetRigidbody.velocity.normalized;
-                targetUp = Vector3.up;
-            }
-            else
-            {
-                targetUp = Vector3.up;
-            }
-            m_CurrentTurnAmount = Mathf.SmoothDamp(m_CurrentTurnAmount, 1, ref m_TurnSpeedVelocityChange, m_SmoothTurnTime);
+            //transform.position = m_Target.transform.position + correct;
+            //Vector3 dir = new Vector3(m_Target.transform.position.x,0, m_Target.transform.position.z)-new Vector3(transform.position.x, 0, transform.position.z);
+            transform.LookAt(m_Target.transform);
+            transform.RotateAround(m_Target.transform.position+correct,transform.up,1f);
         }
         else
         {
-            // we're in 'follow rotation' mode, where the camera rig's rotation follows the object's rotation.
 
-            // This section allows the camera to stop following the target's rotation when the target is spinning too fast.
-            // eg when a car has been knocked into a spin. The camera will resume following the rotation
-            // of the target when the target's angular velocity slows below the threshold.
-            var currentFlatAngle = Mathf.Atan2(targetForward.x, targetForward.z) * Mathf.Rad2Deg;
-            if (m_SpinTurnLimit > 0)
+
+            // if no target, or no time passed then we quit early, as there is nothing to do
+            if (!(Time.deltaTime > 0) || m_Target == null)
             {
-                var targetSpinSpeed = Mathf.Abs(Mathf.DeltaAngle(m_LastFlatAngle, currentFlatAngle)) / Time.deltaTime;
-                var desiredTurnAmount = Mathf.InverseLerp(m_SpinTurnLimit, m_SpinTurnLimit * 0.75f, targetSpinSpeed);
-                var turnReactSpeed = (m_CurrentTurnAmount > desiredTurnAmount ? .1f : 1f);
-                if (Application.isPlaying)
+                return;
+            }
+
+            // initialise some vars, we'll be modifying these in a moment
+            var targetForward = m_Target.transform.forward;
+            var targetUp = m_Target.transform.up;
+
+            if (m_FollowVelocity && Application.isPlaying)
+            {
+                // in follow velocity mode, the camera's rotation is aligned towards the object's velocity direction
+                // but only if the object is traveling faster than a given threshold.
+
+                if (targetRigidbody.velocity.magnitude > m_TargetVelocityLowerLimit)
                 {
-                    m_CurrentTurnAmount = Mathf.SmoothDamp(m_CurrentTurnAmount, desiredTurnAmount,
-                                                         ref m_TurnSpeedVelocityChange, turnReactSpeed);
+                    // velocity is high enough, so we'll use the target's velocty
+                    targetForward = targetRigidbody.velocity.normalized;
+                    targetUp = Vector3.up;
                 }
                 else
                 {
-                    // for editor mode, smoothdamp won't work because it uses deltaTime internally
-                    m_CurrentTurnAmount = desiredTurnAmount;
+                    targetUp = Vector3.up;
                 }
+                m_CurrentTurnAmount = Mathf.SmoothDamp(m_CurrentTurnAmount, 1, ref m_TurnSpeedVelocityChange, m_SmoothTurnTime);
             }
             else
             {
-                m_CurrentTurnAmount = 1;
-            }
-            m_LastFlatAngle = currentFlatAngle;
-        }
+                // we're in 'follow rotation' mode, where the camera rig's rotation follows the object's rotation.
 
-        // camera position moves towards target position:
-        //transform.position= Vector3.Lerp(transform.position, m_Target.transform.position, Time.deltaTime * m_MoveSpeed);
-        //transform.position += m_Target.transform.position - transform.position;
-        transform.position= Vector3.SmoothDamp(transform.position, m_Target.transform.position, ref velocity, smoothTime);
-        // camera's rotation is split into two parts, which can have independend speed settings:
-        // rotating towards the target's forward direction (which encompasses its 'yaw' and 'pitch')
-        if (!m_FollowTilt)
-        {
-            targetForward.y = 0;
-            if (targetForward.sqrMagnitude < float.Epsilon)
+                // This section allows the camera to stop following the target's rotation when the target is spinning too fast.
+                // eg when a car has been knocked into a spin. The camera will resume following the rotation
+                // of the target when the target's angular velocity slows below the threshold.
+                var currentFlatAngle = Mathf.Atan2(targetForward.x, targetForward.z) * Mathf.Rad2Deg;
+                if (m_SpinTurnLimit > 0)
+                {
+                    var targetSpinSpeed = Mathf.Abs(Mathf.DeltaAngle(m_LastFlatAngle, currentFlatAngle)) / Time.deltaTime;
+                    var desiredTurnAmount = Mathf.InverseLerp(m_SpinTurnLimit, m_SpinTurnLimit * 0.75f, targetSpinSpeed);
+                    var turnReactSpeed = (m_CurrentTurnAmount > desiredTurnAmount ? .1f : 1f);
+                    if (Application.isPlaying)
+                    {
+                        m_CurrentTurnAmount = Mathf.SmoothDamp(m_CurrentTurnAmount, desiredTurnAmount,
+                                                             ref m_TurnSpeedVelocityChange, turnReactSpeed);
+                    }
+                    else
+                    {
+                        // for editor mode, smoothdamp won't work because it uses deltaTime internally
+                        m_CurrentTurnAmount = desiredTurnAmount;
+                    }
+                }
+                else
+                {
+                    m_CurrentTurnAmount = 1;
+                }
+                m_LastFlatAngle = currentFlatAngle;
+            }
+
+            // camera position moves towards target position:
+            //transform.position= Vector3.Lerp(transform.position, m_Target.transform.position, Time.deltaTime * m_MoveSpeed);
+            //transform.position += m_Target.transform.position - transform.position;
+            transform.position = Vector3.SmoothDamp(transform.position, m_Target.transform.position, ref velocity, smoothTime);
+            // camera's rotation is split into two parts, which can have independend speed settings:
+            // rotating towards the target's forward direction (which encompasses its 'yaw' and 'pitch')
+            if (!m_FollowTilt)
             {
-                targetForward = transform.forward;
+                targetForward.y = 0;
+                if (targetForward.sqrMagnitude < float.Epsilon)
+                {
+                    targetForward = transform.forward;
+                }
             }
-        }
-        var rollRotation = Quaternion.LookRotation(targetForward, m_RollUp);
+            var rollRotation = Quaternion.LookRotation(targetForward, m_RollUp);
 
-        // and aligning with the target object's up direction (i.e. its 'roll')
-        m_RollUp = m_RollSpeed > 0 ? Vector3.Slerp(m_RollUp, targetUp, m_RollSpeed * Time.deltaTime) : Vector3.up;
-        transform.rotation = Quaternion.Lerp(transform.rotation, rollRotation, m_TurnSpeed * m_CurrentTurnAmount * Time.deltaTime);
+            // and aligning with the target object's up direction (i.e. its 'roll')
+            m_RollUp = m_RollSpeed > 0 ? Vector3.Slerp(m_RollUp, targetUp, m_RollSpeed * Time.deltaTime) : Vector3.up;
+            transform.rotation = Quaternion.Lerp(transform.rotation, rollRotation, m_TurnSpeed * m_CurrentTurnAmount * Time.deltaTime);
+        }
     }
 }
 

@@ -58,9 +58,11 @@ namespace UnityStandardAssets.Utility
 
             // You can manually create a transform and assign it to this component *and* the AI,
             // then this component will update it, and the AI can read it.
+            
             if (target == null)
             {
                 target = new GameObject(name + " Waypoint Target").transform;
+               
             }
 
             if (gameObject.transform.tag == "Player")
@@ -108,6 +110,7 @@ namespace UnityStandardAssets.Utility
 
                 // get our current progress along the route
                 progressPoint = circuit.GetRoutePoint(progressDistance);
+                
                 Vector3 progressDelta = progressPoint.position - transform.position;
                 if (Vector3.Dot(progressDelta, progressPoint.direction) < 0)
                 {

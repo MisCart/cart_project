@@ -84,6 +84,8 @@ public class WaypointAgent : MonoBehaviour {
         if (rigidbody.velocity.magnitude <= limit)
         {
             rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
+
+           
         }
 
         Vector3 localTarget = tracker.target.position - transform.position+correction;
@@ -97,11 +99,11 @@ public class WaypointAgent : MonoBehaviour {
 
 
         
-        Vector3 dir2= new Vector3(0,localTarget.y,0);
+        Vector3 dir2= new Vector3(0,targetAngle,0);
 
         //transform.LookAt(tracker.target.position);
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(localTarget), 0.5f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(localTarget), 0.1f);
 
     }
 

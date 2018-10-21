@@ -68,7 +68,7 @@ public class SelectCartChara : MonoBehaviour {
         int i = GameData.CartId-1;
         int p = GameData.CharacterId-1;
         //GameObject car = GameObject.Instantiate(Carts[i]) as GameObject;
-        Debug.Log(GameData.CartId);
+        //Debug.Log(GameData.CartId);
         car = Carts[i];
         car.SetActive(true);
         car.transform.position = StartPos.position;
