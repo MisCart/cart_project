@@ -7,10 +7,11 @@ public class CPUrotation : MonoBehaviour {
     private float rotate;
     private int p = 0;
     AudioSource audio1;
-   
+    private WaypointAgent agent;
+
     // Use this for initialization
     void Start () {
-        
+        agent = GetComponent<WaypointAgent>();
     }
 	
 	// Update is called once per frame
@@ -24,7 +25,9 @@ public class CPUrotation : MonoBehaviour {
     public void startrotate()
     {
         Debug.Log("Hit");
+
         Vector3 vct = new Vector3(Random.Range(-5,5), 5, Random.Range(-5, 5));
         GetComponent<Rigidbody>().AddForce(vct*20,ForceMode.VelocityChange);
+        agent.LimitCutShort();
     }
 }

@@ -123,6 +123,12 @@ public class WaypointAgent : MonoBehaviour {
         Invoke("LimitReset",5f);
     }
 
+    public void LimitCutShort()
+    {
+        limit = limit / 2;
+        Invoke("LimitReset", 1.5f);
+    }
+
     void LimitReset()
     {
         limit = limitset;

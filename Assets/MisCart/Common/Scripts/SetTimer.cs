@@ -80,7 +80,11 @@ public class SetTimer : MonoBehaviour {
             }
             if (laps == 2 && check == 2)
             {
+                GameData.FinishRank = rank;
+                GameData.FinishTime = second;
+
                 finishobject.GetComponent<finish>().finishrace(rank);
+
                 lapMinite = minite - oldMinite;
                 if (second - oldSecond < 0)
                 {
