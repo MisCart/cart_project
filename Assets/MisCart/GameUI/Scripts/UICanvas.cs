@@ -19,6 +19,7 @@ namespace GameUI
         [SerializeField] GameObject resultBox;
         [SerializeField] CharacterImage misChan;
         [SerializeField] PlayableDirector director;
+        [SerializeField] GameObject cover;
 
 		Action onClick;
 		Action onBack;
@@ -55,6 +56,7 @@ namespace GameUI
 
         public GameObject ResultBox { get { return resultBox; } }
         public CharacterImage MisChan { get { return misChan; } }
+        public GameObject Cover { get { return cover; } }
 
         public void StartTimeline(){
             director.Play();
