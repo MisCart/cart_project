@@ -24,7 +24,7 @@ namespace Transition
 		[SerializeField] UICanvas uiCanvas;
 
 		public static UICanvas UI { get { return Instance.uiCanvas; } }
-        public Model.GameScenes CurrentGameScene { get { return currentGameScene; } }
+        public static Model.GameScenes CurrentGameScene { get { return Instance.currentGameScene; } }
         public bool IsRunning { get { return isRunning; } }
 
         override protected void Awake()

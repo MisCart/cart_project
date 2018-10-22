@@ -21,9 +21,9 @@ namespace Model
         powerup2,
         setup1,
         アイテム投擲,
-        Tap,
-        Cansel,
-        Select,
+        Tap,            // OKボタンをクリックしたとき
+        Cansel,         // Canselボタンをクリックしたとき
+        Select,         // ボタンを押したとき
         paintland,
         paintfire,
         hacksuccess,

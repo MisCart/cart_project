@@ -15,6 +15,8 @@ namespace GameUI
 
         void Start ()
         {
+            GameUIManager.UI.SetOnClick(() => OnClick());
+            GameUIManager.UI.SetOnBack(() => OnBack());
             StartCoroutine(StartCountDown());
         }
 

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Playables;
 using TMPro;
+using Transition;
+using Model;
 
 namespace GameUI
 {
@@ -15,6 +17,5 @@ namespace GameUI
             GameData.rank = 3;
             GameUIManager.StartAnimation();
         }
-
 	}
 }

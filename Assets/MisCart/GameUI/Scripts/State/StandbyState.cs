@@ -16,6 +16,8 @@ namespace GameUI
             GameUIManager.UI.MessageBox.SetActive(false);
             GameUIManager.UI.MisChan.SetActive(false);
             GameUIManager.UI.ResultBox.SetActive(false);
+            GameUIManager.UI.SetOnClick(() => OnClick());
+            GameUIManager.UI.SetOnBack(() => OnBack());
         }
 
         void Update() {

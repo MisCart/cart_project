@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using BehaviourMachine;
+using Transition;
+using MisCart;
 
 namespace GameUI
 {
@@ -15,7 +17,10 @@ namespace GameUI
             GameUIManager.UI.MisChan.SetActive(true);
             GameUIManager.UI.ResultBox.SetActive(true);
 
-            setMessage();
+            GameUIManager.UI.SetOnClick(() => OnClick());
+            GameUIManager.UI.SetOnBack(() => OnBack());
+            SetMessage();
+            SetRank();
 
             GameUIManager.UI.StartTimeline();
         }
@@ -24,9 +29,8 @@ namespace GameUI
         /// 選んだキャラクターや順位に合わせて台詞を変える
         /// 1~3位なら勝利用の台詞、それ以外なら敗北用の台詞
         /// </summary>
-        void setMessage(){
+        void SetMessage(){
             var id = GameData.CharacterId;
-            Debug.Log(GameUIManager.UI.Message);
             if(id == 1){
                 GameUIManager.UI.MisChan.GetComponent<Image>().sprite = GameUIManager.UI.MisChan.Images[0];
                 if(GameData.rank <= 3){
@@ -77,7 +81,26 @@ namespace GameUI
             }
         }
 
-        public override void OnClick(){}
-		public override void OnBack(){}
+        //順位のセット
+        void SetRank(){
+            if(GameData.rank == 1){
+                GameUIManager.UI.Rank.text = "1st";
+            } else if(GameData.rank == 2){
+                GameUIManager.UI.Rank.text = "2nd";
+            } else if(GameData.rank == 3){
+                GameUIManager.UI.Rank.text = "3rd";
+            } else {
+                GameUIManager.UI.Rank.text = GameData.rank+"th";
+            }
+        }
+
+        public override void OnClick(){
+			SoundController.PlaySE(Model.SE.Tap);
+            SceneLoader.LoadScene(TransitionManager.CurrentGameScene, new[] { Model.GameScenes.GameUI });
+        }
+		public override void OnBack(){
+			SoundController.PlaySE(Model.SE.Tap);
+            SceneLoader.LoadScene(Model.GameScenes.Title);
+        }
     }
 }
