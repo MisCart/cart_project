@@ -27,8 +27,15 @@ public class finish : MonoBehaviour {
         finishtext.SetActive(true);
         minimap.SetActive(false);
         mainCamera.GetComponent<AutoCam>().Goal();
-        ranktext.GetComponent<Text>().text = rank.ToString();
+        //ranktext.GetComponent<Text>().text = rank.ToString();
         player.GetComponent<Controller>().enabled = false;
         player.GetComponent<WaypointAgent>().enabled = true;
+        Invoke("kesuyatu",1f);
+
+    }
+
+    private void kesuyatu()
+    {
+        finishtext.SetActive(false);
     }
 }
