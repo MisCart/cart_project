@@ -119,6 +119,13 @@ namespace GameUI
 		public override void OnBack(){
             SoundController.StopAll(0.3f);
 			SoundController.PlaySE(Model.SE.Tap);
+
+            //データを初期化
+            GameData.CharacterId = 0;
+            GameData.CartId = 0;
+            GameData.FinishRank = 0;
+            GameData.FinishTime = 0;
+
             SceneLoader.LoadScene(Model.GameScenes.Title);
         }
     }

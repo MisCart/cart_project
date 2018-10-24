@@ -4058,7 +4058,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 602536183}
     m_EventID: 1208455943
-  m_CachedInstanceID: 23320
+  m_CachedInstanceID: 166416
 --- !u!114 &602536178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4077,7 +4077,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 23322
+  m_CachedInstanceID: 166418
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -4150,6 +4150,11 @@ MonoBehaviour:
     m_Blackboard: {fileID: 602536179}
     m_IsConstant: 0
     m_IsSystem: 0
+  - m_ID: 1473083643
+    m_Name: SkipSelect
+    m_Blackboard: {fileID: 602536179}
+    m_IsConstant: 0
+    m_IsSystem: 0
   m_Namespace: 
 --- !u!114 &602536180
 MonoBehaviour:
@@ -4178,11 +4183,13 @@ MonoBehaviour:
   m_StateName: StandbyState
   m_Color: 0
   m_HideScript: 1
-  m_Position: {x: -90, y: 120}
+  m_Position: {x: -110, y: 130}
   m_Transitions:
   - m_Destination: {fileID: 602536182}
     m_EventID: 1208455943
-  m_CachedInstanceID: 23328
+  - m_Destination: {fileID: 602536185}
+    m_EventID: 1473083643
+  m_CachedInstanceID: 166424
 --- !u!114 &602536182
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4203,7 +4210,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 602536177}
     m_EventID: 1208455943
-  m_CachedInstanceID: 23330
+  m_CachedInstanceID: 166426
 --- !u!114 &602536183
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4226,7 +4233,7 @@ MonoBehaviour:
     m_EventID: 1039351880
   - m_Destination: {fileID: 602536177}
     m_EventID: 1208455943
-  m_CachedInstanceID: 23332
+  m_CachedInstanceID: 166428
 --- !u!114 &602536184
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4249,7 +4256,7 @@ MonoBehaviour:
     m_EventID: 1802588142
   - m_Destination: {fileID: 602536185}
     m_EventID: 1301650392
-  m_CachedInstanceID: 23334
+  m_CachedInstanceID: 166430
 --- !u!114 &602536185
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4270,7 +4277,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 602536184}
     m_EventID: 1186151275
-  m_CachedInstanceID: 23336
+  m_CachedInstanceID: 166432
 --- !u!1 &613319204
 GameObject:
   m_ObjectHideFlags: 0

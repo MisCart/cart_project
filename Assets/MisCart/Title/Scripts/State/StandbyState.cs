@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using BehaviourMachine;
+using MisCart;
 
 namespace Title
 {
@@ -22,7 +23,16 @@ namespace Title
             TitleManager.UI.CoverImage.gameObject.SetActive(false);
     		TitleManager.Front.Camera.gameObject.SetActive(false);
     		TitleManager.Front.SetActive(false);
-            SendEvent("EndAction");
+
+            if(GameData.CartId > 0 && GameData.CharacterId > 0){
+                TitleManager.Board.GetIntVar("CharaId").Value = GameData.CharacterId;
+                TitleManager.Board.GetIntVar("CartId").Value = GameData.CartId;
+                SoundController.PlayBGM(Model.BGM.TitleSelect);
+
+                SendEvent("SkipSelect");
+            } else {
+                SendEvent("EndAction");
+            }
         }
         public override void OnClick(){}
 		public override void OnBack(){}
