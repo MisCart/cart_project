@@ -1173,6 +1173,7 @@ MonoBehaviour:
   messageBox: {fileID: 58577726}
   message: {fileID: 68940584}
   rank: {fileID: 381761793}
+  finishTime: {fileID: 1681182421}
   resultBox: {fileID: 1371993413}
   misChan: {fileID: 1993853599}
   director: {fileID: 1340005872}
@@ -1614,10 +1615,10 @@ RectTransform:
   m_Father: {fileID: 1780194238}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 210, y: -130.00002}
-  m_SizeDelta: {x: 124.1, y: 100}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -100, y: -130.00002}
+  m_SizeDelta: {x: 124.100006, y: 42.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1681182421
 MonoBehaviour:
@@ -1640,7 +1641,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 33ba5080df195034aa054c58e86cf5f5, type: 3}
-    m_FontSize: 26
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1651,7 +1652,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 99:99:99
+  m_Text: 99:99
 --- !u!222 &1681182422
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1995,7 +1996,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 120916
+  m_CachedInstanceID: 103804
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -2079,7 +2080,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 1935632311}
     m_EventID: 1344322412
-  m_CachedInstanceID: 120920
+  m_CachedInstanceID: 103808
 --- !u!114 &1935632309
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2100,7 +2101,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 1935632308}
     m_EventID: 1634434881
-  m_CachedInstanceID: 120922
+  m_CachedInstanceID: 103810
 --- !u!114 &1935632310
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2119,7 +2120,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: -10, y: 440}
   m_Transitions: []
-  m_CachedInstanceID: 120924
+  m_CachedInstanceID: 103812
 --- !u!114 &1935632311
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2140,7 +2141,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 1935632310}
     m_EventID: 649514671
-  m_CachedInstanceID: -63716
+  m_CachedInstanceID: 103814
 --- !u!1 &1993853595
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ namespace GameUI
         [SerializeField] GameObject messageBox;
         [SerializeField] Text message;
         [SerializeField] Text rank;
+        [SerializeField] Text finishTime;
         [SerializeField] GameObject resultBox;
         [SerializeField] CharacterImage misChan;
         [SerializeField] PlayableDirector director;
@@ -53,7 +54,7 @@ namespace GameUI
         public GameObject CountDownObject { get { return countDownObject; } }
         public GameObject MessageBox { get { return messageBox; } }
         public Text Rank { get { return rank; } }
-
+        public Text Time { get { return finishTime; } }
         public GameObject ResultBox { get { return resultBox; } }
         public CharacterImage MisChan { get { return misChan; } }
         public GameObject Cover { get { return cover; } }

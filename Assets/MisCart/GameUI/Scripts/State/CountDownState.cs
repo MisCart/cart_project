@@ -22,7 +22,7 @@ namespace GameUI
 
         IEnumerator StartCountDown()
         {
-            GameUIManager.UI.CountDownObject.gameObject.SetActive(true);
+            GameUIManager.UI.CountDownObject.SetActive(true);
 
             var isRunning = Transition.SceneLoader.IsTransitionRunning;
             //蓋絵のアニメーションが終わっていなかったら待機
@@ -43,7 +43,7 @@ namespace GameUI
             GameUIManager.Board.GetBoolVar("IsCounting").Value = false;
             GameUIManager.Board.GetBoolVar("SetCountDown").Value = false;
             SendEvent("FinishCountDown");
-            GameUIManager.UI.CountDownObject.gameObject.SetActive(false);
+            GameUIManager.UI.CountDownObject.SetActive(false);
         }
 
     }

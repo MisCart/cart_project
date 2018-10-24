@@ -21,6 +21,11 @@ namespace GameUI
 
             GameUIManager.UI.SetOnClick(() => OnClick());
             GameUIManager.UI.SetOnBack(() => OnBack());
+
+            int minute = (int)GameData.FinishTime / 60;
+            int second = (int)GameData.FinishTime % 60;
+            GameUIManager.UI.Time.text = minute+":"+second;
+
             SetMessage();
             SetRank();
             PlaySound();

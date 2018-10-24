@@ -14,8 +14,8 @@ namespace GameUI
 	{
         void OnEnable() {
             GameData.CharacterId = 4;
-            GameData.FinishRank = 3;
-            GameUIManager.StartAnimation();
+            GameData.FinishRank = 5;
+            GameData.FinishTime = 145f;
         }
 	}
 }
