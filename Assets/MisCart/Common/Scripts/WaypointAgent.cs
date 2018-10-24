@@ -31,6 +31,7 @@ public class WaypointAgent : MonoBehaviour {
 
     float limit = 140f;
     float limitset = 0;
+    bool isCounting = true;
     float lPower = 60f;
     float timer = 0f;
     Vector3 correction = Vector3.zero;
@@ -40,7 +41,7 @@ public class WaypointAgent : MonoBehaviour {
         tracker = GetComponent<WaypointProgressTracker>();
         rigidbody = GetComponent<Rigidbody>();
         correction = new Vector3(Random.Range(-5.0f,5.0f),0,Random.Range(-5.0f,5.0f));
-        
+
 	}
 
     // Update is called once per frame
@@ -54,8 +55,8 @@ public class WaypointAgent : MonoBehaviour {
         }
 
         //カウントダウンをしているときは動かないようにする
-        var isCounting = GameUI.GameUIManager.IsCounting();
         if (isCounting){
+            isCounting = GameUI.GameUIManager.IsCounting();
             return;
         }
 
@@ -82,6 +83,8 @@ public class WaypointAgent : MonoBehaviour {
         if (rigidbody.velocity.magnitude <= limit)
         {
             rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
+
+
         }
 
         Vector3 localTarget = tracker.target.position - transform.position+correction;
@@ -95,11 +98,11 @@ public class WaypointAgent : MonoBehaviour {
 
 
 
-        Vector3 dir2= new Vector3(0,localTarget.y,0);
+        Vector3 dir2= new Vector3(0,targetAngle,0);
 
         //transform.LookAt(tracker.target.position);
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(localTarget), 0.5f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(localTarget), 0.1f);
 
     }
 
@@ -117,6 +120,12 @@ public class WaypointAgent : MonoBehaviour {
     {
         limit = limit / 2;
         Invoke("LimitReset",5f);
+    }
+
+    public void LimitCutShort()
+    {
+        limit = limit / 2;
+        Invoke("LimitReset", 1.5f);
     }
 
     void LimitReset()

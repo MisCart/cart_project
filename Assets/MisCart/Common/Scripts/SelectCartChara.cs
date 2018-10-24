@@ -14,6 +14,8 @@ public class SelectCartChara : MonoBehaviour {
     [SerializeField] private bool debug = false;// Use this for initialization
     private GameObject car;
     void Awake () {
+        Debug.Log("CharaID: " + (GameData.CharacterId-1));
+        Debug.Log("CartID: " + (GameData.CartId - 1));
         if (debug)
         {
             GameData.CartId = Setcart;
@@ -68,7 +70,7 @@ public class SelectCartChara : MonoBehaviour {
         int i = GameData.CartId-1;
         int p = GameData.CharacterId-1;
         //GameObject car = GameObject.Instantiate(Carts[i]) as GameObject;
-        Debug.Log(GameData.CartId);
+        //Debug.Log(GameData.CartId);
         car = Carts[i];
         car.SetActive(true);
         car.transform.position = StartPos.position;
@@ -76,7 +78,8 @@ public class SelectCartChara : MonoBehaviour {
 
         //GameObject chara = GameObject.Instantiate(Charas[p]) as GameObject;
         GameObject chara = Charas[p];
-        chara.SetActive(true);
+        
+        //chara.SetActive(true);
         chara.transform.position = car.gameObject.transform.GetChild(1).gameObject.transform.position;
         chara.transform.parent = car.gameObject.transform;
 

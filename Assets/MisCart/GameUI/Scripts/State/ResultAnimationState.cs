@@ -34,7 +34,7 @@ namespace GameUI
             var id = GameData.CharacterId;
             if(id == 1){
                 GameUIManager.UI.MisChan.GetComponent<Image>().sprite = GameUIManager.UI.MisChan.Images[0];
-                if(GameData.rank <= 3){
+                if(GameData.FinishRank <= 3){
                     GameUIManager.UI.Message = CharacterMessage.misChanBlueWin;
                 } else {
                     GameUIManager.UI.Message = CharacterMessage.misChanBlueWin;
@@ -42,7 +42,7 @@ namespace GameUI
             }
             if(id == 2){
                 GameUIManager.UI.MisChan.GetComponent<Image>().sprite = GameUIManager.UI.MisChan.Images[1];
-                if(GameData.rank <= 3){
+                if(GameData.FinishRank <= 3){
                     GameUIManager.UI.Message = CharacterMessage.misChanGreenWin;
                 } else {
                     GameUIManager.UI.Message = CharacterMessage.misChanGreenLose;
@@ -50,7 +50,7 @@ namespace GameUI
             }
             if(id == 3){
                 GameUIManager.UI.MisChan.GetComponent<Image>().sprite = GameUIManager.UI.MisChan.Images[2];
-                if(GameData.rank <= 3){
+                if(GameData.FinishRank <= 3){
                     GameUIManager.UI.Message = CharacterMessage.misChanLightBlueWin;
                 } else {
                     GameUIManager.UI.Message = CharacterMessage.misChanLightBlueLose;
@@ -58,7 +58,7 @@ namespace GameUI
             }
             if(id == 4){
                 GameUIManager.UI.MisChan.GetComponent<Image>().sprite = GameUIManager.UI.MisChan.Images[3];
-                if(GameData.rank <= 3){
+                if(GameData.FinishRank <= 3){
                     GameUIManager.UI.Message = CharacterMessage.misChanPinkWin;
                 } else {
                     GameUIManager.UI.Message = CharacterMessage.misChanPinkLose;
@@ -66,7 +66,7 @@ namespace GameUI
             }
             if(id == 5){
                 GameUIManager.UI.MisChan.GetComponent<Image>().sprite = GameUIManager.UI.MisChan.Images[4];
-                if(GameData.rank <= 3){
+                if(GameData.FinishRank <= 3){
                     GameUIManager.UI.Message = CharacterMessage.misChanRedWin;
                 } else {
                     GameUIManager.UI.Message = CharacterMessage.misChanRedLose;
@@ -74,7 +74,7 @@ namespace GameUI
             }
             if(id == 6){
                 GameUIManager.UI.MisChan.GetComponent<Image>().sprite = GameUIManager.UI.MisChan.Images[5];
-                if(GameData.rank <= 3){
+                if(GameData.FinishRank <= 3){
                     GameUIManager.UI.Message = CharacterMessage.misChanYellowWin;
                 } else {
                     GameUIManager.UI.Message = CharacterMessage.misChanYellowLose;
@@ -84,14 +84,14 @@ namespace GameUI
 
         //順位のセット
         void SetRank(){
-            if(GameData.rank == 1){
+            if(GameData.FinishRank == 1){
                 GameUIManager.UI.Rank.text = "1st";
-            } else if(GameData.rank == 2){
+            } else if(GameData.FinishRank == 2){
                 GameUIManager.UI.Rank.text = "2nd";
-            } else if(GameData.rank == 3){
+            } else if(GameData.FinishRank == 3){
                 GameUIManager.UI.Rank.text = "3rd";
             } else {
-                GameUIManager.UI.Rank.text = GameData.rank+"th";
+                GameUIManager.UI.Rank.text = GameData.FinishRank+"th";
             }
         }
 

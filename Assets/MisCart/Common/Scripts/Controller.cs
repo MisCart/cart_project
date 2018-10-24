@@ -13,7 +13,7 @@ public class Controller : MonoBehaviour {
     private float speedset = 0;
     private float handleset = 0;
     float limitrotate=5f;
-
+    bool isCounting = true;
     bool sound1=false;
     bool sound2 = false;
     private float gravity=9.81f;
@@ -46,8 +46,6 @@ public class Controller : MonoBehaviour {
         t = 0;
         s = 0;
         e = 0;
-
-
     }
 
      void Update()
@@ -118,7 +116,8 @@ public class Controller : MonoBehaviour {
         }
 
         //カウントダウンをしているときは動かないようにする
-        if (GameUI.GameUIManager.IsCounting()){
+        if (isCounting){
+            isCounting = GameUI.GameUIManager.IsCounting();
             return;
         }
 
@@ -220,7 +219,7 @@ public class Controller : MonoBehaviour {
         if ((joyH >= 0.3f)||(joyH<=-0.3f)){if (sparks.activeSelf == false){sparks.SetActive(true);}}
         else{sparks.SetActive(false);}
         transform.Rotate(new Vector3(0, -6.5f, 0) * Time.deltaTime);    //コントローラ接続時のみ有効化
-        if (Input.GetKey(KeyCode.Joystick1Button0))
+        if (Input.GetKey(KeyCode.Joystick1Button1))
         {
             if (sound1 == false)
                 {
@@ -235,7 +234,7 @@ public class Controller : MonoBehaviour {
                 rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
             }
         }
-        if (Input.GetKeyUp(KeyCode.Joystick1Button0))
+        if (Input.GetKeyUp(KeyCode.Joystick1Button1))
         {
             SoundController.StopSE(Model.SE.EngineSound);
             sound1 = false;
@@ -272,7 +271,7 @@ public class Controller : MonoBehaviour {
             handle = handleset;
             s = 0; e = 0;
         }
-        if (Input.GetKey(KeyCode.Joystick1Button1))
+        if (Input.GetKey(KeyCode.Joystick1Button0))
         {
             if (rigidbody.velocity.magnitude <= limit)
             {
@@ -290,7 +289,7 @@ public class Controller : MonoBehaviour {
         float angleDir2 = transform.eulerAngles.y * (Mathf.PI / 180.0f);
         Vector3 dir2 = new Vector3(Mathf.Sin(angleDir2), 0.0f, Mathf.Cos(angleDir2));
 
-        if (((transform.eulerAngles.x >= 40f) && (transform.eulerAngles.x <= 320f))||((transform.eulerAngles.z >= 40f) && (transform.eulerAngles.z <= 320f)))
+        if (((transform.eulerAngles.x >= 50f) && (transform.eulerAngles.x <= 310f))||((transform.eulerAngles.z >= 50f) && (transform.eulerAngles.z <= 310f)))
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir2), 0.5f);
         }
@@ -301,6 +300,7 @@ public class Controller : MonoBehaviour {
 
         if (checkground()==false)
         {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir2), 0.015f);
             rigidbody.AddForce(new Vector3(0,-1,0) * gravity*3, ForceMode.Acceleration);
             transform.position += new Vector3(0,-0.1f,0);
         }

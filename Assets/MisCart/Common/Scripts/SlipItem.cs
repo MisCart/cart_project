@@ -4,12 +4,17 @@ using UnityEngine;
 using MisCart;
 
 public class SlipItem : MonoBehaviour {
-	// Use this for initialization
+    // Use this for initialization
+    private bool active = false;
 	void Start () {
-       
 
+        Invoke("StartEffect", 1f);
     }
 	
+    private void StartEffect()
+    {
+        active = true;
+    }
 	// Update is called once per frame
 	void Update () {
 		
@@ -17,20 +22,24 @@ public class SlipItem : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (active)
         {
-            other.gameObject.GetComponent<Controller>().LimitCut();
-            SoundController.PlaySE(Model.SE.encount1);
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
-            gameObject.GetComponent<BoxCollider>().enabled = false;
-            Invoke("Dess",2);
-        }else if (other.gameObject.tag == "CPU")
-        {
-            other.gameObject.GetComponent<WaypointAgent>().LimitCut();
-            SoundController.PlaySE(Model.SE.encount1);
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
-            gameObject.GetComponent<BoxCollider>().enabled = false;
-            Invoke("Dess", 2);
+            if (other.gameObject.tag == "Player")
+            {
+                other.gameObject.GetComponent<Controller>().LimitCut();
+                SoundController.PlaySE(Model.SE.encount1);
+                gameObject.GetComponent<MeshRenderer>().enabled = false;
+                gameObject.GetComponent<BoxCollider>().enabled = false;
+                Invoke("Dess", 2);
+            }
+            else if (other.gameObject.tag == "CPU")
+            {
+                other.gameObject.GetComponent<WaypointAgent>().LimitCut();
+                SoundController.PlaySE(Model.SE.encount1);
+                gameObject.GetComponent<MeshRenderer>().enabled = false;
+                gameObject.GetComponent<BoxCollider>().enabled = false;
+                Invoke("Dess", 2);
+            }
         }
     }
     void Dess()
