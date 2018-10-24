@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 namespace UnityStandardAssets.Utility
 {
@@ -10,15 +11,27 @@ namespace UnityStandardAssets.Utility
         private WaypointCircuit circuit2;
         GameObject[] tagobjs;
         GameObject rtag;
+        private int pathpoint;
         int reach;
         int next;
         int ranknum;
+        private int nowRank;
         float dis;
         private Text ranktext;
+        private float cpudis;
         // Use this for initialization
+        public int GetRank()
+        {
+            return nowRank;
+        }
         public GameObject gettag()
         {
             return rtag;
+        }
+
+        public int GetPathPoint()
+        {
+            return pathpoint;
         }
 
         void Start()
@@ -29,39 +42,62 @@ namespace UnityStandardAssets.Utility
             reach = 0;
             next = 1;
             ranknum = 1;
+            pathpoint = 0;
+
+            nowRank = 8;
+
         }
 
         // Update is called once per frame
         void FixedUpdate()
         {
             dis=GetFractionOfPathCovered(transform.position,circuit2.Waypoints[reach].position,circuit2.Waypoints[next].position);
+            
             if (dis > 1)
             {
+                
+                pathpoint++;
                 reach++;
                 next++;
 
-                if (reach == 13)
+                if (reach == circuit2.Waypoints.Length-1)
                 {
                     next = 0;
                 }
-                if (reach == 14)
+                if (reach == circuit2.Waypoints.Length)
                 {
                     reach = 0;
                     next = 1;
                 }
             }
-
-            foreach(GameObject obj in tagobjs)
+            if (transform.tag == "Player")
             {
-                float cpudis= GetFractionOfPathCovered(obj.transform.position, circuit2.Waypoints[reach].position, circuit2.Waypoints[next].position);
-                if ((cpudis > dis)||(cpudis>1))
+                foreach (GameObject obj in tagobjs)
                 {
-                    rtag = obj;
-                    ranknum++;
+                    
+                    if(obj.GetComponent < rank>().GetPathPoint() <= pathpoint)
+                    {
+                        cpudis = Mathf.Clamp(GetFractionOfPathCovered(obj.transform.position, circuit2.Waypoints[reach].position, circuit2.Waypoints[next].position),0,5f);
+                        if (cpudis < dis)
+                        {
+                            ranknum--;
+                            rtag = obj;
+                        }
+                    }
+                    else
+                    {
+                        cpudis = Mathf.Clamp(GetFractionOfPathCovered(obj.transform.position, circuit2.Waypoints[reach].position, circuit2.Waypoints[next].position), 0, 5f);
+                        if (cpudis < dis)
+                        {
+                            rtag = obj;
+                        }
+                    }
+                    
                 }
+                ranktext.text = ranknum.ToString();
+                nowRank = ranknum;
+                ranknum = 8;
             }
-            ranktext.text = ranknum.ToString();
-            ranknum = 1;
 
         }
 

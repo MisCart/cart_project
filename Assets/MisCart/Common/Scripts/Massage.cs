@@ -53,7 +53,7 @@ public class Massage : MonoBehaviour {
         messageText.text = "";
         SetMessage("こんにちは！miscartの世界へようこそ！   \n"
             + "これからチュートリアルを開始します。\n"
-            + "文字を送るには、ゲームパッドのBボタンか\n"
+            + "文字を送るには、ゲームパッドのAボタンか\n"
             + "キーボードのZキーを押してください。\n"
  
             + "まずは走行してみましょう\n"

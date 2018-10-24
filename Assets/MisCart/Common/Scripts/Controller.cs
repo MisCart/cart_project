@@ -75,7 +75,7 @@ public class Controller : MonoBehaviour {
 
 
 
-        if (Input.GetKeyUp(KeyCode.Joystick1Button0))
+        if (Input.GetKeyUp(KeyCode.Joystick1Button1))
         {
             SoundController.StopSE(Model.SE.EngineSound);
             sound1 = false;
@@ -224,7 +224,7 @@ public class Controller : MonoBehaviour {
         if ((joyH >= 0.3f)||(joyH<=-0.3f)){if (sparks.activeSelf == false){sparks.SetActive(true);}}
         else{sparks.SetActive(false);}
         transform.Rotate(new Vector3(0, -6.5f, 0) * Time.deltaTime);    //コントローラ接続時のみ有効化
-        if (Input.GetKey(KeyCode.Joystick1Button1))
+        if (Input.GetKey(KeyCode.Joystick1Button0))
         {
             if (sound1 == false)
                 {
@@ -239,7 +239,7 @@ public class Controller : MonoBehaviour {
                 rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
             }
         }
-        if (Input.GetKeyUp(KeyCode.Joystick1Button1))
+        if (Input.GetKeyUp(KeyCode.Joystick1Button0))
         {
             SoundController.StopSE(Model.SE.EngineSound);
             sound1 = false;
@@ -276,7 +276,7 @@ public class Controller : MonoBehaviour {
             handle = handleset;
             s = 0; e = 0;
         }
-        if (Input.GetKey(KeyCode.Joystick1Button0))
+        if (Input.GetKey(KeyCode.Joystick1Button1))
         {
             if (rigidbody.velocity.magnitude <= limit)
             {

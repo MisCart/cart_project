@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.Utility;
 
 public class SetTimer : MonoBehaviour {
     private int minite;
@@ -21,6 +22,7 @@ public class SetTimer : MonoBehaviour {
     public GameObject lap2;
     public GameObject lap3;
     public GameObject finishobject;
+    private GameObject player;
     // Use this for initialization
     void Start () {
         rank = 1;
@@ -32,6 +34,7 @@ public class SetTimer : MonoBehaviour {
         lapSecond = 0;
         laps = 0;
         check = 0;
+        player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
@@ -80,10 +83,11 @@ public class SetTimer : MonoBehaviour {
             }
             if (laps == 2 && check == 2)
             {
-                GameData.FinishRank = rank;
+
+                GameData.FinishRank = player.GetComponent<rank>().GetRank();
                 GameData.FinishTime = second;
 
-                finishobject.GetComponent<finish>().finishrace(rank);
+                finishobject.GetComponent<finish>().finishrace(player.GetComponent<rank>().GetRank());
 
                 lapMinite = minite - oldMinite;
                 if (second - oldSecond < 0)
