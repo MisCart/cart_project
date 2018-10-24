@@ -77,6 +77,9 @@ namespace Transition
             //トランジションアニメーションが終了するのを待つ
             while(isFading){ yield return null;}
 
+            //サウンドを全て停止
+            SoundController.StopAll(0.2f);
+
             //メインとなるシーンを読み込む
             var main = SceneManager.LoadSceneAsync(nextScene.ToString());
 
