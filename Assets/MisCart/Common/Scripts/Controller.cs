@@ -5,7 +5,7 @@ using MisCart;
 
 public class Controller : MonoBehaviour {
     new  Rigidbody rigidbody  ;
-    
+
     [SerializeField]private float handle=80f;
     public float speed;
     public float limit=85f;
@@ -13,10 +13,9 @@ public class Controller : MonoBehaviour {
     private float speedset = 0;
     private float handleset = 0;
     float limitrotate=5f;
-
+    bool isCounting = true;
     bool sound1=false;
     bool sound2 = false;
-    bool isCounting = true;
     private float gravity=9.81f;
     float lPower ;
     float timer = 0f;
@@ -47,8 +46,6 @@ public class Controller : MonoBehaviour {
         t = 0;
         s = 0;
         e = 0;
-
-
     }
 
      void Update()
@@ -100,7 +97,7 @@ public class Controller : MonoBehaviour {
             if (sparks.activeSelf==false)
             {
                 sparks.SetActive(true);
-            }        
+            }
         }
 
         if ((Input.GetKeyUp(KeyCode.LeftArrow))||(Input.GetKeyUp(KeyCode.RightArrow)))
@@ -119,12 +116,10 @@ public class Controller : MonoBehaviour {
         }
 
         //カウントダウンをしているときは動かないようにする
-        if (isCounting)
-        {
+        if (isCounting){
             isCounting = GameUI.GameUIManager.IsCounting();
             return;
         }
-
 
 
             if (Input.GetKey(KeyCode.Z))
@@ -151,7 +146,7 @@ public class Controller : MonoBehaviour {
             }
 
             if (Input.GetKeyUp(KeyCode.Z))
-            {               
+            {
                 SoundController.StopSE(Model.SE.EngineSound);
                 sound1 = false;
 
@@ -235,7 +230,7 @@ public class Controller : MonoBehaviour {
 
             if (rigidbody.velocity.magnitude <= limit)
             {
-               
+
                 rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
             }
         }
@@ -300,7 +295,7 @@ public class Controller : MonoBehaviour {
         }
         //transform.rotation=Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(dir2),0.5f);//0.15f//X軸について
         //転倒防止処理ここまで
-       
+
 
 
         if (checkground()==false)

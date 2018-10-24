@@ -1,8 +1,10 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
 using TMPro;
 
 namespace GameUI
@@ -10,10 +12,17 @@ namespace GameUI
 	public class UICanvas : MonoBehaviour
 	{
 		[SerializeField] TextMeshProUGUI countDown;
-        bool isCountDown = true;
-        bool isRunning = false;
+        [SerializeField] GameObject countDownObject;
+        [SerializeField] GameObject messageBox;
+        [SerializeField] Text message;
+        [SerializeField] Text rank;
+        [SerializeField] GameObject resultBox;
+        [SerializeField] CharacterImage misChan;
+        [SerializeField] PlayableDirector director;
+        [SerializeField] GameObject cover;
 
-        public bool IsCountDown { get { return isCountDown; } }
+		Action onClick;
+		Action onBack;
 
         public string CountDownText
         {
@@ -28,33 +37,57 @@ namespace GameUI
             }
         }
 
-        void Start()
+        public string Message
         {
-            StartCoroutine(StartCountDown());
-        }
-
-        IEnumerator StartCountDown()
-        {
-            isCountDown = true;
-            countDown.gameObject.SetActive(true);
-
-            //蓋絵のアニメーションが終わるまで待機
-            while(isRunning)
+            get
             {
-                isRunning = Transition.SceneLoader.IsTransitionRunning;
-                yield return null;
+                return message.text;
             }
 
-            yield return new WaitForSeconds(1f);
-            CountDownText = "2";
-            yield return new WaitForSeconds(1f);
-            CountDownText = "1";
-            yield return new WaitForSeconds(1f);
-            CountDownText = "GO!";
-            isCountDown = false;
-            yield return new WaitForSeconds(0.3f);
-
-            countDown.gameObject.SetActive(false);
+            set
+            {
+                message.text = value;
+            }
         }
+
+        public GameObject CountDownObject { get { return countDownObject; } }
+        public GameObject MessageBox { get { return messageBox; } }
+        public Text Rank { get { return rank; } }
+
+        public GameObject ResultBox { get { return resultBox; } }
+        public CharacterImage MisChan { get { return misChan; } }
+        public GameObject Cover { get { return cover; } }
+
+        public void StartTimeline(){
+            director.Play();
+        }
+
+        public void OnClick()
+		{
+			if (onClick != null){
+				onClick();
+			}
+		}
+
+		public void OnBack()
+		{
+			if (onBack != null){
+				onBack();
+			}
+		}
+
+		/// <summary>
+		/// クリックしたときのの処理を設置
+		/// </summary>
+		public void SetOnClick(Action action=null){
+			onClick = action;
+		}
+
+		/// <summary>
+		/// 戻るボタンの処理を設置
+		/// </summary>
+		public void SetOnBack(Action action=null){
+			onBack = action;
+		}
 	}
 }
