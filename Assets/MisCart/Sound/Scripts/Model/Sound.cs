@@ -41,6 +41,8 @@ namespace Model
     {
         Title,
         deathmetal2,
-        TitleSelect
+        TitleSelect,
+        Win,
+        Lose
     }
 }

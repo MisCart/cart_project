@@ -4,6 +4,7 @@ using System.Collections;
 using BehaviourMachine;
 using Transition;
 using MisCart;
+using Model;
 
 namespace GameUI
 {
@@ -22,6 +23,7 @@ namespace GameUI
             GameUIManager.UI.SetOnBack(() => OnBack());
             SetMessage();
             SetRank();
+            PlaySound();
 
             GameUIManager.UI.StartTimeline();
         }
@@ -95,11 +97,22 @@ namespace GameUI
             }
         }
 
+        void PlaySound(){
+            SoundController.StopAll(0.3f);
+            if(GameData.FinishRank <= 3){
+                SoundController.PlayBGM(Model.BGM.Win);
+            }else{
+                SoundController.PlayBGM(Model.BGM.Lose);
+            }
+        }
+
         public override void OnClick(){
+            SoundController.StopAll(0.3f);
 			SoundController.PlaySE(Model.SE.Tap);
             SceneLoader.LoadScene(TransitionManager.CurrentGameScene, new[] { Model.GameScenes.GameUI });
         }
 		public override void OnBack(){
+            SoundController.StopAll(0.3f);
 			SoundController.PlaySE(Model.SE.Tap);
             SceneLoader.LoadScene(Model.GameScenes.Title);
         }
