@@ -1942,6 +1942,7 @@ GameObject:
   - component: {fileID: 1935632309}
   - component: {fileID: 1935632308}
   - component: {fileID: 1935632310}
+  - component: {fileID: 1935632311}
   m_Layer: 0
   m_Name: GameUIManager
   m_TagString: Untagged
@@ -1994,7 +1995,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 664998
+  m_CachedInstanceID: 120916
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -2074,11 +2075,11 @@ MonoBehaviour:
   m_StateName: CountDownState
   m_Color: 0
   m_HideScript: 1
-  m_Position: {x: 260, y: 280}
+  m_Position: {x: -20, y: 230}
   m_Transitions:
-  - m_Destination: {fileID: 1935632309}
+  - m_Destination: {fileID: 1935632311}
     m_EventID: 1344322412
-  m_CachedInstanceID: 665002
+  m_CachedInstanceID: 120920
 --- !u!114 &1935632309
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2095,13 +2096,11 @@ MonoBehaviour:
   m_StateName: StandbyState
   m_Color: 0
   m_HideScript: 1
-  m_Position: {x: 60, y: 170}
+  m_Position: {x: -20, y: 110}
   m_Transitions:
   - m_Destination: {fileID: 1935632308}
     m_EventID: 1634434881
-  - m_Destination: {fileID: 1935632310}
-    m_EventID: 649514671
-  m_CachedInstanceID: 665004
+  m_CachedInstanceID: 120922
 --- !u!114 &1935632310
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2118,9 +2117,30 @@ MonoBehaviour:
   m_StateName: ResultAnimationState
   m_Color: 0
   m_HideScript: 1
-  m_Position: {x: -50, y: 330}
+  m_Position: {x: -10, y: 440}
   m_Transitions: []
-  m_CachedInstanceID: 665006
+  m_CachedInstanceID: 120924
+--- !u!114 &1935632311
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1935632303}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72115bf1e3914471fb0f5866c318a48c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 1935632307}
+  m_Parent: {fileID: 1935632306}
+  m_StateName: RaceState
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: -10, y: 330}
+  m_Transitions:
+  - m_Destination: {fileID: 1935632310}
+    m_EventID: 649514671
+  m_CachedInstanceID: -63716
 --- !u!1 &1993853595
 GameObject:
   m_ObjectHideFlags: 0
