@@ -38,7 +38,7 @@ public class ChargingGage : MonoBehaviour {
                 Invoke("Stay", 0.5f);
 
             }
-                
+
         }
     }
     // Update is called once per frame
@@ -51,8 +51,7 @@ public class ChargingGage : MonoBehaviour {
             return;
         }
 
-        if (isCounting)
-        {
+        if (isCounting){
             isCounting = GameUI.GameUIManager.IsCounting();
             return;
         }
