@@ -74,8 +74,16 @@ namespace UnityStandardAssets.Utility
             {
                 foreach (GameObject obj in tagobjs)
                 {
-                    
-                    if(obj.GetComponent < rank>().GetPathPoint() <= pathpoint)
+                    if (obj.GetComponent<rank>().GetPathPoint() < pathpoint)
+                    {
+                        ranknum--;
+                        cpudis = Mathf.Clamp(GetFractionOfPathCovered(obj.transform.position, circuit2.Waypoints[reach].position, circuit2.Waypoints[next].position), 0, 5f);
+                        if (cpudis < dis)
+                        {
+                            rtag = obj;
+                        }
+                    }                    
+                    else if(obj.GetComponent < rank>().GetPathPoint() == pathpoint)
                     {
                         cpudis = Mathf.Clamp(GetFractionOfPathCovered(obj.transform.position, circuit2.Waypoints[reach].position, circuit2.Waypoints[next].position),0,5f);
                         if (cpudis < dis)
@@ -84,7 +92,7 @@ namespace UnityStandardAssets.Utility
                             rtag = obj;
                         }
                     }
-                    else
+                    else if(obj.GetComponent<rank>().GetPathPoint() > pathpoint)
                     {
                         cpudis = Mathf.Clamp(GetFractionOfPathCovered(obj.transform.position, circuit2.Waypoints[reach].position, circuit2.Waypoints[next].position), 0, 5f);
                         if (cpudis < dis)
