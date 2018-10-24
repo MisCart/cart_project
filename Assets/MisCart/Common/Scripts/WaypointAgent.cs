@@ -31,7 +31,6 @@ public class WaypointAgent : MonoBehaviour {
 
     float limit = 140f;
     float limitset = 0;
-    bool isCounting = true;
     float lPower = 60f;
     float timer = 0f;
     Vector3 correction = Vector3.zero;
@@ -55,8 +54,7 @@ public class WaypointAgent : MonoBehaviour {
         }
 
         //カウントダウンをしているときは動かないようにする
-        if (isCounting){
-            isCounting = GameUI.GameUIManager.IsCounting();
+        if (GameUI.GameUIManager.IsCounting()){
             return;
         }
 

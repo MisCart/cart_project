@@ -13,7 +13,6 @@ public class Controller : MonoBehaviour {
     private float speedset = 0;
     private float handleset = 0;
     float limitrotate=5f;
-    bool isCounting = true;
     bool sound1=false;
     bool sound2 = false;
     private float gravity=9.81f;
@@ -116,8 +115,7 @@ public class Controller : MonoBehaviour {
         }
 
         //カウントダウンをしているときは動かないようにする
-        if (isCounting){
-            isCounting = GameUI.GameUIManager.IsCounting();
+        if (GameUI.GameUIManager.IsCounting()){
             return;
         }
 

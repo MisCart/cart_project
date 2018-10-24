@@ -98,7 +98,7 @@ namespace GameUI
         }
 
         void PlaySound(){
-            SoundController.StopAll(0.3f);
+            SoundController.StopAll();
             if(GameData.FinishRank <= 3){
                 SoundController.PlayBGM(Model.BGM.Win);
             }else{

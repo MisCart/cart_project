@@ -19,15 +19,7 @@ namespace GameUI
             GameUIManager.UI.Cover.SetActive(false);
             GameUIManager.UI.SetOnClick(() => OnClick());
             GameUIManager.UI.SetOnBack(() => OnBack());
-        }
-
-        void Update() {
-           if(GameUIManager.Board.GetBoolVar("SetAnimation").Value){
-               SendEvent("StartAnimation");
-           }
-           if(GameUIManager.Board.GetBoolVar("SetCountDown").Value){
-               SendEvent("StartCountDown");
-           }
+            SendEvent("StartCountDown");
         }
 
         public override void OnClick(){}

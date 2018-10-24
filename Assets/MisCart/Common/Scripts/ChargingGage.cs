@@ -9,7 +9,6 @@ public class ChargingGage : MonoBehaviour {
     private GameObject Player;
     [SerializeField] private float power = 1000f;
     bool inval = false;
-    bool isCounting = true;
     float timer = 0f;
     public  void SetPlayer(GameObject p)
     {
@@ -51,8 +50,7 @@ public class ChargingGage : MonoBehaviour {
             return;
         }
 
-        if (isCounting){
-            isCounting = GameUI.GameUIManager.IsCounting();
+        if (GameUI.GameUIManager.IsCounting()){
             return;
         }
 
