@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using GameUI;
+using MisCart;
 
 public class finish : MonoBehaviour {
     public GameObject racetext;
@@ -37,5 +39,7 @@ public class finish : MonoBehaviour {
     private void kesuyatu()
     {
         finishtext.SetActive(false);
+        GameUIManager.StartAnimation();
+        mainCamera.GetComponent<AudioSource>().volume = 0f;
     }
 }

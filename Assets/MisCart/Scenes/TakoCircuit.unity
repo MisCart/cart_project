@@ -3197,6 +3197,10 @@ Prefab:
       propertyPath: lookAheadForTargetOffset
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1937678626400326, guid: f60679041d14de3428fa58d783038307, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f60679041d14de3428fa58d783038307, type: 2}
   m_IsPrefabParent: 0
@@ -9716,6 +9720,10 @@ Prefab:
       propertyPath: speed
       value: 108
       objectReference: {fileID: 0}
+    - target: {fileID: 1074902291757382, guid: 14719770e8722234aa03ccc408355964, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14719770e8722234aa03ccc408355964, type: 2}
   m_IsPrefabParent: 0
@@ -12521,6 +12529,10 @@ Prefab:
       propertyPath: lookAheadForSpeedFactor
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1595144090035592, guid: 423aaa1dea2a7ad4382da98273d38e01, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 423aaa1dea2a7ad4382da98273d38e01, type: 2}
   m_IsPrefabParent: 0
@@ -13548,6 +13560,10 @@ Prefab:
         type: 2}
       propertyPath: limit
       value: 111
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658298493225874, guid: 6c6af54cf23629241960cb2a75931c5f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c6af54cf23629241960cb2a75931c5f, type: 2}
@@ -25397,7 +25413,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -60, y: 140}
+  m_AnchoredPosition: {x: -80, y: 40}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1867268707
@@ -25432,7 +25448,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Finish
+  m_Text: Finish !
 --- !u!222 &1867268708
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26573,7 +26589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1966340522
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27452,7 +27468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2055182705
 RectTransform:
   m_ObjectHideFlags: 0
