@@ -113,7 +113,8 @@ public class SelectCartChara : MonoBehaviour {
                 cpucar.transform.position = cpu.transform.position + new Vector3(-0.6f ,- 0.37f, 0);
             }
             //cpucar.transform.parent = cpu.gameObject.transform;
-            cpu.GetComponent<itemsystemforCPU>().SetCartType(num % 3);
+
+            cpu.GetComponent<itemsystemforCPU>().SetCartType(num % 3,cpucar);
             cpu.GetComponent<WaypointAgent>().enabled=true;
 
             

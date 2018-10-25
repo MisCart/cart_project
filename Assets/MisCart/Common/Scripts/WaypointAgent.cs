@@ -34,14 +34,16 @@ public class WaypointAgent : MonoBehaviour {
     float lPower = 60f;
     float timer = 0f;
     Vector3 correction = Vector3.zero;
+    private Color cartcolor;
     // Use this for initialization
     void Start () {
         limitset = limit;
         tracker = GetComponent<WaypointProgressTracker>();
         rigidbody = GetComponent<Rigidbody>();
         correction = new Vector3(Random.Range(-5.0f,5.0f),0,Random.Range(-5.0f,5.0f));
+        cartcolor=gameObject.transform.GetChild(7).gameObject.GetComponent<Renderer>().material.GetColor("_Color");
 
-	}
+    }
 
     // Update is called once per frame
     void FixedUpdate() {
@@ -129,7 +131,7 @@ public class WaypointAgent : MonoBehaviour {
     void LimitReset()
     {
         limit = limitset;
-        gameObject.transform.GetChild(7).gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0);
+        gameObject.transform.GetChild(7).gameObject.GetComponent<Renderer>().material.SetColor("_Color",cartcolor);
     }
 
     bool checkground()

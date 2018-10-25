@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using GameUI;
 using MisCart;
+using DG.Tweening;
 
 public class finish : MonoBehaviour {
     public GameObject racetext;
@@ -12,6 +13,7 @@ public class finish : MonoBehaviour {
     private GameObject player;
     private GameObject mainCamera;
     public GameObject minimap;
+    private float vol = 1f;
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -40,6 +42,13 @@ public class finish : MonoBehaviour {
     {
         finishtext.SetActive(false);
         GameUIManager.StartAnimation();
-        mainCamera.GetComponent<AudioSource>().volume = 0f;
+        SoundController.StopAll();
+        DOTween.To(
+        () => vol,          // 何を対象にするのか
+        vol => mainCamera.GetComponent<AudioSource>().volume=vol,   // 値の更新
+        0,                  // 最終的な値
+        2.0f                  // アニメーション時間
+        );
+
     }
 }

@@ -21,16 +21,17 @@ public class SearchCarts : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.gameObject.transform.tag=="enemy")||(other.gameObject.transform.tag == "Player"))
+        if ((other.gameObject.transform.tag=="CPU")||(other.gameObject.transform.tag == "Player"))
         {
-            Debug.Log(other+" in area of "+gameObject);
             Inarea = true;
         }
     }
 
+   
+
     private void OnTriggerExit(Collider other)
     {
-        if ((other.gameObject.transform.tag == "enemy") || (other.gameObject.transform.tag == "Player"))
+        if ((other.gameObject.transform.tag == "CPU") || (other.gameObject.transform.tag == "Player"))
         {
 
             Inarea = false;

@@ -27,11 +27,28 @@ public class itemsystemforCPU : MonoBehaviour
     float mindis = 1000;
     private bool useItem=false;
 
-    private int CartType = 0;//1=pro,2=midi, 3=cd
+    private int CartType = -1;//1=pro,2=midi, 0=cg
+    private GameObject carmodel;
 
-    public void SetCartType(int i)
+    public void SetCartType(int i,GameObject a)
     {
         CartType = i;
+        carmodel = a;
+        Debug.Log(carmodel+" CartType "+CartType);
+        if (CartType == 1)
+        {
+            gameObject.AddComponent<HackingMedia>();
+        }
+        else if (CartType == 2)
+        {
+            gameObject.AddComponent<DeathMetal>();
+            GetComponent<DeathMetal>().SetDMO(carmodel.transform.GetChild(0).gameObject);
+        }
+        else if(CartType==0)
+        {
+            gameObject.AddComponent<PaintDan>();
+            GetComponent<PaintDan>().SetPaintBullet(carmodel.transform.GetChild(0).gameObject);
+        }
     }
 
     public bool GetItemHave(int i)
@@ -155,6 +172,18 @@ public class itemsystemforCPU : MonoBehaviour
             
             if (special == true)
             {
+                if (CartType == 1)
+                {
+                    GetComponent<HackingMedia>().HackStart();
+                }
+                else if (CartType == 2)
+                {
+                    GetComponent<DeathMetal>().DeathMetalStart();
+                }
+                else if (CartType == 0)
+                {
+                    GetComponent<PaintDan>().PaintStart();
+                }
                 special = false;
             }
             useItem = false;
@@ -187,7 +216,7 @@ public class itemsystemforCPU : MonoBehaviour
             {
                 col.gameObject.SendMessage("itemcollision");
                 
-                Invoke("SetUseItem", Random.Range(4, 10));
+                Invoke("SetUseItem", Random.Range(1, 6));
                
             }
         }
@@ -201,7 +230,7 @@ public class itemsystemforCPU : MonoBehaviour
 
     public void SetUseItem()
     {
-        itemnum = Random.Range(1, 4);
+        itemnum = Random.Range(1, 5);
         if (itemnum == 1)
         {
             gcola = true;

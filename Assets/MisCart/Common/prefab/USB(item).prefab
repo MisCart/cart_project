@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65103948683013696}
   - component: {fileID: 82510409960562024}
   - component: {fileID: 114232402805749250}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: USB(item)
   m_TagString: item
   m_Icon: {fileID: 0}
@@ -37,13 +37,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1891606151141314}
-  m_LocalRotation: {x: -0.7069832, y: 0.00043199095, z: 0.0004318402, w: 0.70723003}
-  m_LocalPosition: {x: -309, y: 26.59, z: 105}
+  m_LocalRotation: {x: 0.00037014871, y: -0.7072301, z: -0.70698327, w: -0.00037027794}
+  m_LocalPosition: {x: -2.08, y: 11.5, z: -26.6}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -89.98, y: 0.07, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: -180.06, z: 0}
 --- !u!23 &23671707334061192
 MeshRenderer:
   m_ObjectHideFlags: 1

@@ -11,6 +11,11 @@ public class DeathMetal : MonoBehaviour {
     void Start () {
         mainCamera = GameObject.Find("MainCamera");
 	}
+
+    public void SetDMO(GameObject gameObj)
+    {
+        DeathMetalObject = gameObj;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -29,7 +34,8 @@ public class DeathMetal : MonoBehaviour {
             }
             else if(col.gameObject.tag == "Player")
             {
-
+                SoundController.PlaySE(Model.SE.bomb1);
+                col.gameObject.GetComponent<CPUrotation>().startrotate();
 
             }
         }
@@ -70,6 +76,13 @@ public class DeathMetal : MonoBehaviour {
         DeathMetalObject.SetActive(false);
         mainCamera.GetComponent<AudioSource>().volume = 1.0f;
         SoundController.StopBGM(Model.BGM.deathmetal2);
-        GetComponent<itemsystem>().SpecialOff();
+        if (gameObject.tag == "Player")
+        {
+            GetComponent<itemsystem>().SpecialOff();
+        }
+        else if (gameObject.tag == "CPU")
+        {
+            GetComponent<itemsystemforCPU>().SpecialOff();
+        }
     }
 }

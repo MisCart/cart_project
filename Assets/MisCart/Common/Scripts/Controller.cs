@@ -21,6 +21,8 @@ public class Controller : MonoBehaviour {
     int t,s,e;
     int i;
 
+    private Color playerColor;
+
     Vector3 normalVector = Vector3.up;
 
     [SerializeField] private GameObject sparks;
@@ -45,6 +47,7 @@ public class Controller : MonoBehaviour {
         t = 0;
         s = 0;
         e = 0;
+        playerColor = GetComponent<Renderer>().material.GetColor("_Color");
     }
 
      void Update()
@@ -346,7 +349,7 @@ public class Controller : MonoBehaviour {
     void LimitReset()
     {
         limit = limitset;
-        GetComponent<Renderer>().material.color = new Color(0, 0, 0);
+        GetComponent<Renderer>().material.SetColor("_Color",playerColor);
     }
 }
 
