@@ -137,13 +137,16 @@ public class itemsystemforCPU : MonoBehaviour
                 bullet.GetComponent<NavMeshAgent>().enabled = true;
                 foreach (GameObject obj in tagobjs)
                 {
-                    float dis = Vector3.Distance(transform.position, obj.transform.position);
-                    if (Vector3.Angle((obj.transform.position - transform.position).normalized, transform.forward) <= 90f)
+                    if (obj != gameObject)
                     {
-                        if (dis < mindis)
+                        float dis = Vector3.Distance(transform.position, obj.transform.position);
+                        if (Vector3.Angle((obj.transform.position - transform.position).normalized, transform.forward) <= 90f)
                         {
-                            nearestCPU = obj;
-                            mindis = dis;
+                            if (dis < mindis)
+                            {
+                                nearestCPU = obj;
+                                mindis = dis;
+                            }
                         }
                     }
                 }

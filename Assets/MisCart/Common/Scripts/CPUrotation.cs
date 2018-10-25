@@ -38,6 +38,7 @@ public class CPUrotation : MonoBehaviour {
             Vector3 vct = new Vector3(Random.Range(-5, 5), 1, Random.Range(-5, 5));
             GetComponent<Rigidbody>().AddForce(vct * 20, ForceMode.VelocityChange);
             GetComponent<Controller>().LimitCutShort();
+            CameraPlay.EarthQuakeShake();
         }
     }
 }

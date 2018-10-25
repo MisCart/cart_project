@@ -13,14 +13,22 @@ public class greencola : MonoBehaviour {
     int crash;
     int HP = 3;
     private GameObject fire;
- 
+
+    private bool effectactive = false;
+
+    private void startexp()
+    {
+        effectactive = true;
+    }
+
     // Use this for initialization
     void Start () {
         rotate = 0;
         crash = 0;
         fire = gameObject.transform.Find("GroundExplode").gameObject;
         agent = GetComponent<NavMeshAgent>();
-       
+        Invoke("startexp", 0.3f);
+
     }
 
 	// Update is called once per frame
@@ -52,24 +60,26 @@ public class greencola : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-
-        if (col.gameObject.tag == "CPU")
+        if (effectactive)
         {
-            cpu = col.gameObject;
-            fire.SetActive(true);
-            SoundController.PlaySE(Model.SE.bomb1);
-            cpu.GetComponent<CPUrotation>().startrotate();
-            //col.gameObject.GetComponent<WaypointAgent>().enabled = false;
-            gameObject.GetComponent<BoxCollider>().enabled = false;
-            transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
-            transform.GetChild(1).gameObject.SetActive(false);
-            flag = true;
+            if (col.gameObject.tag == "CPU")
+            {
+                cpu = col.gameObject;
+                fire.SetActive(true);
+                SoundController.PlaySE(Model.SE.bomb1);
+                cpu.GetComponent<CPUrotation>().startrotate();
+                //col.gameObject.GetComponent<WaypointAgent>().enabled = false;
+                gameObject.GetComponent<BoxCollider>().enabled = false;
+                transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
+                transform.GetChild(1).gameObject.SetActive(false);
+                flag = true;
+            }
+            else
+            {
+                HP--;
+            }
+            crash++;
         }
-        else
-        {
-            HP--;
-        }
-        crash++;
     }
 
     void Des()
