@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Transition;
 
 public class Massage : MonoBehaviour {
 
@@ -262,6 +263,7 @@ public class Massage : MonoBehaviour {
                     if (CountPhase == 16)
                     {
                         //シーン遷移処理
+                        SceneLoader.LoadScene(Model.GameScenes.Title);
                     }
 
                     //　メッセージが全部表示されていたらゲームオブジェクト自体の削除

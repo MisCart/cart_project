@@ -5,6 +5,8 @@ using UnityEngine;
 public class SelectCartChara : MonoBehaviour {
     [SerializeField]private GameObject[] Carts;
     [SerializeField] private GameObject[] Charas;
+    [SerializeField] private GameObject[] CPUs;
+    [SerializeField] private GameObject[] CPUcart;
     [SerializeField] private GameObject MainCamera;
     [SerializeField] private Transform StartPos;
     [SerializeField] private ChargingGage _charginggage;
@@ -14,6 +16,7 @@ public class SelectCartChara : MonoBehaviour {
     [SerializeField] private bool debug = false;// Use this for initialization
     private GameObject car;
     void Awake () {
+        SetCPUCart_Chara();
         Debug.Log("CharaID: " + (GameData.CharacterId-1));
         Debug.Log("CartID: " + (GameData.CartId - 1));
         if (debug)
@@ -22,6 +25,7 @@ public class SelectCartChara : MonoBehaviour {
             GameData.CharacterId = SetChara;
         }
         SelectCart_Chara();
+        
 
     }
 	
@@ -86,6 +90,34 @@ public class SelectCartChara : MonoBehaviour {
         _charginggage.SetPlayer(car);
 
 
+    }
+
+    private void SetCPUCart_Chara()
+    {
+        foreach(GameObject cpu in CPUs)
+        {
+            cpu.GetComponent<MeshRenderer>().enabled = false;
+            var num = Random.Range(1,7);
+            var numchara = Random.Range(1, 7);
+            var cpucar = GameObject.Instantiate(CPUcart[num-1]) as GameObject;
+            var cpuchara = GameObject.Instantiate(Charas[numchara - 1]) as GameObject;
+            cpuchara.transform.parent = cpu.gameObject.transform;
+            cpuchara.transform.position = cpu.transform.position + new Vector3(0,-1.7f,1.7f);
+            cpucar.transform.parent = cpu.gameObject.transform;
+            if (num >= 4)//middle
+            {
+                cpucar.transform.position = cpu.transform.position + new Vector3(-1.55f, - 0.95f, 1.3f);
+            }
+            else//light
+            {
+                cpucar.transform.position = cpu.transform.position + new Vector3(-0.6f ,- 0.37f, 0);
+            }
+            //cpucar.transform.parent = cpu.gameObject.transform;
+            cpu.GetComponent<itemsystemforCPU>().SetCartType(num % 3);
+            cpu.GetComponent<WaypointAgent>().enabled=true;
+
+            
+        }
     }
 
   

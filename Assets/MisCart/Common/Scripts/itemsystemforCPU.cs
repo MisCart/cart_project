@@ -27,6 +27,13 @@ public class itemsystemforCPU : MonoBehaviour
     float mindis = 1000;
     private bool useItem=false;
 
+    private int CartType = 0;//1=pro,2=midi, 3=cd
+
+    public void SetCartType(int i)
+    {
+        CartType = i;
+    }
+
     public bool GetItemHave(int i)
     {
         if (i == 1)
