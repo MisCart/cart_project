@@ -31,12 +31,18 @@ public class PiantObject : MonoBehaviour {
                 {
                     PgameObject.SetActive(true);
                 }
+                other.GetComponent<Controller>().LimitCut();
+                other.GetComponent<Renderer>().material.color = new Color(1, 0, 0);
             }
-        }else if (other.gameObject.tag == "CPU")
+
+        }
+        else if (other.gameObject.tag == "CPU")
         {
             other.GetComponent<WaypointAgent>().LimitCut();
+            other.gameObject.transform.GetChild(7).gameObject.GetComponent<Renderer>().material.color = new Color(1, 0, 0);
         }
     }
+
 
     private void NOTN()
     {

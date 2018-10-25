@@ -337,9 +337,16 @@ public class Controller : MonoBehaviour {
         Invoke("LimitReset", 5f);
     }
 
+    public void LimitCutShort()
+    {
+        limit = limit / 2;
+        Invoke("LimitReset", 1.5f);
+    }
+
     void LimitReset()
     {
         limit = limitset;
+        GetComponent<Renderer>().material.color = new Color(0, 0, 0);
     }
 }
 

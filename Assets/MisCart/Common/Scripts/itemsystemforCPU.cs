@@ -78,6 +78,11 @@ public class itemsystemforCPU : MonoBehaviour
             special = true;
         }
     }
+
+    public void SpecialOff()
+    {
+        special = false;
+    }
     // Use this for initialization
     void Start()
     {
@@ -125,6 +130,18 @@ public class itemsystemforCPU : MonoBehaviour
                         }
                     }
                 }
+
+                var player = GameObject.FindGameObjectWithTag("Player");
+                float dis2 = Vector3.Distance(transform.position, player.transform.position);
+                if (Vector3.Angle((player.transform.position - transform.position).normalized, transform.forward) <= 90f)
+                {
+                    if (dis2 < mindis)
+                    {
+                        nearestCPU = player;
+                        mindis = dis2;
+                    }
+                }
+
                 mindis = 1000;
                 Debug.Log(nearestCPU);
                 bullet.SendMessage("Settarget", nearestCPU);
@@ -135,18 +152,21 @@ public class itemsystemforCPU : MonoBehaviour
 
                 rcola = false;
             }
-            if (code == true)
-            {
-                SoundController.PlaySE(Model.SE.setup1);
-                GameObject _code = GameObject.Instantiate(codeitem) as GameObject;
-                _code.transform.position = itempos2.position;
-
-                code = false;
-            }
+            
             if (special == true)
             {
                 special = false;
             }
+            useItem = false;
+        }
+
+        if (code == true)
+        {
+            SoundController.PlaySE(Model.SE.setup1);
+            GameObject _code = GameObject.Instantiate(codeitem) as GameObject;
+            _code.transform.position = itempos2.position;
+
+            code = false;
             useItem = false;
         }
 
@@ -166,25 +186,8 @@ public class itemsystemforCPU : MonoBehaviour
             if (col.gameObject.tag == "item")
             {
                 col.gameObject.SendMessage("itemcollision");
-                itemnum = Random.Range(1, 4);
-                if (itemnum == 1)
-                {
-                    gcola = true;
-                }
-                else if (itemnum == 2)
-                {
-                    rcola = true;
-                }
-
-                else if (itemnum == 3)
-                {
-                    code = true;
-                }
-                else if (itemnum == 4)
-                {
-                    special = true;
-                }
-                //Invoke("UseItem", Random.Range(1, 7));
+                
+                Invoke("SetUseItem", Random.Range(4, 10));
                
             }
         }

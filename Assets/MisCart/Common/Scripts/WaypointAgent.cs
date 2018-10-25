@@ -129,6 +129,7 @@ public class WaypointAgent : MonoBehaviour {
     void LimitReset()
     {
         limit = limitset;
+        gameObject.transform.GetChild(7).gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0);
     }
 
     bool checkground()
