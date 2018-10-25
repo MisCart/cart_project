@@ -34,7 +34,6 @@ public class itemsystemforCPU : MonoBehaviour
     {
         CartType = i;
         carmodel = a;
-        Debug.Log(carmodel+" CartType "+CartType);
         if (CartType == 1)
         {
             gameObject.AddComponent<HackingMedia>();
@@ -132,7 +131,6 @@ public class itemsystemforCPU : MonoBehaviour
             {
                 SoundController.PlaySE(Model.SE.アイテム投擲);
                 GameObject bullet = GameObject.Instantiate(rcolaitem) as GameObject;
-                Debug.Log(bullet.transform.position);
                 bullet.transform.position = itempos.position;
                 bullet.GetComponent<NavMeshAgent>().enabled = true;
                 foreach (GameObject obj in tagobjs)

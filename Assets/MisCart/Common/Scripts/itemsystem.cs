@@ -100,17 +100,11 @@ public class itemsystem : MonoBehaviour {
         tagobjs = GameObject.FindGameObjectsWithTag("CPU");
 
         DVDimage = GameObject.Find("UI/Canvas/race/DVDimage(P)");
-        Debug.Log(DVDimage);
         CDimage = GameObject.Find("UI/Canvas/race/CDimage(P)");
-        Debug.Log(CDimage);
         Codeimage = GameObject.Find("UI/Canvas/race/CODEimage(P)");
-        Debug.Log(Codeimage);
         Specialimage = GameObject.Find("UI/Canvas/race/Specialimage1");
-        Debug.Log(Specialimage);
         Specialimage2 = GameObject.Find("UI/Canvas/race/Specialimage2");
-        Debug.Log(Specialimage2);
         Specialimage3 = GameObject.Find("UI/Canvas/race/Specialimage3");
-        Debug.Log(Specialimage3);
 
     }
 	
@@ -124,12 +118,9 @@ public class itemsystem : MonoBehaviour {
                 //mischan.Play("ItemUse1");
                 SoundController.PlaySE(Model.SE.cddvd2);
                 GameObject bullet = GameObject.Instantiate(gcolaitem) as GameObject;
-                Vector3 force;
-                force = this.gameObject.transform.forward * colaspeed;
                 bullet.transform.position = itempos.position;
                 bullet.transform.forward = transform.forward;
                 bullet.GetComponent<NavMeshAgent>().enabled = true;
-                //bullet.GetComponent<Rigidbody>().AddForce(force,ForceMode.VelocityChange);
 
                 gcola = false;
             }

@@ -3,25 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CPUrotation : MonoBehaviour {
-    bool rflag = false;
-    private float rotate;
-    private int p = 0;
-    AudioSource audio1;
     private WaypointAgent agent;
 
     // Use this for initialization
     void Start () {
         agent = GetComponent<WaypointAgent>();
     }
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-        
-    }
-    void rotatezero()
-    {
-        rotate = 0;
-    }
+
     public void startrotate()
     {
         Debug.Log("Hit");

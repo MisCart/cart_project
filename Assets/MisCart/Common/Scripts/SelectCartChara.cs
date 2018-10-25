@@ -17,8 +17,6 @@ public class SelectCartChara : MonoBehaviour {
     private GameObject car;
     void Awake () {
         SetCPUCart_Chara();
-        Debug.Log("CharaID: " + (GameData.CharacterId-1));
-        Debug.Log("CartID: " + (GameData.CartId - 1));
         if (debug)
         {
             GameData.CartId = Setcart;

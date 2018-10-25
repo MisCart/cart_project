@@ -20,23 +20,11 @@ public class Controller : MonoBehaviour {
     float timer = 0f;
     int t,s,e;
     int i;
+    private bool con = false;
 
     private Color playerColor;
 
-    Vector3 normalVector = Vector3.up;
-
     [SerializeField] private GameObject sparks;
-
-
-
-    private void OnCollisionEnter(Collision col)
-    {
-        // 衝突した面の、接触した点における法線を取得
-        if (col.collider.tag == "ground")
-        {
-            normalVector = col.contacts[0].normal;
-        }
-    }
 
     // Use this for initialization
     void Start () {
@@ -48,6 +36,18 @@ public class Controller : MonoBehaviour {
         s = 0;
         e = 0;
         playerColor = GetComponent<Renderer>().material.GetColor("_Color");
+        var controllerNames = Input.GetJoystickNames();
+        if (controllerNames.Length== 0)
+        {
+            Debug.Log("Controller not connect");
+            con = false;
+        }
+        else
+        {
+            Debug.Log("Controller connect");
+            con = true;
+        }
+       
     }
 
      void Update()
@@ -219,7 +219,11 @@ public class Controller : MonoBehaviour {
         transform.Rotate(new Vector3(0, joyH*handle, 0) * Time.deltaTime);
         if ((joyH >= 0.3f)||(joyH<=-0.3f)){if (sparks.activeSelf == false){sparks.SetActive(true);}}
         else{sparks.SetActive(false);}
-        transform.Rotate(new Vector3(0, -6.5f, 0) * Time.deltaTime);    //コントローラ接続時のみ有効化
+
+        if (con)
+        {
+            transform.Rotate(new Vector3(0, -6.5f, 0) * Time.deltaTime);    //コントローラ接続時のみ有効化
+        }
         if (Input.GetKey(KeyCode.Joystick1Button0))
         {
             if (sound1 == false)
