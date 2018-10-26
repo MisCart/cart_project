@@ -6,7 +6,7 @@ public class enogu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Invoke("off",7f);
+        Invoke("off",5f);
 	}
 	
 	// Update is called once per frame

@@ -117,7 +117,7 @@ public class itemsystemforCPU : MonoBehaviour
 
             if (gcola == true)
             {
-                SoundController.PlaySE(Model.SE.アイテム投擲);
+                SoundController.PlaySE(Model.SE.cddvd2);
                 GameObject bullet = GameObject.Instantiate(gcolaitem) as GameObject;
                 Vector3 force;
                 force = this.gameObject.transform.forward * colaspeed;
@@ -129,7 +129,7 @@ public class itemsystemforCPU : MonoBehaviour
 
             if (rcola == true)
             {
-                SoundController.PlaySE(Model.SE.アイテム投擲);
+                SoundController.PlaySE(Model.SE.cddvd2);
                 GameObject bullet = GameObject.Instantiate(rcolaitem) as GameObject;
                 bullet.transform.position = itempos.position;
                 bullet.GetComponent<NavMeshAgent>().enabled = true;

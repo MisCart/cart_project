@@ -74,7 +74,7 @@ public class Controller : MonoBehaviour {
 
 
 
-        if (Input.GetKeyUp(KeyCode.Joystick1Button1))
+        if (Input.GetKeyUp(KeyCode.Joystick1Button0))
         {
             SoundController.StopSE(Model.SE.EngineSound);
             sound1 = false;

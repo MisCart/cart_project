@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1018,7 +1018,7 @@ Camera:
   m_Depth: 40
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967039
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1996,7 +1996,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 103804
+  m_CachedInstanceID: 204402
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -2080,7 +2080,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 1935632311}
     m_EventID: 1344322412
-  m_CachedInstanceID: 103808
+  m_CachedInstanceID: 204406
 --- !u!114 &1935632309
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2101,7 +2101,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 1935632308}
     m_EventID: 1634434881
-  m_CachedInstanceID: 103810
+  m_CachedInstanceID: 204408
 --- !u!114 &1935632310
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2120,7 +2120,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: -10, y: 440}
   m_Transitions: []
-  m_CachedInstanceID: 103812
+  m_CachedInstanceID: 204410
 --- !u!114 &1935632311
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2141,7 +2141,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 1935632310}
     m_EventID: 649514671
-  m_CachedInstanceID: 103814
+  m_CachedInstanceID: 204412
 --- !u!1 &1993853595
 GameObject:
   m_ObjectHideFlags: 0

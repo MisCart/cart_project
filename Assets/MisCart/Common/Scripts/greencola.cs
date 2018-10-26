@@ -27,7 +27,7 @@ public class greencola : MonoBehaviour {
         crash = 0;
         fire = gameObject.transform.Find("GroundExplode").gameObject;
         agent = GetComponent<NavMeshAgent>();
-        Invoke("startexp", 0.3f);
+        Invoke("startexp", 0.2f);
 
     }
 

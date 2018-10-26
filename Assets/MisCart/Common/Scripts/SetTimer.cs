@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityStandardAssets.Utility;
+using MisCart;
 
 public class SetTimer : MonoBehaviour {
     private int minite;
@@ -107,7 +108,7 @@ public class SetTimer : MonoBehaviour {
             if (check == 1 && laps == 1)
             {
                 //finishobject.GetComponent<finish>().finishrace(rank);
-
+                SoundController.PlaySE(Model.SE.lap);
                 lap1.GetComponent<Text>().text = minite.ToString("00") + ":" + second.ToString("00");
                 oldMinite = minite;
                 oldSecond = second;

@@ -32,6 +32,7 @@ namespace Model
         itemselect,
         item,
         cddvd2,
+        lap,
 
 
     }

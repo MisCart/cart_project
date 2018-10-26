@@ -14,6 +14,7 @@ public class finish : MonoBehaviour {
     private GameObject mainCamera;
     public GameObject minimap;
     private float vol = 1f;
+    private bool end = false;
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -22,7 +23,10 @@ public class finish : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (end)
+        {
+            SoundController.StopAll();
+        }
 	}
 
     public void finishrace(int rank)
@@ -35,6 +39,7 @@ public class finish : MonoBehaviour {
         player.GetComponent<Controller>().enabled = false;
         player.GetComponent<WaypointAgent>().enabled = true;
         Invoke("kesuyatu",1f);
+        end = true;
 
     }
 

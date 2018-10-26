@@ -1486,7 +1486,7 @@ GameObject:
   - component: {fileID: 215313094}
   - component: {fileID: 215313096}
   - component: {fileID: 215313095}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemSearchArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4454,7 +4454,7 @@ GameObject:
   - component: {fileID: 491270950}
   - component: {fileID: 491270952}
   - component: {fileID: 491270951}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemSearchArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4778,7 +4778,7 @@ GameObject:
   - component: {fileID: 510608823}
   - component: {fileID: 510608825}
   - component: {fileID: 510608824}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemSearchArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7113,7 +7113,7 @@ GameObject:
   - component: {fileID: 920884179}
   - component: {fileID: 920884181}
   - component: {fileID: 920884180}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemSearchArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7373,7 +7373,7 @@ GameObject:
   - component: {fileID: 998075344}
   - component: {fileID: 998075346}
   - component: {fileID: 998075345}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemSearchArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9387,7 +9387,7 @@ GameObject:
   - component: {fileID: 1190049783}
   - component: {fileID: 1190049785}
   - component: {fileID: 1190049784}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemSearchArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10253,7 +10253,7 @@ GameObject:
   - component: {fileID: 1249745467}
   - component: {fileID: 1249745469}
   - component: {fileID: 1249745468}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemSearchArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11149,7 +11149,7 @@ GameObject:
   - component: {fileID: 1316897478}
   - component: {fileID: 1316897480}
   - component: {fileID: 1316897479}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemSearchArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12072,6 +12072,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  CPUs: []
+  CPUcart: []
   MainCamera: {fileID: 420479900}
   StartPos: {fileID: 861144183}
   _charginggage: {fileID: 113231787}
@@ -16183,7 +16185,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2118058033}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -172.4, y: 2.42, z: 2872.3}
+  m_LocalPosition: {x: -172.4, y: 2.42, z: 2780}
   m_LocalScale: {x: 1.6025236, y: 1, z: 0.2848404}
   m_Children:
   - {fileID: 1490918859}
