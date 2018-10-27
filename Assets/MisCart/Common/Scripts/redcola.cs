@@ -27,7 +27,7 @@ public class redcola : MonoBehaviour {
         rigid = GetComponent<Rigidbody>();
         fire = gameObject.transform.Find("GroundExplode").gameObject;
         ex = GetComponent<AudioSource>();
-        Invoke("startexp",0.3f);
+        Invoke("startexp",0.5f);
     }
 	
 	// Update is called once per frame
@@ -57,7 +57,9 @@ public class redcola : MonoBehaviour {
                 transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
                 transform.GetChild(1).gameObject.SetActive(false);
                 flag = true;
-            }else if (col.gameObject.tag == "Player")
+                Invoke("Des", 2);
+            }
+            else if (col.gameObject.tag == "Player")
             {
                 cpu = col.gameObject;
                 fire.SetActive(true);
@@ -67,6 +69,7 @@ public class redcola : MonoBehaviour {
                 transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
                 transform.GetChild(1).gameObject.SetActive(false);
                 flag = true;
+                Invoke("Des", 2);
             }
             crash++;
         }
@@ -75,5 +78,10 @@ public class redcola : MonoBehaviour {
     void Settarget(GameObject target)
     {
         cpu = target;
+    }
+
+    void Des()
+    {
+        Destroy(gameObject);
     }
 }

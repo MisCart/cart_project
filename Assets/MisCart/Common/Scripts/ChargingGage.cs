@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using MisCart;
 
 public class ChargingGage : MonoBehaviour {
     public Slider _slider;
@@ -15,6 +16,11 @@ public class ChargingGage : MonoBehaviour {
     float timer = 0f;
     private float rot = 360;
     private int color = 1;
+
+    private bool DoneStartDash = false;
+    private float StartdashTime=0;
+    private bool sound1=false;
+    
     public  void SetPlayer(GameObject p)
     {
         Player = p;
@@ -27,6 +33,47 @@ public class ChargingGage : MonoBehaviour {
 	}
     void Update()
     {
+        if (!DoneStartDash)
+        {
+            if ((Input.GetKey(KeyCode.Z))|| (Input.GetKey(KeyCode.Joystick1Button1)) || (Input.GetKey(KeyCode.Joystick1Button13)))
+            {
+                StartdashTime++;
+            }
+        }
+
+        //シーン遷移開始直後はIscountingが上手く取れないようなので0.5秒止めておく
+        while (timer < 0.5f)
+        {
+            timer += Time.deltaTime;
+            return;
+        }
+
+        //カウントダウンをしているときは動かないようにする
+        if (GameUI.GameUIManager.IsCounting())
+        {
+            return;
+        }
+
+        if (!DoneStartDash)
+        {
+            if (StartdashTime >= 80)
+            {
+                Player.GetComponent<Rigidbody>().AddForce(Player.transform.forward * power*1.5f, ForceMode.VelocityChange);
+                CameraPlay.Radial(0.6f);
+                //CameraPlay.Glitch(4f);
+                gameObject.GetComponent<AudioSource>().PlayOneShot(gameObject.GetComponent<AudioSource>().clip);
+                charging -= 30;
+
+
+                DoneStartDash = true;
+            }
+            else
+            {
+                DoneStartDash = true;
+            }
+
+        }
+
         if ((Input.GetKeyDown(KeyCode.V))||(Input.GetAxis("RightTrigger") ==-1)||(Input.GetKey(KeyCode.Joystick1Button9)))
         {
             if (inval == false)
@@ -64,7 +111,22 @@ public class ChargingGage : MonoBehaviour {
     }
     // Update is called once per frame
     void FixedUpdate () {
+        if ((Input.GetKey(KeyCode.Z))|| (Input.GetKey(KeyCode.Joystick1Button1)) || (Input.GetKey(KeyCode.Joystick1Button13)))
+        {        
+                if (sound1 == false)
+                {
+                    //audio1.PlayOneShot(audio1.clip);
+                    SoundController.PlaySE(Model.SE.EngineSound);
+                    sound1 = true;
+                }
+        }
 
+        if ((Input.GetKeyUp(KeyCode.Z))|| (Input.GetKeyUp(KeyCode.Joystick1Button1)) || (Input.GetKeyUp(KeyCode.Joystick1Button13)))
+        {
+            SoundController.StopSE(Model.SE.EngineSound);
+            sound1 = false;
+
+        }
         //シーン遷移開始直後はIscountingが上手く取れないようなので0.5秒止めておく
         while (timer < 0.5f)
         {

@@ -48,17 +48,17 @@ public class Massage : MonoBehaviour {
 
     void Start()
     {
-        clickIcon = transform.Find("Panel/Image").GetComponent<Image>();
+        clickIcon = transform.Find("Canvas/Panel/Image").GetComponent<Image>();
         clickIcon.enabled = false;
         //messageText = transform.Find("Panel/text3").GetComponent<Text>();
         messageText.text = "";
         SetMessage("こんにちは！miscartの世界へようこそ！   \n"
             + "これからチュートリアルを開始します。\n"
-            + "文字を送るには、ゲームパッドのAボタンか\n"
+            + "文字を送るには、ゲームパッドのBボタンか\n"
             + "キーボードのZキーを押してください。\n"
  
             + "まずは走行してみましょう\n"
-            + "ゲームパッド:Aボタン押し続ける\n"
+            + "ゲームパッド:Bボタン押し続ける\n"
             + "キーボード　:Zボタン押し続ける\n"
             + "\n"
 

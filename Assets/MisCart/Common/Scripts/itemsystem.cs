@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
 using MisCart;
+using DG.Tweening;
 
 public class itemsystem : MonoBehaviour {
     int itemnum=0;
@@ -26,10 +27,12 @@ public class itemsystem : MonoBehaviour {
     bool rcola=false;
     
     bool code = false;
+    private int color = 1;
 
     [SerializeField] private Animator mischan;
 
     private GameObject ItemSellecter;
+    private Image L1text;
 
 
     GameObject[] tagobjs;
@@ -105,6 +108,7 @@ public class itemsystem : MonoBehaviour {
         Specialimage = GameObject.Find("UI/Canvas/race/Specialimage1");
         Specialimage2 = GameObject.Find("UI/Canvas/race/Specialimage2");
         Specialimage3 = GameObject.Find("UI/Canvas/race/Specialimage3");
+        L1text= GameObject.Find("UI/Canvas/race/Itemtext").GetComponent<Image>();
 
     }
 	
@@ -177,6 +181,13 @@ public class itemsystem : MonoBehaviour {
                 GetComponent<SpecialItem>().UseSpecialItem();
                 //special = false;
             }
+
+            DOTween.To(
+                    () => color,          // 何を対象にするのか
+                    color => L1text.color = new Color(color, 0, 0),   // 値の更新
+                    0,                  // 最終的な値
+                    2.0f                  // アニメーション時間
+                    );
         }
     
 

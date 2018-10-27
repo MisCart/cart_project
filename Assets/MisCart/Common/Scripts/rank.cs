@@ -19,6 +19,7 @@ namespace UnityStandardAssets.Utility
         float dis;
         private Text ranktext;
         private float cpudis;
+        private Text rankafter;
         // Use this for initialization
         public int GetRank()
         {
@@ -39,6 +40,7 @@ namespace UnityStandardAssets.Utility
             tagobjs = GameObject.FindGameObjectsWithTag("CPU");
             ranktext = GameObject.FindWithTag("rank").GetComponent<Text>();
             circuit2 = GameObject.Find("TagPointForAI").GetComponent<WaypointCircuit>();
+            rankafter= GameObject.Find("AfterRank").GetComponent<Text>();
             reach = 0;
             next = 1;
             ranknum = 1;
@@ -103,6 +105,22 @@ namespace UnityStandardAssets.Utility
                     
                 }
                 ranktext.text = ranknum.ToString();
+                if ((ranknum <= 8) && (ranknum >= 4))
+                {
+                    rankafter.text = "th";
+                }else if (ranknum == 3)
+                {
+                    rankafter.text = "rd";
+                }
+                else if (ranknum == 2)
+                {
+                    rankafter.text = "nd";
+                }
+                else if (ranknum == 1)
+                {
+                    rankafter.text = "st";
+                }
+
                 nowRank = ranknum;
                 ranknum = 8;
             }
