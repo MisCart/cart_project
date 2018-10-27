@@ -57,6 +57,16 @@ public class redcola : MonoBehaviour {
                 transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
                 transform.GetChild(1).gameObject.SetActive(false);
                 flag = true;
+            }else if (col.gameObject.tag == "Player")
+            {
+                cpu = col.gameObject;
+                fire.SetActive(true);
+                SoundController.PlaySE(Model.SE.bomb1);
+                col.gameObject.GetComponent<CPUrotation>().startrotate();
+                gameObject.GetComponent<BoxCollider>().enabled = false;
+                transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
+                transform.GetChild(1).gameObject.SetActive(false);
+                flag = true;
             }
             crash++;
         }

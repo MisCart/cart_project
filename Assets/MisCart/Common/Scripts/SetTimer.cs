@@ -24,6 +24,7 @@ public class SetTimer : MonoBehaviour {
     public GameObject lap3;
     public GameObject finishobject;
     private GameObject player;
+    private float endtime = 0;
     // Use this for initialization
     void Start () {
         rank = 1;
@@ -45,6 +46,7 @@ public class SetTimer : MonoBehaviour {
             if (timarFlag == true)
             {
                 second += Time.deltaTime;
+                endtime += Time.deltaTime;
                 if (second >= 60.0f)
                 {
                     minite++;
@@ -86,7 +88,7 @@ public class SetTimer : MonoBehaviour {
             {
 
                 GameData.FinishRank = player.GetComponent<rank>().GetRank();
-                GameData.FinishTime = second;
+                GameData.FinishTime = endtime;
 
                 finishobject.GetComponent<finish>().finishrace(player.GetComponent<rank>().GetRank());
 

@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ChargingGage : MonoBehaviour {
     public Slider _slider;
     public float charging;
     private GameObject Player;
     [SerializeField] private float power = 1000f;
+    [SerializeField] private GameObject boosttextobj;
+    private Text boosttext;
     bool inval = false;
     float timer = 0f;
+    private float rot = 360;
+    private int color = 1;
     public  void SetPlayer(GameObject p)
     {
         Player = p;
@@ -17,11 +22,12 @@ public class ChargingGage : MonoBehaviour {
     // Use this for initialization
     void Start () {
         charging = _slider.value;
+        boosttext = boosttextobj.GetComponent<Text>();
         //Player = GameObject.FindGameObjectWithTag("Player");
 	}
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.V))||(Input.GetAxis("RightTrigger") ==-1))
+        if ((Input.GetKeyDown(KeyCode.V))||(Input.GetAxis("RightTrigger") ==-1)||(Input.GetKey(KeyCode.Joystick1Button9)))
         {
             if (inval == false)
             {
@@ -31,6 +37,22 @@ public class ChargingGage : MonoBehaviour {
                     CameraPlay.Radial(0.6f);
                     //CameraPlay.Glitch(4f);
                     gameObject.GetComponent<AudioSource>().PlayOneShot(gameObject.GetComponent<AudioSource>().clip);
+
+                    
+                    DOTween.To(
+                    () => rot,          // 何を対象にするのか
+                    rot => boosttextobj.transform.eulerAngles= new Vector3(0, 0,rot),   // 値の更新
+                    0,                  // 最終的な値
+                    1.0f                  // アニメーション時間
+                    );
+
+
+                    DOTween.To(
+                    () => color,          // 何を対象にするのか
+                    color => boosttext.color = new Color(color,0,0),   // 値の更新
+                    0,                  // 最終的な値
+                    2.0f                  // アニメーション時間
+                    );
                     charging -= 10;
                 }
                 inval = true;

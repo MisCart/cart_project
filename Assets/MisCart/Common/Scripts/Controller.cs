@@ -74,12 +74,12 @@ public class Controller : MonoBehaviour {
 
 
 
-        if (Input.GetKeyUp(KeyCode.Joystick1Button0))
+        if ((Input.GetKeyUp(KeyCode.Joystick1Button1))||(Input.GetKeyUp(KeyCode.Joystick1Button13)))
         {
             SoundController.StopSE(Model.SE.EngineSound);
             sound1 = false;
         }
-        if (Input.GetKeyUp(KeyCode.Joystick1Button5))
+        if ((Input.GetKeyUp(KeyCode.Joystick1Button5))||(Input.GetKeyUp(KeyCode.Joystick1Button11)))
         {
             SoundController.StopSE(Model.SE.braking);
             sound2 = false;
@@ -224,7 +224,7 @@ public class Controller : MonoBehaviour {
         {
             transform.Rotate(new Vector3(0, -6.5f, 0) * Time.deltaTime);    //コントローラ接続時のみ有効化
         }
-        if (Input.GetKey(KeyCode.Joystick1Button0))
+        if ((Input.GetKey(KeyCode.Joystick1Button1))||(Input.GetKey(KeyCode.Joystick1Button13)))
         {
             if (sound1 == false)
                 {
@@ -239,16 +239,16 @@ public class Controller : MonoBehaviour {
                 rigidbody.AddForce(transform.forward * speed, ForceMode.Acceleration);
             }
         }
-        if (Input.GetKeyUp(KeyCode.Joystick1Button0))
+        if ((Input.GetKeyUp(KeyCode.Joystick1Button1))||(Input.GetKey(KeyCode.Joystick1Button13)))
         {
             SoundController.StopSE(Model.SE.EngineSound);
             sound1 = false;
         }
-            if (Input.GetKeyDown(KeyCode.Joystick1Button5))
+            if ((Input.GetKeyDown(KeyCode.Joystick1Button5))||(Input.GetKey(KeyCode.Joystick1Button11)))
         {
             s = t;
         }
-        if (Input.GetKey(KeyCode.Joystick1Button5))
+        if ((Input.GetKey(KeyCode.Joystick1Button5))||(Input.GetKey(KeyCode.Joystick1Button11)))
         {
             if (sound2 == false)
             {
@@ -262,7 +262,7 @@ public class Controller : MonoBehaviour {
             //limit = 30f;
             handle = handleset * 2;
         }
-        if (Input.GetKeyUp(KeyCode.Joystick1Button5))
+        if ((Input.GetKeyUp(KeyCode.Joystick1Button5))||(Input.GetKey(KeyCode.Joystick1Button11)))
         {
             SoundController.StopSE(Model.SE.braking);
             sound2 = false;
@@ -276,7 +276,7 @@ public class Controller : MonoBehaviour {
             handle = handleset;
             s = 0; e = 0;
         }
-        if (Input.GetKey(KeyCode.Joystick1Button1))
+        if ((Input.GetKey(KeyCode.Joystick1Button0))||(Input.GetKey(KeyCode.Joystick1Button14)))
         {
             if (rigidbody.velocity.magnitude <= limit)
             {

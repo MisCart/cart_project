@@ -110,7 +110,7 @@ public class itemsystem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if ((Input.GetKeyDown(KeyCode.Space))||(Input.GetKeyDown(KeyCode.Joystick1Button4)))
+        if ((Input.GetKeyDown(KeyCode.Space))||(Input.GetKeyDown(KeyCode.Joystick1Button4))||(Input.GetKey(KeyCode.Joystick1Button10)))
         {
             
             if (gcola == true)
