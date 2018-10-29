@@ -456,13 +456,16 @@ GameObject:
   - component: {fileID: 114135338017188420}
   - component: {fileID: 114503983070878172}
   - component: {fileID: 114760523937959850}
+  - component: {fileID: 114627933541259968}
+  - component: {fileID: 114862290039684556}
+  - component: {fileID: 114739123620405012}
   m_Layer: 0
   m_Name: cart_light_CG
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1968228209768022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,7 +1531,7 @@ MonoBehaviour:
   lookAheadForSpeedFactor: 0.2
   progressStyle: 0
   pointToPointThreshold: 4
-  target: {fileID: 0}
+  target: {fileID: 4069328626285148}
 --- !u!114 &114206387402688336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1586,6 +1589,18 @@ MonoBehaviour:
   rcolaitem: {fileID: 1686399874790352, guid: 18e0eebbcf0d7ea4d8b7e07d7187a411, type: 2}
   codeitem: {fileID: 1291156836928772, guid: 524e21ddb265d9f4a89663598139855c, type: 2}
   mischan: {fileID: 0}
+--- !u!114 &114627933541259968
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962121538772268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2800c7eeab182994b9e811f40ebdcfb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartCorrectValue: 20
 --- !u!114 &114674687550333910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1606,6 +1621,17 @@ MonoBehaviour:
   m_AccelSensitivity: 0.04
   m_BrakeSensitivity: 1
   limit: 140
+--- !u!114 &114739123620405012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962121538772268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4254759b0aa12a645b5d5d7a8ce2a8c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114760523937959850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1618,6 +1644,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backCamera: {fileID: 1985542819263986}
+--- !u!114 &114862290039684556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962121538772268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003f32245a204de46bc9251d0903e485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!124 &124010231751970482
 Behaviour:
   m_ObjectHideFlags: 1

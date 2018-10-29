@@ -5,148 +5,35 @@ using MisCart;
 
 public class HackingMedia : MonoBehaviour {
     private bool Hack = false;
+    private GameObject[] tagobjs;
+    private itemsystemforCPU[] cpus;
+    private itemsystem Player;
+    private itemsystemforCPU thissystemCPU;
+    private itemsystem thissystem;
 	// Use this for initialization
 	void Start () {
-		
-	}
+        tagobjs = GameObject.FindGameObjectsWithTag("CPU");
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<itemsystem>();
+        for (int i = 0; i > tagobjs.Length; i++)
+        {
+            cpus[i] = tagobjs[i].GetComponent<itemsystemforCPU>();
+        }
+
+        if (gameObject.tag == "Player")
+        {
+            thissystem = GetComponent<itemsystem>();
+        }else if (gameObject.tag == "CPU")
+        {
+            thissystemCPU = GetComponent<itemsystemforCPU>();
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
 
-    private void OnCollisionEnter(Collision col)
-    {
-        if (Hack == true)
-        {
-            if (gameObject.tag == "Player")
-            {
-                if (col.gameObject.tag == "CPU")
-                {
-
-                    if (col.gameObject.GetComponent<itemsystemforCPU>().GetItemHave(1))
-                    {
-                        SoundController.PlaySE(Model.SE.hacksuccess);
-                        SoundController.StopSE(Model.SE.hacklong);
-                        Debug.Log("Hacking " + col.gameObject.GetComponent<itemsystemforCPU>().GetItemHave(1));
-                        GetComponent<itemsystem>().SpecialOff();
-                        gameObject.GetComponent<itemsystem>().GetOtherItem(1);
-                    }
-                    else if (col.gameObject.GetComponent<itemsystemforCPU>().GetItemHave(2))
-                    {
-                        SoundController.PlaySE(Model.SE.hacksuccess);
-                        SoundController.StopSE(Model.SE.hacklong);
-                        Debug.Log("Hacking " + col.gameObject.GetComponent<itemsystemforCPU>().GetItemHave(2));
-                        GetComponent<itemsystem>().SpecialOff();
-                        gameObject.GetComponent<itemsystem>().GetOtherItem(2);
-                        Debug.Log("Item " + gameObject.GetComponent<itemsystem>().GetItemHave(2));
-                    }
-                    else if (col.gameObject.GetComponent<itemsystemforCPU>().GetItemHave(3))
-                    {
-                        SoundController.PlaySE(Model.SE.hacksuccess);
-                        SoundController.StopSE(Model.SE.hacklong);
-                        GetComponent<itemsystem>().SpecialOff();
-                        gameObject.GetComponent<itemsystem>().GetOtherItem(3);
-                    }
-                    else if (col.gameObject.GetComponent<itemsystemforCPU>().GetItemHave(4))
-                    {
-                        SoundController.PlaySE(Model.SE.hacksuccess);
-                        SoundController.StopSE(Model.SE.hacklong);
-                        GetComponent<itemsystem>().SpecialOff();
-                        gameObject.GetComponent<itemsystem>().GetOtherItem(4);
-                    }
-
-
-                    col.gameObject.GetComponent<itemsystemforCPU>().BeHacking();
-                }
-                else if (col.gameObject.tag == "Player")
-                {
-                    SoundController.PlaySE(Model.SE.hacksuccess);
-                    SoundController.StopSE(Model.SE.hacklong);
-                }
-            }
-            else if (gameObject.tag=="CPU")
-            {
-                if (col.gameObject.tag == "CPU")
-                {
-
-                    if (col.gameObject.GetComponent<itemsystemforCPU>().GetItemHave(1))
-                    {
-                        SoundController.PlaySE(Model.SE.hacksuccess);
-                        SoundController.StopSE(Model.SE.hacklong);
-                        Debug.Log("Hacking " + col.gameObject.GetComponent<itemsystemforCPU>().GetItemHave(1));
-                        GetComponent<itemsystemforCPU>().SpecialOff();
-                        gameObject.GetComponent<itemsystemforCPU>().GetOtherItem(1);
-                    }
-                    else if (col.gameObject.GetComponent<itemsystemforCPU>().GetItemHave(2))
-                    {
-                        SoundController.PlaySE(Model.SE.hacksuccess);
-                        SoundController.StopSE(Model.SE.hacklong);
-                        Debug.Log("Hacking " + col.gameObject.GetComponent<itemsystemforCPU>().GetItemHave(2));
-                        GetComponent<itemsystemforCPU>().SpecialOff();
-                        gameObject.GetComponent<itemsystemforCPU>().GetOtherItem(2);
-                        Debug.Log("Item " + gameObject.GetComponent<itemsystemforCPU>().GetItemHave(2));
-                    }
-                    else if (col.gameObject.GetComponent<itemsystemforCPU>().GetItemHave(3))
-                    {
-                        SoundController.PlaySE(Model.SE.hacksuccess);
-                        SoundController.StopSE(Model.SE.hacklong);
-                        GetComponent<itemsystemforCPU>().SpecialOff();
-                        gameObject.GetComponent<itemsystemforCPU>().GetOtherItem(3);
-                    }
-                    else if (col.gameObject.GetComponent<itemsystemforCPU>().GetItemHave(4))
-                    {
-                        SoundController.PlaySE(Model.SE.hacksuccess);
-                        SoundController.StopSE(Model.SE.hacklong);
-                        GetComponent<itemsystemforCPU>().SpecialOff();
-                        gameObject.GetComponent<itemsystemforCPU>().GetOtherItem(4);
-                    }
-
-
-                    col.gameObject.GetComponent<itemsystemforCPU>().BeHacking();
-                }
-                else if (col.gameObject.tag == "Player")
-                {
-                    if (col.gameObject.GetComponent<itemsystem>().GetItemHave(1))
-                    {
-                        SoundController.PlaySE(Model.SE.hacksuccess);
-                        SoundController.StopSE(Model.SE.hacklong);
-                        Debug.Log("Hacking " + col.gameObject.GetComponent<itemsystem>().GetItemHave(1));
-                        GetComponent<itemsystemforCPU>().SpecialOff();
-                        gameObject.GetComponent<itemsystemforCPU>().GetOtherItem(1);
-                    }
-                    else if (col.gameObject.GetComponent<itemsystem>().GetItemHave(2))
-                    {
-                        SoundController.PlaySE(Model.SE.hacksuccess);
-                        SoundController.StopSE(Model.SE.hacklong);
-                        Debug.Log("Hacking " + col.gameObject.GetComponent<itemsystem>().GetItemHave(2));
-                        GetComponent<itemsystemforCPU>().SpecialOff();
-                        gameObject.GetComponent<itemsystemforCPU>().GetOtherItem(2);
-                        Debug.Log("Item " + gameObject.GetComponent<itemsystemforCPU>().GetItemHave(2));
-                    }
-                    else if (col.gameObject.GetComponent<itemsystem>().GetItemHave(3))
-                    {
-                        SoundController.PlaySE(Model.SE.hacksuccess);
-                        SoundController.StopSE(Model.SE.hacklong);
-                        GetComponent<itemsystemforCPU>().SpecialOff();
-                        gameObject.GetComponent<itemsystemforCPU>().GetOtherItem(3);
-                    }
-                    else if (col.gameObject.GetComponent<itemsystem>().GetItemHave(4))
-                    {
-                        SoundController.PlaySE(Model.SE.hacksuccess);
-                        SoundController.StopSE(Model.SE.hacklong);
-                        GetComponent<itemsystemforCPU>().SpecialOff();
-                        gameObject.GetComponent<itemsystemforCPU>().GetOtherItem(4);
-                    }
-
-
-                    col.gameObject.GetComponent<itemsystem>().BeHacking();
-                }
-            }
-            
-        }
-        
-    }
+    
 
 
     public void HackStart()
@@ -154,8 +41,12 @@ public class HackingMedia : MonoBehaviour {
         if (Hack == false)
         {
             SoundController.PlaySE(Model.SE.hacklong);
-            //CameraPlay.Glitch(7f);
-            Invoke("HackEnd", 7f);
+            if (gameObject.tag != "Player")
+            {
+                CameraPlay.Glitch(5f);
+            }
+            //CameraPlay.Glitch(5f);
+            Invoke("HackEnd", 5f);
             Hack = true;
         }
         
@@ -164,13 +55,36 @@ public class HackingMedia : MonoBehaviour {
     private void HackEnd()
     {
         Hack = false;
+        SoundController.PlaySE(Model.SE.hacksuccess);
         SoundController.StopSE(Model.SE.hacklong);
+        
+       
         if (gameObject.tag == "Player")
         {
-            GetComponent<itemsystem>().SpecialOff();
-        }else if (gameObject.tag=="CPU")
+            for (int i = 0; i > 8; i++)
+            {
+                cpus[i].BeHacking();
+            }
+
+
+            thissystem.SpecialOff();
+            thissystem.GetOtherItem(Random.Range(1, 5));
+        }
+        else if (gameObject.tag=="CPU")
         {
-            GetComponent<itemsystemforCPU>().SpecialOff();
+            for(int i = 0; i > 8; i++)
+            {
+                if (tagobjs[i] != gameObject)
+                {
+                    cpus[i].BeHacking();
+                }
+            }
+
+            Player.BeHacking();
+
+        
+            thissystemCPU.SpecialOff();
+            thissystemCPU.GetOtherItem(Random.Range(1, 5));
         }
        
     }

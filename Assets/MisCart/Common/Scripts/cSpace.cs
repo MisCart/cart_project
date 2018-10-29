@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MisCart;
 
 public class cSpace : MonoBehaviour {
     GameObject cSystem;
@@ -20,6 +21,7 @@ public class cSpace : MonoBehaviour {
         {
             if (interval == false)
             {
+                SoundController.PlaySE(Model.SE.charge);
                 cSystem.GetComponent<ChargingGage>().charging += 20;
                 interval = true;
                 Invoke("ReCharge",3f);

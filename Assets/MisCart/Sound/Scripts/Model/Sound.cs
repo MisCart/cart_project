@@ -33,6 +33,7 @@ namespace Model
         item,
         cddvd2,
         lap,
+        charge,
 
 
     }

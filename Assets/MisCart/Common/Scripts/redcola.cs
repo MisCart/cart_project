@@ -27,7 +27,7 @@ public class redcola : MonoBehaviour {
         rigid = GetComponent<Rigidbody>();
         fire = gameObject.transform.Find("GroundExplode").gameObject;
         ex = GetComponent<AudioSource>();
-        Invoke("startexp",0.5f);
+        Invoke("startexp",2.0f);
     }
 	
 	// Update is called once per frame

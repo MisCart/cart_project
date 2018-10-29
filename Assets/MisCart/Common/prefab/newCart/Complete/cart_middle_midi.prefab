@@ -341,13 +341,15 @@ GameObject:
   - component: {fileID: 114985702567466400}
   - component: {fileID: 114014854904226562}
   - component: {fileID: 114141575086825692}
+  - component: {fileID: 114471132747871186}
+  - component: {fileID: 114348716015011334}
   m_Layer: 0
   m_Name: cart_middle_midi
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1661141726144200
 GameObject:
   m_ObjectHideFlags: 1
@@ -1534,7 +1536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handle: 40
-  speed: 70
+  speed: 75
   limit: 140
   sparks: {fileID: 1990658144032432}
 --- !u!114 &114157865606117354
@@ -1567,7 +1569,7 @@ MonoBehaviour:
   lookAheadForSpeedFactor: 0.2
   progressStyle: 0
   pointToPointThreshold: 4
-  target: {fileID: 0}
+  target: {fileID: 4299043465577566}
 --- !u!114 &114264825430128876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1586,6 +1588,29 @@ MonoBehaviour:
   rcolaitem: {fileID: 1686399874790352, guid: 18e0eebbcf0d7ea4d8b7e07d7187a411, type: 2}
   codeitem: {fileID: 1291156836928772, guid: 524e21ddb265d9f4a89663598139855c, type: 2}
   mischan: {fileID: 0}
+--- !u!114 &114348716015011334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1658298493225874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003f32245a204de46bc9251d0903e485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114471132747871186
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1658298493225874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2800c7eeab182994b9e811f40ebdcfb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartCorrectValue: 20
 --- !u!114 &114674885276290022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1597,7 +1622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ae7ff37af2b394fa9397d9e582fbcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 52
   m_MaximumSteerAngle: 0
   SteerLevel: 0
   m_CautiousAngularVelocityFactor: 30

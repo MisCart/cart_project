@@ -126,13 +126,16 @@ GameObject:
   - component: {fileID: 114662009566947496}
   - component: {fileID: 114863200299972992}
   - component: {fileID: 114690213949622072}
+  - component: {fileID: 114426614148680902}
+  - component: {fileID: 114156601372547742}
+  - component: {fileID: 114656452116162910}
   m_Layer: 0
   m_Name: cart_light_midi
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1220953116622076
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,6 +1525,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cart: 2
+--- !u!114 &114156601372547742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1209616672105164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003f32245a204de46bc9251d0903e485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114225782740065140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1555,6 +1569,29 @@ MonoBehaviour:
   speed: 80
   limit: 85
   sparks: {fileID: 1050756632889166}
+--- !u!114 &114426614148680902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1209616672105164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2800c7eeab182994b9e811f40ebdcfb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartCorrectValue: 20
+--- !u!114 &114656452116162910
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1209616672105164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4254759b0aa12a645b5d5d7a8ce2a8c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114662009566947496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1566,7 +1603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ae7ff37af2b394fa9397d9e582fbcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 50
   m_MaximumSteerAngle: 0
   SteerLevel: 0
   m_CautiousAngularVelocityFactor: 30
@@ -1605,7 +1642,7 @@ MonoBehaviour:
   lookAheadForSpeedFactor: 0.2
   progressStyle: 0
   pointToPointThreshold: 4
-  target: {fileID: 0}
+  target: {fileID: 4390549486257114}
 --- !u!114 &114947286207195946
 MonoBehaviour:
   m_ObjectHideFlags: 1

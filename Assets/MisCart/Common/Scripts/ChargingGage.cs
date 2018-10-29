@@ -102,9 +102,10 @@ public class ChargingGage : MonoBehaviour {
                     );
                     charging -= 10;
                 }
-                inval = true;
-                Invoke("Stay", 0.5f);
 
+                Invoke("EraseText", 1.0f);
+                Invoke("Stay", 3.0f);
+                inval = true;
             }
 
         }
@@ -153,9 +154,13 @@ public class ChargingGage : MonoBehaviour {
 
         _slider.value = charging;
 	}
-
+    private void EraseText()
+    {
+        boosttext.text = "";
+    }
     void Stay()
     {
+        boosttext.text = "Boost !";
         inval = false;
     }
 }

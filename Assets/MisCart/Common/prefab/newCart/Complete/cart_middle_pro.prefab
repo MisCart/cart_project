@@ -458,13 +458,15 @@ GameObject:
   - component: {fileID: 114244402544992380}
   - component: {fileID: 114787525966595556}
   - component: {fileID: 114048329961789122}
+  - component: {fileID: 114978293326941950}
+  - component: {fileID: 114818061411434640}
   m_Layer: 0
   m_Name: cart_middle_pro
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1944004823361240
 GameObject:
   m_ObjectHideFlags: 1
@@ -1607,9 +1609,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handle: 40
-  speed: 70
+  speed: 75
   limit: 140
   sparks: {fileID: 1082605215265862}
+--- !u!114 &114818061411434640
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1937678626400326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003f32245a204de46bc9251d0903e485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114821675298801942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1628,7 +1641,19 @@ MonoBehaviour:
   lookAheadForSpeedFactor: 0.2
   progressStyle: 0
   pointToPointThreshold: 4
-  target: {fileID: 0}
+  target: {fileID: 4438780672992414}
+--- !u!114 &114978293326941950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1937678626400326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2800c7eeab182994b9e811f40ebdcfb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartCorrectValue: 20
 --- !u!124 &124716593598982350
 Behaviour:
   m_ObjectHideFlags: 1

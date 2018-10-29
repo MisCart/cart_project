@@ -47,13 +47,15 @@ GameObject:
   - component: {fileID: 114770277920016578}
   - component: {fileID: 64931043443712668}
   - component: {fileID: 114052525200954286}
+  - component: {fileID: 114498338826146856}
+  - component: {fileID: 114947661741403346}
   m_Layer: 0
   m_Name: cart_light_pro
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1185927331422590
 GameObject:
   m_ObjectHideFlags: 0
@@ -1566,6 +1568,18 @@ MonoBehaviour:
   progressStyle: 0
   pointToPointThreshold: 4
   target: {fileID: 4754534287242868}
+--- !u!114 &114498338826146856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1074902291757382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2800c7eeab182994b9e811f40ebdcfb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartCorrectValue: 20
 --- !u!114 &114559304619875630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1627,6 +1641,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cart: 1
+--- !u!114 &114947661741403346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1074902291757382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003f32245a204de46bc9251d0903e485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114979558821374642
 MonoBehaviour:
   m_ObjectHideFlags: 1
