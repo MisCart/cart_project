@@ -27,8 +27,6 @@ public class PointChecker : MonoBehaviour
             if (check == laps)
             {
                 Goal.SendMessage("Check");
-                Debug.Log("check");
-                Debug.Log(check);
                 check++;
             }
         }

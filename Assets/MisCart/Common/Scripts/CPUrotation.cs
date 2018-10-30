@@ -12,7 +12,6 @@ public class CPUrotation : MonoBehaviour {
 
     public void startrotate()
     {
-        Debug.Log("Hit");
 
        
         if (gameObject.tag == "CPU")

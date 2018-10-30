@@ -35,6 +35,7 @@ public class WaypointAgent : MonoBehaviour {
     float timer = 0f;
     Vector3 correction = Vector3.zero;
     private Color cartcolor;
+
     // Use this for initialization
     void Start () {
         limitset = limit;

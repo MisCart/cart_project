@@ -159,7 +159,6 @@ public class itemsystem : MonoBehaviour {
                     //nearestCPU = null;
                 }
                 mindis = 1000;
-                Debug.Log(nearestCPU);
 
                 bullet2.SendMessage("Settarget", nearestCPU);
 

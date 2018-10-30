@@ -27,6 +27,15 @@ public class cSpace : MonoBehaviour {
                 Invoke("ReCharge",3f);
             }
             
+        }else if (col.gameObject.tag == "CPU")
+        {
+            if (interval == false)
+            {
+                //SoundController.PlaySE(Model.SE.charge);
+                col.gameObject.GetComponent<ChargiGageForCPU>().charging += 20;
+                interval = true;
+                Invoke("ReCharge", 0.5f);
+            }
         }
     }
 

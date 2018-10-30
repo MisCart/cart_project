@@ -7,9 +7,9 @@ using MisCart;
 
 public class ChargingGage : MonoBehaviour {
     public Slider _slider;
-    public float charging;
+    public float charging=100f;
     private GameObject Player;
-    [SerializeField] private float power = 1000f;
+    [SerializeField] private float power = 100f;
     [SerializeField] private GameObject boosttextobj;
     private Text boosttext;
     bool inval = false;
@@ -27,7 +27,6 @@ public class ChargingGage : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-        charging = _slider.value;
         boosttext = boosttextobj.GetComponent<Text>();
         //Player = GameObject.FindGameObjectWithTag("Player");
 	}

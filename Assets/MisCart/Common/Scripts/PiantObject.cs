@@ -22,7 +22,6 @@ public class PiantObject : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(sw);
         if (other.gameObject.tag == "Player")
         {
             if (sw != 1)

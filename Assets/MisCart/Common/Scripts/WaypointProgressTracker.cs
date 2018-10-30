@@ -48,6 +48,7 @@ namespace UnityStandardAssets.Utility
         private int progressNum; // the current waypoint number, used in point-to-point mode.
         private Vector3 lastPosition; // Used to calculate current speed (since we may not have a rigidbody component)
         private float speed; // current speed of this object (calculated from delta since last frame)
+        float timer = 0f;
 
         // setup script properties
         private void Start()
@@ -89,6 +90,18 @@ namespace UnityStandardAssets.Utility
 
         private void Update()
         {
+            //シーン遷移開始直後はIscountingが上手く取れないようなので0.5秒止めておく
+            while (timer < 0.5f)
+            {
+                timer += Time.deltaTime;
+                return;
+            }
+
+            //カウントダウンをしているときは動かないようにする
+            if (GameUI.GameUIManager.IsCounting())
+            {
+                return;
+            }
             if (progressStyle == ProgressStyle.SmoothAlongRoute)
             {
                 // determine the position we should currently be aiming for

@@ -10,7 +10,6 @@ public class ItemSellect : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
-        Debug.Log("ItemSellect:Player"+player);
         _anim = GetComponent<Animator>();
 	}
 	

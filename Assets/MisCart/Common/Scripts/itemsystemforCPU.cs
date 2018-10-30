@@ -161,7 +161,7 @@ public class itemsystemforCPU : MonoBehaviour
                 }
 
                 mindis = 1000;
-                Debug.Log(nearestCPU);
+
                 bullet.SendMessage("Settarget", nearestCPU);
                 Vector3 force;
                 force = this.gameObject.transform.forward * colaspeed;

@@ -20,6 +20,11 @@ namespace UnityStandardAssets.Utility
         private Text ranktext;
         private float cpudis;
         private Text rankafter;
+
+        private Color first =new Color(255f/255f,215f/255f,0f/255f);
+        private Color second = new Color(192f / 255f, 192f / 255f, 192f / 255f);
+        private Color third = new Color(196f / 255f, 112f / 255f, 34f / 255f);
+        private Color noRank = new Color(1, 1, 1);
         // Use this for initialization
         public int GetRank()
         {
@@ -108,17 +113,25 @@ namespace UnityStandardAssets.Utility
                 if ((ranknum <= 8) && (ranknum >= 4))
                 {
                     rankafter.text = "th";
+                    ranktext.color = noRank;
+                    rankafter.color = noRank;
                 }else if (ranknum == 3)
                 {
                     rankafter.text = "rd";
+                    ranktext.color = third;
+                    rankafter.color = third;
                 }
                 else if (ranknum == 2)
                 {
                     rankafter.text = "nd";
+                    ranktext.color = second;
+                    rankafter.color = second;
                 }
                 else if (ranknum == 1)
                 {
                     rankafter.text = "st";
+                    ranktext.color = first;
+                    rankafter.color = first;
                 }
 
                 nowRank = ranknum;
