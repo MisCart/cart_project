@@ -11,7 +11,6 @@ namespace Title.UI
 	public class UICanvas : MonoBehaviour
 	{
 		[SerializeField] SplashScreen splashScreen;
-		[SerializeField] SlideShow slideShow;
 		[SerializeField] ClickToStart clickToStart;
 		[SerializeField] CharacterSelectMenu characterSelectMenu;
 		[SerializeField] CartSelectMenu cartSelectMenu;
@@ -24,7 +23,6 @@ namespace Title.UI
 		Action onBack;
 
 		public SplashScreen SplashScreen { get { return splashScreen; } }
-		public SlideShow SlideShow { get { return slideShow; } }
 		public ClickToStart ClickToStart { get { return clickToStart; } }
 		public CharacterSelectMenu CharacterSelectMenu {get { return characterSelectMenu; } }
 		public CartSelectMenu CartSelectMenu {get { return cartSelectMenu; } }

@@ -12,16 +12,12 @@ namespace Title
 	{
 		void Start()
 		{
-            //スライドショー
-			var slideShow = TitleManager.UI.SlideShow.slide();
-			StartCoroutine(slideShow);
 			SoundController.PlayBGM(Model.BGM.Title);
 		}
 
 		void OnEnable()
 		{
 			TitleManager.UI.ClickToStart.SetActive(true);
-			TitleManager.UI.SlideShow.SetActive(true);
             TitleManager.UI.SetOnClick(() => OnClick());
             TitleManager.UI.SetOnBack(() => OnBack());
 		}

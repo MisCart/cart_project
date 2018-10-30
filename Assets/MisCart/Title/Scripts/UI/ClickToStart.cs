@@ -11,7 +11,7 @@ namespace Title.UI
         [SerializeField] CanvasGroup canvas;
         public float duration = 1f;
         Tween tween;
-        
+
         public void SetActive(bool value)
         {
             gameObject.SetActive(value);
@@ -20,7 +20,11 @@ namespace Title.UI
         void OnEnable()
         {
             TweenKill();
-            ChangeAlfa();         
+            ChangeAlfa();
+        }
+
+        void OnDisable(){
+            TweenKill();
         }
 
         void ChangeAlfa()
@@ -40,11 +44,12 @@ namespace Title.UI
             {
                 tween.Kill();
             }
+            canvas.alpha = 1f;
         }
 
         void OnDestroy()
         {
-            TweenKill();            
+            TweenKill();
         }
     }
 }
