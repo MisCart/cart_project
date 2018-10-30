@@ -12,6 +12,7 @@ TagManager:
   - rank
   - csys
   - wall
+  - FallEnd
   layers:
   - Default
   - TransparentFX

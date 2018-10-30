@@ -34,6 +34,7 @@ namespace Model
         cddvd2,
         lap,
         charge,
+        BoostCPU,
 
 
     }

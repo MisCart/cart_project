@@ -44,7 +44,7 @@ public class ChargiGageForCPU : MonoBehaviour {
             {
 
                 GetComponent<Rigidbody>().AddForce(transform.forward * power * 1.5f, ForceMode.VelocityChange);
-
+                SoundController.PlaySE(Model.SE.BoostCPU);
 
             }
 
@@ -61,7 +61,7 @@ public class ChargiGageForCPU : MonoBehaviour {
                 if (charging > 10)
                 {
                     GetComponent<Rigidbody>().AddForce(transform.forward * power, ForceMode.VelocityChange);
-
+                    SoundController.PlaySE(Model.SE.BoostCPU);
                     charging -= 10;
                 }
                 

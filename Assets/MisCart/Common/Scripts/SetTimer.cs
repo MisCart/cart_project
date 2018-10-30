@@ -56,11 +56,7 @@ public class SetTimer : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            check++;
-            Debug.Log(check);
-        }
+        
 
     }
 
@@ -138,6 +134,19 @@ public class SetTimer : MonoBehaviour {
         if (check < laps)
         {
             check++;
+        }
+    }
+
+    public int GetNowPos()
+    {
+        Debug.Log("check="+check+", laps="+laps);
+        if (check != laps)
+        {
+            return 0;//0はゴール前
+        }
+        else
+        {
+            return 1;
         }
     }
 }

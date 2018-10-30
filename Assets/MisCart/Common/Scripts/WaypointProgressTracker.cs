@@ -90,18 +90,7 @@ namespace UnityStandardAssets.Utility
 
         private void Update()
         {
-            //シーン遷移開始直後はIscountingが上手く取れないようなので0.5秒止めておく
-            while (timer < 0.5f)
-            {
-                timer += Time.deltaTime;
-                return;
-            }
-
-            //カウントダウンをしているときは動かないようにする
-            if (GameUI.GameUIManager.IsCounting())
-            {
-                return;
-            }
+            
             if (progressStyle == ProgressStyle.SmoothAlongRoute)
             {
                 // determine the position we should currently be aiming for
@@ -119,9 +108,7 @@ namespace UnityStandardAssets.Utility
                     Quaternion.LookRotation(
                         circuit.GetRoutePoint(progressDistance + lookAheadForSpeedOffset + lookAheadForSpeedFactor*speed)
                                .direction);
-
-
-                // get our current progress along the route
+                      // get our current progress along the route
                 progressPoint = circuit.GetRoutePoint(progressDistance);
                 
                 Vector3 progressDelta = progressPoint.position - transform.position;
@@ -154,6 +141,17 @@ namespace UnityStandardAssets.Utility
                     progressDistance += progressDelta.magnitude;
                 }
                 lastPosition = transform.position;
+            }
+        }
+
+        public void SetProgressDistance(int i)
+        {
+            if (i == 0)
+            {
+                progressDistance = 0;
+            }else if (i == 1)
+            {
+                progressDistance = 2500;
             }
         }
 
