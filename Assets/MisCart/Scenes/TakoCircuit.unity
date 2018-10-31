@@ -167,7 +167,7 @@ Transform:
   - {fileID: 1903038645}
   - {fileID: 1045652334}
   m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &33844249
 Prefab:
@@ -1642,7 +1642,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &141375517
 Prefab:
@@ -3071,7 +3071,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 1dfbcb2664e94f34c8cf6479a7d6a140, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
@@ -5272,7 +5272,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 373.1, y: 72}
+  m_AnchoredPosition: {x: 373.1, y: 40}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &384629477
@@ -5295,8 +5295,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 140
+    m_Font: {fileID: 12800000, guid: 1dfbcb2664e94f34c8cf6479a7d6a140, type: 3}
+    m_FontSize: 100
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -8080,16 +8080,16 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 647398622}
-  m_LocalRotation: {x: -0, y: -0, z: -0.42261827, w: 0.9063079}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -569.858}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1894885796}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -50}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: 360}
+  m_AnchoredPosition: {x: -159.5, y: 418.2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &647398624
@@ -8112,7 +8112,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 1dfbcb2664e94f34c8cf6479a7d6a140, type: 3}
     m_FontSize: 120
     m_FontStyle: 2
     m_BestFit: 0
@@ -8124,7 +8124,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '|'
+  m_Text: /
 --- !u!222 &647398625
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9004,11 +9004,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 725244196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2114, y: 413, z: 2167}
+  m_LocalPosition: {x: 2114, y: 440, z: 2167}
   m_LocalScale: {x: 2000, y: 1, z: 2000}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 39
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &725417372
 GameObject:
@@ -9551,7 +9551,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 1dfbcb2664e94f34c8cf6479a7d6a140, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
@@ -11372,7 +11372,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 256.34, y: 133.2}
+  m_AnchoredPosition: {x: 245, y: 133.2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &935226035
@@ -11395,7 +11395,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 1dfbcb2664e94f34c8cf6479a7d6a140, type: 3}
     m_FontSize: 200
     m_FontStyle: 2
     m_BestFit: 0
@@ -12057,7 +12057,7 @@ Transform:
   - {fileID: 1717229980}
   - {fileID: 1736042715}
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &954236293
 MonoBehaviour:
@@ -13116,7 +13116,7 @@ Transform:
   - {fileID: 353147156}
   - {fileID: 1675613219}
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1025214816
 MonoBehaviour:
@@ -16196,11 +16196,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2085.7, y: 807.2, z: 2316.7}
   m_LocalScale: {x: 120, y: 60, z: 1}
-  m_Children:
-  - {fileID: 1553802504}
-  - {fileID: 1423985644}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1234593046
 MonoBehaviour:
@@ -17933,7 +17931,7 @@ Transform:
   - {fileID: 2070521283}
   - {fileID: 1553870617}
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1333991408
 MonoBehaviour:
@@ -18696,12 +18694,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1423985643}
-  m_LocalRotation: {x: 0, y: -0.10626403, z: 0, w: 0.994338}
-  m_LocalPosition: {x: 2.492, y: -3.65, z: 285.1}
-  m_LocalScale: {x: 0.008333334, y: 0.016666668, z: 1}
+  m_LocalRotation: {x: 0, y: -0.10626403, z: -0, w: 0.994338}
+  m_LocalPosition: {x: 2204.14, y: 611.42004, z: 2594}
+  m_LocalScale: {x: 0.95571417, y: 1, z: 6.3143187}
   m_Children: []
-  m_Father: {fileID: 1234593045}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: -12.2, z: 0}
 --- !u!1 &1430674384
 GameObject:
@@ -18735,7 +18733,7 @@ Transform:
   - {fileID: 81657128}
   - {fileID: 1307150761}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1438150811
 GameObject:
@@ -19716,7 +19714,7 @@ Transform:
   - {fileID: 796776521}
   - {fileID: 179821862}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1471762599
 MonoBehaviour:
@@ -20598,11 +20596,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1553802503}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.007, y: -0.362, z: -75.1}
-  m_LocalScale: {x: 0.008333334, y: 0.016666668, z: 1}
+  m_LocalPosition: {x: 2084.8599, y: 785.48004, z: 2373.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1234593045}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1553870616
 GameObject:
@@ -21206,7 +21204,7 @@ Transform:
   - {fileID: 1078674596}
   - {fileID: 466382345}
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1571354110
 MonoBehaviour:
@@ -23347,7 +23345,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 38
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1750769233
 Prefab:
@@ -23455,7 +23453,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1764029270
 GameObject:
@@ -25069,7 +25067,7 @@ Transform:
   - {fileID: 634786031}
   - {fileID: 864458240}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1829528944
 MonoBehaviour:
@@ -29036,7 +29034,7 @@ Transform:
   - {fileID: 1402678382}
   - {fileID: 1801543182}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2127575630
 MonoBehaviour:

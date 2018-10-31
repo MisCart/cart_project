@@ -43,12 +43,12 @@ public class ChargiGageForCPU : MonoBehaviour {
             if (Random.Range(0, 2) == 0)
             {
 
-                GetComponent<Rigidbody>().AddForce(transform.forward * power * 1.5f, ForceMode.VelocityChange);
-                SoundController.PlaySE(Model.SE.BoostCPU);
+                //GetComponent<Rigidbody>().AddForce(transform.forward * power * 1.5f, ForceMode.VelocityChange);
+                //SoundController.PlaySE(Model.SE.BoostCPU);
 
             }
 
-            charging -= 30;
+            //charging -= 30;
             DoneStartDash = true;
    
 
