@@ -11,7 +11,6 @@ namespace Title.UI
 	public class UICanvas : MonoBehaviour
 	{
 		[SerializeField] SplashScreen splashScreen;
-		[SerializeField] SlideShow slideShow;
 		[SerializeField] ClickToStart clickToStart;
 		[SerializeField] CharacterSelectMenu characterSelectMenu;
 		[SerializeField] CartSelectMenu cartSelectMenu;
@@ -19,12 +18,13 @@ namespace Title.UI
 		[SerializeField] Image coverImage;
 		[SerializeField] GameObject[] character;
 		[SerializeField] GameObject[] cart;
+		[SerializeField] Text weight;
+		[SerializeField] Text team;
 
 		Action onClick;
 		Action onBack;
 
 		public SplashScreen SplashScreen { get { return splashScreen; } }
-		public SlideShow SlideShow { get { return slideShow; } }
 		public ClickToStart ClickToStart { get { return clickToStart; } }
 		public CharacterSelectMenu CharacterSelectMenu {get { return characterSelectMenu; } }
 		public CartSelectMenu CartSelectMenu {get { return cartSelectMenu; } }
@@ -32,6 +32,8 @@ namespace Title.UI
 		public Image CoverImage { get { return coverImage; } }
 		public GameObject[] Character { get { return character; } }
 		public GameObject[] Cart { get { return cart; } }
+		public Text Weight { get { return weight; } }
+		public Text Team { get { return team; } }
 
 		public void OnClick()
 		{
