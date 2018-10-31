@@ -24,7 +24,17 @@ namespace GameUI
 
             int minute = (int)GameData.FinishTime / 60;
             int second = (int)GameData.FinishTime % 60;
-            GameUIManager.UI.Time.text = minute+":"+second;
+
+            //01:04みたいな表記になるようにする
+            if(minute < 10 && second < 10){
+                GameUIManager.UI.Time.text = "0"+minute+":0"+second;
+            }else if(minute < 10){
+                GameUIManager.UI.Time.text = "0"+minute+":"+second;
+            }else if(second < 10){
+                GameUIManager.UI.Time.text = minute+":0"+second;
+            }else{
+                GameUIManager.UI.Time.text = minute+":"+second;
+            }
 
             SetMessage();
             SetRank();
