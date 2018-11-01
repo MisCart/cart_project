@@ -31,7 +31,6 @@ public class finish : MonoBehaviour {
 
     public void finishrace(int rank)
     {
-        SoundController.PlaySE(Model.SE.Fanfare);
         racetext.SetActive(false);
         finishtext.SetActive(true);
         minimap.SetActive(false);
@@ -39,9 +38,9 @@ public class finish : MonoBehaviour {
         //ranktext.GetComponent<Text>().text = rank.ToString();
         player.GetComponent<Controller>().enabled = false;
         player.GetComponent<WaypointAgent>().enabled = true;
-        Invoke("kesuyatu",1f);
-        end = true;
-
+        SoundController.StopAll(1f);
+        SoundController.PlaySE(Model.SE.Fanfare);
+        Invoke("kesuyatu",3f);
     }
 
     private void kesuyatu()
@@ -54,7 +53,10 @@ public class finish : MonoBehaviour {
         vol => mainCamera.GetComponent<AudioSource>().volume=vol,   // 値の更新
         0,                  // 最終的な値
         2.0f                  // アニメーション時間
-        );
+        ).OnComplete(() => SetEndFlag(true));
+    }
 
+    void SetEndFlag(bool value){
+        end = value;
     }
 }
