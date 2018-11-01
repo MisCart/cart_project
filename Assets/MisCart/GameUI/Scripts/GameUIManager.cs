@@ -8,8 +8,10 @@ namespace GameUI
 	public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
 	{
 		[SerializeField] UICanvas uiCanvas;
+		[SerializeField] GameUISound sound;
 		Blackboard board;
 		public static UICanvas UI { get { return Instance.uiCanvas; } }
+		public static GameUISound Sound { get { return Instance.sound; } }
 		public static Blackboard Board { get { return Instance.board; } }
 
 		void Start() {
