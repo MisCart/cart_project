@@ -24,7 +24,10 @@ public class ChargiGageForCPU : MonoBehaviour {
     }
     void Update()
     {
-
+        if (!DoneStartDash)
+        {
+                StartdashTime++;           
+        }
         //シーン遷移開始直後はIscountingが上手く取れないようなので0.5秒止めておく
         while (timer < 0.5f)
         {
@@ -40,17 +43,20 @@ public class ChargiGageForCPU : MonoBehaviour {
 
         if (!DoneStartDash)
         {
-            if (Random.Range(0, 2) == 0)
+            if (StartdashTime >= 80)
             {
+                if (Random.Range(0, 2) == 0)
+                {
 
-                //GetComponent<Rigidbody>().AddForce(transform.forward * power * 1.5f, ForceMode.VelocityChange);
-                //SoundController.PlaySE(Model.SE.BoostCPU);
+                    GetComponent<Rigidbody>().AddForce(transform.forward * power * 1.5f, ForceMode.VelocityChange);
+                    SoundController.PlaySE(Model.SE.BoostCPU);
 
+                }
+
+                charging -= 30;
+               
             }
-
-            //charging -= 30;
             DoneStartDash = true;
-   
 
         }
 

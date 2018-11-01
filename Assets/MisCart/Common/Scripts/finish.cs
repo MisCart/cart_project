@@ -52,7 +52,7 @@ public class finish : MonoBehaviour {
         () => vol,          // 何を対象にするのか
         vol => mainCamera.GetComponent<AudioSource>().volume=vol,   // 値の更新
         0,                  // 最終的な値
-        2.0f                  // アニメーション時間
+        0.5f                  // アニメーション時間
         ).OnComplete(() => SetEndFlag(true));
     }
 
