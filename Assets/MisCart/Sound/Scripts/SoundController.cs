@@ -37,14 +37,14 @@ namespace MisCart
             _soundManager = SoundManager.Instance;
         }
 
-        public static void PlayBGM(Model.BGM bgm, Action onStart = null, Action onFinish = null)
+        public static void PlayBGM(Model.BGM bgm, float volume = 1f, Action onStart = null, Action onFinish = null)
         {
-            SoundManager.PlayBGM(bgm, onStart, onFinish);
+            SoundManager.PlayBGM(bgm, volume, onStart, onFinish);
         }
 
-        public static void PlaySE(Model.SE se, Action onStart = null, Action onFinish = null)
+        public static void PlaySE(Model.SE se, float volume = 1f, Action onStart = null, Action onFinish = null)
         {
-            SoundManager.PlaySE(se, onStart, onFinish);
+            SoundManager.PlaySE(se, volume, onStart, onFinish);
         }
 
         public static void StopSE(Model.SE se, float fade = 0f)

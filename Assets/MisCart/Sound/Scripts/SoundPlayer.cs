@@ -55,12 +55,12 @@ namespace MisCart
         /// <summary>
         /// サウンドの再生
         /// </summary>
-        public void Play(AudioClip clip, bool loop)
+        public void Play(AudioClip clip, bool loop, float volume)
         {
             try
             {
                 State = SoundState.Play;
-                audioSource.volume = 1f;
+                audioSource.volume = volume;
                 audioSource.clip = clip;
                 audioSource.loop = loop;
                 audioSource.Play();

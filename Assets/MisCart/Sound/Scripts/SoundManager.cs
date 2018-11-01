@@ -63,7 +63,7 @@ namespace MisCart
         /// <summary>
         /// SEの再生
         /// </summary>
-        public void PlaySE(Model.SE se, Action onStart = null, Action onFinish = null)
+        public void PlaySE(Model.SE se, float volume = 1f, Action onStart = null, Action onFinish = null)
         {
             var soundPlayer = GetFreeSoundPlayer();
             soundPlayer.Setup(Model.AudioType.SE);
@@ -80,13 +80,15 @@ namespace MisCart
                 return;
             }
 
-            StartCoroutine(Play(soundPlayer, key, clip, false));
+            Mathf.Clamp(volume, 0f, 1f);
+
+            StartCoroutine(Play(soundPlayer, key, clip, false, volume));
         }
 
         /// <summary>
         /// BGMの再生
         /// </summary>
-        public void PlayBGM(Model.BGM bgm, Action onStart = null, Action onFinish = null)
+        public void PlayBGM(Model.BGM bgm, float volume = 1f, Action onStart = null, Action onFinish = null)
         {
             var soundPlayer = GetFreeSoundPlayer();
             soundPlayer.Setup(Model.AudioType.BGM);
@@ -97,10 +99,12 @@ namespace MisCart
             soundPlayer.Key = key;
             AudioClip clip = Resources.Load("Sounds/BGM/"+key) as AudioClip;
 
-            StartCoroutine(Play(soundPlayer, key, clip, true));
+            Mathf.Clamp(volume, 0f, 1f);
+
+            StartCoroutine(Play(soundPlayer, key, clip, true, volume));
         }
 
-        IEnumerator Play(SoundPlayer soundPlayer, string key, AudioClip clip, bool loop)
+        IEnumerator Play(SoundPlayer soundPlayer, string key, AudioClip clip, bool loop, float volume)
         {
             SoundInfo sound = null;
             yield return null;
@@ -135,7 +139,7 @@ namespace MisCart
             {
                 sound.Retain();
                 soundPlayer.SetActive(true);
-                soundPlayer.Play(sound.AudioClip, loop);
+                soundPlayer.Play(sound.AudioClip, loop, volume);
 
                 while(soundPlayer.IsPlaying){ yield return null; }
 
