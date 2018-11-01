@@ -102,13 +102,23 @@ namespace GameUI
         //順位のセット
         void SetRank(){
             if(GameData.FinishRank == 1){
-                GameUIManager.UI.Rank.text = "1st";
+                GameUIManager.UI.RankNum.text = "1";
+                GameUIManager.UI.RankText.text = "st";
+                GameUIManager.UI.RankNum.color = new Color(0.9f, 0.71f, 0.13f, 1f);
+                GameUIManager.UI.RankText.color = new Color(0.9f, 0.71f, 0.13f, 1f);
             } else if(GameData.FinishRank == 2){
-                GameUIManager.UI.Rank.text = "2nd";
+                GameUIManager.UI.RankNum.text = "2";
+                GameUIManager.UI.RankText.text = "nd";
+                GameUIManager.UI.RankNum.color = new Color(0.75f, 0.76f, 0.76f, 1f);
+                GameUIManager.UI.RankText.color = new Color(0.75f, 0.76f, 0.76f, 1f);
             } else if(GameData.FinishRank == 3){
-                GameUIManager.UI.Rank.text = "3rd";
+                GameUIManager.UI.RankNum.text = "3";
+                GameUIManager.UI.RankText.text = "rd";
+                GameUIManager.UI.RankNum.color = new Color(0.75f, 0.55f, 0.37f, 1f);
+                GameUIManager.UI.RankText.color = new Color(0.75f, 0.55f, 0.37f, 1f);
             } else {
-                GameUIManager.UI.Rank.text = GameData.FinishRank+"th";
+                GameUIManager.UI.RankNum.text = GameData.FinishRank+"";
+                GameUIManager.UI.RankText.text = "th";
             }
         }
 

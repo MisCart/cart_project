@@ -39,27 +39,29 @@ public class finish : MonoBehaviour {
         minimap.SetActive(false);
         PgameObject.SetActive(false);
         mainCamera.GetComponent<AutoCam>().Goal();
-        //ranktext.GetComponent<Text>().text = rank.ToString();
         player.GetComponent<Controller>().enabled = false;
         player.GetComponent<WaypointAgent>().enabled = true;
-        SoundController.StopAll(1f);
+        SoundController.StopAll(3f);
+        SoundController.PlaySE(Model.SE.Fanfare);
 
         GameData.isFinish = true;
         DOTween.To(
         () => vol,          // 何を対象にするのか
         vol => mainCamera.GetComponent<AudioSource>().volume = vol,   // 値の更新
         0,                  // 最終的な値
-        2.5f                  // アニメーション時間
+        3.0f                  // アニメーション時間
         ).OnComplete(() => SetEndFlag(true));
-        Invoke("kesuyatu",3f);
+        Invoke("kesuyatu",4f);
     }
 
     private void kesuyatu()
     {
+        //サウンドマネージャーで鳴らしている音を消す
+        end = true;
+
         finishtext.SetActive(false);
-        SoundController.PlaySE(Model.SE.Fanfare);
         GameUIManager.StartAnimation();
-        
+
     }
 
     void SetEndFlag(bool value){
