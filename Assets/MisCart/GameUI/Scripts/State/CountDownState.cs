@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using BehaviourMachine;
+using MisCart;
 
 namespace GameUI
 {
@@ -32,6 +33,7 @@ namespace GameUI
                 yield return null;
             }
 
+            SoundController.PlaySE(Model.SE.CoundDown);
             yield return new WaitForSeconds(1f);
             GameUIManager.UI.CountDownText = "2";
             yield return new WaitForSeconds(1f);

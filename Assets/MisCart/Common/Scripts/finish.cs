@@ -20,7 +20,7 @@ public class finish : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
     }
-	
+
 	// Update is called once per frame
 	void Update () {
         if (end)
@@ -31,6 +31,7 @@ public class finish : MonoBehaviour {
 
     public void finishrace(int rank)
     {
+        SoundController.PlaySE(Model.SE.Fanfare);
         racetext.SetActive(false);
         finishtext.SetActive(true);
         minimap.SetActive(false);

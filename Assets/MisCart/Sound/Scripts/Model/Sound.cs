@@ -35,8 +35,8 @@ namespace Model
         lap,
         charge,
         BoostCPU,
-
-
+        CoundDown,     // レース開始時のカウントダウン
+        Fanfare        // レース終了時のファンファーレ
     }
 
     // Resources/Sounds/BGM にサウンドを追加したときはここにも同じ名前で追加する
