@@ -6,6 +6,7 @@ using MisCart;
 
 public class redcola : MonoBehaviour {
     private GameObject cpu;
+    private GameObject shotObject;
     private Rigidbody rigid;
     bool flag = false;
     int rotate;
@@ -27,7 +28,7 @@ public class redcola : MonoBehaviour {
         rigid = GetComponent<Rigidbody>();
         fire = gameObject.transform.Find("GroundExplode").gameObject;
         ex = GetComponent<AudioSource>();
-        Invoke("startexp",2.0f);
+        //Invoke("startexp",1.0f);
     }
 	
 	// Update is called once per frame
@@ -45,39 +46,51 @@ public class redcola : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-        if (effectactive)
-        {
+        //if (effectactive)
+        //{
             if (col.gameObject.tag == "CPU")
             {
-                cpu = col.gameObject;
-                fire.SetActive(true);
-                SoundController.PlaySE(Model.SE.bomb1);
-                cpu.GetComponent<CPUrotation>().startrotate();
-                gameObject.GetComponent<BoxCollider>().enabled = false;
-                transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
-                transform.GetChild(1).gameObject.SetActive(false);
-                flag = true;
-                Invoke("Des", 2);
+                if (col.gameObject != shotObject)
+                {               
+                    cpu = col.gameObject;
+                    fire.SetActive(true);
+                    SoundController.PlaySE(Model.SE.bomb1);
+                    cpu.GetComponent<CPUrotation>().startrotate();
+                    gameObject.GetComponent<BoxCollider>().enabled = false;
+                    transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
+                    transform.GetChild(1).gameObject.SetActive(false);
+                    flag = true;
+                    Invoke("Des", 2);
+                }
             }
             else if (col.gameObject.tag == "Player")
             {
-                cpu = col.gameObject;
-                fire.SetActive(true);
-                SoundController.PlaySE(Model.SE.bomb1);
-                col.gameObject.GetComponent<CPUrotation>().startrotate();
-                gameObject.GetComponent<BoxCollider>().enabled = false;
-                transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
-                transform.GetChild(1).gameObject.SetActive(false);
-                flag = true;
-                Invoke("Des", 2);
+
+                if (col.gameObject != shotObject)
+                {
+                    cpu = col.gameObject;
+                    fire.SetActive(true);
+                    SoundController.PlaySE(Model.SE.bomb1);
+                    col.gameObject.GetComponent<CPUrotation>().startrotate();
+                    gameObject.GetComponent<BoxCollider>().enabled = false;
+                    transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
+                    transform.GetChild(1).gameObject.SetActive(false);
+                    flag = true;
+                    Invoke("Des", 2);
+                }
             }
             crash++;
-        }
+        //}
     }
 
     void Settarget(GameObject target)
     {
         cpu = target;
+    }
+
+    public void SetShot(GameObject shot)
+    {
+        shotObject = shot;
     }
 
     void Des()

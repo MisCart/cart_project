@@ -1862,7 +1862,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 75d2e2d144a63384ebe7f8118632e4e4, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.812
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -15764,7 +15764,7 @@ MonoBehaviour:
   _charginggage: {fileID: 124272012}
   Setcart: 3
   SetChara: 1
-  debug: 1
+  debug: 0
 --- !u!4 &869406180
 Transform:
   m_ObjectHideFlags: 0

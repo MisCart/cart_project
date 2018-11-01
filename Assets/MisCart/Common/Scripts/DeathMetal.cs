@@ -47,7 +47,11 @@ public class DeathMetal : MonoBehaviour {
         {
             DeathMetalObject.SetActive(true);
             mainCamera.GetComponent<AudioSource>().volume = 0.05f;
-            SoundController.PlayBGM(Model.BGM.deathmetal2);
+            if (!GameData.isFinish)
+            {
+                SoundController.PlayBGM(Model.BGM.deathmetal2);
+            }
+           
             if (gameObject.transform.tag == "Player")
             {
                 CameraPlay.Shockwave();
@@ -74,7 +78,11 @@ public class DeathMetal : MonoBehaviour {
     {
         Death = false;
         DeathMetalObject.SetActive(false);
-        mainCamera.GetComponent<AudioSource>().volume = 1.0f;
+        if (!GameData.isFinish)
+        {
+            mainCamera.GetComponent<AudioSource>().volume = 1.0f;
+        }
+        
         SoundController.StopBGM(Model.BGM.deathmetal2);
         if (gameObject.tag == "Player")
         {

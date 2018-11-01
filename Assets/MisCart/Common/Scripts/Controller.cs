@@ -23,8 +23,20 @@ public class Controller : MonoBehaviour {
     private bool con = false;
 
     private Color playerColor;
+    private bool isSlip = false;
 
     [SerializeField] private GameObject sparks;
+
+    public void slipitem()
+    {
+        //isSlip = true;
+        Invoke("offslipitem", 0.5f);
+    }
+
+    private void offslipitem()
+    {
+        isSlip = false;
+    }
 
     // Use this for initialization
     void Start () {
@@ -52,6 +64,11 @@ public class Controller : MonoBehaviour {
 
      void Update()
     {
+        if (isSlip)
+        {
+            return;
+        }
+
         if (Input.GetKeyUp(KeyCode.Z))
         {
             SoundController.StopSE(Model.SE.EngineSound);
@@ -110,8 +127,12 @@ public class Controller : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate () {
 
+        if (isSlip)
+        {
+            return;
+        }
         //シーン遷移開始直後はIscountingが上手く取れないようなので0.5秒止めておく
-        while(timer < 0.5f)
+        while (timer < 0.5f)
         {
             timer += Time.deltaTime;
             return;
@@ -132,7 +153,7 @@ public class Controller : MonoBehaviour {
                        if (sound1 == false)
                        {
                            //audio1.PlayOneShot(audio1.clip);
-                            SoundController.PlaySE(Model.SE.EngineSound);
+                            SoundController.PlaySE(Model.SE.EngineSound,0.6f);
                             sound1 = true;
                        }
 
@@ -148,7 +169,7 @@ public class Controller : MonoBehaviour {
 
             if (Input.GetKeyUp(KeyCode.Z))
             {
-                SoundController.StopSE(Model.SE.EngineSound);
+                SoundController.StopSE(Model.SE.EngineSound, 0.6f);
                 sound1 = false;
 
             }
@@ -163,7 +184,7 @@ public class Controller : MonoBehaviour {
         {
             if (sound2 == false)
             {
-                SoundController.PlaySE(Model.SE.braking);
+                SoundController.PlaySE(Model.SE.braking, 0.6f);
                 sound2 = true;
             }
             if (rigidbody.velocity.magnitude <= limit)
@@ -252,7 +273,7 @@ public class Controller : MonoBehaviour {
         {
             if (sound2 == false)
             {
-                SoundController.PlaySE(Model.SE.braking);
+                SoundController.PlaySE(Model.SE.braking, 0.6f);
                 sound2 = true;
             }
             if (rigidbody.velocity.magnitude <= limit)

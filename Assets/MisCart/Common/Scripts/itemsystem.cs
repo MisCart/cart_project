@@ -161,6 +161,7 @@ public class itemsystem : MonoBehaviour {
                 mindis = 1000;
 
                 bullet2.SendMessage("Settarget", nearestCPU);
+                bullet2.SendMessage("SetShot", gameObject);
 
                 //bullet2.transform.position = itempos.position;
                 //bullet2.GetComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);

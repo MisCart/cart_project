@@ -115,8 +115,8 @@ public class ChargingGage : MonoBehaviour {
         {        
                 if (sound1 == false)
                 {
-                    //audio1.PlayOneShot(audio1.clip);
-                    SoundController.PlaySE(Model.SE.EngineSound);
+                //audio1.PlayOneShot(audio1.clip);
+                SoundController.PlaySE(Model.SE.EngineSound, 0.6f);
                     sound1 = true;
                 }
         }

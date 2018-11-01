@@ -15,10 +15,13 @@ public class finish : MonoBehaviour {
     public GameObject minimap;
     private float vol = 1f;
     private bool end = false;
+    private GameObject PgameObject;
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        GameData.isFinish=false;
+        PgameObject = GameObject.Find("UI/Canvas/enogu");
     }
 
 	// Update is called once per frame
@@ -34,26 +37,29 @@ public class finish : MonoBehaviour {
         racetext.SetActive(false);
         finishtext.SetActive(true);
         minimap.SetActive(false);
+        PgameObject.SetActive(false);
         mainCamera.GetComponent<AutoCam>().Goal();
         //ranktext.GetComponent<Text>().text = rank.ToString();
         player.GetComponent<Controller>().enabled = false;
         player.GetComponent<WaypointAgent>().enabled = true;
         SoundController.StopAll(1f);
-        SoundController.PlaySE(Model.SE.Fanfare);
+
+        GameData.isFinish = true;
+        DOTween.To(
+        () => vol,          // 何を対象にするのか
+        vol => mainCamera.GetComponent<AudioSource>().volume = vol,   // 値の更新
+        0,                  // 最終的な値
+        2.5f                  // アニメーション時間
+        ).OnComplete(() => SetEndFlag(true));
         Invoke("kesuyatu",3f);
     }
 
     private void kesuyatu()
     {
         finishtext.SetActive(false);
+        SoundController.PlaySE(Model.SE.Fanfare);
         GameUIManager.StartAnimation();
-        SoundController.StopAll();
-        DOTween.To(
-        () => vol,          // 何を対象にするのか
-        vol => mainCamera.GetComponent<AudioSource>().volume=vol,   // 値の更新
-        0,                  // 最終的な値
-        0.5f                  // アニメーション時間
-        ).OnComplete(() => SetEndFlag(true));
+        
     }
 
     void SetEndFlag(bool value){

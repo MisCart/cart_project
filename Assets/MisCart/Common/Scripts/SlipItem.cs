@@ -29,15 +29,21 @@ public class SlipItem : MonoBehaviour {
             if (other.gameObject.tag == "Player")
             {
                 other.gameObject.GetComponent<Controller>().LimitCut();
+                
                 SoundController.PlaySE(Model.SE.encount1);
                 gameObject.GetComponent<MeshRenderer>().enabled = false;
                 gameObject.GetComponent<BoxCollider>().enabled = false;
+                other.gameObject.GetComponent<correctDirection>().Rotate();
+                other.gameObject.GetComponent<Controller>().slipitem();
 
+                float angleDir2 = other.transform.eulerAngles.y * (Mathf.PI / 180.0f);
+                Vector3 dir2 = new Vector3(Mathf.Sin(angleDir2), 0.0f, Mathf.Cos(angleDir2));
+               
                 DOTween.To(
                     () => R,          // 何を対象にするのか
-                    rot => other.transform.eulerAngles = new Vector3(0, R, 0),   // 値の更新
-                    0,                  // 最終的な値
-                    2.0f                  // アニメーション時間
+                    R => other.transform.rotation = Quaternion.AngleAxis(R, new Vector3(0, 1, 0)),   // 値の更新
+                    - angleDir2*60,                  // 最終的な値
+                    1.0f                  // アニメーション時間
                     );
                 Invoke("Dess", 2);
             }
@@ -49,7 +55,7 @@ public class SlipItem : MonoBehaviour {
                 gameObject.GetComponent<BoxCollider>().enabled = false;
                 DOTween.To(
                    () => R,          // 何を対象にするのか
-                   rot => other.transform.eulerAngles = new Vector3(0, R, 0),   // 値の更新
+                   R => other.transform.eulerAngles = new Vector3(0, R, 0),   // 値の更新
                    -360,                  // 最終的な値
                    2.0f                  // アニメーション時間
                    );

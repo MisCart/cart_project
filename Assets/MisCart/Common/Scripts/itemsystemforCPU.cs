@@ -163,6 +163,7 @@ public class itemsystemforCPU : MonoBehaviour
                 mindis = 1000;
 
                 bullet.SendMessage("Settarget", nearestCPU);
+                bullet.SendMessage("SetShot", gameObject);
                 Vector3 force;
                 force = this.gameObject.transform.forward * colaspeed;
                 //bullet.transform.position = itempos.position;
