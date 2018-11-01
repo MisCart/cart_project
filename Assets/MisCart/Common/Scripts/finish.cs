@@ -39,7 +39,6 @@ public class finish : MonoBehaviour {
         minimap.SetActive(false);
         PgameObject.SetActive(false);
         mainCamera.GetComponent<AutoCam>().Goal();
-        //ranktext.GetComponent<Text>().text = rank.ToString();
         player.GetComponent<Controller>().enabled = false;
         player.GetComponent<WaypointAgent>().enabled = true;
         SoundController.StopAll(1f);
@@ -56,10 +55,13 @@ public class finish : MonoBehaviour {
 
     private void kesuyatu()
     {
+        //サウンドマネージャーで鳴らしている音を消す
+        end = true;
+
         finishtext.SetActive(false);
         SoundController.PlaySE(Model.SE.Fanfare);
         GameUIManager.StartAnimation();
-        
+
     }
 
     void SetEndFlag(bool value){
