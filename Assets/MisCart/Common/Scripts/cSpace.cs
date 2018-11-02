@@ -21,7 +21,11 @@ public class cSpace : MonoBehaviour {
         {
             if (interval == false)
             {
-                SoundController.PlaySE(Model.SE.charge);
+                if (!GameData.isFinish)
+                {
+                    SoundController.PlaySE(Model.SE.charge);
+                }
+
                 cSystem.GetComponent<ChargingGage>().charging += 20;
                 interval = true;
                 Invoke("ReCharge",3f);

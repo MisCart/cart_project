@@ -28,6 +28,7 @@ public class ChargingGage : MonoBehaviour {
     // Use this for initialization
     void Start () {
         boosttext = boosttextobj.GetComponent<Text>();
+        GameData.isBoost = false;
         //Player = GameObject.FindGameObjectWithTag("Player");
 	}
     void Update()
@@ -41,22 +42,25 @@ public class ChargingGage : MonoBehaviour {
         }
 
         //シーン遷移開始直後はIscountingが上手く取れないようなので0.5秒止めておく
-        while (timer < 0.5f)
+        while (timer < 5f)
         {
             timer += Time.deltaTime;
             return;
         }
-
+        
         //カウントダウンをしているときは動かないようにする
         if (GameUI.GameUIManager.IsCounting())
         {
             return;
         }
+        
 
         if (!DoneStartDash)
         {
+            GameData.isBoost = true;
             if (StartdashTime >= 80)
             {
+                
                 Player.GetComponent<Rigidbody>().AddForce(Player.transform.forward * power*1.5f, ForceMode.VelocityChange);
                 CameraPlay.Radial(0.6f);
                 //CameraPlay.Glitch(4f);
@@ -68,7 +72,11 @@ public class ChargingGage : MonoBehaviour {
             }
             else
             {
-                DoneStartDash = true;
+                if (timer > 1.0f)
+                {
+                    DoneStartDash = true;
+                }
+                
             }
 
         }
@@ -111,6 +119,8 @@ public class ChargingGage : MonoBehaviour {
     }
     // Update is called once per frame
     void FixedUpdate () {
+        
+
         if ((Input.GetKey(KeyCode.Z))|| (Input.GetKey(KeyCode.Joystick1Button1)) || (Input.GetKey(KeyCode.Joystick1Button13)))
         {        
                 if (sound1 == false)
@@ -128,7 +138,7 @@ public class ChargingGage : MonoBehaviour {
 
         }
         //シーン遷移開始直後はIscountingが上手く取れないようなので0.5秒止めておく
-        while (timer < 0.5f)
+        while (timer < 5f)
         {
             timer += Time.deltaTime;
             return;

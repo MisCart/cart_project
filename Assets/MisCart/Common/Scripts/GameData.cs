@@ -9,4 +9,5 @@ public static class GameData
     public static float FinishTime { get; set; }
     public static int FinishRank { get; set; }
     public static bool isFinish { get; set; }
+    public static bool isBoost { get; set; }
 }

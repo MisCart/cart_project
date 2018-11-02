@@ -16,6 +16,7 @@ public class SelectCartChara : MonoBehaviour {
     [SerializeField] private bool debug = false;// Use this for initialization
     private GameObject car;
     void Awake () {
+        GameData.isBoost = false;
         SetCPUCart_Chara();
         if (debug)
         {

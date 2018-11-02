@@ -21,6 +21,7 @@ public class ChargiGageForCPU : MonoBehaviour {
     void Start()
     {
         canGo = true;
+        StartdashTime = 0;
     }
     void Update()
     {
@@ -29,7 +30,7 @@ public class ChargiGageForCPU : MonoBehaviour {
                 StartdashTime++;           
         }
         //シーン遷移開始直後はIscountingが上手く取れないようなので0.5秒止めておく
-        while (timer < 0.5f)
+        while (timer < 5f)
         {
             timer += Time.deltaTime;
             return;
@@ -45,16 +46,15 @@ public class ChargiGageForCPU : MonoBehaviour {
         {
             if (StartdashTime >= 80)
             {
-                if (Random.Range(0, 2) == 0)
-                {
-
-                    GetComponent<Rigidbody>().AddForce(transform.forward * power * 1.5f, ForceMode.VelocityChange);
-                    SoundController.PlaySE(Model.SE.BoostCPU);
-
-                }
-
-                charging -= 30;
-               
+                if (GameData.isBoost)
+                {                
+                    if (Random.Range(0, 2) == 0)
+                    {
+                        GetComponent<Rigidbody>().AddForce(transform.forward * power * 1.5f, ForceMode.VelocityChange);
+                        SoundController.PlaySE(Model.SE.BoostCPU);
+                    }
+                    charging -= 30;
+                }         
             }
             DoneStartDash = true;
 
@@ -66,9 +66,16 @@ public class ChargiGageForCPU : MonoBehaviour {
             {
                 if (charging > 10)
                 {
-                    GetComponent<Rigidbody>().AddForce(transform.forward * power, ForceMode.VelocityChange);
-                    SoundController.PlaySE(Model.SE.BoostCPU);
-                    charging -= 10;
+                    if (GameData.isBoost)
+                    {
+                        GetComponent<Rigidbody>().AddForce(transform.forward * power, ForceMode.VelocityChange);
+                        if (!GameData.isFinish)
+                        {
+                            SoundController.PlaySE(Model.SE.BoostCPU);
+                        }
+                        charging -= 10;
+                    }
+                    
                 }
                 
                 
@@ -83,7 +90,7 @@ public class ChargiGageForCPU : MonoBehaviour {
     {
        
         //シーン遷移開始直後はIscountingが上手く取れないようなので0.5秒止めておく
-        while (timer < 0.5f)
+        while (timer < 5f)
         {
             timer += Time.deltaTime;
             return;

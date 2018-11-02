@@ -36,7 +36,10 @@ public class PaintDan : MonoBehaviour {
         bullet.transform.position = transform.position+new Vector3(0,2,0);
         force = (this.gameObject.transform.forward +new Vector3(0,0.4f,0))* 80;
         bullet.GetComponent<Rigidbody>().AddForce(force,ForceMode.VelocityChange);
-        SoundController.PlaySE(Model.SE.paintfire);
+        if (!GameData.isFinish)
+        {
+            SoundController.PlaySE(Model.SE.paintfire);
+        }
         if (gameObject.tag == "Player")
         {
             GetComponent<itemsystem>().SpecialOff();

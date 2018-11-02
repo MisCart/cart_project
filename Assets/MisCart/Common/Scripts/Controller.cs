@@ -132,7 +132,7 @@ public class Controller : MonoBehaviour {
             return;
         }
         //シーン遷移開始直後はIscountingが上手く取れないようなので0.5秒止めておく
-        while (timer < 0.5f)
+        while (timer < 5f)
         {
             timer += Time.deltaTime;
             return;
