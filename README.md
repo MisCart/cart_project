@@ -20,3 +20,7 @@ MisCart
 |Fade(Fade Camera)|シーン遷移のトランジションで使用|
 |SU3DJPFont|日本語のフォント|
 |BehaviourMachine|UI制御に使うステートマシン|
+|XWeaponTrail||
+|Standard Assets||
+|PinwheelFantasyEffect||
+|Camera Play||
