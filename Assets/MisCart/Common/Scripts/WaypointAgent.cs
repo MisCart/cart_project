@@ -113,7 +113,7 @@ public class WaypointAgent : MonoBehaviour {
         if (checkground() == false)
         {
             rigidbody.AddForce(new Vector3(0, -1, 0) * gravity * 3, ForceMode.Acceleration);
-            transform.position += new Vector3(0, -0.1f, 0);
+            //transform.position += new Vector3(0, -0.1f, 0);
         }
     }
 

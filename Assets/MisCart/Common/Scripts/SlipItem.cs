@@ -39,6 +39,7 @@ public class SlipItem : MonoBehaviour {
                 other.gameObject.GetComponent<correctDirection>().Rotate();
                 other.gameObject.GetComponent<Controller>().slipitem();
 
+                other.gameObject.transform.position +=new Vector3(0, 15f,0);
                 float angleDir2 = other.transform.eulerAngles.y * (Mathf.PI / 180.0f);
                 Vector3 dir2 = new Vector3(Mathf.Sin(angleDir2), 0.0f, Mathf.Cos(angleDir2));
                
@@ -59,6 +60,7 @@ public class SlipItem : MonoBehaviour {
                 }
                 gameObject.GetComponent<MeshRenderer>().enabled = false;
                 gameObject.GetComponent<BoxCollider>().enabled = false;
+                other.gameObject.transform.position += new Vector3(0, 15f, 0);
                 DOTween.To(
                    () => R,          // 何を対象にするのか
                    R => other.transform.eulerAngles = new Vector3(0, R, 0),   // 値の更新
