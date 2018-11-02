@@ -216,7 +216,7 @@ public class Controller : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.A))
         {
-            rigidbody.AddForce(transform.up*transform.GetComponent<Rigidbody>().mass*3, ForceMode.Impulse);
+            //rigidbody.AddForce(transform.up*transform.GetComponent<Rigidbody>().mass*3, ForceMode.Impulse);
         }
         if (Input.GetKeyDown(KeyCode.S))
         {

@@ -1630,7 +1630,7 @@ MonoBehaviour:
   _charginggage: {fileID: 264715004}
   Setcart: 2
   SetChara: 5
-  debug: 1
+  debug: 0
 --- !u!4 &140095580
 Transform:
   m_ObjectHideFlags: 0
@@ -2802,8 +2802,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 200172621}
-  m_LocalRotation: {x: -0.4248006, y: 0.023900548, z: 0.011219348, w: 0.9049018}
-  m_LocalPosition: {x: 2051.1772, y: 443.5299, z: 2423.3848}
+  m_LocalRotation: {x: -0.19785415, y: 0.10797809, z: 0.021933394, w: 0.9740192}
+  m_LocalPosition: {x: 2051.6633, y: 526.3564, z: 2163.4353}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3793,7 +3793,7 @@ Prefab:
     - target: {fileID: 114787525966595556, guid: f60679041d14de3428fa58d783038307,
         type: 2}
       propertyPath: speed
-      value: 75
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 114821675298801942, guid: f60679041d14de3428fa58d783038307,
         type: 2}
@@ -3857,6 +3857,16 @@ Prefab:
     - target: {fileID: 1937678626400326, guid: f60679041d14de3428fa58d783038307, type: 2}
       propertyPath: m_Name
       value: 6cart_middle_pro
+      objectReference: {fileID: 0}
+    - target: {fileID: 114787525966595556, guid: f60679041d14de3428fa58d783038307,
+        type: 2}
+      propertyPath: handle
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 114787525966595556, guid: f60679041d14de3428fa58d783038307,
+        type: 2}
+      propertyPath: limit
+      value: 160
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f60679041d14de3428fa58d783038307, type: 2}
@@ -13655,7 +13665,7 @@ Prefab:
     - target: {fileID: 114403673168724238, guid: 423aaa1dea2a7ad4382da98273d38e01,
         type: 2}
       propertyPath: speed
-      value: 75
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 114065824884279902, guid: 423aaa1dea2a7ad4382da98273d38e01,
         type: 2}
@@ -13729,6 +13739,16 @@ Prefab:
     - target: {fileID: 1595144090035592, guid: 423aaa1dea2a7ad4382da98273d38e01, type: 2}
       propertyPath: m_Name
       value: 4cart_middle_cg
+      objectReference: {fileID: 0}
+    - target: {fileID: 114403673168724238, guid: 423aaa1dea2a7ad4382da98273d38e01,
+        type: 2}
+      propertyPath: handle
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 114403673168724238, guid: 423aaa1dea2a7ad4382da98273d38e01,
+        type: 2}
+      propertyPath: limit
+      value: 160
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 423aaa1dea2a7ad4382da98273d38e01, type: 2}
@@ -14711,7 +14731,7 @@ Prefab:
     - target: {fileID: 114141575086825692, guid: 6c6af54cf23629241960cb2a75931c5f,
         type: 2}
       propertyPath: speed
-      value: 75
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 114263224268236682, guid: 6c6af54cf23629241960cb2a75931c5f,
         type: 2}
@@ -14775,6 +14795,16 @@ Prefab:
     - target: {fileID: 1658298493225874, guid: 6c6af54cf23629241960cb2a75931c5f, type: 2}
       propertyPath: m_Name
       value: 5cart_middle_midi
+      objectReference: {fileID: 0}
+    - target: {fileID: 114141575086825692, guid: 6c6af54cf23629241960cb2a75931c5f,
+        type: 2}
+      propertyPath: handle
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 114141575086825692, guid: 6c6af54cf23629241960cb2a75931c5f,
+        type: 2}
+      propertyPath: limit
+      value: 160
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c6af54cf23629241960cb2a75931c5f, type: 2}
@@ -23921,7 +23951,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1763424404}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2056.1, y: 781.2, z: 2183.2}
+  m_LocalPosition: {x: 2056.81, y: 781.2, z: 2183.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
