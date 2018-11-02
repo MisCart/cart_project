@@ -31,7 +31,10 @@ public class itembox : MonoBehaviour {
 
     void itemcollision()
     {
-        SoundController.PlaySE(Model.SE.powerup2);
+        if (!GameData.isFinish)
+        {
+            SoundController.PlaySE(Model.SE.powerup2);
+        }
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         gameObject.GetComponent<Collider>().enabled = false;
         playback = true;

@@ -41,17 +41,16 @@ public class finish : MonoBehaviour {
         mainCamera.GetComponent<AutoCam>().Goal();
         player.GetComponent<Controller>().enabled = false;
         player.GetComponent<WaypointAgent>().enabled = true;
-        SoundController.StopAll(3f);
-        SoundController.PlaySE(Model.SE.Fanfare);
+        SoundController.StopAll(0.5f);
 
         GameData.isFinish = true;
         DOTween.To(
         () => vol,          // 何を対象にするのか
         vol => mainCamera.GetComponent<AudioSource>().volume = vol,   // 値の更新
         0,                  // 最終的な値
-        3.0f                  // アニメーション時間
-        ).OnComplete(() => SetEndFlag(true));
-        Invoke("kesuyatu",4f);
+        0.1f                  // アニメーション時間
+        ).OnComplete(()=>SetEndFlag(true));
+        Invoke("kesuyatu",3.5f);
     }
 
     private void kesuyatu()
@@ -65,6 +64,7 @@ public class finish : MonoBehaviour {
     }
 
     void SetEndFlag(bool value){
-        end = value;
+        SoundController.PlaySE(Model.SE.Fanfare);
+        //end = value;
     }
 }

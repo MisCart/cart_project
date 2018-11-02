@@ -40,7 +40,10 @@ public class HackingMedia : MonoBehaviour {
     {
         if (Hack == false)
         {
-            SoundController.PlaySE(Model.SE.hacklong);
+            if (!GameData.isFinish)
+            {
+                SoundController.PlaySE(Model.SE.hacklong);
+            }
             if (gameObject.tag != "Player")
             {
                 CameraPlay.Glitch(5f);
@@ -55,7 +58,10 @@ public class HackingMedia : MonoBehaviour {
     private void HackEnd()
     {
         Hack = false;
-        SoundController.PlaySE(Model.SE.hacksuccess);
+        if (!GameData.isFinish)
+        {
+            SoundController.PlaySE(Model.SE.hacksuccess);
+        }
         SoundController.StopSE(Model.SE.hacklong);
         
        

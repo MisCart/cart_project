@@ -53,7 +53,10 @@ public class greencola : MonoBehaviour {
         if (HP==0)
         {
             fire.SetActive(true);
-            SoundController.PlaySE(Model.SE.bomb1);
+            if (!GameData.isFinish)
+            {
+                SoundController.PlaySE(Model.SE.bomb1);
+            }
             Invoke("Des",1);
         }
 	}
@@ -66,7 +69,10 @@ public class greencola : MonoBehaviour {
             {
                 cpu = col.gameObject;
                 fire.SetActive(true);
-                SoundController.PlaySE(Model.SE.bomb1);
+                if (!GameData.isFinish)
+                {
+                    SoundController.PlaySE(Model.SE.bomb1);
+                }
                 cpu.GetComponent<CPUrotation>().startrotate();
                 //col.gameObject.GetComponent<WaypointAgent>().enabled = false;
                 gameObject.GetComponent<BoxCollider>().enabled = false;

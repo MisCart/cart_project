@@ -117,7 +117,10 @@ public class itemsystemforCPU : MonoBehaviour
 
             if (gcola == true)
             {
-                SoundController.PlaySE(Model.SE.cddvd2);
+                if (!GameData.isFinish)
+                {
+                    SoundController.PlaySE(Model.SE.cddvd2);
+                }
                 GameObject bullet = GameObject.Instantiate(gcolaitem) as GameObject;
                 Vector3 force;
                 force = this.gameObject.transform.forward * colaspeed;
@@ -129,7 +132,10 @@ public class itemsystemforCPU : MonoBehaviour
 
             if (rcola == true)
             {
-                SoundController.PlaySE(Model.SE.cddvd2);
+                if (!GameData.isFinish)
+                {
+                    SoundController.PlaySE(Model.SE.cddvd2);
+                }
                 GameObject bullet = GameObject.Instantiate(rcolaitem) as GameObject;
                 bullet.transform.position = itempos.position;
                 bullet.GetComponent<NavMeshAgent>().enabled = true;
@@ -193,7 +199,10 @@ public class itemsystemforCPU : MonoBehaviour
 
         if (code == true)
         {
-            SoundController.PlaySE(Model.SE.setup1);
+            if (!GameData.isFinish)
+            {
+                SoundController.PlaySE(Model.SE.setup1);
+            }
             GameObject _code = GameObject.Instantiate(codeitem) as GameObject;
             _code.transform.position = itempos2.position;
 

@@ -29,8 +29,11 @@ public class SlipItem : MonoBehaviour {
             if (other.gameObject.tag == "Player")
             {
                 other.gameObject.GetComponent<Controller>().LimitCut();
-                
-                SoundController.PlaySE(Model.SE.encount1);
+
+                if (!GameData.isFinish)
+                {
+                    SoundController.PlaySE(Model.SE.encount1);
+                }
                 gameObject.GetComponent<MeshRenderer>().enabled = false;
                 gameObject.GetComponent<BoxCollider>().enabled = false;
                 other.gameObject.GetComponent<correctDirection>().Rotate();
@@ -50,7 +53,10 @@ public class SlipItem : MonoBehaviour {
             else if (other.gameObject.tag == "CPU")
             {
                 other.gameObject.GetComponent<WaypointAgent>().LimitCut();
-                SoundController.PlaySE(Model.SE.encount1);
+                if (!GameData.isFinish)
+                {
+                    SoundController.PlaySE(Model.SE.encount1);
+                }
                 gameObject.GetComponent<MeshRenderer>().enabled = false;
                 gameObject.GetComponent<BoxCollider>().enabled = false;
                 DOTween.To(

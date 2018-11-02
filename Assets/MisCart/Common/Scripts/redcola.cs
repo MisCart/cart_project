@@ -54,7 +54,10 @@ public class redcola : MonoBehaviour {
                 {               
                     cpu = col.gameObject;
                     fire.SetActive(true);
+                if (!GameData.isFinish)
+                {
                     SoundController.PlaySE(Model.SE.bomb1);
+                }
                     cpu.GetComponent<CPUrotation>().startrotate();
                     gameObject.GetComponent<BoxCollider>().enabled = false;
                     transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
@@ -70,7 +73,10 @@ public class redcola : MonoBehaviour {
                 {
                     cpu = col.gameObject;
                     fire.SetActive(true);
+                if (!GameData.isFinish)
+                {
                     SoundController.PlaySE(Model.SE.bomb1);
+                }
                     col.gameObject.GetComponent<CPUrotation>().startrotate();
                     gameObject.GetComponent<BoxCollider>().enabled = false;
                     transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
