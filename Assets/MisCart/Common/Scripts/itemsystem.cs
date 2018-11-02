@@ -125,6 +125,7 @@ public class itemsystem : MonoBehaviour {
                 bullet.transform.position = itempos.position;
                 bullet.transform.forward = transform.forward;
                 bullet.GetComponent<NavMeshAgent>().enabled = true;
+                bullet.SendMessage("SetShot", gameObject);
 
                 gcola = false;
             }

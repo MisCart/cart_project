@@ -8,26 +8,21 @@ public class greencola : MonoBehaviour {
     private GameObject cpu;
     private RaycastHit ground;
     private NavMeshAgent agent;
+    private GameObject shotObject;
     bool flag=false;
     int rotate;
     int crash;
     int HP = 3;
     private GameObject fire;
 
-    private bool effectactive = false;
-
-    private void startexp()
-    {
-        effectactive = true;
-    }
-
+   
     // Use this for initialization
     void Start () {
         rotate = 0;
         crash = 0;
         fire = gameObject.transform.Find("GroundExplode").gameObject;
         agent = GetComponent<NavMeshAgent>();
-        Invoke("startexp", 0.2f);
+       
 
     }
 
@@ -63,9 +58,28 @@ public class greencola : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-        if (effectactive)
-        {
+        
             if (col.gameObject.tag == "CPU")
+            {
+                if (col.gameObject != shotObject)
+                {
+                    cpu = col.gameObject;
+                    fire.SetActive(true);
+                    if (!GameData.isFinish)
+                    {
+                        SoundController.PlaySE(Model.SE.bomb1);
+                    }
+                    cpu.GetComponent<CPUrotation>().startrotate();
+                    //col.gameObject.GetComponent<WaypointAgent>().enabled = false;
+                    gameObject.GetComponent<BoxCollider>().enabled = false;
+                    transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
+                    transform.GetChild(1).gameObject.SetActive(false);
+                    flag = true;
+                }
+            }
+            else if(col.gameObject.tag=="Player")
+            {
+            if (col.gameObject != shotObject)
             {
                 cpu = col.gameObject;
                 fire.SetActive(true);
@@ -80,12 +94,14 @@ public class greencola : MonoBehaviour {
                 transform.GetChild(1).gameObject.SetActive(false);
                 flag = true;
             }
-            else
-            {
-                HP--;
-            }
-            crash++;
         }
+            crash++;
+        
+    }
+
+    public void SetShot(GameObject shot)
+    {
+        shotObject = shot;
     }
 
     void Des()
