@@ -5,7 +5,7 @@ using MisCart;
 
 public class TutorialManager : MonoBehaviour {
     [SerializeField] private GameObject[] gameObjects;
-    [SerializeField] private GameObject player;
+    private GameObject player;
     [SerializeField] private Massage UI;
     private Controller _controller;
     private bool activeCon=false;
@@ -19,7 +19,9 @@ public class TutorialManager : MonoBehaviour {
         mPhase++;
     }
 	void Start () {
+        player = GameObject.FindGameObjectWithTag("Player");
         _controller = player.GetComponent<Controller>();
+        
 	}
 	
 	// Update is called once per frame

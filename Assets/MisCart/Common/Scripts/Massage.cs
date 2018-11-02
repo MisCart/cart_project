@@ -67,6 +67,16 @@ public class Massage : MonoBehaviour {
             + "キーボード　:←キー、→キー\n"
             + "\n"
 
+             + "バック\n"
+            + "ゲームパッド:Bボタン押し続ける\n"
+            + "キーボード　:Xキー押し続ける\n"
+            + "\n"
+
+             + "バックカメラ\n"
+            + "ゲームパッド:L2ボタン\n"
+            + "キーボード　:Qキー押し続ける\n"
+            + "\n"
+
             + "いい感じです！    \n"
             + "\n"
             + "\n"
@@ -132,15 +142,7 @@ public class Massage : MonoBehaviour {
             + "ぜひ色々なコースで遊んでみてください！\n"
             + "\n"
 
-             + "\n"
-            + "\n"
-            + "\n"
-            + "\n"
-
-             + "\n"
-            + "\n"
-            + "\n"
-            + "\n"
+            
 
              + "\n"
             + "\n"
@@ -255,12 +257,12 @@ public class Massage : MonoBehaviour {
 
                     CountPhase++;
                     Debug.Log("Phase:" + CountPhase);
-                    if ((CountPhase == 3)||(CountPhase==5) || (CountPhase == 8) || (CountPhase == 15) || (CountPhase == 16))
+                    if ((CountPhase == 5)||(CountPhase==7) || (CountPhase == 10) || (CountPhase == 17) || (CountPhase == 18))
                     {
                         GotoNextStep = false;
                     }
 
-                    if (CountPhase == 16)
+                    if (CountPhase == 18)
                     {
                         //シーン遷移処理
                         SceneLoader.LoadScene(Model.GameScenes.Title);
