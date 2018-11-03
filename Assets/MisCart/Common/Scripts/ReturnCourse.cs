@@ -9,6 +9,7 @@ public class ReturnCourse : MonoBehaviour {
     [SerializeField] private Transform zeropos;
     [SerializeField] private Transform onepos;
     private SetTimer setTimer;
+    [SerializeField] private bool isSibazono=false; 
 	// Use this for initialization
 	void Start () {
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -34,12 +35,24 @@ public class ReturnCourse : MonoBehaviour {
             }
 
         }
-
-        if (Player.transform.position.y <= 440)
+        if (!isSibazono)
         {
-            if (!canReturn)
+            if (Player.transform.position.y <= 440)
             {
-                canReturn = true;
+                if (!canReturn)
+                {
+                    canReturn = true;
+                }
+            }
+        }
+        else
+        {
+            if (Player.transform.position.y <= -20)
+            {
+                if (!canReturn)
+                {
+                    canReturn = true;
+                }
             }
         }
 	}

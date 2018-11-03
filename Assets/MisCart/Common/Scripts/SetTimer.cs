@@ -17,6 +17,7 @@ public class SetTimer : MonoBehaviour {
     private int check;
     private int rank;
     public GameObject timer;
+    private Text timertext;
     public GameObject lapbox;
     public GameObject checker;
     public GameObject lap1;
@@ -24,7 +25,7 @@ public class SetTimer : MonoBehaviour {
     public GameObject lap3;
     public GameObject finishobject;
     private GameObject player;
-    private float endtime = 0;
+    private float time;
     // Use this for initialization
     void Start () {
         rank = 1;
@@ -36,6 +37,8 @@ public class SetTimer : MonoBehaviour {
         lapSecond = 0;
         laps = 0;
         check = 0;
+        time = 0;
+        timertext = timer.GetComponent<Text>();
         player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
@@ -45,14 +48,44 @@ public class SetTimer : MonoBehaviour {
         {
             if (timarFlag == true)
             {
-                second += Time.deltaTime;
-                endtime += Time.deltaTime;
-                if (second >= 60.0f)
+                time += Time.deltaTime;
+                int minute = (int)time / 60;
+                int second = (int)time % 60;
+                int msecond = (int)(time * 1000 % 1000);
+                string minText, secText, msecText;
+                if (minute < 10)
                 {
-                    minite++;
-                    second = second - 60;
+                    minText = "0" + minute.ToString();
                 }
-                timer.GetComponent<Text>().text = minite.ToString("00") + ":" + second.ToString("00");
+                else
+                { 
+                    minText = minute.ToString();
+                }
+                if (second < 10)
+                {
+                    secText = "0" + second.ToString();
+                }
+                else
+                {
+                    secText = second.ToString();
+                }
+
+                if (msecond < 10)
+                {
+                    msecText = "00" + msecond.ToString();
+                }
+                else if (msecond < 100)
+                {
+                    msecText = "0" + msecond.ToString();
+                }
+                else 
+                {
+                    msecText = msecond.ToString();
+                }
+               
+
+               
+                timertext.text = minText + ":" + secText + ":" + msecText; 
             }
         }
 
@@ -84,7 +117,7 @@ public class SetTimer : MonoBehaviour {
             {
 
                 GameData.FinishRank = player.GetComponent<rank>().GetRank();
-                GameData.FinishTime = endtime;
+                GameData.FinishTime = time;
 
                 finishobject.GetComponent<finish>().finishrace(player.GetComponent<rank>().GetRank());
 
