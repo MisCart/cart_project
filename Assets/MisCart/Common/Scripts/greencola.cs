@@ -15,6 +15,7 @@ public class greencola : MonoBehaviour {
     int HP = 3;
     private GameObject fire;
 
+    private bool kiemasu=false;
    
     // Use this for initialization
     void Start () {
@@ -22,29 +23,37 @@ public class greencola : MonoBehaviour {
         crash = 0;
         fire = gameObject.transform.Find("GroundExplode").gameObject;
         agent = GetComponent<NavMeshAgent>();
-       
+        Invoke("Kieru", 2f);
 
+    }
+
+    private void Kieru()
+    {
+        kiemasu = true;
     }
 
 	// Update is called once per frame
 	void Update () {
         //ground = Physics.
         Vector3 move = transform.forward;
-        agent.Move(move * Time.deltaTime * 150);
-        if (flag == true)
+        if (agent.pathStatus != NavMeshPathStatus.PathInvalid)
         {
-            if (rotate < 1080)
+            agent.Move(move * Time.deltaTime * 150);
+        }
+        else
+        {
+            HP = 0;
+        }
+
+        if (kiemasu)
+        {
+            if (agent.velocity.magnitude < 20)
             {
-                cpu.transform.Rotate(new Vector3(0,5,0));
-                rotate += 5;
-            }
-            else
-            {
-                cpu.GetComponent<WaypointAgent>().enabled = true;
-                rotate = 0;
-                Destroy(gameObject);
+                HP = 0;
             }
         }
+        
+        
         if (HP==0)
         {
             fire.SetActive(true);
@@ -75,24 +84,28 @@ public class greencola : MonoBehaviour {
                     transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
                     transform.GetChild(1).gameObject.SetActive(false);
                     flag = true;
+
+                    Destroy(gameObject, 2f);
                 }
             }
             else if(col.gameObject.tag=="Player")
             {
-            if (col.gameObject != shotObject)
-            {
-                cpu = col.gameObject;
-                fire.SetActive(true);
-                if (!GameData.isFinish)
+                if (col.gameObject != shotObject)
                 {
-                    SoundController.PlaySE(Model.SE.bomb1);
-                }
-                cpu.GetComponent<CPUrotation>().startrotate();
-                //col.gameObject.GetComponent<WaypointAgent>().enabled = false;
-                gameObject.GetComponent<BoxCollider>().enabled = false;
-                transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
-                transform.GetChild(1).gameObject.SetActive(false);
-                flag = true;
+                    cpu = col.gameObject;
+                    fire.SetActive(true);
+                    if (!GameData.isFinish)
+                    {
+                        SoundController.PlaySE(Model.SE.bomb1);
+                    }
+                    cpu.GetComponent<CPUrotation>().startrotate();
+                    //col.gameObject.GetComponent<WaypointAgent>().enabled = false;
+                    gameObject.GetComponent<BoxCollider>().enabled = false;
+                    transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
+                    transform.GetChild(1).gameObject.SetActive(false);
+                    flag = true;
+
+                    Destroy(gameObject, 2f);
             }
         }
             crash++;
