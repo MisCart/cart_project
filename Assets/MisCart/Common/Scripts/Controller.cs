@@ -265,7 +265,7 @@ public class Controller : MonoBehaviour {
             SoundController.StopSE(Model.SE.EngineSound);
             sound1 = false;
         }
-            if ((Input.GetKeyDown(KeyCode.Joystick1Button5))||(Input.GetKey(KeyCode.Joystick1Button11)))
+            if ((Input.GetKeyDown(KeyCode.Joystick1Button5))||(Input.GetKeyDown(KeyCode.Joystick1Button11)))
         {
             s = t;
         }

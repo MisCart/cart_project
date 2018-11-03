@@ -15,6 +15,8 @@ public class redcola : MonoBehaviour {
     private AudioSource ex;
 
     private bool effectactive=false;
+    private bool kiemasu = false;
+    private NavMeshAgent agent;
 
     private void startexp()
     {
@@ -27,21 +29,46 @@ public class redcola : MonoBehaviour {
         crash = 0;
         rigid = GetComponent<Rigidbody>();
         fire = gameObject.transform.Find("GroundExplode").gameObject;
+        agent = GetComponent<NavMeshAgent>();
         ex = GetComponent<AudioSource>();
         //Invoke("startexp",1.0f);
+        Invoke("Kieru", 8f);
     }
-	
-	// Update is called once per frame
-	void Update () {
 
-        if (GetComponent<NavMeshAgent>().pathStatus != NavMeshPathStatus.PathInvalid)
+    private void Kieru()
+    {
+        kiemasu = true;
+    }
+
+
+    // Update is called once per frame
+    void Update () {
+
+        if (agent.pathStatus != NavMeshPathStatus.PathInvalid)
         {
             //navMeshAgentの操作GetComponent<NavMeshAgent>().speed = 1;//このようにスクリプトからNavMeshのプロパティをいじれる。
-            GetComponent<NavMeshAgent>().destination = cpu.transform.position;
+            agent.destination = cpu.transform.position;
             //GetComponent<NavMeshAgent>().speed = 1;
         }
-       
-        
+
+        if (kiemasu)
+        {
+            if (agent.velocity.magnitude < 20)
+            {
+                fire.SetActive(true);
+                if (!GameData.isFinish)
+                {
+                    SoundController.PlaySE(Model.SE.bomb1);
+                }
+                
+                gameObject.GetComponent<BoxCollider>().enabled = false;
+                transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
+                transform.GetChild(1).gameObject.SetActive(false);
+                kiemasu = false;
+            }
+        }
+
+
     }
 
     void OnCollisionEnter(Collision col)

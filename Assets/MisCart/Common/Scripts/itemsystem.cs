@@ -123,6 +123,13 @@ public class itemsystem : MonoBehaviour {
                 SoundController.PlaySE(Model.SE.cddvd2);
                 GameObject bullet = GameObject.Instantiate(gcolaitem) as GameObject;
                 bullet.transform.position = itempos.position;
+
+                NavMeshHit hit;
+                if (NavMesh.SamplePosition(transform.position, out hit, 20.0f, NavMesh.AllAreas))
+                {
+                    bullet.transform.position = hit.position;
+                }
+
                 bullet.transform.forward = transform.forward;
                 bullet.GetComponent<NavMeshAgent>().enabled = true;
                 bullet.SendMessage("SetShot", gameObject);
@@ -139,6 +146,15 @@ public class itemsystem : MonoBehaviour {
                 Vector3 force;
                 force = this.gameObject.transform.forward * colaspeed;
                 bullet2.transform.position = itempos.position;
+
+               
+                NavMeshHit hit;
+                if (NavMesh.SamplePosition(transform.position, out hit, 20.0f, NavMesh.AllAreas))
+                {
+                    bullet2.transform.position = hit.position;
+                }
+
+
                 bullet2.GetComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);
                 bullet2.GetComponent<NavMeshAgent>().enabled = true;
                 foreach (GameObject obj in tagobjs)

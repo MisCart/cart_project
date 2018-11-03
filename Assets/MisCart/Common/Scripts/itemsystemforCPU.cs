@@ -125,7 +125,16 @@ public class itemsystemforCPU : MonoBehaviour
                 Vector3 force;
                 force = this.gameObject.transform.forward * colaspeed;
                 bullet.transform.position = itempos.position;
-                bullet.GetComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);
+
+                NavMeshHit hit;
+                if (NavMesh.SamplePosition(transform.position, out hit, 20.0f, NavMesh.AllAreas))
+                {
+                    bullet.transform.position = hit.position;
+                }
+
+                bullet.transform.forward = transform.forward;
+                bullet.GetComponent<NavMeshAgent>().enabled = true;
+                bullet.SendMessage("SetShot", gameObject);
 
                 gcola = false;
             }
@@ -138,6 +147,13 @@ public class itemsystemforCPU : MonoBehaviour
                 }
                 GameObject bullet = GameObject.Instantiate(rcolaitem) as GameObject;
                 bullet.transform.position = itempos.position;
+
+                NavMeshHit hit;
+                if (NavMesh.SamplePosition(transform.position, out hit, 20.0f, NavMesh.AllAreas))
+                {
+                    bullet.transform.position = hit.position;
+                }
+
                 bullet.GetComponent<NavMeshAgent>().enabled = true;
                 foreach (GameObject obj in tagobjs)
                 {
