@@ -54,7 +54,7 @@ namespace GameUI
                 if(GameData.FinishRank <= 3){
                     GameUIManager.UI.Message = CharacterMessage.misChanBlueWin;
                 } else {
-                    GameUIManager.UI.Message = CharacterMessage.misChanBlueWin;
+                    GameUIManager.UI.Message = CharacterMessage.misChanBlueLose;
                 }
             }
             if(id == 2){
