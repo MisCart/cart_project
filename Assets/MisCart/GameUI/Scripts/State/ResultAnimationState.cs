@@ -11,6 +11,7 @@ namespace GameUI
     [AddComponentMenu("GameUI/ResultAnimationState")]
     public class ResultAnimationState : GameUIStateBehaviour
     {
+        string minText, secText, msecText;
 
         void Start ()
         {
@@ -22,20 +23,7 @@ namespace GameUI
             GameUIManager.UI.SetOnClick(() => OnClick());
             GameUIManager.UI.SetOnBack(() => OnBack());
 
-            int minute = (int)GameData.FinishTime / 60;
-            int second = (int)GameData.FinishTime % 60;
-
-            //01:04みたいな表記になるようにする
-            if(minute < 10 && second < 10){
-                GameUIManager.UI.Time.text = "0"+minute+":0"+second;
-            }else if(minute < 10){
-                GameUIManager.UI.Time.text = "0"+minute+":"+second;
-            }else if(second < 10){
-                GameUIManager.UI.Time.text = minute+":0"+second;
-            }else{
-                GameUIManager.UI.Time.text = minute+":"+second;
-            }
-
+            SetTimeText(GameData.FinishTime);
             SetMessage();
             SetRank();
             PlaySound();
@@ -129,6 +117,36 @@ namespace GameUI
             }else{
                 GameUIManager.Sound.PlayLose();
             }
+        }
+
+        void SetTimeText(float time){
+            int minute = (int)time / 60;
+		    int second = (int)time % 60;
+		    int msecond = (int)(time * 1000 % 1000);
+
+            if(minute < 10){
+            	minText = "0" + minute.ToString();
+            }else{
+            	minText = minute.ToString();
+            }
+
+            if (second < 10){
+            	secText = "0" + second.ToString();
+            }else{
+            	secText = second.ToString();
+            }
+
+            if(msecond < 10){
+                msecText = "00" + msecond.ToString ();
+            }else if(msecond < 100){
+            	msecText = "0" + msecond.ToString ();
+            }else if(msecond < 1000){
+            	msecText = msecond.ToString ();
+            }else{
+            	msecText = msecond.ToString ();
+            }
+
+            GameUIManager.UI.Time.text = minText+":"+secText+":"+msecText;
         }
 
         public override void OnClick(){
