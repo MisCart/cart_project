@@ -12924,7 +12924,7 @@ MonoBehaviour:
   _charginggage: {fileID: 113231787}
   Setcart: 1
   SetChara: 1
-  debug: 1
+  debug: 0
 --- !u!4 &1440454580
 Transform:
   m_ObjectHideFlags: 0

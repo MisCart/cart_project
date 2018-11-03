@@ -243,7 +243,7 @@ public class Massage : MonoBehaviour {
                 }
 
                 //　マウスクリックされたら次の文字表示処理
-                if ((Input.GetMouseButtonDown(0)) || (Input.GetKeyDown(KeyCode.Joystick1Button0)) || (Input.GetKeyDown(KeyCode.Z)))
+                if ((Input.GetMouseButtonDown(0)) || (Input.GetKeyDown(KeyCode.Joystick1Button0)) || (Input.GetKeyDown(KeyCode.Z))|| (Input.GetKeyDown(KeyCode.Joystick1Button13)))
                 {
                     //Debug.Log(messageText.text.Length);
 
