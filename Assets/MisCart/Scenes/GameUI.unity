@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -715,7 +715,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8042bbd7197f64cff9890552fda1caae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera_object: {fileID: 0}
 --- !u!4 &459187522
 Transform:
   m_ObjectHideFlags: 0
@@ -1848,7 +1847,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -95.2, y: -130.00002}
-  m_SizeDelta: {x: 124.100006, y: 42.1}
+  m_SizeDelta: {x: 145.09, y: 42.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1681182421
 MonoBehaviour:
@@ -1882,7 +1881,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 99:99
+  m_Text: 99:99:999
 --- !u!222 &1681182422
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2243,7 +2242,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 42868
+  m_CachedInstanceID: 54146
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -2327,7 +2326,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 1935632311}
     m_EventID: 1344322412
-  m_CachedInstanceID: 42872
+  m_CachedInstanceID: 54150
 --- !u!114 &1935632309
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2348,7 +2347,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 1935632308}
     m_EventID: 1634434881
-  m_CachedInstanceID: 42874
+  m_CachedInstanceID: 54152
 --- !u!114 &1935632310
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2367,7 +2366,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: -10, y: 440}
   m_Transitions: []
-  m_CachedInstanceID: 42876
+  m_CachedInstanceID: 54154
 --- !u!114 &1935632311
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2388,7 +2387,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 1935632310}
     m_EventID: 649514671
-  m_CachedInstanceID: 42878
+  m_CachedInstanceID: 54156
 --- !u!1 &1993853595
 GameObject:
   m_ObjectHideFlags: 0
